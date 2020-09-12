@@ -1,26 +1,14 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your entire site, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# `jekyll serve`. If you change this file, please restart the server process.
+# 기본 설명 https://mmistakes.github.io/minimal-mistakes/docs/configuration/
 
-# Theme Settings
-#
-# Review documentation to determine if you should use `theme` or `remote_theme`
-# https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
-
-# theme                  : "minimal-mistakes-jekyll"
-# remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "default" # 태마 색 설정 "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise" 
 
 # Site Settings
 locale                   : "ko-KR"
-title                    : "기록하는 개발자" # Meta 태그에 들어가는 영역 , masthead_title등이 없으면 기본값으로 나온다.
+title                    : "개발자맛 치즈볼" # Meta 태그에 들어가는 영역 , masthead_title등이 없으면 기본값으로 나온다.
 title_separator          : "&#124;" # 타이틀 사이 구분자 <title>Welcome to Jekyll | Minimal Mistakes</title> 해당 형식으로 들어갑니다.
-subtitle                 : "Version 1.0" # 타이틀 아래에 나올 작은 글씨 
-name                     : "김석진" # 맨 하단 이름 찍히는 영역
-description              : "JAVA와 Spring Boot 혹은 Sever등 다양한 개발을 공부하는 블로그" # Meta 태그에 들어가는 영역 
+subtitle                 : # 타이틀 아래에 나올 작은 글씨 
+name                     : "말랑치즈볼" # 맨 하단 이름 찍히는 영역
+description              : "치즈볼 덕후가 개발 공부하는거랑 이것저것 올리는 블로그" # Meta 태그에 들어가는 영역 
 url                      : "https://honbabzone.com" # GitBlog 호스트 주소
 baseurl                  : # subPath https://7271kim.github.io/blog라고 하고 싶을 시 "/blog" 라고 적는다.
 repository               : "7271kim/7271kim.github.com" # GitHub username/repo-name  
