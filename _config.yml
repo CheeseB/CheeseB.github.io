@@ -13,7 +13,7 @@ url                      : "https://cheeseb.github.io/" # GitBlog 호스트 주�
 baseurl                  : # subPath https://7271kim.github.io/blog라고 하고 싶을 시 "/blog" 라고 적는다.
 repository               : "CheeseB/CheeseB.github.io" # GitHub username/repo-name  
 teaser                   : # "/assets/images/senior-couple-4723737_640.jpg" # 홈페이지 기본 티져 이미지
-logo                     : "/assets/img/profile/cheeseb.png" # 타이틀 옆에 작게 들어갈 이미지.
+logo                     : # 타이틀 옆에 작게 들어갈 이미지.
 masthead_title           : "개발자맛 치즈볼 Blog" # 홈페이지 최 상탄에 들어갈 타이틀
 breadcrumbs              : true # 브래드크럼 사용 여부 true, false (default) , _data/ui-text.yml에 다국어 지원 가능합니다.
 words_per_minute         : 200 # 해당 포스트 읽는데 걸리는 시간을 계산하기 위해 대락 분당 읽는 수가 몇글자가 될지 적는 공간.
