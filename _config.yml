@@ -275,5 +275,3 @@ defaults:
     values:
       layout: single
       author_profile: true
-
-icon_url: /assets/logo.ico
