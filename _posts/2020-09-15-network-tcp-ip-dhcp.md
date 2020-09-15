@@ -23,7 +23,7 @@ TCP/IP (Transmission Control Protocol / Internet Protocol)
 
 OCI 7계층과 TCP/IP 4계층
 
-<img src="{{site.url}}/assets/img/post/net1.png">
+<img src="{{site.url}}/assets/img/post/net1.png" width="50%">
 
 - TCP/IP 계층 구조는 통신을 크게 4가지 단계로 나눔
 - IP는 인터넷 계층, TCP는 그 위에 올라가는 프로토콜

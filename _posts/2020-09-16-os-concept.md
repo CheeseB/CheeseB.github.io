@@ -17,7 +17,7 @@ classes: wide
 - **컴퓨터를 동작시키기 위해 필요한 기본적인 소프트웨어**
 	- 하드웨어와 운영체제가 한몸이 되어야만 사용자에게 쓰일 수 있음
 
-<img src="{{site.url}}/assets/img/post/os1.jpg" width="60%">
+<img src="{{site.url}}/assets/img/post/os1.jpg" width="50%">
 
 사용자 입장에선 하드웨어 자체를 다루는 것이 쉽지 않으므로 하드웨어 위에 기본적으로 운영체제를 탑재하여,
 <br>전원을 켰을 때 사용자가 손쉽게 사용할 수 있도록 한다.
@@ -55,7 +55,8 @@ classes: wide
 
 **자원: CPU, 메모리, 하드디스크 등 하드웨어 자원 + 소프트웨어 자원*
 
-<img src="{{site.url}}/assets/img/post/os2.jpg" width="60%">
+
+<img src="{{site.url}}/assets/img/post/os2.jpg" width="50%">
 
 
 하지만 전체적인 성능을 향상시키려다 일부 프로그램 또는 사용자가 불이익을 당할 수 있기 때문에
@@ -68,7 +69,7 @@ classes: wide
 <br>이는 하드웨어를 직접 다루는 복잡한 부분은 운영체제가 대행해 주고, 각 사용자 및 프로그램은 그에 대한 자세한 내용을 알지 못해도 프로그램을 수행할 수 있도록 해 주는것을 뜻한다.
 <br>예를 들어 사용자는 파일이 디스크에 어떻게 저장되는지 자세히 알지 못하지만 운영체제가 제공하는 편리한 인터페이스를 통해 파일을 손쉽게 저장하거나 내용을 꺼내볼 수 있다.
 
-<img src="{{site.url}}/assets/img/post/os3.jpg" width="60%">
+<img src="{{site.url}}/assets/img/post/os3.jpg" width="50%">
 
 
 운영체제는 위와 같이 추상화된 컴퓨터를 제공하면서 동시 사용자 및 프로그램들에게 각각 독자적으로 컴퓨터를 사용하는것과 같은 환상을 제공한다.
@@ -134,7 +135,7 @@ classes: wide
 다중 사용자용 운영체제는 여러 사용자가 동시에 접속해 사용할 수 있는 운영체제이다.
 <br>이메일 서버나 웹 서버 등 서버 컴퓨터가 대표적인 예시이다.
 
-<img src="{{site.url}}/assets/img/post/os4.jpg" width="60%">
+<img src="{{site.url}}/assets/img/post/os4.jpg" width="50%">
 <br><br>
 
 **작업 처리 방식에 따른 분류**
