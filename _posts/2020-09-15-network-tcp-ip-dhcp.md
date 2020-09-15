@@ -1,5 +1,5 @@
 ---
-title: "네트워크: TCP/IP 와 DHCP"
+title: "[네트워크] TCP/IP 와 DHCP"
 categories:
   - network
 tags:
