@@ -1,5 +1,5 @@
 ---
-title: "[네트워크] 네트워크와 케이블 (ppt)"
+title: "[네트워크] 네트워크와 케이블_ppt"
 categories:
 - network
 tags:
