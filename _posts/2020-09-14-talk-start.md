@@ -1,5 +1,5 @@
 ---
-title: "깃블로그 시작"
+title: "[잡담]깃블로그 시작"
 categories:
   - talk
 ---
