@@ -53,7 +53,7 @@ classes: wide
 컴퓨터 시스템 내 자원(resource)을 효율적으로 관리해 가장 좋은 성능을 내도록 한다.
 <br>운영체제의 가장 중요한 핵심 기능이라 할 수 있으며, 운영체제를 자원 관리자(resource manager)라고 부르기도 한다.
 
-	**자원: CPU, 메모리, 하드디스크 등 하드웨어 자원 + 소프트웨어 자원*
+**자원: CPU, 메모리, 하드디스크 등 하드웨어 자원 + 소프트웨어 자원*
 
 <img src="{{site.url}}/assets/img/post/os2.jpg" width="60%">
 
