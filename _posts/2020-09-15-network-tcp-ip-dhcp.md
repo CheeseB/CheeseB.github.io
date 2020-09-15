@@ -20,6 +20,7 @@ TCP/IP (Transmission Control Protocol / Internet Protocol)
 - 각 네트워크에 접속되는 호스트들은 고유의 주소를 가지고 있어, 자신의 네트워크 뿐 아니라 다른 네트워크의 호스트까지도 서로 데이터를 주고받을 수 있는 것이 특징
 	- 호스트의 고유 주소는 InterNIC (Internet Network Information Center) 라는 단체에서 관리 분배함
 
+<br>
 
 OCI 7계층과 TCP/IP 4계층
 
@@ -31,7 +32,7 @@ OCI 7계층과 TCP/IP 4계층
 - IP는 TCP/IP 계층 구조에선 인터넷 계층에 속하지만 OSI 7계층으로는 네트워크 계층에 속함
 - TCP는 TCP/IP 계층 구조와 OSI 7 계층 구조 둘 다 트랜스포트 계층에 속함
 
-<br><br>
+<br>
 
 ## IP주소와 DHCP
 
