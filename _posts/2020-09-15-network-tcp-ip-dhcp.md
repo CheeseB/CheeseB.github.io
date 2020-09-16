@@ -23,7 +23,7 @@ TCP/IP (Transmission Control Protocol / Internet Protocol)
 
 OCI 7계층과 TCP/IP 4계층
 
-<img src="{{site.url}}/assets/img/post/net1.png" width="50%">
+<img src="{{site.url}}/assets/img/post/net1.png">
 
 - TCP/IP 계층 구조는 통신을 크게 4가지 단계로 나눔
 - IP는 인터넷 계층, TCP는 그 위에 올라가는 프로토콜
@@ -46,6 +46,6 @@ OCI 7계층과 TCP/IP 4계층
 - 클라이언트 PC는 DHCP클라이언트 구성만 가지고 있다가 DHCP서버가 있는 네트워크에 연결만 하면 자동으로 IP주소를 부여받게 됨
 - 다 쓰고난 IP주소는 회수함
 
-<img src="{{site.url}}/assets/img/post/net2.jpg" width="50%">
+<img src="{{site.url}}/assets/img/post/net2.jpg">
 
 DHCP를 사용하지 않으면 네트워크 관리자는 수백대의 PC에 일일이 IP주소를 배정하고, PC를 포맷하거나 부서 이전이 있을 때 안 쓰는 IP주소를 찾아서 배정하고 쓰던 주소를 다시 찾아오는 등의 번거로운일을 해야하기 때문에 요즘 네트워크 환경에선 DHCP가 거의 일반화되어 있다.

@@ -8,7 +8,7 @@ title                    : "개발자맛 치즈볼" # Meta 태그에 들어가�
 title_separator          : "&#124;" # 타이틀 사이 구분자 <title>Welcome to Jekyll | Minimal Mistakes</title> 해당 형식으로 들어갑니다.
 subtitle                 : # 타이틀 아래에 나올 작은 글씨 
 name                     : "말랑치즈볼" # 맨 하단 이름 찍히는 영역
-description              : "치즈볼 덕후가 개발 공부한거랑 이것저것 올리는 블로그" # Meta 태그에 들어가는 영역 
+description              : "개발 공부랑 이것저것 올리는 블로그" # Meta 태그에 들어가는 영역 
 url                      : "https://cheeseb.github.io/" # GitBlog 호스트 주소
 baseurl                  : # subPath https://7271kim.github.io/blog라고 하고 싶을 시 "/blog" 라고 적는다.
 repository               : "CheeseB/CheeseB.github.io" # GitHub username/repo-name  
