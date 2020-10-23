@@ -9,6 +9,9 @@ classes: wide
 ---
 
 자연수가 적혀있는 N * N 의 격자판이 주어지면 각 행의 합, 각 열의 합, 두 대각선의 합 중 가장 큰 합을 출력하는 문제이다.
+
+<img src="{{site.url}}/assets/img/post/algo4.jpg">
+
 <br>
 <br>**입력**
 <br>

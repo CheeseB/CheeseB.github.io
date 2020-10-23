@@ -4,7 +4,7 @@ categories:
 - algorithm
 tags:
 - 알고리즘
-- 회문
+- 파이썬
 classes: wide
 ---
 
