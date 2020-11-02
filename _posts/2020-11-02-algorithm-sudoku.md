@@ -1,5 +1,5 @@
 ---
-title: "[알고리즘] 스토쿠 검사"
+title: "[알고리즘] 스도쿠 검사"
 categories:
 - algorithm
 tags:
