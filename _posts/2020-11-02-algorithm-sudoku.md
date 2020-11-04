@@ -33,7 +33,7 @@ classes: wide
 <br>파이썬으로 풀었고, 나의 코드는 다음과 같다.
 
 ```python
-def suDoKu(board):
+def sudoku(board):
     for i in range(9):
         rowList = [0] * 10
         colList = [0] * 10
