@@ -10,11 +10,7 @@ classes: wide
 ---
 
 
-<hr>
-
 ## 활동 정리
-
-<hr>
 
 1. 오라클 DBMS 설치
 	- 11g XE
@@ -28,11 +24,7 @@ classes: wide
 6. 데이터베이스 개요, select, where문 학습
 
 
-<hr>
-
 ## 학습 정리
-
-<hr>
 
 ### 초기 세팅
 
