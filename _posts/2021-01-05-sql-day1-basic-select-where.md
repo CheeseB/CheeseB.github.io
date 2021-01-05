@@ -161,5 +161,5 @@ WHERE ename = 'BLAKE'; -- '=' 연산자로 문자 비교 시 대소문자까지 
 ```sql
 SELECT empno, ename, job, deptno
 FROM emp
-WHERE hiredate = '81/11/17' -- 날짜 데이터 비교;
+WHERE hiredate = '81/11/17'; -- 날짜 데이터 비교
 ```
