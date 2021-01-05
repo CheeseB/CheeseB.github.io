@@ -1,5 +1,5 @@
 ---
-title: "[SQL] Day1 - DBMS기본, Select, Where"
+title: "[SQL] Day1 - SQL기본, Select, Where"
 categories:
 - sql
 tags:
