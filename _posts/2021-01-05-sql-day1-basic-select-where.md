@@ -5,7 +5,7 @@ categories:
 tags:
 - sql
 - oracle
-- db
+- database
 classes: wide
 ---
 
