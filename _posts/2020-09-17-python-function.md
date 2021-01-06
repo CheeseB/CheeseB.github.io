@@ -53,7 +53,7 @@ for y in a:
 def plus_one(x):
   return x+1
 
-# 람다함수
+# 람다함수 (x: 인자, x+2: 리턴값)
 plus_two = lambda x: x+2
 
 print(plus_one(1)) #2
