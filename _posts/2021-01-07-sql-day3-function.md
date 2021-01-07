@@ -38,7 +38,9 @@ FROM dual; -- '   MILLER', 9
 	- 제거할 문자 생략하면 공백문자 제거
 
 ```sql
-SELECT TRIM(0 FROM 00012345000) "TRIM Example"
+-- 양옆의 공백만 제거할거면 문자열만 인자로 넣어도 됨
+-- 제거할 문자나 방향을 지정할거면 FROM 필요
+SELECT TRIM(0 FROM 00012345000)
 FROM dual; -- 12345
 
 SELECT TRIM(LEADING FROM '   aa   ')
@@ -62,7 +64,7 @@ FROM dual; -- 11, 10
 ```
 
 - ROUND: 반올림
-	- n이 양수면 소수 n자리, 음수면 정수 n자리에서 반올림
+	- 두번째 인자 n이 양수면 소수 n+1자리, 음수면 정수 n자리에서 반올림
 	- n이 생략되면 기본값은 0
 
 ```sql
@@ -71,7 +73,7 @@ FROM dual; -- 4568, 4568, 4567.68, 4600
 ```
 
 - TRUNC: 절삭함수
-	- n이 양수면 소수 n자리, 음수면 정수 n자리에서 절삭
+	- 두번째 인자 n이 양수면 소수 n+1자리, 음수면 정수 n자리에서 절삭
 	- n이 생략되면 기본값은 0
 
 ```sql
@@ -80,15 +82,15 @@ FROM dual; -- 4567, 4567, 4567.67, 4500
 ```
 
 - MOD: 나머지 연산
-	- n으로 나눈 나머지
-	- n이 0이면 나눠지는 숫자 자체를 반환
+	- 첫번째 인자 m을 두번째 인자 n으로 나눈 나머지
+	- n이 0이면 m 자체를 반환
 
 ```sql
 SELECT MOD(10, 3), MOD(10, 0)
 FROM dual; -- 1, 10
 ```
 
-- SIGN: 값이 양수/음수/0 인지 판단
+- SIGN: 값이 양수/음수/0 인지 판단 (양수:1, 음수:-1, 0:0)
 
 ```sql
 SELECT SIGN(100), SIGN(-20), SIGN(0)
@@ -100,6 +102,8 @@ FROM dual; -- 1, -1, 0
 
 - SYSDATE/SYSTIMESTAMP: 서버에 설정된 날짜/날짜+시간 리턴
 	- 날짜에 사칙연산 가능
+
+<img src="{{site.url}}/assets/img/post/sql3.jpg">
 
 ```sql
 SELECT SYSDATE 오늘, SYSDATE+1 내일, SYSDATE-1 어제
@@ -137,7 +141,7 @@ SELECT sysdate 현재, ADD_MONTHS(SYSDATE, 1) 다음달, ADD_MONTHS(SYSDATE, -1)
 FROM dual; -- 21/01/07, 21/02/07, 20/12/07
 ```
 
-- NEXT_DAY: 지정 날짜로부터 지정 요일에 해당하는 가장 가까운 날짜 반환
+- NEXT_DAY: 지정 날짜로부터 돌아오는 요일에 해당하는 가장 가까운 날짜 반환
 	- 요일 지정은 '일요일', '일', 1 과 같이 가능함
 	- 일:1, 월:2, ..., 토:7
 
@@ -175,7 +179,7 @@ WHERE empno = 7839; -- 81/11/17, 81/01/01, 81/11/01
 
 ### 단일행 함수 - 변환함수
 
-- sql에선 묵시적 변환히 허용되지만 권장되진 않음.
+- sql에선 묵시적 변환이 허용되지만 권장되진 않음.
 - 명시적 변환 종류
 	- TO_NUMBER, TO_DATE, TO_CHAR
 
@@ -199,15 +203,15 @@ WHERE hiredate = TO_DATE('82/01/23'); -- 명시적 변환
 
 - TO_CHAR 함수는 변환 시 형식을 지정할 수 있음
 
+<img src="{{site.url}}/assets/img/post/sql4.jpg">
+<img src="{{site.url}}/assets/img/post/sql5.jpg">
+
 ```sql
 SELECT SYSDATE, TO_CHAR(SYSDATE, 'YYYY/MM/DD, (AM)DY HH24:MI:SS')
 FROM dual;
 -- 21/01/07
 -- 2021/01/07, (오후)목 12:39:22
 ```
-
-<img src="{{site.url}}/assets/img/post/sql3.jpg">
-<img src="{{site.url}}/assets/img/post/sql4.jpg">
 
 - 문자열 변환 시 안에 문자열을 넣고자 할 땐 안에 큰따옴표 써야함
 
@@ -224,7 +228,7 @@ WHERE TO_CHAR(hiredate, 'MM') = '09'
 ORDER BY 3;
 ```
 
-- TO_DATE는 오른쪽의 문자열을 왼쪽의 날짜 형식으로 변환함
+- TO_DATE는 왼쪽의 문자열을 오른쪽의 날짜 형식으로 변환함
 
 ```sql
 SELECT TO_DATE('20170802181030', 'YYYYMMDDHH24MISS')
@@ -250,7 +254,7 @@ FROM dual;
 
 ```sql
 SELECT empno, ename, sal, job,
-	DECODE(job, 'ANALYST', sal*1.1,  -- job이 'ANALYST'면 sal*1.1 
+	DECODE(job, 'ANALYST', sal*1.1, -- job이 'ANALYST'면 sal*1.1 
             	'CLERK', sal*1.2,
             	'MANAGER', sal*1.3,
             	'PRESIDENT', sal*1.4,
@@ -259,7 +263,7 @@ FROM emp;
 ```
 
 - **CASE**: if문과 같음 (switch처럼 쓸수있지만 범위 조건도 가능)
-	- DECODE와 달리 조건마다 쉼표를 붙이지 않음
+	- DECODE와 달리 조건마다 쉼표를 붙이지 않고 WHEN, THEN, ELSE 사용
 	- CASE문의 끝엔 END를 붙여줘야 함
 
 ```sql
