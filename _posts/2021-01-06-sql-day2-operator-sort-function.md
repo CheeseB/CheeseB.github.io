@@ -1,5 +1,5 @@
 ---
-title: "[SQL] Day2 - 연산자, 정렬, 함수"
+title: "[SQL] Day2 - 연산자, 정렬, 단일행 함수(1)"
 categories:
 - sql
 tags:
@@ -221,7 +221,7 @@ WHERE department_name = '국어국문학과');
 	- ex) 여러 행의 총 합계 등
 
 
-### 단일행 함수
+### 단일행 함수 - 문자열 함수(1)
 
 - INITCAP: 각 단어의 첫글자를 대문자로, 나머지는 소문자로 변경
 
