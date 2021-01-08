@@ -196,18 +196,6 @@ ORDER BY 2, 3;
 - null값이 있는 컬럼에선 null이 가장 큰값으로 인식됨
 	- 내림차순 정렬하면 가장 위에 뜸
 
-- 중첩 쿼리문
-
-```sql
-SELECT student_name
-FROM tb_student
-WHERE absence_yn = 'Y'
-AND department_no =
-(SELECT department_no
-FROM tb_department
-WHERE department_name = '국어국문학과');
-```
-
 
 ### 함수
 
