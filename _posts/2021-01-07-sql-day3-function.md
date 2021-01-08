@@ -286,5 +286,16 @@ SELECT empno, ename,
      	 WHEN sal>4000 AND sal <=5000 THEN 'A'
 	END "등급"
 FROM emp;
+
+-- 어차피 CASE에서 위의 조건이 맞지 않으면 그 조건 제외하고 아래로 내려가므로 다음처럼 써도 됨
+
+SELECT empno, ename,
+	CASE WHEN sal <=1000 THEN 'E'
+		 WHEN sal <=2000 THEN 'D'
+    	 WHEN sal <=3000 THEN 'C'
+     	 WHEN sal <=4000 THEN 'B'
+     	 WHEN sal <=5000 THEN 'A'
+	END "등급"
+FROM emp;
 ```
 
