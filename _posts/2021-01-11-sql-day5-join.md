@@ -88,3 +88,15 @@ FROM emp e, dept d, salgrade s
 WHERE e.deptno = d.deptno
 AND e.sal BETWEEN s.losal AND s.hisal;
 ```
+
+- Self 조인: 특정 테이블 자신을 자신이 Join하는 방법
+	- 동일 테이블 내의 한 컬럼이 다른 컬럼과 연관관계가 있을 때 사용
+	- null인 항목은 누락됨
+	- FROM절에 두개의 테이블을 사용하는 것처럼 같은 테이블에 대해 두개의 alias를 작성해서 구분지어야 함
+	- 컬럼에 대해서도 어떤 테이블에서 왔는지 alias명을 반드시 기술해야 함
+
+```sql
+SELECT a.ename 사원, b.ename 관리자
+FROM emp a, emp b
+WHERE a.mgr = b.empno;
+```
