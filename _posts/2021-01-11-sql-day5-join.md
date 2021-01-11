@@ -21,7 +21,7 @@ classes: wide
 	- 공통으로 존재하지 않아도 테이블명 써주는것을 권장함(어디서 온건지 모를수 있으니까)
 
 
-### JOIN의 종류 - 오라클 조인(오라클에서만 사용)
+### JOIN의 종류(1) - 오라클 조인: 오라클에서만 사용
 
 - Catasian Product: 모든 가능한 행들을 전부 조인 (거의 안씀)
 	- 조인 조건이 생략되거나 잘못된 경우
@@ -99,4 +99,139 @@ AND e.sal BETWEEN s.losal AND s.hisal;
 SELECT a.ename 사원, b.ename 관리자
 FROM emp a, emp b
 WHERE a.mgr = b.empno; -- b.empno(+) 로 바꾸면 null도 같이나옴
+```
+
+```sql
+-- 예제) 7369번 사원의 이름, 관리자번호/이름/부서이름 선택
+SELECT e.ename, e.mgr, m.ename, m.deptno, d.dname
+FROM emp e, emp m, dept d
+WHERE e.mgr = m.empno AND m.deptno = d.deptno
+AND e.empno = 7369;
+```
+
+```sql
+-- 예제) 사원의 관리자의 관리자까지 표시 (3중 self-join)
+SELECT e.ename, e.mgr, m.ename, m.mgr, mm.ename
+FROM emp e, emp m, emp mm
+WHERE e.mgr = m.empno AND m.mgr = mm.empno;
+```
+
+- Outer 조인: 조인 조건을 만족하지 못하는 행들도 결과에 나타낼 수 있음
+	- 원래는 조인 조건을 만족하지 않는 행은 결과에 나타나지 않음
+	- "(+)" 기호를 사용하며, 조인시킬 값이 없는 조인 측에 위치시킴 (한쪽에만 위치할 수 있음)
+
+```sql
+SELECT e.ename, e.mgr, m.ename, m.mgr, mm.ename
+FROM emp e, emp m, emp mm
+WHERE e.mgr = m.empno(+) AND m.mgr = mm.empno(+);
+```
+
+
+### JOIN의 종류 - ANSI 조인(표준)
+
+- ANSI 조인 특징
+	- 조인의 형식이 FROM 절에서 지정됨
+	- 조인 조건이 WHERE 절이 아닌 ON 절에서 명시됨
+
+- CROSS JOIN: Catasian Product와 동일함
+
+```sql
+SELECT empno, ename, dname
+FROM dept CROSS JOIN emp;
+```
+
+- NATURAL JOIN: Equi 조인과 동일함
+	- 같은 이름을 가진 컬럼에 기반하여 알아서 조인해줌
+	- 양쪽 테이블에 공통 컬럼명이 반드시 하나만 있어야 함 (2개 이상이면 2개 이상의 값이 서로같은것만 추출하게 됨)
+
+```sql
+SELECT empno, ename, deptno, dname, loc
+FROM emp NATURAL JOIN dept;
+```
+
+- NATURAL JOIN과 USING 에선 공통 컬럼명에 alias를 사용하면 안됨
+
+```sql
+-- error!
+-- deptno가 공통컬럼이기 때문에 특정 테이블명을 붙이면 안됨
+SELECT empno, ename, e.deptno, dname, loc
+FROM emp e NATURAL JOIN dept d;
+
+-- deptno 외의 다른 컬럼은 사용 가능
+SELECT e.ename, deptno, d.dname
+FROM emp e NATURAL JOIN dept d
+WHERE e.empno = 7369;
+```
+
+- JOIN ~ USING: 동일 이름의 컬럼이 여러개인 경우 조인 컬럼을 지정
+	- NATURAL JOIN 과 비슷한 기능을 하며, 함께 사용 불가
+	- JOIN ~ USING 절과 JOIN ~ ON 절에서의 JOIN은 사실 INNER JOIN이지만 보통 INNER는 생략하고 사용함
+
+```sql
+SELECT empno, ename, dname, loc
+FROM emp JOIN dept USING(deptno);
+
+-- NATURAL JOIN과 마찬가지로 공통컬럼에 별칭 사용불가
+SELECT e.empno, e.ename, deptno, d.dname, d.loc
+FROM emp e INNER JOIN dept d USING(deptno);
+```
+
+_NATURAL JOIN, JOIN ~ USING, Equi-Join 세가지 모두 한가지 공통컬럼을 기반으로 조인해주는 것은 동일하지만 NATURAL JOIN은 공통컬럼이 두 테이블에 딱 한가지만 있을때 사용함. 그렇지 않으면 USING이나 Equi-join으로 지정해 주어야 함_
+
+- JOIN ~ ON: 조인할 컬럼을 명시하고, 임의의 조건으로 조인할 때 사용
+	- 복잡한 조건의 조인이 가능함 (서브쿼리, AND/OR 연산자 등)
+
+```sql
+-- INNER ~ ON 절에선 어느 테이블의 공통컬럼을 표시할 지 명시해줘야 함
+SELECT e.empno, e.ename, d.deptno, d.dname, d.loc
+FROM emp e INNER JOIN dept d
+ON e.deptno = d.deptno;
+```
+
+```sql
+-- 예제) 부서번호가 10번인 사원이름, 부서이름, 부서지역 표시
+-- JOIN ~ ON 사용
+SELECT e.ename, d.dname, d.loc
+FROM emp e JOIN dept d
+ON e.deptno = d.deptno
+WHERE d.deptno = 10;
+
+-- JOIN ~ USING 사용
+SELECT e.ename, d.dname, d.loc
+FROM emp e JOIN dept d USING(deptno)
+WHERE deptno = 10;
+
+
+-- 예제) 3개의 테이블 조인
+-- JOIN ~ USING 사용
+SELECT e.ename, e.sal, s.grade, deptno, d.dname
+FROM emp e JOIN dept d USING(deptno)
+JOIN salgrade s
+ON e.sal BETWEEN s.losal AND s.hisal
+
+-- JOIN ~ ON 사용
+SELECT e.ename, e.sal, s.grade, e.deptno, d.dname
+FROM emp e JOIN dept d
+ON e.deptno = d.deptno
+JOIN salgrade s
+ON e.sal BETWEEN s.losal AND s.hisal
+
+
+-- 예제) 사원의 관리자의 관리자까지 표시
+-- JOIN ~ ON 사용
+SELECT e.ename, e.mgr, m.ename, m.mgr, mm.ename
+FROM emp e JOIN emp m
+ON e.mgr = m.empno
+JOIN emp mm
+ON m.mgr = mm.empno;
+```
+
+- LEFT/RIGHT OUTER JOIN: 좌/우측 테이블의 모든 행이 우/좌 측 테이블의 행들과 일치 여부 관계없이 모두 출력됨
+- FULL OUTER JOIN: LEFT, RIGHT OUTER JOIN 결과를 합집합으로 처리한 결과와 동일함(UNION)
+	- 오라클 조인의 "(+)" 연산과 동일함
+
+```sql
+SELECT empno, ename, dname
+FROM dept LEFT OUTER JOIN emp
+ON dept.deptno = emp.deptno; -- USING(deptno) 도 가능
 ```
