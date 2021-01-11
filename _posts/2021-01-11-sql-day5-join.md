@@ -227,8 +227,8 @@ ON m.mgr = mm.empno;
 ```
 
 - LEFT/RIGHT OUTER JOIN: 좌/우측 테이블의 모든 행이 우/좌 측 테이블의 행들과 일치 여부 관계없이 모두 출력됨
-- FULL OUTER JOIN: LEFT, RIGHT OUTER JOIN 결과를 합집합으로 처리한 결과와 동일함(UNION)
 	- 오라클 조인의 "(+)" 연산과 동일함
+- FULL OUTER JOIN: LEFT, RIGHT OUTER JOIN 결과를 합집합으로 처리한 결과와 동일함(UNION)
 
 ```sql
 SELECT empno, ename, dname
