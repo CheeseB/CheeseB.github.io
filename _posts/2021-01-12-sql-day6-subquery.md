@@ -176,3 +176,18 @@ AND sal IN (SELECT MAX(sal)
 			FROM emp
 			GROUP BY deptno);
 ```
+
+
+### 인라인 뷰
+
+- 인라인 뷰: FROM절 뒤에 테이블명 대신 서브쿼리가 사용됨
+	- 하나의 가상 테이블을 반환
+	- 서브쿼리 내의 컬럼을 메인쿼리에서 사용 가능
+
+```sql
+SELECT e.deptno, total_sum, cnt
+FROM (SELECT deptno, SUM(sal) total_sum, COUNT(*) cnt
+      FROM emp
+      GROUP BY deptno) e, dept d
+WHERE e.deptno = d.deptno;
+```
