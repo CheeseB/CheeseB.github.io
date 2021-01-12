@@ -200,4 +200,4 @@ FROM (SELECT deptno, SUM(sal) total_sum, COUNT(*) cnt
       FROM emp
       GROUP BY deptno) e, dept d
 WHERE e.deptno = d.deptno;
-```
+````
