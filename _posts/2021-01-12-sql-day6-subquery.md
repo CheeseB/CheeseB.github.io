@@ -88,6 +88,16 @@ HAVING MIN(sal) > (SELECT MIN(sal)
                   WHERE deptno = 20)
 ```
 
+```sql
+-- 'SALES' 부서의 인원수보다 적은 부서의 부서명, 인원수 검색
+SELECT d.dname, COUNT(*)
+FROM emp e, dept d
+WHERE e.deptno = d.deptno
+GROUP BY d.dname
+HAVING COUNT(*) < (SELECT COUNT(*)
+                   FROM emp e NATURAL JOIN dept d
+                   WHERE d.dname = 'SALES');
+```
 
 ### 복수행 서브쿼리
 
