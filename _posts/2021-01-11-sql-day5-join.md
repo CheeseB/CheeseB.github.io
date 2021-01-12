@@ -121,9 +121,11 @@ WHERE e.mgr = m.empno AND m.mgr = mm.empno;
 	- "(+)" 기호를 사용하며, 조인시킬 값이 없는 조인 측에 위치시킴 (한쪽에만 위치할 수 있음)
 
 ```sql
+-- 상위 관리자가 없는 사원의 이름도 전부 표시
 SELECT e.ename, e.mgr, m.ename, m.mgr, mm.ename
 FROM emp e, emp m, emp mm
-WHERE e.mgr = m.empno(+) AND m.mgr = mm.empno(+);
+WHERE e.mgr = m.empno(+)
+AND m.mgr = mm.empno(+);
 ```
 
 
@@ -231,7 +233,10 @@ ON m.mgr = mm.empno;
 - FULL OUTER JOIN: LEFT, RIGHT OUTER JOIN 결과를 합집합으로 처리한 결과와 동일함(UNION)
 
 ```sql
-SELECT empno, ename, dname
-FROM dept LEFT OUTER JOIN emp
-ON dept.deptno = emp.deptno; -- USING(deptno) 도 가능
+-- 상위 관리자가 없는 사원의 이름도 전부 표시
+SELECT e.ename, m.ename, mm.ename
+FROM emp e LEFT OUTER JOIN emp m
+ON e.mgr = m.empno
+LEFT OUTER JOIN emp mm
+ON m.mgr = mm.empno;
 ```
