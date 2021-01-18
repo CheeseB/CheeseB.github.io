@@ -20,9 +20,9 @@ classes: wide
 	- DB객체에 대한 사용자들의 접근 및 사용 관리
 
 
-### 사용자 생성 및 변경
+### 사용자 생성 및 비밀번호 변경
 
-- DB관리자가 사용자를 생성, 변경함
+- DB관리자가 사용자를 생성하고 비밀번호를 변경함
 - 생성된 사용자는 아무 권한도 부여받지 않아 어떠한 작업도 불가함
 
 ```sql
@@ -165,6 +165,17 @@ WHERE grantee = 'CLERK';
 SELECT grantee, privilege FROM dba_tab_privs
 WHERE grantee = 'CLERK';
 ```
+
+
+### 계정 잠금
+
+- 기존 계정의 잠금/잠금 해제
+
+```sql
+ALTER USER scott ACCOUNT LOCK;
+ALTER USER 사용자명 ACCOUNT UNLOCK;
+```
+
 
 ## 중요내용 정리
 
