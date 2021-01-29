@@ -1,5 +1,5 @@
 ---
-title: "[알고리즘] 프로그래머스: 큰 수 만들기(파이썬)"
+title: "[알고리즘] 프로그래머스: 위장(파이썬)"
 categories:
 - algorithm
 tags:
