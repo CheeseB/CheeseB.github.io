@@ -11,8 +11,6 @@ classes: wide
 
 <https://joooohee.tistory.com/13>
 
-<br>
-
 <https://sunmon.github.io/vscode-eslint-prettier-setting/>
 
 ### 리액트
