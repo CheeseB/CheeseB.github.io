@@ -10,6 +10,7 @@ classes: wide
 ### 그냥 자바스크립트
 
 <https://sunmon.github.io/vscode-eslint-prettier-setting/>
+<https://joooohee.tistory.com/13>
 
 ### 리액트
 
