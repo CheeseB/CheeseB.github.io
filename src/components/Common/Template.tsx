@@ -46,6 +46,11 @@ export const Template: FunctionComponent<TemplateProps> = ({
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image} />
 
+        <meta
+          name="google-site-verification"
+          content="QxP8HV3avuS-TynhxJcJZBJnyXaInJHSmpLvXF9PiWU"
+        />
+
         <html lang="ko" />
       </Helmet>
 
