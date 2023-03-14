@@ -1,12 +1,12 @@
 ---
 date: '2023-03-14'
-title: '기술 블로그 리뉴얼'
-categories: ['Web', 'React', '잡담']
-summary: 'jekyll에서 Gatsby로'
+title: 'Gatsby 와 Github pages로 블로그 만들기'
+categories: ['Web', 'React', 'Gatsby', 'Github', '잡담']
+summary: '기술 블로그 리뉴얼'
 thumbnail: './thumbnail/cheeseball.png'
 ---
 
-## Gatsby 와 Github pages로 기술블로그 만들기
+## jekyll에서 Gatsby로
 
 아주 오래전에 개인 기술블로그를 만들어놓고 지금껏 방치해두다가 다시 필요성을 느껴서 리뉴얼을 하게 되었다.<br>
 사실 리뉴얼까지 안하더라도 이미 github.io로 배포까지 완료된 블로그라 게시글만 올려도 되지만, 기존 페이지 디자인이 마음에 들지 않았다.<br>
