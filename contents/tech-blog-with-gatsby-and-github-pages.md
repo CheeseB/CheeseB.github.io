@@ -1,7 +1,7 @@
 ---
 date: '2023-03-14'
 title: 'Gatsby 와 Github pages로 블로그 만들기'
-categories: ['Web', 'React', 'Gatsby', 'Github', '잡담']
+categories: ['Web', 'React', 'Gatsby', 'Github']
 summary: '기술 블로그 리뉴얼'
 thumbnail: './thumbnail/cheeseball.png'
 ---
