@@ -6,6 +6,7 @@ module.exports = {
     siteUrl: 'https://cheeseb.github.io/',
   },
   plugins: [
+    `gatsby-plugin-react-helmet-async`,
     {
       resolve: 'gatsby-plugin-typescript',
       options: {

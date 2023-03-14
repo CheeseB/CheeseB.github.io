@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import React, { FunctionComponent, ReactNode } from 'react';
 import { Footer } from './Footer';
 import { GlobalStyle } from './GlobalStyle';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 type TemplateProps = {
   title: string;
