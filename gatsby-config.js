@@ -90,6 +90,12 @@ module.exports = {
               policy: [{ userAgent: '*', allow: '/' }],
             },
           },
+          {
+            resolve: 'gatsby-plugin-manifest',
+            options: {
+              icon: 'static/favicon/favicon.ico',
+            },
+          },
         ],
       },
     },
