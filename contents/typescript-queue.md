@@ -1,12 +1,12 @@
 ---
 date: '2023-03-21'
-title: 'Typescript 로 원형 Queue 구현하기'
+title: 'Typescript 로 Queue 구현하기'
 categories: ['Typescript', '자료구조']
 summary: '백준 BFS 문제 풀려고 큐까지 구현해버렸다'
 thumbnail: './thumbnail/typescript.jpg'
 ---
 
-## 타입스크립트로 직접 만들어본 원형 큐
+## 타입스크립트로 직접 만들어본 큐, 원형 큐
 
 타입스크립트로 BFS 알고리즘 문제를 푸는데 계속 시간초과가 떠서<br/>
 뭐가 문제인가 했더니 자바스크립트의 shift() 메서드가 매우 느려서 그런거였다..<br/>
@@ -17,6 +17,49 @@ BFS를 구현하기 위해선 큐가 필요하지만 자바스크립트엔 큐�
 ---
 
 ### 구현 코드
+
+**선형 큐**
+
+```typescript
+interface IQueue<T> {
+  queue: T[];
+  head: number;
+  tail: number;
+
+  enqueue(element: T): void;
+  dequeue(): T;
+  isEmpty(): boolean;
+}
+
+class Queue<T> implements IQueue<T> {
+  queue: T[];
+  head: number;
+  tail: number;
+
+  constructor() {
+    this.queue = [];
+    this.head = 0;
+    this.tail = 0;
+  }
+
+  enqueue(element: T) {
+    this.queue[this.tail] = element;
+    this.tail += 1;
+  }
+
+  dequeue(): T {
+    if (this.isEmpty()) throw new Error('queue is empty!');
+    this.head += 1;
+    return this.queue[this.head - 1]!;
+  }
+
+  isEmpty(): boolean {
+    return this.head === this.tail;
+  }
+}
+```
+
+**원형 큐**
 
 ```typescript
 interface IQueue<T> {
@@ -29,7 +72,6 @@ interface IQueue<T> {
   dequeue(): T;
   isFull(): boolean;
   isEmpty(): boolean;
-  show(): void;
 }
 
 class Queue<T> implements IQueue<T> {
@@ -65,10 +107,6 @@ class Queue<T> implements IQueue<T> {
 
   isEmpty(): boolean {
     return this.queue[this.head] === undefined;
-  }
-
-  show() {
-    console.log(this.queue);
   }
 }
 ```
