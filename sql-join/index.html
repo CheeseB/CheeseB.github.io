@@ -1,0 +1,224 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 5.6.0"/><meta data-rh="true" name="description" content="SQL 공부"/><meta data-rh="true" name="viewport" content="width=device-width, initial-scale=1.0"/><meta data-rh="true" http-equiv="Content-Type" content="text/html;charset=UTF-8"/><meta data-rh="true" property="og:type" content="website"/><meta data-rh="true" property="og:title" content="[SQL] Day5 - Join"/><meta data-rh="true" property="og:description" content="SQL 공부"/><meta data-rh="true" property="og:image" content="/static/e903609fcd0b9ce1994b2012b5405f2e/mysql.png"/><meta data-rh="true" property="og:url"/><meta data-rh="true" property="og:site_name" content="[SQL] Day5 - Join"/><meta data-rh="true" name="twitter:card" content="summary"/><meta data-rh="true" name="twitter:title" content="[SQL] Day5 - Join"/><meta data-rh="true" name="twitter:description" content="SQL 공부"/><meta data-rh="true" name="twitter:image" content="/static/e903609fcd0b9ce1994b2012b5405f2e/mysql.png"/><meta data-rh="true" name="msapplication-TileColor" content="#FEC479"/><meta data-rh="true" name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png"/><meta data-rh="true" name="theme-color" content="#FEC479"/><meta data-rh="true" name="google-site-verification" content="QxP8HV3avuS-TynhxJcJZBJnyXaInJHSmpLvXF9PiWU"/><meta data-rh="true" name="naver-site-verification" content="ae65cb659d9c9ea1ae78b5b3cf6745526fe8ef8d"/><style data-href="/styles.9e907bc32054b7771552.css" data-identity="gatsby-global-css">code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#ccc;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}</style><title data-rh="true">[SQL] Day5 - Join</title><link data-rh="true" rel="shortcut icon" href="/favicon/favicon.ico"/><link data-rh="true" rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png"/><link data-rh="true" rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png"/><link data-rh="true" rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png"/><link data-rh="true" rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png"/><link data-rh="true" rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png"/><link data-rh="true" rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png"/><link data-rh="true" rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png"/><link data-rh="true" rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png"/><link data-rh="true" rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png"/><link data-rh="true" rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png"/><link data-rh="true" rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link data-rh="true" rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png"/><link data-rh="true" rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link data-rh="true" rel="manifest" href="/favicon/manifest.json"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="canonical" href="https://cheeseb.github.io/sql-join/" data-baseprotocol="https:" data-basehost="cheeseb.github.io"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="/favicon-32x32.png?v=88f3f2d5c3caabe0563dc6a01b773ae8" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css 13ku56z">.css-13ku56z{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;height:100%;}</style><main class="css-13ku56z e1strnqo0"><style data-emotion="css-global kxm5mf">@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');*{padding:0;margin:0;box-sizing:border-box;font-family:'Nanum Myeongjo',serif;}html,body,#___gatsby{height:100%;}a,a:hover{color:inherit;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;}</style><style data-emotion="css 16cz9yp">.css-16cz9yp{position:relative;width:100%;height:400px;}@media (max-width: 768px){.css-16cz9yp{height:300px;}}</style><div class="css-16cz9yp e1opi4mu1"><style data-emotion="css 1bjn9yo">.css-1bjn9yo{z-index:-1;width:100%;height:400px;object-fit:cover;-webkit-filter:brightness(0.25);filter:brightness(0.25);}@media (max-width: 768px){.css-1bjn9yo{height:300px;}}</style><div data-gatsby-image-wrapper="" style="position:absolute" class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-1bjn9yo e1opi4mu0"><div style="max-width:1170px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg%20height=&#x27;510.99999999999994&#x27;%20width=&#x27;1170&#x27;%20xmlns=&#x27;http://www.w3.org/2000/svg&#x27;%20version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><img aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear" decoding="async" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAq0lEQVR42p2RzQ7CIBCEef/H8ezJB/BmosWfRKtFC2KKpD/CjlFTYzVtsXPZsMt+mQGGFhHRu3qixrlLrGv4vRwCZX2wWGWY7yUq54KgrA1WLyTaYH3UWBwkypsb5vATaPISUaKgrjm4OPe6ZCHvtzlpgBxmcQou9LPn/438kDIWoylHtItRbCe4LMdQWv2kCAY675FmFishUVkJsgLwBeh1aXjkRr+GtXzKHc1lxsPVZCtJAAAAAElFTkSuQmCC" alt=""/><picture><source type="image/webp" data-srcset="/static/e903609fcd0b9ce1994b2012b5405f2e/35fd3/mysql.webp 293w,/static/e903609fcd0b9ce1994b2012b5405f2e/cd395/mysql.webp 585w,/static/e903609fcd0b9ce1994b2012b5405f2e/7713b/mysql.webp 1170w" sizes="(min-width: 1170px) 1170px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1170px) 1170px, 100vw" decoding="async" loading="lazy" data-src="/static/e903609fcd0b9ce1994b2012b5405f2e/ce7af/mysql.png" data-srcset="/static/e903609fcd0b9ce1994b2012b5405f2e/335f7/mysql.png 293w,/static/e903609fcd0b9ce1994b2012b5405f2e/1f8e6/mysql.png 585w,/static/e903609fcd0b9ce1994b2012b5405f2e/ce7af/mysql.png 1170w" alt="thumbnail"/></picture><noscript><picture><source type="image/webp" srcSet="/static/e903609fcd0b9ce1994b2012b5405f2e/35fd3/mysql.webp 293w,/static/e903609fcd0b9ce1994b2012b5405f2e/cd395/mysql.webp 585w,/static/e903609fcd0b9ce1994b2012b5405f2e/7713b/mysql.webp 1170w" sizes="(min-width: 1170px) 1170px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1170px) 1170px, 100vw" decoding="async" loading="lazy" src="/static/e903609fcd0b9ce1994b2012b5405f2e/ce7af/mysql.png" srcSet="/static/e903609fcd0b9ce1994b2012b5405f2e/335f7/mysql.png 293w,/static/e903609fcd0b9ce1994b2012b5405f2e/1f8e6/mysql.png 585w,/static/e903609fcd0b9ce1994b2012b5405f2e/ce7af/mysql.png 1170w" alt="thumbnail"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><style data-emotion="css m1156n">.css-m1156n{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;height:100%;margin:0 auto;padding:60px 0;color:#ffffff;}@media (max-width: 768px){.css-m1156n{width:100%;padding:40px 20px;}}</style><div class="css-m1156n e1st1jau3"><style data-emotion="css gywgo7">.css-gywgo7{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#ffffff;color:#000000;font-size:22px;cursor:pointer;box-shadow:0 0 10px rgba(0, 0, 0, 0.3);}@media (max-width: 768px){.css-gywgo7{width:30px;height:30px;font-size:18px;}}</style><div class="css-gywgo7 e1st1jau2"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-left" class="svg-inline--fa fa-arrow-left " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></div><style data-emotion="css gn4qtp">.css-gn4qtp{display:-webkit-box;overflow:hidden;overflow-wrap:break-word;margin-top:auto;text-overflow:ellipsis;white-space:normal;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:45px;font-weight:800;}@media (max-width: 768px){.css-gn4qtp{font-size:30px;}}</style><div class="css-gn4qtp e1st1jau1">[SQL] Day5 - Join</div><style data-emotion="css 3gcnt2">.css-3gcnt2{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-top:10px;font-size:18px;font-weight:700;}@media (max-width: 768px){.css-3gcnt2{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;font-size:15px;font-weight:400;}}</style><div class="css-3gcnt2 e1st1jau0"><div>MySQL</div><div>2021.01.11.</div></div></div></div><style data-emotion="css uo146q">.css-uo146q{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;margin:0 auto;padding:100px 0;word-break:break-all;line-height:1.8;font-size:16px;font-weight:400;}.css-uo146q p{padding:3px 0;}.css-uo146q h1,.css-uo146q h2,.css-uo146q h3{font-weight:800;margin-bottom:30px;}.css-uo146q *+h1,.css-uo146q *+h2,.css-uo146q *+h3{margin-top:80px;}.css-uo146q hr+h1,.css-uo146q hr+h2,.css-uo146q hr+h3{margin-top:0;}.css-uo146q h1{font-size:30px;}.css-uo146q h2{font-size:25px;}.css-uo146q h3{font-size:20px;}.css-uo146q blockquote{margin:30px 0;padding:5px 15px;border-left:2px solid #000000;font-weight:800;}.css-uo146q ol,.css-uo146q ul{margin-left:20px;padding:30px 0;}.css-uo146q hr{border:1px solid #000000;margin:100px 0;}.css-uo146q a{color:#4263eb;-webkit-text-decoration:underline;text-decoration:underline;}.css-uo146q pre[class*='language-']{margin:30px 0;padding:15px;font-size:15px;}.css-uo146q pre[class*='language-']::-webkit-scrollbar-thumb{background:rgba(255, 255, 255, 0.5);border-radius:3px;}.css-uo146q code[class*='language-'],.css-uo146q pre[class*='language-']{tab-size:2;}@media (max-width: 768px){.css-uo146q{width:100%;padding:80px 20px;line-height:1.6;font-size:14px;}.css-uo146q h1{font-size:23px;}.css-uo146q h2{font-size:20px;}.css-uo146q h3{font-size:17px;}.css-uo146q img{width:100%;}.css-uo146q hr{margin:50px 0;}}</style><div class="css-uo146q e1ijh0y10"><h2>학습 정리</h2>
+<h3>Join</h3>
+<ul>
+<li>Join: 검색하려는 컬럼이 여러개의 테이블에 존재할때 사용
+<ul>
+<li>두개의 컬럼을 합쳐서 하나의 테이블로 표시 가능</li>
+<li>Primary Key(중복불가, null불가)와 Foreign Key를 사용하는 경우가 대부분이나, 때로 논리적인 값의 연관으로 하는 경우도 있음</li>
+<li>양쪽 테이블에 공통으로 존재하는 열은 열 이름 앞에 테이블명 기술해야 함</li>
+<li>공통으로 존재하지 않아도 테이블명 써주는것을 권장함(어디서 온건지 모를수 있으니까)</li>
+</ul>
+</li>
+</ul>
+<h3>JOIN의 종류(1) - 오라클 조인: 오라클에서만 사용</h3>
+<ul>
+<li>Catasian Product: 모든 가능한 행들을 전부 조인 (거의 안씀)
+<ul>
+<li>조인 조건이 생략되거나 잘못된 경우</li>
+<li>첫번째 테이블과 두번째 테이블의 모든 행이 서로 조인되는 경우</li>
+<li>양쪽 행의 개수를 곱한 결과</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> empno<span class="token punctuation">,</span> ename<span class="token punctuation">,</span> job<span class="token punctuation">,</span> dept<span class="token punctuation">.</span>deptno<span class="token punctuation">,</span> dname<span class="token punctuation">,</span> loc
+<span class="token keyword">FROM</span> dept<span class="token punctuation">,</span> emp <span class="token comment">-- FROM에서 테이블 두개 쉼표로 같이쓰면 조인</span></code></pre></div>
+<ul>
+<li>Equi 조인: 조인 조건에서 ”=“를 사용하여, 값들이 정확히 일치하는 경우에 사용
+<ul>
+<li>PK와 FK를 이용</li>
+<li>단순 조인, 내부 조인이라고도 함</li>
+<li>WHERE절에 테이블의 조인 조건을 명시</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> emp<span class="token punctuation">.</span>empno<span class="token punctuation">,</span> emp<span class="token punctuation">.</span>ename<span class="token punctuation">,</span> dept<span class="token punctuation">.</span>dname<span class="token punctuation">,</span> dept<span class="token punctuation">.</span>loc
+<span class="token keyword">FROM</span> emp<span class="token punctuation">,</span> dept
+<span class="token keyword">WHERE</span> emp<span class="token punctuation">.</span>deptno <span class="token operator">=</span> dept<span class="token punctuation">.</span>deptno<span class="token punctuation">;</span> <span class="token comment">-- 부서번호가 같은 행끼리 합치기</span></code></pre></div>
+<ul>
+<li>테이블명에 alias를 적용했을 경우엔 SELECT 절과 WHERE절에 테이블명이 아닌 alias를 사용해야 함</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> e<span class="token punctuation">.</span>empno<span class="token punctuation">,</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span> d<span class="token punctuation">.</span>dname<span class="token punctuation">,</span> d<span class="token punctuation">.</span>loc
+<span class="token keyword">FROM</span> emp e<span class="token punctuation">,</span> dept d
+<span class="token keyword">WHERE</span> e<span class="token punctuation">.</span>deptno <span class="token operator">=</span> d<span class="token punctuation">.</span>deptno<span class="token punctuation">;</span></code></pre></div>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 예제) 입사년도가 1982년도 미만인 사원의 부서이름과 부서별 인원 출력</span>
+<span class="token keyword">SELECT</span> d<span class="token punctuation">.</span>dname 부서이름<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token string">"부서별 인원"</span>
+<span class="token keyword">FROM</span> emp e<span class="token punctuation">,</span> dept d
+<span class="token keyword">WHERE</span> e<span class="token punctuation">.</span>deptno <span class="token operator">=</span> d<span class="token punctuation">.</span>deptno
+<span class="token operator">AND</span> e<span class="token punctuation">.</span>hiredate <span class="token operator">&lt;</span> TO_DATE<span class="token punctuation">(</span><span class="token string">'1982'</span><span class="token punctuation">,</span> <span class="token string">'YYYY'</span><span class="token punctuation">)</span>
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> d<span class="token punctuation">.</span>dname<span class="token punctuation">;</span>
+
+<span class="token comment">-- 이것도 가능</span>
+<span class="token keyword">SELECT</span> d<span class="token punctuation">.</span>dname 부서이름<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token string">"부서별 인원"</span>
+<span class="token keyword">FROM</span> emp e<span class="token punctuation">,</span> dept d
+<span class="token keyword">WHERE</span> TO_CHAR<span class="token punctuation">(</span>e<span class="token punctuation">.</span>hiredate<span class="token punctuation">,</span> <span class="token string">'YYYY'</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">1982</span>
+<span class="token operator">AND</span> e<span class="token punctuation">.</span>deptno <span class="token operator">=</span> d<span class="token punctuation">.</span>deptno
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> d<span class="token punctuation">.</span>dname<span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>두개 이상의 테이블 조인</li>
+</ul>
+<img src="{{site.url}}/assets/img/post/sql7.jpg">
+<img src="{{site.url}}/assets/img/post/sql8.jpg">
+<ul>
+<li>Non-Equi 조인: 조인 조건에 ”=” 외의 연산자(BETWEEN, >, &#x3C;= 등)를 사용하여, 값이 정확히 일치하진 않는 경우에 사용</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span> e<span class="token punctuation">.</span>sal<span class="token punctuation">,</span> s<span class="token punctuation">.</span>grade
+<span class="token keyword">FROM</span> emp e<span class="token punctuation">,</span> salgrade s
+<span class="token keyword">WHERE</span> e<span class="token punctuation">.</span>sal <span class="token operator">BETWEEN</span> s<span class="token punctuation">.</span>losal <span class="token operator">AND</span> s<span class="token punctuation">.</span>hisal</code></pre></div>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 예제) Non_Equi 조인으로 3개의 테이블 조인 </span>
+<span class="token keyword">SELECT</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span> e<span class="token punctuation">.</span>sal<span class="token punctuation">,</span> d<span class="token punctuation">.</span>dname<span class="token punctuation">,</span> s<span class="token punctuation">.</span>grade
+<span class="token keyword">FROM</span> emp e<span class="token punctuation">,</span> dept d<span class="token punctuation">,</span> salgrade s
+<span class="token keyword">WHERE</span> e<span class="token punctuation">.</span>deptno <span class="token operator">=</span> d<span class="token punctuation">.</span>deptno
+<span class="token operator">AND</span> e<span class="token punctuation">.</span>sal <span class="token operator">BETWEEN</span> s<span class="token punctuation">.</span>losal <span class="token operator">AND</span> s<span class="token punctuation">.</span>hisal<span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>Self 조인: 특정 테이블 자신을 자신이 Join하는 방법
+<ul>
+<li>동일 테이블 내의 한 컬럼이 다른 컬럼과 연관관계가 있을 때 사용</li>
+<li>null인 항목은 누락됨 (항목에 (+) 붙이면 null도 표시)</li>
+<li>FROM절에 두개의 테이블을 사용하는 것처럼 같은 테이블에 대해 두개의 alias를 작성해서 구분지어야 함</li>
+<li>컬럼에 대해서도 어떤 테이블에서 왔는지 alias명을 반드시 기술해야 함</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> a<span class="token punctuation">.</span>ename 사원<span class="token punctuation">,</span> b<span class="token punctuation">.</span>ename 관리자
+<span class="token keyword">FROM</span> emp a<span class="token punctuation">,</span> emp b
+<span class="token keyword">WHERE</span> a<span class="token punctuation">.</span>mgr <span class="token operator">=</span> b<span class="token punctuation">.</span>empno<span class="token punctuation">;</span> <span class="token comment">-- b.empno(+) 로 바꾸면 null도 같이나옴</span></code></pre></div>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 예제) 7369번 사원의 이름, 관리자번호/이름/부서이름 선택</span>
+<span class="token keyword">SELECT</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span> e<span class="token punctuation">.</span>mgr<span class="token punctuation">,</span> m<span class="token punctuation">.</span>ename<span class="token punctuation">,</span> m<span class="token punctuation">.</span>deptno<span class="token punctuation">,</span> d<span class="token punctuation">.</span>dname
+<span class="token keyword">FROM</span> emp e<span class="token punctuation">,</span> emp m<span class="token punctuation">,</span> dept d
+<span class="token keyword">WHERE</span> e<span class="token punctuation">.</span>mgr <span class="token operator">=</span> m<span class="token punctuation">.</span>empno <span class="token operator">AND</span> m<span class="token punctuation">.</span>deptno <span class="token operator">=</span> d<span class="token punctuation">.</span>deptno
+<span class="token operator">AND</span> e<span class="token punctuation">.</span>empno <span class="token operator">=</span> <span class="token number">7369</span><span class="token punctuation">;</span></code></pre></div>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 예제) 사원의 관리자의 관리자까지 표시 (3중 self-join)</span>
+<span class="token keyword">SELECT</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span> e<span class="token punctuation">.</span>mgr<span class="token punctuation">,</span> m<span class="token punctuation">.</span>ename<span class="token punctuation">,</span> m<span class="token punctuation">.</span>mgr<span class="token punctuation">,</span> mm<span class="token punctuation">.</span>ename
+<span class="token keyword">FROM</span> emp e<span class="token punctuation">,</span> emp m<span class="token punctuation">,</span> emp mm
+<span class="token keyword">WHERE</span> e<span class="token punctuation">.</span>mgr <span class="token operator">=</span> m<span class="token punctuation">.</span>empno <span class="token operator">AND</span> m<span class="token punctuation">.</span>mgr <span class="token operator">=</span> mm<span class="token punctuation">.</span>empno<span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>Outer 조인: 조인 조건을 만족하지 못하는 행들도 결과에 나타낼 수 있음
+<ul>
+<li>원래는 조인 조건을 만족하지 않는 행은 결과에 나타나지 않음</li>
+<li>”(+)” 기호를 사용하며, 조인시킬 값이 없는 조인 측에 위치시킴 (한쪽에만 위치할 수 있음)</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 상위 관리자가 없는 사원의 이름도 전부 표시</span>
+<span class="token keyword">SELECT</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span> e<span class="token punctuation">.</span>mgr<span class="token punctuation">,</span> m<span class="token punctuation">.</span>ename<span class="token punctuation">,</span> m<span class="token punctuation">.</span>mgr<span class="token punctuation">,</span> mm<span class="token punctuation">.</span>ename
+<span class="token keyword">FROM</span> emp e<span class="token punctuation">,</span> emp m<span class="token punctuation">,</span> emp mm
+<span class="token keyword">WHERE</span> e<span class="token punctuation">.</span>mgr <span class="token operator">=</span> m<span class="token punctuation">.</span>empno<span class="token punctuation">(</span><span class="token operator">+</span><span class="token punctuation">)</span>
+<span class="token operator">AND</span> m<span class="token punctuation">.</span>mgr <span class="token operator">=</span> mm<span class="token punctuation">.</span>empno<span class="token punctuation">(</span><span class="token operator">+</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<h3>JOIN의 종류 - ANSI 조인(표준)</h3>
+<ul>
+<li>
+<p>ANSI 조인 특징</p>
+<ul>
+<li>조인의 형식이 FROM 절에서 지정됨</li>
+<li>조인 조건이 WHERE 절이 아닌 ON 절에서 명시됨</li>
+</ul>
+</li>
+<li>
+<p>CROSS JOIN: Catasian Product와 동일함</p>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> empno<span class="token punctuation">,</span> ename<span class="token punctuation">,</span> dname
+<span class="token keyword">FROM</span> dept <span class="token keyword">CROSS</span> <span class="token keyword">JOIN</span> emp<span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>NATURAL JOIN: Equi 조인과 동일함
+<ul>
+<li>같은 이름을 가진 컬럼에 기반하여 알아서 조인해줌</li>
+<li>양쪽 테이블에 공통 컬럼명이 반드시 하나만 있어야 함 (2개 이상이면 2개 이상의 값이 서로같은것만 추출하게 됨)</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> empno<span class="token punctuation">,</span> ename<span class="token punctuation">,</span> deptno<span class="token punctuation">,</span> dname<span class="token punctuation">,</span> loc
+<span class="token keyword">FROM</span> emp <span class="token keyword">NATURAL</span> <span class="token keyword">JOIN</span> dept<span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>NATURAL JOIN과 USING 에선 공통 컬럼명에 alias를 사용하면 안됨</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- error!</span>
+<span class="token comment">-- deptno가 공통컬럼이기 때문에 특정 테이블명을 붙이면 안됨</span>
+<span class="token keyword">SELECT</span> empno<span class="token punctuation">,</span> ename<span class="token punctuation">,</span> e<span class="token punctuation">.</span>deptno<span class="token punctuation">,</span> dname<span class="token punctuation">,</span> loc
+<span class="token keyword">FROM</span> emp e <span class="token keyword">NATURAL</span> <span class="token keyword">JOIN</span> dept d<span class="token punctuation">;</span>
+
+<span class="token comment">-- deptno 외의 다른 컬럼은 사용 가능</span>
+<span class="token keyword">SELECT</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span> deptno<span class="token punctuation">,</span> d<span class="token punctuation">.</span>dname
+<span class="token keyword">FROM</span> emp e <span class="token keyword">NATURAL</span> <span class="token keyword">JOIN</span> dept d
+<span class="token keyword">WHERE</span> e<span class="token punctuation">.</span>empno <span class="token operator">=</span> <span class="token number">7369</span><span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>JOIN ~ USING: 동일 이름의 컬럼이 여러개인 경우 조인 컬럼을 지정
+<ul>
+<li>NATURAL JOIN 과 비슷한 기능을 하며, 함께 사용 불가</li>
+<li>JOIN ~ USING 절과 JOIN ~ ON 절에서의 JOIN은 사실 INNER JOIN이지만 보통 INNER는 생략하고 사용함</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> empno<span class="token punctuation">,</span> ename<span class="token punctuation">,</span> dname<span class="token punctuation">,</span> loc
+<span class="token keyword">FROM</span> emp <span class="token keyword">JOIN</span> dept <span class="token keyword">USING</span><span class="token punctuation">(</span>deptno<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- NATURAL JOIN과 마찬가지로 공통컬럼에 별칭 사용불가</span>
+<span class="token keyword">SELECT</span> e<span class="token punctuation">.</span>empno<span class="token punctuation">,</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span> deptno<span class="token punctuation">,</span> d<span class="token punctuation">.</span>dname<span class="token punctuation">,</span> d<span class="token punctuation">.</span>loc
+<span class="token keyword">FROM</span> emp e <span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> dept d <span class="token keyword">USING</span><span class="token punctuation">(</span>deptno<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p><em>NATURAL JOIN, JOIN ~ USING, Equi-Join 세가지 모두 한가지 공통컬럼을 기반으로 조인해주는 것은 동일하지만 NATURAL JOIN은 공통컬럼이 두 테이블에 딱 한가지만 있을때 사용함. 그렇지 않으면 USING이나 Equi-join으로 지정해 주어야 함</em></p>
+<ul>
+<li>JOIN ~ ON: 조인할 컬럼을 명시하고, 임의의 조건으로 조인할 때 사용
+<ul>
+<li>복잡한 조건의 조인이 가능함 (서브쿼리, AND/OR 연산자 등)</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- INNER ~ ON 절에선 어느 테이블의 공통컬럼을 표시할 지 명시해줘야 함</span>
+<span class="token keyword">SELECT</span> e<span class="token punctuation">.</span>empno<span class="token punctuation">,</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span> d<span class="token punctuation">.</span>deptno<span class="token punctuation">,</span> d<span class="token punctuation">.</span>dname<span class="token punctuation">,</span> d<span class="token punctuation">.</span>loc
+<span class="token keyword">FROM</span> emp e <span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> dept d
+<span class="token keyword">ON</span> e<span class="token punctuation">.</span>deptno <span class="token operator">=</span> d<span class="token punctuation">.</span>deptno<span class="token punctuation">;</span></code></pre></div>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 예제) 부서번호가 10번인 사원이름, 부서이름, 부서지역 표시</span>
+<span class="token comment">-- JOIN ~ ON 사용</span>
+<span class="token keyword">SELECT</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span> d<span class="token punctuation">.</span>dname<span class="token punctuation">,</span> d<span class="token punctuation">.</span>loc
+<span class="token keyword">FROM</span> emp e <span class="token keyword">JOIN</span> dept d
+<span class="token keyword">ON</span> e<span class="token punctuation">.</span>deptno <span class="token operator">=</span> d<span class="token punctuation">.</span>deptno
+<span class="token keyword">WHERE</span> d<span class="token punctuation">.</span>deptno <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- JOIN ~ USING 사용</span>
+<span class="token keyword">SELECT</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span> d<span class="token punctuation">.</span>dname<span class="token punctuation">,</span> d<span class="token punctuation">.</span>loc
+<span class="token keyword">FROM</span> emp e <span class="token keyword">JOIN</span> dept d <span class="token keyword">USING</span><span class="token punctuation">(</span>deptno<span class="token punctuation">)</span>
+<span class="token keyword">WHERE</span> deptno <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+
+
+<span class="token comment">-- 예제) 3개의 테이블 조인</span>
+<span class="token comment">-- JOIN ~ USING 사용</span>
+<span class="token keyword">SELECT</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span> e<span class="token punctuation">.</span>sal<span class="token punctuation">,</span> s<span class="token punctuation">.</span>grade<span class="token punctuation">,</span> deptno<span class="token punctuation">,</span> d<span class="token punctuation">.</span>dname
+<span class="token keyword">FROM</span> emp e <span class="token keyword">JOIN</span> dept d <span class="token keyword">USING</span><span class="token punctuation">(</span>deptno<span class="token punctuation">)</span>
+<span class="token keyword">JOIN</span> salgrade s
+<span class="token keyword">ON</span> e<span class="token punctuation">.</span>sal <span class="token operator">BETWEEN</span> s<span class="token punctuation">.</span>losal <span class="token operator">AND</span> s<span class="token punctuation">.</span>hisal
+
+<span class="token comment">-- JOIN ~ ON 사용</span>
+<span class="token keyword">SELECT</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span> e<span class="token punctuation">.</span>sal<span class="token punctuation">,</span> s<span class="token punctuation">.</span>grade<span class="token punctuation">,</span> e<span class="token punctuation">.</span>deptno<span class="token punctuation">,</span> d<span class="token punctuation">.</span>dname
+<span class="token keyword">FROM</span> emp e <span class="token keyword">JOIN</span> dept d
+<span class="token keyword">ON</span> e<span class="token punctuation">.</span>deptno <span class="token operator">=</span> d<span class="token punctuation">.</span>deptno
+<span class="token keyword">JOIN</span> salgrade s
+<span class="token keyword">ON</span> e<span class="token punctuation">.</span>sal <span class="token operator">BETWEEN</span> s<span class="token punctuation">.</span>losal <span class="token operator">AND</span> s<span class="token punctuation">.</span>hisal
+
+
+<span class="token comment">-- 예제) 사원의 관리자의 관리자까지 표시</span>
+<span class="token comment">-- JOIN ~ ON 사용</span>
+<span class="token keyword">SELECT</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span> e<span class="token punctuation">.</span>mgr<span class="token punctuation">,</span> m<span class="token punctuation">.</span>ename<span class="token punctuation">,</span> m<span class="token punctuation">.</span>mgr<span class="token punctuation">,</span> mm<span class="token punctuation">.</span>ename
+<span class="token keyword">FROM</span> emp e <span class="token keyword">JOIN</span> emp m
+<span class="token keyword">ON</span> e<span class="token punctuation">.</span>mgr <span class="token operator">=</span> m<span class="token punctuation">.</span>empno
+<span class="token keyword">JOIN</span> emp mm
+<span class="token keyword">ON</span> m<span class="token punctuation">.</span>mgr <span class="token operator">=</span> mm<span class="token punctuation">.</span>empno<span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>LEFT/RIGHT OUTER JOIN: 좌/우측 테이블의 모든 행이 우/좌 측 테이블의 행들과 일치 여부 관계없이 모두 출력됨
+<ul>
+<li>오라클 조인의 ”(+)” 연산과 동일함</li>
+</ul>
+</li>
+<li>FULL OUTER JOIN: LEFT, RIGHT OUTER JOIN 결과를 합집합으로 처리한 결과와 동일함(UNION)</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 상위 관리자가 없는 사원의 이름도 전부 표시</span>
+<span class="token keyword">SELECT</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span> m<span class="token punctuation">.</span>ename<span class="token punctuation">,</span> mm<span class="token punctuation">.</span>ename
+<span class="token keyword">FROM</span> emp e <span class="token keyword">LEFT</span> <span class="token keyword">OUTER</span> <span class="token keyword">JOIN</span> emp m
+<span class="token keyword">ON</span> e<span class="token punctuation">.</span>mgr <span class="token operator">=</span> m<span class="token punctuation">.</span>empno
+<span class="token keyword">LEFT</span> <span class="token keyword">OUTER</span> <span class="token keyword">JOIN</span> emp mm
+<span class="token keyword">ON</span> m<span class="token punctuation">.</span>mgr <span class="token operator">=</span> mm<span class="token punctuation">.</span>empno<span class="token punctuation">;</span></code></pre></div></div><style data-emotion="css hx9xpc">@media (max-width: 768px){.css-hx9xpc{padding:0 20px;}}</style><div class="css-hx9xpc e1gqsjds0"></div><style data-emotion="css 1591gnd">.css-1591gnd{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 830px){.css-1591gnd{font-size:13px;}}</style><footer class="css-1591gnd e1oae0v80">Thank You for Visiting My Blog, Have a Good Day 😆<br/>© 2023 Developer CheeseB, Powered By Gatsby.</footer></main></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/sql-join/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-b916820085d99dc4bdaa.js\"],\"component---src-pages-404-tsx\":[\"/component---src-pages-404-tsx-384eab2b592d62e3c10a.js\"],\"component---src-pages-index-tsx\":[\"/component---src-pages-index-tsx-7b8bf88194ff3edbef01.js\"],\"component---src-templates-post-template-tsx\":[\"/component---src-templates-post-template-tsx-0742a68e2dd8bf32bee9.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="7527fbc93c0223eac30d";</script><script src="/webpack-runtime-bc0f2929ebd5197b0394.js" async></script><script src="/framework-a4e155cd0476dc1ca208.js" async></script><script src="/app-b916820085d99dc4bdaa.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>

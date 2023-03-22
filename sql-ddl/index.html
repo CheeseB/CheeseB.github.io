@@ -1,0 +1,361 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 5.6.0"/><meta data-rh="true" name="description" content="SQL 공부"/><meta data-rh="true" name="viewport" content="width=device-width, initial-scale=1.0"/><meta data-rh="true" http-equiv="Content-Type" content="text/html;charset=UTF-8"/><meta data-rh="true" property="og:type" content="website"/><meta data-rh="true" property="og:title" content="[SQL] Day8 - DDL(1)"/><meta data-rh="true" property="og:description" content="SQL 공부"/><meta data-rh="true" property="og:image" content="/static/e903609fcd0b9ce1994b2012b5405f2e/mysql.png"/><meta data-rh="true" property="og:url"/><meta data-rh="true" property="og:site_name" content="[SQL] Day8 - DDL(1)"/><meta data-rh="true" name="twitter:card" content="summary"/><meta data-rh="true" name="twitter:title" content="[SQL] Day8 - DDL(1)"/><meta data-rh="true" name="twitter:description" content="SQL 공부"/><meta data-rh="true" name="twitter:image" content="/static/e903609fcd0b9ce1994b2012b5405f2e/mysql.png"/><meta data-rh="true" name="msapplication-TileColor" content="#FEC479"/><meta data-rh="true" name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png"/><meta data-rh="true" name="theme-color" content="#FEC479"/><meta data-rh="true" name="google-site-verification" content="QxP8HV3avuS-TynhxJcJZBJnyXaInJHSmpLvXF9PiWU"/><meta data-rh="true" name="naver-site-verification" content="ae65cb659d9c9ea1ae78b5b3cf6745526fe8ef8d"/><style data-href="/styles.9e907bc32054b7771552.css" data-identity="gatsby-global-css">code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#ccc;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}</style><title data-rh="true">[SQL] Day8 - DDL(1)</title><link data-rh="true" rel="shortcut icon" href="/favicon/favicon.ico"/><link data-rh="true" rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png"/><link data-rh="true" rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png"/><link data-rh="true" rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png"/><link data-rh="true" rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png"/><link data-rh="true" rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png"/><link data-rh="true" rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png"/><link data-rh="true" rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png"/><link data-rh="true" rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png"/><link data-rh="true" rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png"/><link data-rh="true" rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png"/><link data-rh="true" rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link data-rh="true" rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png"/><link data-rh="true" rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link data-rh="true" rel="manifest" href="/favicon/manifest.json"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="canonical" href="https://cheeseb.github.io/sql-ddl/" data-baseprotocol="https:" data-basehost="cheeseb.github.io"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="/favicon-32x32.png?v=88f3f2d5c3caabe0563dc6a01b773ae8" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css 13ku56z">.css-13ku56z{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;height:100%;}</style><main class="css-13ku56z e1strnqo0"><style data-emotion="css-global kxm5mf">@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');*{padding:0;margin:0;box-sizing:border-box;font-family:'Nanum Myeongjo',serif;}html,body,#___gatsby{height:100%;}a,a:hover{color:inherit;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;}</style><style data-emotion="css 16cz9yp">.css-16cz9yp{position:relative;width:100%;height:400px;}@media (max-width: 768px){.css-16cz9yp{height:300px;}}</style><div class="css-16cz9yp e1opi4mu1"><style data-emotion="css 1bjn9yo">.css-1bjn9yo{z-index:-1;width:100%;height:400px;object-fit:cover;-webkit-filter:brightness(0.25);filter:brightness(0.25);}@media (max-width: 768px){.css-1bjn9yo{height:300px;}}</style><div data-gatsby-image-wrapper="" style="position:absolute" class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-1bjn9yo e1opi4mu0"><div style="max-width:1170px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg%20height=&#x27;510.99999999999994&#x27;%20width=&#x27;1170&#x27;%20xmlns=&#x27;http://www.w3.org/2000/svg&#x27;%20version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><img aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear" decoding="async" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAq0lEQVR42p2RzQ7CIBCEef/H8ezJB/BmosWfRKtFC2KKpD/CjlFTYzVtsXPZsMt+mQGGFhHRu3qixrlLrGv4vRwCZX2wWGWY7yUq54KgrA1WLyTaYH3UWBwkypsb5vATaPISUaKgrjm4OPe6ZCHvtzlpgBxmcQou9LPn/438kDIWoylHtItRbCe4LMdQWv2kCAY675FmFishUVkJsgLwBeh1aXjkRr+GtXzKHc1lxsPVZCtJAAAAAElFTkSuQmCC" alt=""/><picture><source type="image/webp" data-srcset="/static/e903609fcd0b9ce1994b2012b5405f2e/35fd3/mysql.webp 293w,/static/e903609fcd0b9ce1994b2012b5405f2e/cd395/mysql.webp 585w,/static/e903609fcd0b9ce1994b2012b5405f2e/7713b/mysql.webp 1170w" sizes="(min-width: 1170px) 1170px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1170px) 1170px, 100vw" decoding="async" loading="lazy" data-src="/static/e903609fcd0b9ce1994b2012b5405f2e/ce7af/mysql.png" data-srcset="/static/e903609fcd0b9ce1994b2012b5405f2e/335f7/mysql.png 293w,/static/e903609fcd0b9ce1994b2012b5405f2e/1f8e6/mysql.png 585w,/static/e903609fcd0b9ce1994b2012b5405f2e/ce7af/mysql.png 1170w" alt="thumbnail"/></picture><noscript><picture><source type="image/webp" srcSet="/static/e903609fcd0b9ce1994b2012b5405f2e/35fd3/mysql.webp 293w,/static/e903609fcd0b9ce1994b2012b5405f2e/cd395/mysql.webp 585w,/static/e903609fcd0b9ce1994b2012b5405f2e/7713b/mysql.webp 1170w" sizes="(min-width: 1170px) 1170px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1170px) 1170px, 100vw" decoding="async" loading="lazy" src="/static/e903609fcd0b9ce1994b2012b5405f2e/ce7af/mysql.png" srcSet="/static/e903609fcd0b9ce1994b2012b5405f2e/335f7/mysql.png 293w,/static/e903609fcd0b9ce1994b2012b5405f2e/1f8e6/mysql.png 585w,/static/e903609fcd0b9ce1994b2012b5405f2e/ce7af/mysql.png 1170w" alt="thumbnail"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><style data-emotion="css m1156n">.css-m1156n{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;height:100%;margin:0 auto;padding:60px 0;color:#ffffff;}@media (max-width: 768px){.css-m1156n{width:100%;padding:40px 20px;}}</style><div class="css-m1156n e1st1jau3"><style data-emotion="css gywgo7">.css-gywgo7{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#ffffff;color:#000000;font-size:22px;cursor:pointer;box-shadow:0 0 10px rgba(0, 0, 0, 0.3);}@media (max-width: 768px){.css-gywgo7{width:30px;height:30px;font-size:18px;}}</style><div class="css-gywgo7 e1st1jau2"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-left" class="svg-inline--fa fa-arrow-left " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></div><style data-emotion="css gn4qtp">.css-gn4qtp{display:-webkit-box;overflow:hidden;overflow-wrap:break-word;margin-top:auto;text-overflow:ellipsis;white-space:normal;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:45px;font-weight:800;}@media (max-width: 768px){.css-gn4qtp{font-size:30px;}}</style><div class="css-gn4qtp e1st1jau1">[SQL] Day8 - DDL(1)</div><style data-emotion="css 3gcnt2">.css-3gcnt2{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-top:10px;font-size:18px;font-weight:700;}@media (max-width: 768px){.css-3gcnt2{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;font-size:15px;font-weight:400;}}</style><div class="css-3gcnt2 e1st1jau0"><div>MySQL</div><div>2021.01.14.</div></div></div></div><style data-emotion="css uo146q">.css-uo146q{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;margin:0 auto;padding:100px 0;word-break:break-all;line-height:1.8;font-size:16px;font-weight:400;}.css-uo146q p{padding:3px 0;}.css-uo146q h1,.css-uo146q h2,.css-uo146q h3{font-weight:800;margin-bottom:30px;}.css-uo146q *+h1,.css-uo146q *+h2,.css-uo146q *+h3{margin-top:80px;}.css-uo146q hr+h1,.css-uo146q hr+h2,.css-uo146q hr+h3{margin-top:0;}.css-uo146q h1{font-size:30px;}.css-uo146q h2{font-size:25px;}.css-uo146q h3{font-size:20px;}.css-uo146q blockquote{margin:30px 0;padding:5px 15px;border-left:2px solid #000000;font-weight:800;}.css-uo146q ol,.css-uo146q ul{margin-left:20px;padding:30px 0;}.css-uo146q hr{border:1px solid #000000;margin:100px 0;}.css-uo146q a{color:#4263eb;-webkit-text-decoration:underline;text-decoration:underline;}.css-uo146q pre[class*='language-']{margin:30px 0;padding:15px;font-size:15px;}.css-uo146q pre[class*='language-']::-webkit-scrollbar-thumb{background:rgba(255, 255, 255, 0.5);border-radius:3px;}.css-uo146q code[class*='language-'],.css-uo146q pre[class*='language-']{tab-size:2;}@media (max-width: 768px){.css-uo146q{width:100%;padding:80px 20px;line-height:1.6;font-size:14px;}.css-uo146q h1{font-size:23px;}.css-uo146q h2{font-size:20px;}.css-uo146q h3{font-size:17px;}.css-uo146q img{width:100%;}.css-uo146q hr{margin:50px 0;}}</style><div class="css-uo146q e1ijh0y10"><h2>DDL (Data Definition Language: 데이터 정의어)</h2>
+<h3>DDL</h3>
+<ul>
+<li>
+<p>데이터베이스 구조(객체)를 생성, 수정, 삭제하는 데 사용</p>
+</li>
+<li>
+<p>실제 DB에 즉각 반영되며, DB사전에 정보를 기록함</p>
+</li>
+<li>
+<p>DDL 종류</p>
+<ul>
+<li>CREATE</li>
+<li>ALTER</li>
+<li>DROP</li>
+<li>RENAME</li>
+<li>TRUNCATE</li>
+</ul>
+</li>
+<li>
+<p>오라클에서 사용하는 객체</p>
+<ul>
+<li>테이블(Table)</li>
+<li>뷰(View)</li>
+<li>시퀀스(Sequence)</li>
+<li>인덱스(Index)</li>
+<li>동의어(Synonym)</li>
+</ul>
+</li>
+<li>
+<p>스키마(schema): 특정 사용자가 DB에 접근해 생성한 객체들의 대표이름</p>
+<ul>
+<li>일반적으로 사용자의 계정명과 동일</li>
+<li>생성한 객체들은 생성한 계정이 소유하며, 다른 스키마는 기본적으로 접근이 불가함 (권한 할당 필요)</li>
+<li>권한을 가진 사용자가 다른 스키마에 접근하기 위해선 ‘스키마.객체명’ 형식으로 접근해야 함</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> scott<span class="token punctuation">.</span>dept<span class="token punctuation">;</span> <span class="token comment">-- 스키마.객체명</span></code></pre></div>
+<h3>CREATE: 테이블 생성</h3>
+<ul>
+<li>DB객체 이름 지정방법
+<ul>
+<li>테이블, 컬럼명은 문자로 시작하며 1 ~ 30자 이내로 작성(30byte)</li>
+<li>테이블, 컬럼명은 영어 대소문자, 숫자, 특수문자(_,$,#) 로만 작성
+<ul>
+<li>한글 작성도 가능하지만 권장하지 않음</li>
+</ul>
+</li>
+<li>동일한 사용자의 다른 객체와 이름이 중복되면 안됨</li>
+<li>예약어 사용 불가</li>
+<li>대소문자 구분 안함</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> 테이블명
+<span class="token punctuation">(</span>컬럼명	데이터타입<span class="token punctuation">,</span>
+ 컬럼명	데이터타입<span class="token punctuation">,</span>
+ <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> employee
+<span class="token punctuation">(</span>empno      NUMBER<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ ename      VARCHAR2<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ hiredate   <span class="token keyword">DATE</span><span class="token punctuation">,</span>
+ sal        NUMBER<span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>데이터 타입 종류
+<ul>
+<li>VARCHAR는 CHAR와 달리 쓴 글자 길이에 따라 차지하는 공간이 맞춰짐. 괄호안의 숫자는 최대길이</li>
+</ul>
+</li>
+</ul>
+<img src="{{site.url}}/assets/img/post/sql9.jpg">
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- ROWID를 이용한 행 검색</span>
+<span class="token keyword">SELECT</span> ROWID<span class="token punctuation">,</span> deptno
+<span class="token keyword">FROM</span> dept<span class="token punctuation">;</span>
+
+<span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">FROM</span> dept
+<span class="token keyword">WHERE</span> ROWID <span class="token operator">=</span> <span class="token string">'AAAE5cAAEAAAAFMAAA'</span><span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>DEFAULT: 해당 컬럼에 값을 지정하지 않으면 자동으로 디폴트값이 입력됨
+<ul>
+<li>NULL값이 저장되는 것을 방지</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 일반 컬럼 --</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> def_table1
+<span class="token punctuation">(</span>num        NUMBER<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ writeday   <span class="token keyword">DATE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> def_table1<span class="token punctuation">(</span>num<span class="token punctuation">)</span>
+<span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- 20, (null)</span>
+
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> def_table1<span class="token punctuation">(</span>num<span class="token punctuation">,</span> writeday<span class="token punctuation">)</span>
+<span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token keyword">DEFAULT</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- 2, (null)</span>
+
+<span class="token comment">-- DEFAULT 적용 컬럼 --</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> def_table2
+<span class="token punctuation">(</span>num        NUMBER<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ writeday   <span class="token keyword">DATE</span> <span class="token keyword">DEFAULT</span> SYSDATE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> def_table2<span class="token punctuation">(</span>num<span class="token punctuation">)</span>
+<span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- 20, 21/01/14</span>
+
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> def_table2<span class="token punctuation">(</span>num<span class="token punctuation">,</span> writeday<span class="token punctuation">)</span>
+<span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token keyword">DEFAULT</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- 2, 21/01/14</span></code></pre></div>
+<ul>
+<li>서브쿼리를 이용한 테이블 생성
+<ul>
+<li>CTAS라고 함</li>
+<li>지정된 컬럼의 개수와 서브쿼리에서 리턴된 컬럼 개수가 일치해야 함</li>
+<li>새로 생성된 테이블에 컬럼, 컬럼의 데이터 타입, 데이터들이 복사되지만 not null을 제외한 제약 조건은 복사되지 않음 (Primary Key 등)</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 그대로 복사 --</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> deptA
+<span class="token keyword">AS</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">FROM</span> dept<span class="token punctuation">;</span>
+
+<span class="token comment">-- 컬럼명 바꾸기 --</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> deptB<span class="token punctuation">(</span><span class="token keyword">no</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span>
+<span class="token keyword">AS</span>
+<span class="token keyword">SELECT</span> deptno<span class="token punctuation">,</span> dname
+<span class="token keyword">FROM</span> dept<span class="token punctuation">;</span>
+
+<span class="token comment">-- 데이터 복사 안함 --</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> deptC
+<span class="token keyword">AS</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">FROM</span> dept
+<span class="token keyword">WHERE</span> <span class="token number">1</span><span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span></code></pre></div>
+<h3>제약조건 정의</h3>
+<ul>
+<li>부적절한 자료가 입력되는 것을 방지</li>
+<li>테이블레벨 및 컬럼레벨에서 규칙을 적용하며(not null 제외), 테이블에서 행이 삽입/갱신/삭제될 때마다 규칙이 적용됨
+<ul>
+<li>not null은 무조건 컬럼 레벨에서만 규칙 적용됨</li>
+</ul>
+</li>
+<li>종속성이 존재할 경우 테이블 삭제를 방지함</li>
+<li>일시적으로 DISABLE/ENABLE 할 수도 있음</li>
+<li>제약조건 이름은 ‘테이블명_컬럼명_제약종류(PK/FK/UK/NN/CK)’ 이렇게 짓는것을 권장</li>
+</ul>
+<img src="{{site.url}}/assets/img/post/sql10.jpg">
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 컬럼 레벨</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> 테이블명
+<span class="token punctuation">(</span>컬럼명 데이터타입 <span class="token keyword">CONSTRAINT</span> 제약조건명 제약종류<span class="token punctuation">,</span>
+ <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 테이블 레벨</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> 테이블명
+<span class="token punctuation">(</span>컬럼명 데이터타입<span class="token punctuation">,</span>
+ <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>
+ <span class="token keyword">CONSTRAINT</span> 제약조건명 제약종류<span class="token punctuation">(</span>컬럼명<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre></div>
+<ul>
+<li>USER_CONSTRAINTS 데이터 사전을 조회하면 테이블의 제약조건 확인 가능</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">FROM</span> USER_CONSTRAINTS
+<span class="token keyword">WHERE</span> table_name <span class="token operator">IN</span><span class="token punctuation">(</span><span class="token string">'DEPARTMENT'</span><span class="token punctuation">,</span> <span class="token string">'EMPLOYEE'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">-- 테이블명 대문자로 써야함</span></code></pre></div>
+<ul>
+<li>PRIMARY KEY(PK): 테이블에 대한 기본키 생성
+<ul>
+<li>중복 불가, null 불가(UNIQUE + NOT NULL)</li>
+<li>각 행을 유일하게 식별함</li>
+<li>한 테이블 당 하나의 기본키만 존재 가능
+<ul>
+<li>컬럼의 집합(복합 컬럼)은 사용 가능</li>
+<li>복합 컬럼 지정은 테이블레벨만 가능</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> department
+<span class="token punctuation">(</span>deptno NUMBER<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">CONSTRAINT</span> department_deptno_pk <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
+ dname  VARCHAR2<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ loc    VARCHAR2<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> department <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token string">'인사과'</span><span class="token punctuation">,</span> <span class="token string">'서울'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> department <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token string">'영업'</span><span class="token punctuation">,</span> <span class="token string">'서울'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- error!</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> department <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token boolean">NULL</span><span class="token punctuation">,</span> <span class="token string">'영업'</span><span class="token punctuation">,</span> <span class="token string">'서울'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- error!</span></code></pre></div>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 컬럼 레벨</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> pk_tab1
+<span class="token punctuation">(</span>id     NUMBER<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">CONSTRAINT</span> pk_tab1_id_pk <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
+ name   VARCHAR2<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 테이블 레벨</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> pk_tab2
+<span class="token punctuation">(</span>id     NUMBER<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ name   VARCHAR2<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token keyword">CONSTRAINT</span> pk_tab2_id_pk <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 복합 컬럼으로 기본키 지정</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> department3
+<span class="token punctuation">(</span>deptno NUMBER<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ dname  VARCHAR2<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ loc    VARCHAR2<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token keyword">CONSTRAINT</span> department3_deptno_pk <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">(</span>deptno<span class="token punctuation">,</span> loc<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> department3 <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token string">'AA'</span><span class="token punctuation">,</span> <span class="token string">'AA'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> department3 <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token string">'BB'</span><span class="token punctuation">,</span> <span class="token string">'AA'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- error!</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> department3 <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token string">'AA'</span><span class="token punctuation">,</span> <span class="token string">'BB'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 두 컬럼의 집합이 기본키이므로</span>
+<span class="token comment">-- deptno가 같아도 loc이 다르면 유일한 것으로 판단됨 </span></code></pre></div>
+<ul>
+<li>UNIQUE(UK): 해당 컬럼에 중복을 제한함
+<ul>
+<li>NULL값 저장 가능</li>
+<li>복합 컬럼 사용가능
+<ul>
+<li>복합 컬럼 지정은 테이블레벨만 가능</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 컬럼 레벨</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> uni_tab1
+<span class="token punctuation">(</span>deptno NUMBER<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">CONSTRAINT</span> uni_tab1_deptno_uk <span class="token keyword">UNIQUE</span><span class="token punctuation">,</span>
+ dname  <span class="token keyword">CHAR</span><span class="token punctuation">(</span><span class="token number">14</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ LOC    <span class="token keyword">CHAR</span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+<span class="token comment">-- 테이블 레벨</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> uni_tab2
+<span class="token punctuation">(</span>deptno NUMBER<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ dname  <span class="token keyword">CHAR</span><span class="token punctuation">(</span><span class="token number">14</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ loc    <span class="token keyword">CHAR</span><span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token keyword">CONSTRAINT</span> uni_tab2_deptno_uk <span class="token keyword">UNIQUE</span><span class="token punctuation">(</span>deptno<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> uni_tab1 <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token string">'AA'</span><span class="token punctuation">,</span> <span class="token string">'AA'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> uni_tab1 <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token string">'BB'</span><span class="token punctuation">,</span> <span class="token string">'BB'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">--error!</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> uni_tab1 <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token boolean">null</span><span class="token punctuation">,</span> <span class="token string">'AA'</span><span class="token punctuation">,</span> <span class="token string">'AA'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 복합 컬럼 사용</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> sawon
+<span class="token punctuation">(</span>s_no       NUMBER<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ s_name     VARCHAR2<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ s_email    VARCHAR2<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token keyword">CONSTRAINT</span> sawon_uk <span class="token keyword">UNIQUE</span><span class="token punctuation">(</span>s_name<span class="token punctuation">,</span> s_email<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>NOT NULL(NN): 해당 컬럼에 NULL 입력을 방지
+<ul>
+<li>컬럼 레벨에서만 지정 가능</li>
+</ul>
+</li>
+<li>PRIMARY KEY를 UNIQUE + NOT NULL 로도 지정 가능</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> department6
+<span class="token punctuation">(</span>deptno NUMBER<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token keyword">CONSTRAINT</span> department6_deptno_pk <span class="token keyword">UNIQUE</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+ dname  VARCHAR2<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token comment">-- 그냥 loc VARCHAR2(15) NOT NULL 이렇게 써도 됨</span>
+ loc    VARCHAR2<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span> <span class="token keyword">CONSTRAINT</span> department6_loc_nn <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+ <span class="token keyword">CONSTRAINT</span> department6_dname_uk <span class="token keyword">UNIQUE</span><span class="token punctuation">(</span>dname<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>CHECK(CK): 해당 컬럼에 반드시 만족해야 될 조건을 지정</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> sawon1
+<span class="token punctuation">(</span>s_no   NUMBER<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ s_name VARCHAR2<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ s_sal  NUMBER<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">CONSTRAINT</span> sawon1_s_sal_ck <span class="token keyword">CHECK</span><span class="token punctuation">(</span>s_sal <span class="token operator">&lt;</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> sawon2
+<span class="token punctuation">(</span>s_no       NUMBER<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ s_name     VARCHAR2<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ s_gender   <span class="token keyword">CHAR</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token keyword">CONSTRAINT</span> sawon2_s_gender_ck <span class="token keyword">CHECK</span><span class="token punctuation">(</span>s_gender <span class="token operator">IN</span><span class="token punctuation">(</span><span class="token string">'남'</span><span class="token punctuation">,</span> <span class="token string">'여'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> sawon1 <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token string">'AA'</span><span class="token punctuation">,</span> <span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> sawon1 <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token string">'BB'</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- error!</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> sawon2 <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token string">'AA'</span><span class="token punctuation">,</span> <span class="token string">'남'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> sawon2 <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token string">'AA'</span><span class="token punctuation">,</span> <span class="token string">'뭵'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- error!</span></code></pre></div>
+<ul>
+<li>FOREIGN KEY(FK): 테이블에 대한 외래키(참조키) 생성
+<ul>
+<li>해당 테이블에서 다른 테이블을 참조할 때 올바른 데이터만 참조 가능하도록 제약하는 방법</li>
+<li>부모 테이블의 PK, UK로 정의된 열을 자식 테이블에서 지정할 수 있음 (컬럼명 동일)
+<ul>
+<li>지정한 열의 값과 일치하거나 NULL값이어야 함</li>
+</ul>
+</li>
+<li>복합 컬럼 사용가능</li>
+<li>컬럼 레벨일 땐 REFERENCES만, 테이블 레벨일 땐 FOREIGN KEY 와 REFERENCES 키워드 둘다 사용해 줘야 함</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 부모 테이블 --</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> dept02
+<span class="token punctuation">(</span>deptno NUMBER<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">CONSTRAINT</span> dept02_deptno_pk <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
+ dname  VARCHAR2<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ loc    VARCHAR2<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> dept02<span class="token punctuation">(</span>deptno<span class="token punctuation">,</span> dname<span class="token punctuation">,</span> loc<span class="token punctuation">)</span> <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token string">'인사'</span><span class="token punctuation">,</span> <span class="token string">'서울'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> dept02<span class="token punctuation">(</span>deptno<span class="token punctuation">,</span> dname<span class="token punctuation">,</span> loc<span class="token punctuation">)</span> <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token string">'개발'</span><span class="token punctuation">,</span> <span class="token string">'광주'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> dept02<span class="token punctuation">(</span>deptno<span class="token punctuation">,</span> dname<span class="token punctuation">,</span> loc<span class="token punctuation">)</span> <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">,</span> <span class="token string">'관리'</span><span class="token punctuation">,</span> <span class="token string">'부산'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> dept02<span class="token punctuation">(</span>deptno<span class="token punctuation">,</span> dname<span class="token punctuation">,</span> loc<span class="token punctuation">)</span> <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">40</span><span class="token punctuation">,</span> <span class="token string">'영업'</span><span class="token punctuation">,</span> <span class="token string">'경기'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 자식 테이블 (컬럼 레벨) --</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> emp02
+<span class="token punctuation">(</span>empno  NUMBER<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token keyword">CONSTRAINT</span> emp02_empno_pk <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
+ ename  VARCHAR2<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ deptno NUMBER<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">CONSTRAINT</span> emp02_deptno_fk <span class="token keyword">REFERENCES</span> dept02<span class="token punctuation">(</span>deptno<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> emp02 <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span> <span class="token string">'JOHN'</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> emp02 <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">,</span> <span class="token string">'MIKE'</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- error(parent key not found)</span>
+<span class="token comment">-- 부모 테이블인 dept02 테이블의 deptno에 50번이 없으므로 에러남</span>
+
+<span class="token comment">-- 자식 테이블 (테이블 레벨) --</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> emp03
+<span class="token punctuation">(</span>empno  NUMBER<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token keyword">CONSTRAINT</span> emp03_empno_pk <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
+ ename  VARCHAR2<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ deptno NUMBER<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token keyword">CONSTRAINT</span> emp03_deptno_fk <span class="token keyword">FOREIGN</span> <span class="token keyword">KEY</span><span class="token punctuation">(</span>deptno<span class="token punctuation">)</span> <span class="token keyword">REFERENCES</span> dept02<span class="token punctuation">(</span>deptno<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>부모 테이블에서 자식 테이블이 참조하고 있는 값이 있는 행은 삭제할 수 없음</li>
+<li>자식테이블은 지워도 부모테이블에 영향 없음</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> dept02
+<span class="token keyword">WHERE</span> deptno <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span> <span class="token comment">-- error! (child record found)</span></code></pre></div>
+<ul>
+<li>부모 테이블의 행 삭제 시 문제될 수 있는 자식 테이블 행 설정법
+<ul>
+<li>ON DELETE CASCADE: 부모 테이블의 행이 삭제되면 해당 행을 참조하는 자식 테이블의 행도 같이 삭제</li>
+<li>ON DELETE SET NULL: 부모 테이블의 행이 삭제되면 해당 행을 참조하는 자식 테이블의 컬럼을 NULL로 설정</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- ON DELETE CASCADE --</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> emp02
+<span class="token punctuation">(</span>empno  NUMBER<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token keyword">CONSTRAINT</span> emp02_empno_pk <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
+ ename  VARCHAR2<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ deptno NUMBER<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">CONSTRAINT</span> emp02_deptno_fk <span class="token keyword">REFERENCES</span> dept02<span class="token punctuation">(</span>deptno<span class="token punctuation">)</span> <span class="token keyword">ON</span> <span class="token keyword">DELETE</span> <span class="token keyword">CASCADE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> dept02
+<span class="token keyword">WHERE</span> deptno <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token comment">-- deptno가 10번인 행이 부모, 자식 테이블에서 모두 삭제</span></code></pre></div>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- ON DELETE SET NULL --</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> emp02
+<span class="token punctuation">(</span>empno  NUMBER<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token keyword">CONSTRAINT</span> emp02_empno_pk <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
+ ename  VARCHAR2<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ deptno NUMBER<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">CONSTRAINT</span> emp02_deptno_fk <span class="token keyword">REFERENCES</span> dept02<span class="token punctuation">(</span>deptno<span class="token punctuation">)</span> <span class="token keyword">ON</span> <span class="token keyword">DELETE</span> <span class="token keyword">SET</span> <span class="token boolean">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> dept02
+<span class="token keyword">WHERE</span> deptno <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+<span class="token comment">-- deptno가 20번인 행이 부모 테이블에선 지워지고</span>
+<span class="token comment">-- 자식 테이블에선 deptno가 null이 됨</span></code></pre></div>
+<ul>
+<li>DROP 명령어로 부모 테이블 삭제 시 CASCADE CONSTRAINTS 옵션을 주어야만 삭제가 가능하며, 자식 테이블의 제약조건(FK)도 함께 삭제됨</li>
+<li>제약조건만 사라질 뿐, 데이터는 그대로임</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> dept02<span class="token punctuation">;</span> <span class="token comment">-- error!</span>
+<span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> dept02 <span class="token keyword">CASCADE</span> CONSTRAINTS<span class="token punctuation">;</span></code></pre></div></div><style data-emotion="css hx9xpc">@media (max-width: 768px){.css-hx9xpc{padding:0 20px;}}</style><div class="css-hx9xpc e1gqsjds0"></div><style data-emotion="css 1591gnd">.css-1591gnd{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 830px){.css-1591gnd{font-size:13px;}}</style><footer class="css-1591gnd e1oae0v80">Thank You for Visiting My Blog, Have a Good Day 😆<br/>© 2023 Developer CheeseB, Powered By Gatsby.</footer></main></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/sql-ddl/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-b916820085d99dc4bdaa.js\"],\"component---src-pages-404-tsx\":[\"/component---src-pages-404-tsx-384eab2b592d62e3c10a.js\"],\"component---src-pages-index-tsx\":[\"/component---src-pages-index-tsx-7b8bf88194ff3edbef01.js\"],\"component---src-templates-post-template-tsx\":[\"/component---src-templates-post-template-tsx-0742a68e2dd8bf32bee9.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="7527fbc93c0223eac30d";</script><script src="/webpack-runtime-bc0f2929ebd5197b0394.js" async></script><script src="/framework-a4e155cd0476dc1ca208.js" async></script><script src="/app-b916820085d99dc4bdaa.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>

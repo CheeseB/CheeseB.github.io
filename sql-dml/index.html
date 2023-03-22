@@ -1,0 +1,295 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 5.6.0"/><meta data-rh="true" name="description" content="SQL 공부"/><meta data-rh="true" name="viewport" content="width=device-width, initial-scale=1.0"/><meta data-rh="true" http-equiv="Content-Type" content="text/html;charset=UTF-8"/><meta data-rh="true" property="og:type" content="website"/><meta data-rh="true" property="og:title" content="[SQL] Day7 - DML"/><meta data-rh="true" property="og:description" content="SQL 공부"/><meta data-rh="true" property="og:image" content="/static/e903609fcd0b9ce1994b2012b5405f2e/mysql.png"/><meta data-rh="true" property="og:url"/><meta data-rh="true" property="og:site_name" content="[SQL] Day7 - DML"/><meta data-rh="true" name="twitter:card" content="summary"/><meta data-rh="true" name="twitter:title" content="[SQL] Day7 - DML"/><meta data-rh="true" name="twitter:description" content="SQL 공부"/><meta data-rh="true" name="twitter:image" content="/static/e903609fcd0b9ce1994b2012b5405f2e/mysql.png"/><meta data-rh="true" name="msapplication-TileColor" content="#FEC479"/><meta data-rh="true" name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png"/><meta data-rh="true" name="theme-color" content="#FEC479"/><meta data-rh="true" name="google-site-verification" content="QxP8HV3avuS-TynhxJcJZBJnyXaInJHSmpLvXF9PiWU"/><meta data-rh="true" name="naver-site-verification" content="ae65cb659d9c9ea1ae78b5b3cf6745526fe8ef8d"/><style data-href="/styles.9e907bc32054b7771552.css" data-identity="gatsby-global-css">code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#ccc;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}</style><title data-rh="true">[SQL] Day7 - DML</title><link data-rh="true" rel="shortcut icon" href="/favicon/favicon.ico"/><link data-rh="true" rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png"/><link data-rh="true" rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png"/><link data-rh="true" rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png"/><link data-rh="true" rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png"/><link data-rh="true" rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png"/><link data-rh="true" rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png"/><link data-rh="true" rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png"/><link data-rh="true" rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png"/><link data-rh="true" rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png"/><link data-rh="true" rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png"/><link data-rh="true" rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link data-rh="true" rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png"/><link data-rh="true" rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link data-rh="true" rel="manifest" href="/favicon/manifest.json"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="canonical" href="https://cheeseb.github.io/sql-dml/" data-baseprotocol="https:" data-basehost="cheeseb.github.io"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="/favicon-32x32.png?v=88f3f2d5c3caabe0563dc6a01b773ae8" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css 13ku56z">.css-13ku56z{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;height:100%;}</style><main class="css-13ku56z e1strnqo0"><style data-emotion="css-global kxm5mf">@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');*{padding:0;margin:0;box-sizing:border-box;font-family:'Nanum Myeongjo',serif;}html,body,#___gatsby{height:100%;}a,a:hover{color:inherit;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;}</style><style data-emotion="css 16cz9yp">.css-16cz9yp{position:relative;width:100%;height:400px;}@media (max-width: 768px){.css-16cz9yp{height:300px;}}</style><div class="css-16cz9yp e1opi4mu1"><style data-emotion="css 1bjn9yo">.css-1bjn9yo{z-index:-1;width:100%;height:400px;object-fit:cover;-webkit-filter:brightness(0.25);filter:brightness(0.25);}@media (max-width: 768px){.css-1bjn9yo{height:300px;}}</style><div data-gatsby-image-wrapper="" style="position:absolute" class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-1bjn9yo e1opi4mu0"><div style="max-width:1170px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg%20height=&#x27;510.99999999999994&#x27;%20width=&#x27;1170&#x27;%20xmlns=&#x27;http://www.w3.org/2000/svg&#x27;%20version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><img aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear" decoding="async" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAq0lEQVR42p2RzQ7CIBCEef/H8ezJB/BmosWfRKtFC2KKpD/CjlFTYzVtsXPZsMt+mQGGFhHRu3qixrlLrGv4vRwCZX2wWGWY7yUq54KgrA1WLyTaYH3UWBwkypsb5vATaPISUaKgrjm4OPe6ZCHvtzlpgBxmcQou9LPn/438kDIWoylHtItRbCe4LMdQWv2kCAY675FmFishUVkJsgLwBeh1aXjkRr+GtXzKHc1lxsPVZCtJAAAAAElFTkSuQmCC" alt=""/><picture><source type="image/webp" data-srcset="/static/e903609fcd0b9ce1994b2012b5405f2e/35fd3/mysql.webp 293w,/static/e903609fcd0b9ce1994b2012b5405f2e/cd395/mysql.webp 585w,/static/e903609fcd0b9ce1994b2012b5405f2e/7713b/mysql.webp 1170w" sizes="(min-width: 1170px) 1170px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1170px) 1170px, 100vw" decoding="async" loading="lazy" data-src="/static/e903609fcd0b9ce1994b2012b5405f2e/ce7af/mysql.png" data-srcset="/static/e903609fcd0b9ce1994b2012b5405f2e/335f7/mysql.png 293w,/static/e903609fcd0b9ce1994b2012b5405f2e/1f8e6/mysql.png 585w,/static/e903609fcd0b9ce1994b2012b5405f2e/ce7af/mysql.png 1170w" alt="thumbnail"/></picture><noscript><picture><source type="image/webp" srcSet="/static/e903609fcd0b9ce1994b2012b5405f2e/35fd3/mysql.webp 293w,/static/e903609fcd0b9ce1994b2012b5405f2e/cd395/mysql.webp 585w,/static/e903609fcd0b9ce1994b2012b5405f2e/7713b/mysql.webp 1170w" sizes="(min-width: 1170px) 1170px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1170px) 1170px, 100vw" decoding="async" loading="lazy" src="/static/e903609fcd0b9ce1994b2012b5405f2e/ce7af/mysql.png" srcSet="/static/e903609fcd0b9ce1994b2012b5405f2e/335f7/mysql.png 293w,/static/e903609fcd0b9ce1994b2012b5405f2e/1f8e6/mysql.png 585w,/static/e903609fcd0b9ce1994b2012b5405f2e/ce7af/mysql.png 1170w" alt="thumbnail"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><style data-emotion="css m1156n">.css-m1156n{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;height:100%;margin:0 auto;padding:60px 0;color:#ffffff;}@media (max-width: 768px){.css-m1156n{width:100%;padding:40px 20px;}}</style><div class="css-m1156n e1st1jau3"><style data-emotion="css gywgo7">.css-gywgo7{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#ffffff;color:#000000;font-size:22px;cursor:pointer;box-shadow:0 0 10px rgba(0, 0, 0, 0.3);}@media (max-width: 768px){.css-gywgo7{width:30px;height:30px;font-size:18px;}}</style><div class="css-gywgo7 e1st1jau2"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-left" class="svg-inline--fa fa-arrow-left " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></div><style data-emotion="css gn4qtp">.css-gn4qtp{display:-webkit-box;overflow:hidden;overflow-wrap:break-word;margin-top:auto;text-overflow:ellipsis;white-space:normal;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:45px;font-weight:800;}@media (max-width: 768px){.css-gn4qtp{font-size:30px;}}</style><div class="css-gn4qtp e1st1jau1">[SQL] Day7 - DML</div><style data-emotion="css 3gcnt2">.css-3gcnt2{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-top:10px;font-size:18px;font-weight:700;}@media (max-width: 768px){.css-3gcnt2{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;font-size:15px;font-weight:400;}}</style><div class="css-3gcnt2 e1st1jau0"><div>MySQL</div><div>2021.01.13.</div></div></div></div><style data-emotion="css uo146q">.css-uo146q{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;margin:0 auto;padding:100px 0;word-break:break-all;line-height:1.8;font-size:16px;font-weight:400;}.css-uo146q p{padding:3px 0;}.css-uo146q h1,.css-uo146q h2,.css-uo146q h3{font-weight:800;margin-bottom:30px;}.css-uo146q *+h1,.css-uo146q *+h2,.css-uo146q *+h3{margin-top:80px;}.css-uo146q hr+h1,.css-uo146q hr+h2,.css-uo146q hr+h3{margin-top:0;}.css-uo146q h1{font-size:30px;}.css-uo146q h2{font-size:25px;}.css-uo146q h3{font-size:20px;}.css-uo146q blockquote{margin:30px 0;padding:5px 15px;border-left:2px solid #000000;font-weight:800;}.css-uo146q ol,.css-uo146q ul{margin-left:20px;padding:30px 0;}.css-uo146q hr{border:1px solid #000000;margin:100px 0;}.css-uo146q a{color:#4263eb;-webkit-text-decoration:underline;text-decoration:underline;}.css-uo146q pre[class*='language-']{margin:30px 0;padding:15px;font-size:15px;}.css-uo146q pre[class*='language-']::-webkit-scrollbar-thumb{background:rgba(255, 255, 255, 0.5);border-radius:3px;}.css-uo146q code[class*='language-'],.css-uo146q pre[class*='language-']{tab-size:2;}@media (max-width: 768px){.css-uo146q{width:100%;padding:80px 20px;line-height:1.6;font-size:14px;}.css-uo146q h1{font-size:23px;}.css-uo146q h2{font-size:20px;}.css-uo146q h3{font-size:17px;}.css-uo146q img{width:100%;}.css-uo146q hr{margin:50px 0;}}</style><div class="css-uo146q e1ijh0y10"><h2>DML(Data Manipulation Language: 데이터 조작어)</h2>
+<h3>DML</h3>
+<ul>
+<li>
+<p>DB 내의 테이블에 새로운 행을 입력하거나, 수정 혹은 삭제하는 명령어</p>
+</li>
+<li>
+<p>DML 종류</p>
+<ul>
+<li>INSERT</li>
+<li>UPDATE</li>
+<li>DELETE</li>
+<li>MERGE</li>
+</ul>
+</li>
+<li>
+<p>DML문장에 의한 변경사항을 관리하거나, 변경사항을 하나의 논리적 트랜젝션으로 포함시키는 명령어</p>
+</li>
+<li>
+<p>트랜젝션</p>
+<ul>
+<li>COMMIT</li>
+<li>ROLLBACK</li>
+<li>SAVEPOINT</li>
+</ul>
+</li>
+</ul>
+<h3>INSERT</h3>
+<ul>
+<li>INSERT: 테이블에 데이터를 새로 입력함
+<ul>
+<li>한번에 하나의 행을 입력하는 것이 기본</li>
+<li>서브쿼리를 이용해 한번에 여러행 동시입력 가능</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> 테이블명<span class="token punctuation">(</span>컬럼명<span class="token punctuation">)</span>
+<span class="token keyword">VALUES</span><span class="token punctuation">(</span>값<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>주의사항
+<ul>
+<li>INTO 절의 컬럼에 VALUES 절의 컬럼값을 일대일 대응하여 입력</li>
+<li>INTO 절에 컬럼명을 생략하면 테이블의 컬럼순서와 동일한 순서로 입력됨</li>
+<li>데이터타입을 동일하게 해야하며, 데이터의 크기가 컬럼 크기보다 작아야함</li>
+<li>문자, 날짜는 반드시 작은따옴표 쓰기</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> dept<span class="token punctuation">(</span>deptno<span class="token punctuation">,</span> dname<span class="token punctuation">,</span> loc<span class="token punctuation">)</span>
+<span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">90</span><span class="token punctuation">,</span> <span class="token string">'인사과'</span><span class="token punctuation">,</span> <span class="token string">'서울'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 원래 테이블의 순서와 달라도 상관없음</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> dept<span class="token punctuation">(</span>loc<span class="token punctuation">,</span> dname<span class="token punctuation">,</span> deptno<span class="token punctuation">)</span>
+<span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token string">'서울'</span><span class="token punctuation">,</span> <span class="token string">'인사과'</span><span class="token punctuation">,</span> <span class="token number">70</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> dept
+<span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">80</span><span class="token punctuation">,</span> <span class="token string">'인사과'</span><span class="token punctuation">,</span> <span class="token string">'서울'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>데이터에 null값도 입력 가능
+<ul>
+<li>묵시적 방법: 컬럼명과 값 생략
+<ul>
+<li>INTO 절과 VAULE 절 둘다 생략해야됨 (하나만 생략하면 에러)</li>
+</ul>
+</li>
+<li>명시적 방법: 값에 null 키워드를 적거나 빈 문자열(”) 사용
+<ul>
+<li>null을 직접 쓰는것을 권장</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>not null 제약조건이 지정된 컬럼은 불가 (ex. Primary Key)</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 묵시적</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> dept<span class="token punctuation">(</span>deptno<span class="token punctuation">,</span> dname<span class="token punctuation">)</span>
+<span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">91</span><span class="token punctuation">,</span> <span class="token string">'인사과'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 명시적</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> dept
+<span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">92</span><span class="token punctuation">,</span> <span class="token string">'인사과'</span><span class="token punctuation">,</span> <span class="token boolean">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> dept
+<span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">92</span><span class="token punctuation">,</span> <span class="token string">'인사과'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>특수값 입력 가능 (USER, SYSDATE)</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> emp<span class="token punctuation">(</span>empno<span class="token punctuation">,</span> ename<span class="token punctuation">,</span> job<span class="token punctuation">,</span> mgr<span class="token punctuation">,</span> hiredate<span class="token punctuation">,</span> sal<span class="token punctuation">,</span> comm<span class="token punctuation">,</span> deptno<span class="token punctuation">)</span>
+<span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">9000</span><span class="token punctuation">,</span> <span class="token keyword">USER</span><span class="token punctuation">,</span> <span class="token string">'연구원'</span><span class="token punctuation">,</span> <span class="token number">7839</span><span class="token punctuation">,</span> SYSDATE<span class="token punctuation">,</span> <span class="token number">5000</span><span class="token punctuation">,</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span> <span class="token number">90</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>특정 데이터타입 입력(RR/MM/DD, TO_DATE())</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> emp
+<span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">9001</span><span class="token punctuation">,</span> <span class="token string">'홍길동'</span><span class="token punctuation">,</span> <span class="token string">'MANAGER'</span><span class="token punctuation">,</span> <span class="token number">7839</span><span class="token punctuation">,</span> <span class="token string">'2000/01/01'</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">,</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">-- 날짜에 TO_DATE('2000-01-01', 'YYYY/MM/DD') 해도 됨</span></code></pre></div>
+<ul>
+<li>서브쿼리로 다중 행 입력 가능</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- emp로부터 열 두개만 카피한 비어있는 테이블 생성</span>
+<span class="token comment">-- 제약조건은 카피 안됨</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> copy_emp
+<span class="token keyword">AS</span>
+<span class="token keyword">SELECT</span> empno<span class="token punctuation">,</span> ename
+<span class="token keyword">FROM</span> emp
+<span class="token keyword">WHERE</span> <span class="token number">1</span><span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- emp로부터 선택한 여러 행을 테이블에 삽입</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> copy_emp<span class="token punctuation">(</span>empno<span class="token punctuation">,</span> ename<span class="token punctuation">)</span>
+<span class="token keyword">SELECT</span> empno<span class="token punctuation">,</span> ename
+<span class="token keyword">FROM</span> emp<span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>다중 테이블 다중 행 입력
+<ul>
+<li>무조건 INSERT ALL: 명시된 테이블 모두에 넣음</li>
+<li>조건 INSERT ALL: 조건을 만족하는 테이블 모두에 넣음 (if문을 여러개 나열한 것과 동일)</li>
+<li>조건 INSERT FIRST: 가장 먼저 만족하는 조건에 넣고, 이후의 조건은 만족해도 넣지 않음 (if-else문과 동일)</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 무조건 INSERT ALL --</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">ALL</span>
+<span class="token keyword">INTO</span> sal_history <span class="token keyword">VALUES</span><span class="token punctuation">(</span>empno<span class="token punctuation">,</span> hiredate<span class="token punctuation">,</span> sal<span class="token punctuation">)</span>
+<span class="token keyword">INTO</span> mgr_history <span class="token keyword">VALUES</span><span class="token punctuation">(</span>empno<span class="token punctuation">,</span> mgr<span class="token punctuation">,</span> sal<span class="token punctuation">)</span>
+<span class="token keyword">SELECT</span> empno<span class="token punctuation">,</span> hiredate<span class="token punctuation">,</span> mgr<span class="token punctuation">,</span> sal
+<span class="token keyword">FROM</span> emp<span class="token punctuation">;</span>
+
+<span class="token comment">-- 조건 INSERT ALL --</span>
+<span class="token comment">-- sal이 800인 행이 두 테이블 모두에 들어감</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">ALL</span>
+<span class="token keyword">WHEN</span> sal <span class="token operator">=</span> <span class="token number">800</span> <span class="token keyword">THEN</span>
+    <span class="token keyword">INTO</span> sal_history <span class="token keyword">VALUES</span><span class="token punctuation">(</span>empno<span class="token punctuation">,</span> hiredate<span class="token punctuation">,</span> sal<span class="token punctuation">)</span>
+<span class="token keyword">WHEN</span> sal <span class="token operator">&lt;</span> <span class="token number">2500</span> <span class="token keyword">THEN</span>
+    <span class="token keyword">INTO</span> mgr_history <span class="token keyword">VALUES</span><span class="token punctuation">(</span>empno<span class="token punctuation">,</span> mgr<span class="token punctuation">,</span> sal<span class="token punctuation">)</span>
+<span class="token keyword">SELECT</span> empno<span class="token punctuation">,</span> hiredate<span class="token punctuation">,</span> sal<span class="token punctuation">,</span> mgr
+<span class="token keyword">FROM</span> emp<span class="token punctuation">;</span>
+
+<span class="token comment">-- 조건 INSERT FIRST --</span>
+<span class="token comment">-- sal이 800인 행이 sal_history에만 들어감</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">FIRST</span>
+<span class="token keyword">WHEN</span> sal <span class="token operator">=</span> <span class="token number">800</span> <span class="token keyword">THEN</span>
+    <span class="token keyword">INTO</span> sal_history <span class="token keyword">VALUES</span><span class="token punctuation">(</span>empno<span class="token punctuation">,</span> hiredate<span class="token punctuation">,</span> sal<span class="token punctuation">)</span>
+<span class="token keyword">WHEN</span> sal <span class="token operator">&lt;</span> <span class="token number">2500</span> <span class="token keyword">THEN</span>
+    <span class="token keyword">INTO</span> mgr_history <span class="token keyword">VALUES</span><span class="token punctuation">(</span>empno<span class="token punctuation">,</span> mgr<span class="token punctuation">,</span> sal<span class="token punctuation">)</span>
+<span class="token keyword">SELECT</span> empno<span class="token punctuation">,</span> hiredate<span class="token punctuation">,</span> sal<span class="token punctuation">,</span> mgr
+<span class="token keyword">FROM</span> emp<span class="token punctuation">;</span></code></pre></div>
+<h3>UPDATE</h3>
+<ul>
+<li>UPDATE: 테이블에 저장된 행들을 변경함
+<ul>
+<li>한번에 여러행 동시변경 가능</li>
+<li>WHERE조건을 넣지 않으면 모든 행이 변경됨</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">UPDATE</span> 테이블명
+<span class="token keyword">SET</span> 변경사항
+<span class="token keyword">WHERE</span> 조건<span class="token punctuation">;</span></code></pre></div>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">UPDATE</span> dept
+<span class="token keyword">SET</span> dname <span class="token operator">=</span> <span class="token string">'경리과'</span><span class="token punctuation">,</span> loc <span class="token operator">=</span> <span class="token string">'부산'</span>
+<span class="token keyword">WHERE</span> deptno <span class="token operator">=</span> <span class="token number">90</span><span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>서브쿼리로 여러 컬럼 변경가능</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">UPDATE</span> emp
+<span class="token keyword">SET</span> job <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> job
+           <span class="token keyword">FROM</span> emp
+           <span class="token keyword">WHERE</span> empno <span class="token operator">=</span> <span class="token number">7900</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    sal <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> sal
+           <span class="token keyword">FROM</span> emp
+           <span class="token keyword">WHERE</span> empno <span class="token operator">=</span> <span class="token number">7844</span><span class="token punctuation">)</span>
+<span class="token keyword">WHERE</span> empno <span class="token operator">=</span> <span class="token number">9001</span><span class="token punctuation">;</span></code></pre></div>
+<h3>DELETE</h3>
+<ul>
+<li>DELETE: 테이블에 저장된 행들을 삭제함
+<ul>
+<li>한번에 여러행 삭제 가능</li>
+<li>WHERE조건을 넣지 않으면 모든 행이 삭제됨</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> 테이블명
+<span class="token keyword">WHERE</span> 조건<span class="token punctuation">;</span></code></pre></div>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> dept
+<span class="token keyword">WHERE</span> deptno <span class="token operator">=</span> <span class="token number">91</span><span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>서브쿼리로 여러 행 삭제 가능</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> emp
+<span class="token keyword">WHERE</span> deptno <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> deptno
+                <span class="token keyword">FROM</span> dept
+                <span class="token keyword">WHERE</span> dname <span class="token operator">=</span> <span class="token string">'경리과'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<h3>MERGE</h3>
+<ul>
+<li>MERGE: 구조가 같은 두개의 테이블을 비교해 하나로 합침
+<ul>
+<li>ON 조건에 해당하는 행이 병합 대상 테이블에 이미 존재하면 UPDATE가, 존재하지 않으면 INSERT가 실행됨</li>
+<li>WHEN 절 안에 WHERE 구문이나 DELETE 구문을 추가할 수도 있음</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">MERGE</span> <span class="token keyword">INTO</span> 병합 대상 테이블
+<span class="token keyword">USING</span> 넣을 테이블
+<span class="token keyword">ON</span> <span class="token punctuation">(</span>조건<span class="token punctuation">)</span>
+<span class="token keyword">WHEN</span> <span class="token keyword">MATCHED</span> <span class="token keyword">THEN</span>
+	<span class="token keyword">UPDATE</span> <span class="token keyword">SET</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">WHEN</span> <span class="token operator">NOT</span> <span class="token keyword">MATCHED</span> <span class="token keyword">THEN</span>
+	<span class="token keyword">INSERT</span> <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span></code></pre></div>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">MERGE</span> <span class="token keyword">INTO</span> p_total total
+<span class="token keyword">USING</span> pt_01 p01
+<span class="token keyword">ON</span> <span class="token punctuation">(</span>total<span class="token punctuation">.</span>판매번호 <span class="token operator">=</span> p01<span class="token punctuation">.</span>판매번호<span class="token punctuation">)</span>
+<span class="token keyword">WHEN</span> <span class="token keyword">MATCHED</span> <span class="token keyword">THEN</span>
+    <span class="token keyword">UPDATE</span> <span class="token keyword">SET</span> total<span class="token punctuation">.</span>제품번호 <span class="token operator">=</span> p01<span class="token punctuation">.</span>제품번호
+<span class="token keyword">WHEN</span> <span class="token operator">NOT</span> <span class="token keyword">MATCHED</span> <span class="token keyword">THEN</span>
+    <span class="token keyword">INSERT</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span>p01<span class="token punctuation">.</span>판매번호<span class="token punctuation">,</span> p01<span class="token punctuation">.</span>제품번호<span class="token punctuation">,</span> p01<span class="token punctuation">.</span>수량<span class="token punctuation">,</span> p01<span class="token punctuation">.</span>금액<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+<span class="token keyword">MERGE</span> <span class="token keyword">INTO</span> p_total total
+<span class="token keyword">USING</span> pt_02 p02
+<span class="token keyword">ON</span> <span class="token punctuation">(</span>total<span class="token punctuation">.</span>판매번호 <span class="token operator">=</span> p02<span class="token punctuation">.</span>판매번호<span class="token punctuation">)</span>
+<span class="token keyword">WHEN</span> <span class="token keyword">MATCHED</span> <span class="token keyword">THEN</span>
+    <span class="token keyword">UPDATE</span> <span class="token keyword">SET</span> total<span class="token punctuation">.</span>제품번호 <span class="token operator">=</span> p02<span class="token punctuation">.</span>제품번호
+<span class="token keyword">WHEN</span> <span class="token operator">NOT</span> <span class="token keyword">MATCHED</span> <span class="token keyword">THEN</span>
+    <span class="token keyword">INSERT</span> <span class="token keyword">VALUES</span><span class="token punctuation">(</span>p02<span class="token punctuation">.</span>판매번호<span class="token punctuation">,</span> p02<span class="token punctuation">.</span>제품번호<span class="token punctuation">,</span> p02<span class="token punctuation">.</span>수량<span class="token punctuation">,</span> p02<span class="token punctuation">.</span>금액<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<h3>트랜젝션</h3>
+<ul>
+<li>Transaction: 데이터베이스의 논리적 단위
+<ul>
+<li>DML문은 트랜젝션의 대상이 됨</li>
+<li>DML을 사용하는 순간 트랜젝션이 시작되며, COMMIT이나 ROLLBACK을 실행해야 트랜젝션이 종료됨
+<ul>
+<li>COMMIT: 트랜젝션의 모든 데이터 변경사항을 DB에 영구 반영</li>
+<li>ROLLBACK: 트랜젝션의 모든 데이터 변경사항을 취소</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><em>SQL디벨로퍼에서 DML로 테이블을 조작해도 실제 DB엔 반영이 안된 상태이며, COMMIT을 해야 실제 DB에 반영되므로 반드시 DML 사용 후 COMMIT을 해줘야 한다.</em></p>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> copy_dept <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'BB'</span><span class="token punctuation">,</span> <span class="token string">'BB'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- 트랜젝션 시작</span>
+<span class="token keyword">COMMIT</span><span class="token punctuation">;</span> <span class="token comment">-- 트랜젝션 종료</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> copy_dept <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'CC'</span><span class="token punctuation">,</span> <span class="token string">'CC'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- 시작</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> copy_dept <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token string">'DD'</span><span class="token punctuation">,</span> <span class="token string">'DD'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">ROLLBACK</span><span class="token punctuation">;</span> <span class="token comment">-- 종료</span>
+
+<span class="token comment">-- DB엔 2번 값만 추가됨</span></code></pre></div>
+<ul>
+<li>하나의 트랜젝션은 하나 이상의 SQL문이 포함되며, 분할할수 없는 최소의 단위임. 그러므로 전부 적용하거나 전부 취소됨 (ALL or Nothing)</li>
+<li>트랜젝션 내 모든 데이터 변경 사항은 트랜젝션 종료 전까진 임시적임</li>
+<li>따라서 데이터 변경 전 데이터로 복구 가능함</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> copy_dept <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span> <span class="token string">'TT'</span><span class="token punctuation">,</span> <span class="token string">'TT'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">UPDATE</span> copy_dept <span class="token keyword">SET</span> loc <span class="token operator">=</span> <span class="token string">'서울'</span><span class="token punctuation">;</span>
+<span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> copy_dept <span class="token keyword">WHERE</span> deptno <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+<span class="token keyword">COMMIT</span><span class="token operator">/</span><span class="token keyword">ROLLBACK</span><span class="token punctuation">;</span> <span class="token comment">-- 위의 3줄 전부 반영/취소됨</span></code></pre></div>
+<ul>
+<li>트랜젝션 중 변경된 행은 Lock이 걸리며, 트랜젝션 종료 전까지 다른 사용자는 해당 행을 변경할 수 없음</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- scott 계정 --</span>
+<span class="token keyword">UPDATE</span> copy_dept <span class="token keyword">SET</span> loc <span class="token operator">=</span> <span class="token string">'서울'</span>
+<span class="token keyword">WHERE</span> deptno <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- sys 계정 --</span>
+<span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> scott<span class="token punctuation">.</span>copy_dept
+<span class="token keyword">WHERE</span> deptno <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span> <span class="token comment">-- 로딩만 돌고 실행 안됨 (Lock의 경합)</span>
+
+<span class="token comment">-- scott 계정 --</span>
+<span class="token keyword">COMMIT</span><span class="token punctuation">;</span> <span class="token comment">-- 로딩 끝나고 실행됨</span>
+
+<span class="token comment">-- sys 계정 --</span>
+<span class="token keyword">COMMIT</span><span class="token punctuation">;</span> <span class="token comment">-- 삭제 반영</span></code></pre></div>
+<ul>
+<li>트랜젝션 중 현재 사용자는 SELECT문을 이용해 미리 변경 결과를 확인할 수 있으나, 다른 사용자는 트랜젝션 종료 전까진 변경 전 결과만 확인 가능함</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- scott 계정 --</span>
+<span class="token keyword">UPDATE</span> copy_dept <span class="token keyword">SET</span> loc <span class="token operator">=</span> <span class="token string">'부산'</span>
+<span class="token keyword">WHERE</span> deptno <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- sys 계정 --</span>
+<span class="token keyword">SELECT</span> loc
+<span class="token keyword">FROM</span> scott<span class="token punctuation">.</span>copy_dept
+<span class="token keyword">WHERE</span> deptno <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">-- AA</span>
+
+<span class="token comment">-- scott 계정 --</span>
+<span class="token keyword">COMMIT</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- sys 계정 --</span>
+<span class="token keyword">SELECT</span> loc
+<span class="token keyword">FROM</span> scott<span class="token punctuation">.</span>copy_dept
+<span class="token keyword">WHERE</span> deptno <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">-- 부산</span></code></pre></div>
+<p><em>위 두가지 특성을 통해 데이터의 일관성을 보장해준다.</em></p></div><style data-emotion="css hx9xpc">@media (max-width: 768px){.css-hx9xpc{padding:0 20px;}}</style><div class="css-hx9xpc e1gqsjds0"></div><style data-emotion="css 1591gnd">.css-1591gnd{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 830px){.css-1591gnd{font-size:13px;}}</style><footer class="css-1591gnd e1oae0v80">Thank You for Visiting My Blog, Have a Good Day 😆<br/>© 2023 Developer CheeseB, Powered By Gatsby.</footer></main></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/sql-dml/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-b916820085d99dc4bdaa.js\"],\"component---src-pages-404-tsx\":[\"/component---src-pages-404-tsx-384eab2b592d62e3c10a.js\"],\"component---src-pages-index-tsx\":[\"/component---src-pages-index-tsx-7b8bf88194ff3edbef01.js\"],\"component---src-templates-post-template-tsx\":[\"/component---src-templates-post-template-tsx-0742a68e2dd8bf32bee9.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="7527fbc93c0223eac30d";</script><script src="/webpack-runtime-bc0f2929ebd5197b0394.js" async></script><script src="/framework-a4e155cd0476dc1ca208.js" async></script><script src="/app-b916820085d99dc4bdaa.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 5.6.0"/><meta data-rh="true" name="description" content="SQL 공부"/><meta data-rh="true" name="viewport" content="width=device-width, initial-scale=1.0"/><meta data-rh="true" http-equiv="Content-Type" content="text/html;charset=UTF-8"/><meta data-rh="true" property="og:type" content="website"/><meta data-rh="true" property="og:title" content="[SQL] Day3 - 단일행 함수(2)"/><meta data-rh="true" property="og:description" content="SQL 공부"/><meta data-rh="true" property="og:image" content="/static/e903609fcd0b9ce1994b2012b5405f2e/mysql.png"/><meta data-rh="true" property="og:url"/><meta data-rh="true" property="og:site_name" content="[SQL] Day3 - 단일행 함수(2)"/><meta data-rh="true" name="twitter:card" content="summary"/><meta data-rh="true" name="twitter:title" content="[SQL] Day3 - 단일행 함수(2)"/><meta data-rh="true" name="twitter:description" content="SQL 공부"/><meta data-rh="true" name="twitter:image" content="/static/e903609fcd0b9ce1994b2012b5405f2e/mysql.png"/><meta data-rh="true" name="msapplication-TileColor" content="#FEC479"/><meta data-rh="true" name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png"/><meta data-rh="true" name="theme-color" content="#FEC479"/><meta data-rh="true" name="google-site-verification" content="QxP8HV3avuS-TynhxJcJZBJnyXaInJHSmpLvXF9PiWU"/><meta data-rh="true" name="naver-site-verification" content="ae65cb659d9c9ea1ae78b5b3cf6745526fe8ef8d"/><style data-href="/styles.9e907bc32054b7771552.css" data-identity="gatsby-global-css">code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#ccc;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}</style><title data-rh="true">[SQL] Day3 - 단일행 함수(2)</title><link data-rh="true" rel="shortcut icon" href="/favicon/favicon.ico"/><link data-rh="true" rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png"/><link data-rh="true" rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png"/><link data-rh="true" rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png"/><link data-rh="true" rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png"/><link data-rh="true" rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png"/><link data-rh="true" rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png"/><link data-rh="true" rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png"/><link data-rh="true" rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png"/><link data-rh="true" rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png"/><link data-rh="true" rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png"/><link data-rh="true" rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/><link data-rh="true" rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png"/><link data-rh="true" rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/><link data-rh="true" rel="manifest" href="/favicon/manifest.json"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="canonical" href="https://cheeseb.github.io/sql-function/" data-baseprotocol="https:" data-basehost="cheeseb.github.io"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="/favicon-32x32.png?v=88f3f2d5c3caabe0563dc6a01b773ae8" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=88f3f2d5c3caabe0563dc6a01b773ae8"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css 13ku56z">.css-13ku56z{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;height:100%;}</style><main class="css-13ku56z e1strnqo0"><style data-emotion="css-global kxm5mf">@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');*{padding:0;margin:0;box-sizing:border-box;font-family:'Nanum Myeongjo',serif;}html,body,#___gatsby{height:100%;}a,a:hover{color:inherit;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;}</style><style data-emotion="css 16cz9yp">.css-16cz9yp{position:relative;width:100%;height:400px;}@media (max-width: 768px){.css-16cz9yp{height:300px;}}</style><div class="css-16cz9yp e1opi4mu1"><style data-emotion="css 1bjn9yo">.css-1bjn9yo{z-index:-1;width:100%;height:400px;object-fit:cover;-webkit-filter:brightness(0.25);filter:brightness(0.25);}@media (max-width: 768px){.css-1bjn9yo{height:300px;}}</style><div data-gatsby-image-wrapper="" style="position:absolute" class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-1bjn9yo e1opi4mu0"><div style="max-width:1170px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg%20height=&#x27;510.99999999999994&#x27;%20width=&#x27;1170&#x27;%20xmlns=&#x27;http://www.w3.org/2000/svg&#x27;%20version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><img aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear" decoding="async" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAq0lEQVR42p2RzQ7CIBCEef/H8ezJB/BmosWfRKtFC2KKpD/CjlFTYzVtsXPZsMt+mQGGFhHRu3qixrlLrGv4vRwCZX2wWGWY7yUq54KgrA1WLyTaYH3UWBwkypsb5vATaPISUaKgrjm4OPe6ZCHvtzlpgBxmcQou9LPn/438kDIWoylHtItRbCe4LMdQWv2kCAY675FmFishUVkJsgLwBeh1aXjkRr+GtXzKHc1lxsPVZCtJAAAAAElFTkSuQmCC" alt=""/><picture><source type="image/webp" data-srcset="/static/e903609fcd0b9ce1994b2012b5405f2e/35fd3/mysql.webp 293w,/static/e903609fcd0b9ce1994b2012b5405f2e/cd395/mysql.webp 585w,/static/e903609fcd0b9ce1994b2012b5405f2e/7713b/mysql.webp 1170w" sizes="(min-width: 1170px) 1170px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1170px) 1170px, 100vw" decoding="async" loading="lazy" data-src="/static/e903609fcd0b9ce1994b2012b5405f2e/ce7af/mysql.png" data-srcset="/static/e903609fcd0b9ce1994b2012b5405f2e/335f7/mysql.png 293w,/static/e903609fcd0b9ce1994b2012b5405f2e/1f8e6/mysql.png 585w,/static/e903609fcd0b9ce1994b2012b5405f2e/ce7af/mysql.png 1170w" alt="thumbnail"/></picture><noscript><picture><source type="image/webp" srcSet="/static/e903609fcd0b9ce1994b2012b5405f2e/35fd3/mysql.webp 293w,/static/e903609fcd0b9ce1994b2012b5405f2e/cd395/mysql.webp 585w,/static/e903609fcd0b9ce1994b2012b5405f2e/7713b/mysql.webp 1170w" sizes="(min-width: 1170px) 1170px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1170px) 1170px, 100vw" decoding="async" loading="lazy" src="/static/e903609fcd0b9ce1994b2012b5405f2e/ce7af/mysql.png" srcSet="/static/e903609fcd0b9ce1994b2012b5405f2e/335f7/mysql.png 293w,/static/e903609fcd0b9ce1994b2012b5405f2e/1f8e6/mysql.png 585w,/static/e903609fcd0b9ce1994b2012b5405f2e/ce7af/mysql.png 1170w" alt="thumbnail"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><style data-emotion="css m1156n">.css-m1156n{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;height:100%;margin:0 auto;padding:60px 0;color:#ffffff;}@media (max-width: 768px){.css-m1156n{width:100%;padding:40px 20px;}}</style><div class="css-m1156n e1st1jau3"><style data-emotion="css gywgo7">.css-gywgo7{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#ffffff;color:#000000;font-size:22px;cursor:pointer;box-shadow:0 0 10px rgba(0, 0, 0, 0.3);}@media (max-width: 768px){.css-gywgo7{width:30px;height:30px;font-size:18px;}}</style><div class="css-gywgo7 e1st1jau2"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-left" class="svg-inline--fa fa-arrow-left " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></div><style data-emotion="css gn4qtp">.css-gn4qtp{display:-webkit-box;overflow:hidden;overflow-wrap:break-word;margin-top:auto;text-overflow:ellipsis;white-space:normal;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:45px;font-weight:800;}@media (max-width: 768px){.css-gn4qtp{font-size:30px;}}</style><div class="css-gn4qtp e1st1jau1">[SQL] Day3 - 단일행 함수(2)</div><style data-emotion="css 3gcnt2">.css-3gcnt2{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-top:10px;font-size:18px;font-weight:700;}@media (max-width: 768px){.css-3gcnt2{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;font-size:15px;font-weight:400;}}</style><div class="css-3gcnt2 e1st1jau0"><div>MySQL</div><div>2021.01.07.</div></div></div></div><style data-emotion="css uo146q">.css-uo146q{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;margin:0 auto;padding:100px 0;word-break:break-all;line-height:1.8;font-size:16px;font-weight:400;}.css-uo146q p{padding:3px 0;}.css-uo146q h1,.css-uo146q h2,.css-uo146q h3{font-weight:800;margin-bottom:30px;}.css-uo146q *+h1,.css-uo146q *+h2,.css-uo146q *+h3{margin-top:80px;}.css-uo146q hr+h1,.css-uo146q hr+h2,.css-uo146q hr+h3{margin-top:0;}.css-uo146q h1{font-size:30px;}.css-uo146q h2{font-size:25px;}.css-uo146q h3{font-size:20px;}.css-uo146q blockquote{margin:30px 0;padding:5px 15px;border-left:2px solid #000000;font-weight:800;}.css-uo146q ol,.css-uo146q ul{margin-left:20px;padding:30px 0;}.css-uo146q hr{border:1px solid #000000;margin:100px 0;}.css-uo146q a{color:#4263eb;-webkit-text-decoration:underline;text-decoration:underline;}.css-uo146q pre[class*='language-']{margin:30px 0;padding:15px;font-size:15px;}.css-uo146q pre[class*='language-']::-webkit-scrollbar-thumb{background:rgba(255, 255, 255, 0.5);border-radius:3px;}.css-uo146q code[class*='language-'],.css-uo146q pre[class*='language-']{tab-size:2;}@media (max-width: 768px){.css-uo146q{width:100%;padding:80px 20px;line-height:1.6;font-size:14px;}.css-uo146q h1{font-size:23px;}.css-uo146q h2{font-size:20px;}.css-uo146q h3{font-size:17px;}.css-uo146q img{width:100%;}.css-uo146q hr{margin:50px 0;}}</style><div class="css-uo146q e1ijh0y10"><h2>학습 정리</h2>
+<h3>단일행 함수 - 문자열 함수(2)</h3>
+<ul>
+<li>LTRIM/RTRIM: 첫 문자/끝 문자부터 지정 문자 제거
+<ul>
+<li>지정문자 생략하면 공백문자 제거</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- LTRIM --</span>
+<span class="token keyword">SELECT</span> LTRIM<span class="token punctuation">(</span><span class="token string">'OMG'</span><span class="token punctuation">,</span> <span class="token string">'O'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> LTRIM<span class="token punctuation">(</span><span class="token number">1234</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> dual<span class="token punctuation">;</span> <span class="token comment">-- 'MG', 234</span>
+
+<span class="token keyword">SELECT</span> LTRIM<span class="token punctuation">(</span><span class="token string">'   MILLER   '</span><span class="token punctuation">)</span><span class="token punctuation">,</span> LENGTH<span class="token punctuation">(</span>LTRIM<span class="token punctuation">(</span><span class="token string">'   MILLER   '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> dual<span class="token punctuation">;</span> <span class="token comment">-- 'MILLER   ', 9</span>
+
+<span class="token comment">-- RTRIM --</span>
+<span class="token keyword">SELECT</span> RTRIM<span class="token punctuation">(</span><span class="token string">'MILLER'</span><span class="token punctuation">,</span> <span class="token string">'R'</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> dual<span class="token punctuation">;</span> <span class="token comment">-- 'MILLE'</span>
+
+<span class="token keyword">SELECT</span> RTRIM<span class="token punctuation">(</span><span class="token string">'   MILLER   '</span><span class="token punctuation">)</span><span class="token punctuation">,</span> LENGTH<span class="token punctuation">(</span>RTRIM<span class="token punctuation">(</span><span class="token string">'   MILLER   '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> dual<span class="token punctuation">;</span> <span class="token comment">-- '   MILLER', 9</span></code></pre></div>
+<ul>
+<li>TRIM(LEADING/TRAILING/BOTH): 처음/끝/양쪽 에서 지정문자 제거
+<ul>
+<li>방향이 생략되면 both가 기본</li>
+<li>제거할 문자 생략하면 공백문자 제거</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 양옆의 공백만 제거할거면 문자열만 인자로 넣어도 됨</span>
+<span class="token comment">-- 제거할 문자나 방향을 지정할거면 FROM 필요</span>
+<span class="token keyword">SELECT</span> TRIM<span class="token punctuation">(</span><span class="token number">0</span> <span class="token keyword">FROM</span> <span class="token number">00012345000</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> dual<span class="token punctuation">;</span> <span class="token comment">-- 12345</span>
+
+<span class="token keyword">SELECT</span> TRIM<span class="token punctuation">(</span>LEADING <span class="token keyword">FROM</span> <span class="token string">'   aa   '</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> dual<span class="token punctuation">;</span> <span class="token comment">-- 'aa   '</span>
+
+<span class="token keyword">SELECT</span> TRIM<span class="token punctuation">(</span>TRAILING <span class="token keyword">FROM</span> <span class="token string">'   aa   '</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> dual<span class="token punctuation">;</span> <span class="token comment">-- '   aa'</span>
+
+<span class="token keyword">SELECT</span> TRIM<span class="token punctuation">(</span><span class="token string">'  ABC  '</span><span class="token punctuation">)</span><span class="token punctuation">,</span> LENGTH<span class="token punctuation">(</span>TRIM<span class="token punctuation">(</span><span class="token string">'  ABC  '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> dual<span class="token punctuation">;</span> <span class="token comment">-- 'ABC', 3</span></code></pre></div>
+<h3>단일행 함수 - 수학 함수</h3>
+<ul>
+<li>CEIL/FLOOR: 올림/버림</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> CEIL<span class="token punctuation">(</span><span class="token number">10.1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> FLOOR<span class="token punctuation">(</span><span class="token number">10.7</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> dual<span class="token punctuation">;</span> <span class="token comment">-- 11, 10</span></code></pre></div>
+<ul>
+<li>ROUND: 반올림
+<ul>
+<li>두번째 인자 n이 양수면 소수 n+1자리, 음수면 정수 n자리에서 반올림</li>
+<li>n이 생략되면 기본값은 0</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">ROUND</span><span class="token punctuation">(</span><span class="token number">4567.678</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">ROUND</span><span class="token punctuation">(</span><span class="token number">4567.678</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">ROUND</span><span class="token punctuation">(</span><span class="token number">4567.678</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">ROUND</span><span class="token punctuation">(</span><span class="token number">4567.678</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> dual<span class="token punctuation">;</span> <span class="token comment">-- 4568, 4568, 4567.68, 4600</span></code></pre></div>
+<ul>
+<li>TRUNC: 절삭함수
+<ul>
+<li>두번째 인자 n이 양수면 소수 n+1자리, 음수면 정수 n자리에서 절삭</li>
+<li>n이 생략되면 기본값은 0</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> TRUNC<span class="token punctuation">(</span><span class="token number">4567.678</span><span class="token punctuation">)</span><span class="token punctuation">,</span> TRUNC<span class="token punctuation">(</span><span class="token number">4567.678</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> TRUNC<span class="token punctuation">(</span><span class="token number">4567.678</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> TRUNC<span class="token punctuation">(</span><span class="token number">4567.678</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> dual<span class="token punctuation">;</span> <span class="token comment">-- 4567, 4567, 4567.67, 4500</span></code></pre></div>
+<ul>
+<li>MOD: 나머지 연산
+<ul>
+<li>첫번째 인자 m을 두번째 인자 n으로 나눈 나머지</li>
+<li>n이 0이면 m 자체를 반환</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">MOD</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">MOD</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> dual<span class="token punctuation">;</span> <span class="token comment">-- 1, 10</span></code></pre></div>
+<ul>
+<li>SIGN: 값이 양수/음수/0 인지 판단 (양수:1, 음수:-1, 0:0)</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> SIGN<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span> SIGN<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span> SIGN<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> dual<span class="token punctuation">;</span> <span class="token comment">-- 1, -1, 0</span></code></pre></div>
+<h3>단일행 함수 - 날짜 함수</h3>
+<ul>
+<li>SYSDATE/SYSTIMESTAMP: 서버에 설정된 날짜/날짜+시간 리턴
+<ul>
+<li>날짜에 사칙연산 가능</li>
+</ul>
+</li>
+</ul>
+<img src="{{site.url}}/assets/img/post/sql3.jpg">
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> SYSDATE 오늘<span class="token punctuation">,</span> SYSDATE<span class="token operator">+</span><span class="token number">1</span> 내일<span class="token punctuation">,</span> SYSDATE<span class="token operator">-</span><span class="token number">1</span> 어제
+<span class="token keyword">FROM</span> dual<span class="token punctuation">;</span> <span class="token comment">-- 21/01/07, 21/01/08, 21/01/06</span></code></pre></div>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 근무 년도수 구하기</span>
+<span class="token keyword">SELECT</span> TRUNC<span class="token punctuation">(</span><span class="token punctuation">(</span>SYSDATE <span class="token operator">-</span> hiredate<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">365</span><span class="token punctuation">)</span> <span class="token string">"년"</span>
+<span class="token keyword">FROM</span> emp
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> 년 <span class="token keyword">DESC</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- 근무일 수가 몇주 몇일인지 구하기</span>
+<span class="token keyword">SELECT</span> SYSDATE <span class="token operator">-</span> hiredate <span class="token string">"Total Days"</span><span class="token punctuation">,</span>
+    TRUNC<span class="token punctuation">(</span><span class="token punctuation">(</span>SYSDATE <span class="token operator">-</span> hiredate<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">7</span><span class="token punctuation">)</span> Weeks<span class="token punctuation">,</span>
+    <span class="token function">ROUND</span><span class="token punctuation">(</span><span class="token function">MOD</span><span class="token punctuation">(</span><span class="token punctuation">(</span>SYSDATE <span class="token operator">-</span> hiredate<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">)</span> Days
+<span class="token keyword">FROM</span> emp<span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>MONTHS_BETWEEN: 날짜와 날짜 사이의 월수를 계산함
+<ul>
+<li>결과는 양수, 음수 둘다 될수 있음</li>
+<li>이후의 날짜를 앞에 둬야 양수가 됨</li>
+<li>결과의 소수 부분은 월의 부분을 나타냄</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 월의 부분을 제외하고 월만 구하기 위해 TRUNC 사용</span>
+<span class="token keyword">SELECT</span> TRUNC<span class="token punctuation">(</span>MONTHS_BETWEEN<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">,</span> TO_DATE<span class="token punctuation">(</span><span class="token string">'200101'</span><span class="token punctuation">,</span> <span class="token string">'YYMMDD'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> dual<span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>ADD_MONTHS: 날짜에 월을 더하거나 뺌
+<ul>
+<li>두번째 인자가 양수면 더하기, 음수면 빼기</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> sysdate 현재<span class="token punctuation">,</span> ADD_MONTHS<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span> 다음달<span class="token punctuation">,</span> ADD_MONTHS<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> 이전달
+<span class="token keyword">FROM</span> dual<span class="token punctuation">;</span> <span class="token comment">-- 21/01/07, 21/02/07, 20/12/07</span></code></pre></div>
+<ul>
+<li>NEXT_DAY: 지정 날짜로부터 돌아오는 요일에 해당하는 가장 가까운 날짜 반환
+<ul>
+<li>요일 지정은 ‘일요일’, ‘일’, 1 과 같이 가능함</li>
+<li>일:1, 월:2, …, 토:7</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> NEXT_DAY<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">,</span> <span class="token string">'일'</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> dual<span class="token punctuation">;</span> <span class="token comment">-- 21/01/10</span>
+<span class="token keyword">SELECT</span> NEXT_DAY<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> dual<span class="token punctuation">;</span> <span class="token comment">-- 21/01/10</span></code></pre></div>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 오늘부터 5개월 뒤 돌아오는 토요일의 날짜 계산</span>
+<span class="token keyword">SELECT</span> NEXT_DAY<span class="token punctuation">(</span>ADD_MONTHS<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'토'</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> dual<span class="token punctuation">;</span> <span class="token comment">-- 21/06/12</span></code></pre></div>
+<ul>
+<li>LAST_DAY: 지정 날짜에 해당하는 월의 마지막 날짜 반환
+<ul>
+<li>윤년, 평년은 자동계산</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> LAST_DAY<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> dual<span class="token punctuation">;</span> <span class="token comment">-- 21/01/31</span></code></pre></div>
+<ul>
+<li>ROUND/TRUNC: 날짜를 가장 가까운 년도나 월로 반올림/절삭</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">ROUND</span><span class="token punctuation">(</span>hiredate<span class="token punctuation">,</span> <span class="token string">'YEAR'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">ROUND</span><span class="token punctuation">(</span>hiredate<span class="token punctuation">,</span> <span class="token string">'MONTH'</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> emp
+<span class="token keyword">WHERE</span> empno <span class="token operator">=</span> <span class="token number">7839</span><span class="token punctuation">;</span> <span class="token comment">-- 81/11/17, 82/01/01, 81/12/01</span>
+
+<span class="token keyword">SELECT</span> TRUNC<span class="token punctuation">(</span>hiredate<span class="token punctuation">,</span> <span class="token string">'YEAR'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> TRUNC<span class="token punctuation">(</span>hiredate<span class="token punctuation">,</span> <span class="token string">'MONTH'</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> emp
+<span class="token keyword">WHERE</span> empno <span class="token operator">=</span> <span class="token number">7839</span><span class="token punctuation">;</span> <span class="token comment">-- 81/11/17, 81/01/01, 81/11/01</span></code></pre></div>
+<h3>단일행 함수 - 변환함수</h3>
+<ul>
+<li>sql에선 묵시적 변환이 허용되지만 권장되진 않음.</li>
+<li>명시적 변환 종류
+<ul>
+<li>TO_NUMBER, TO_DATE, TO_CHAR</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> empno<span class="token punctuation">,</span> ename
+<span class="token keyword">FROM</span> emp
+<span class="token keyword">WHERE</span> empno <span class="token operator">=</span> <span class="token string">'7900'</span><span class="token punctuation">;</span> <span class="token comment">-- 숫자형으로 묵시적 변환</span>
+
+<span class="token keyword">SELECT</span> empno<span class="token punctuation">,</span> ename
+<span class="token keyword">FROM</span> emp
+<span class="token keyword">WHERE</span> empno <span class="token operator">=</span> TO_NUMBER<span class="token punctuation">(</span><span class="token string">'7900'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- 명시적 변환</span>
+
+<span class="token keyword">SELECT</span> empno<span class="token punctuation">,</span> ename<span class="token punctuation">,</span> hiredate
+<span class="token keyword">FROM</span> emp
+<span class="token keyword">WHERE</span> hiredate <span class="token operator">=</span> <span class="token string">'82/01/23'</span><span class="token punctuation">;</span> <span class="token comment">-- 날짜형으로 묵시적 변환</span>
+
+<span class="token keyword">SELECT</span> empno<span class="token punctuation">,</span> ename<span class="token punctuation">,</span> hiredate
+<span class="token keyword">FROM</span> emp
+<span class="token keyword">WHERE</span> hiredate <span class="token operator">=</span> TO_DATE<span class="token punctuation">(</span><span class="token string">'82/01/23'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">-- 명시적 변환</span></code></pre></div>
+<ul>
+<li>TO_CHAR 함수는 변환 시 형식을 지정할 수 있음</li>
+</ul>
+<img src="{{site.url}}/assets/img/post/sql4.jpg">
+<img src="{{site.url}}/assets/img/post/sql5.jpg">
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> SYSDATE<span class="token punctuation">,</span> TO_CHAR<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">,</span> <span class="token string">'YYYY/MM/DD, (AM)DY HH24:MI:SS'</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> dual<span class="token punctuation">;</span>
+<span class="token comment">-- 21/01/07</span>
+<span class="token comment">-- 2021/01/07, (오후)목 12:39:22</span></code></pre></div>
+<ul>
+<li>문자열 변환 시 안에 문자열을 넣고자 할 땐 안에 큰따옴표 써야함</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> TO_CHAR<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">,</span> <span class="token string">'YYYY"년" MM"월" DD"일"'</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> dual<span class="token punctuation">;</span> <span class="token comment">-- 2021년 01월 07일</span></code></pre></div>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 입사한 달이 9월인 사람을 빨리 입사한 순으로 정렬</span>
+<span class="token keyword">SELECT</span> empno<span class="token punctuation">,</span> ename<span class="token punctuation">,</span> hiredate
+<span class="token keyword">FROM</span> emp
+<span class="token keyword">WHERE</span> TO_CHAR<span class="token punctuation">(</span>hiredate<span class="token punctuation">,</span> <span class="token string">'MM'</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">'09'</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token number">3</span><span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>TO_DATE는 왼쪽의 문자열을 오른쪽의 날짜 형식으로 변환함</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> TO_DATE<span class="token punctuation">(</span><span class="token string">'20170802181030'</span><span class="token punctuation">,</span> <span class="token string">'YYYYMMDDHH24MISS'</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> dual<span class="token punctuation">;</span> <span class="token comment">-- 17/08/02</span>
+
+<span class="token comment">-- SQL의 기본 날짜 표현방식 바꾸기</span>
+<span class="token keyword">ALTER</span> <span class="token keyword">SESSION</span> <span class="token keyword">SET</span> NLS_DATE_FORMAT<span class="token operator">=</span><span class="token string">'YYYY/MM/DD HH24:MI:SS'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">SELECT</span> TO_DATE<span class="token punctuation">(</span><span class="token string">'20170802181030'</span><span class="token punctuation">,</span> <span class="token string">'YYYYMMDDHH24MISS'</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> dual<span class="token punctuation">;</span> <span class="token comment">-- 2017/08/02 18:10:30</span></code></pre></div>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- 현재 나이 구하기</span>
+<span class="token keyword">SELECT</span> <span class="token punctuation">(</span>TO_CHAR<span class="token punctuation">(</span>SYSDATE<span class="token punctuation">,</span> <span class="token string">'YYYY'</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1997</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span> <span class="token keyword">AS</span> <span class="token string">"나이"</span>
+<span class="token keyword">FROM</span> dual<span class="token punctuation">;</span></code></pre></div>
+<h3>단일행 함수 - 조건함수</h3>
+<ul>
+<li>DECODE: switch문과 같음</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> empno<span class="token punctuation">,</span> ename<span class="token punctuation">,</span> sal<span class="token punctuation">,</span> job<span class="token punctuation">,</span>
+	DECODE<span class="token punctuation">(</span>job<span class="token punctuation">,</span> <span class="token string">'ANALYST'</span><span class="token punctuation">,</span> sal<span class="token operator">*</span><span class="token number">1.1</span><span class="token punctuation">,</span> <span class="token comment">-- job이 'ANALYST'면 sal*1.1 </span>
+            	<span class="token string">'CLERK'</span><span class="token punctuation">,</span> sal<span class="token operator">*</span><span class="token number">1.2</span><span class="token punctuation">,</span>
+            	<span class="token string">'MANAGER'</span><span class="token punctuation">,</span> sal<span class="token operator">*</span><span class="token number">1.3</span><span class="token punctuation">,</span>
+            	<span class="token string">'PRESIDENT'</span><span class="token punctuation">,</span> sal<span class="token operator">*</span><span class="token number">1.4</span><span class="token punctuation">,</span>
+				sal<span class="token punctuation">)</span> <span class="token keyword">AS</span> <span class="token string">"급여"</span> <span class="token comment">-- 마지막은 디폴트</span>
+<span class="token keyword">FROM</span> emp<span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li><strong>CASE</strong>: if문과 같음 (switch처럼 쓸수있지만 범위 조건도 가능)
+<ul>
+<li>DECODE와 달리 조건마다 쉼표를 붙이지 않고 WHEN, THEN, ELSE 사용</li>
+<li>CASE문의 끝엔 END를 붙여줘야 함</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> empno<span class="token punctuation">,</span> ename<span class="token punctuation">,</span> sal<span class="token punctuation">,</span> job<span class="token punctuation">,</span>
+	<span class="token keyword">CASE</span> job <span class="token keyword">WHEN</span> <span class="token string">'ANALYST'</span> <span class="token keyword">THEN</span> sal<span class="token operator">*</span><span class="token number">1.1</span>
+         	 <span class="token keyword">WHEN</span> <span class="token string">'CLERK'</span> <span class="token keyword">THEN</span> sal<span class="token operator">*</span><span class="token number">1.2</span>
+         	 <span class="token keyword">WHEN</span> <span class="token string">'MANAGER'</span> <span class="token keyword">THEN</span> sal<span class="token operator">*</span><span class="token number">1.3</span>
+         	 <span class="token keyword">WHEN</span> <span class="token string">'PRESIDENT'</span> <span class="token keyword">THEN</span> sal<span class="token operator">*</span><span class="token number">1.4</span>
+         	 <span class="token keyword">ELSE</span> sal <span class="token comment">-- 디폴트</span>
+	<span class="token keyword">END</span> <span class="token string">"급여"</span>
+<span class="token keyword">FROM</span> emp<span class="token punctuation">;</span></code></pre></div>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> empno<span class="token punctuation">,</span> ename<span class="token punctuation">,</span>
+	<span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> sal<span class="token operator">>=</span><span class="token number">0</span> <span class="token operator">AND</span> sal <span class="token operator">&lt;=</span><span class="token number">1000</span> <span class="token keyword">THEN</span> <span class="token string">'E'</span>
+		 <span class="token keyword">WHEN</span> sal<span class="token operator">></span><span class="token number">1000</span> <span class="token operator">AND</span> sal <span class="token operator">&lt;=</span><span class="token number">2000</span> <span class="token keyword">THEN</span> <span class="token string">'D'</span>
+    	 <span class="token keyword">WHEN</span> sal<span class="token operator">></span><span class="token number">2000</span> <span class="token operator">AND</span> sal <span class="token operator">&lt;=</span><span class="token number">3000</span> <span class="token keyword">THEN</span> <span class="token string">'C'</span>
+     	 <span class="token keyword">WHEN</span> sal<span class="token operator">></span><span class="token number">3000</span> <span class="token operator">AND</span> sal <span class="token operator">&lt;=</span><span class="token number">4000</span> <span class="token keyword">THEN</span> <span class="token string">'B'</span>
+     	 <span class="token keyword">WHEN</span> sal<span class="token operator">></span><span class="token number">4000</span> <span class="token operator">AND</span> sal <span class="token operator">&lt;=</span><span class="token number">5000</span> <span class="token keyword">THEN</span> <span class="token string">'A'</span>
+	<span class="token keyword">END</span> <span class="token string">"등급"</span>
+<span class="token keyword">FROM</span> emp<span class="token punctuation">;</span>
+
+<span class="token comment">-- 어차피 CASE에서 위의 조건이 맞지 않으면 그 조건 제외하고 아래로 내려가므로 다음처럼 써도 됨</span>
+
+<span class="token keyword">SELECT</span> empno<span class="token punctuation">,</span> ename<span class="token punctuation">,</span>
+	<span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> sal <span class="token operator">&lt;=</span><span class="token number">1000</span> <span class="token keyword">THEN</span> <span class="token string">'E'</span>
+		 <span class="token keyword">WHEN</span> sal <span class="token operator">&lt;=</span><span class="token number">2000</span> <span class="token keyword">THEN</span> <span class="token string">'D'</span>
+    	 <span class="token keyword">WHEN</span> sal <span class="token operator">&lt;=</span><span class="token number">3000</span> <span class="token keyword">THEN</span> <span class="token string">'C'</span>
+     	 <span class="token keyword">WHEN</span> sal <span class="token operator">&lt;=</span><span class="token number">4000</span> <span class="token keyword">THEN</span> <span class="token string">'B'</span>
+     	 <span class="token keyword">WHEN</span> sal <span class="token operator">&lt;=</span><span class="token number">5000</span> <span class="token keyword">THEN</span> <span class="token string">'A'</span>
+	<span class="token keyword">END</span> <span class="token string">"등급"</span>
+<span class="token keyword">FROM</span> emp<span class="token punctuation">;</span></code></pre></div></div><style data-emotion="css hx9xpc">@media (max-width: 768px){.css-hx9xpc{padding:0 20px;}}</style><div class="css-hx9xpc e1gqsjds0"></div><style data-emotion="css 1591gnd">.css-1591gnd{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 830px){.css-1591gnd{font-size:13px;}}</style><footer class="css-1591gnd e1oae0v80">Thank You for Visiting My Blog, Have a Good Day 😆<br/>© 2023 Developer CheeseB, Powered By Gatsby.</footer></main></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/sql-function/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-b916820085d99dc4bdaa.js\"],\"component---src-pages-404-tsx\":[\"/component---src-pages-404-tsx-384eab2b592d62e3c10a.js\"],\"component---src-pages-index-tsx\":[\"/component---src-pages-index-tsx-7b8bf88194ff3edbef01.js\"],\"component---src-templates-post-template-tsx\":[\"/component---src-templates-post-template-tsx-0742a68e2dd8bf32bee9.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="7527fbc93c0223eac30d";</script><script src="/webpack-runtime-bc0f2929ebd5197b0394.js" async></script><script src="/framework-a4e155cd0476dc1ca208.js" async></script><script src="/app-b916820085d99dc4bdaa.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
