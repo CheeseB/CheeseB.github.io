@@ -1,0 +1,309 @@
+---
+date: '2021-01-13'
+title: '[SQL] Day7 - DML'
+categories: ['MySQL']
+summary: 'SQL 공부'
+thumbnail: './thumbnail/mysql.png'
+---
+
+## DML(Data Manipulation Language: 데이터 조작어)
+
+### DML
+
+- DB 내의 테이블에 새로운 행을 입력하거나, 수정 혹은 삭제하는 명령어
+
+- DML 종류
+	- INSERT
+	- UPDATE
+	- DELETE
+	- MERGE
+
+- DML문장에 의한 변경사항을 관리하거나, 변경사항을 하나의 논리적 트랜젝션으로 포함시키는 명령어
+
+- 트랜젝션
+	- COMMIT
+	- ROLLBACK
+	- SAVEPOINT
+
+
+### INSERT 
+
+- INSERT: 테이블에 데이터를 새로 입력함
+	- 한번에 하나의 행을 입력하는 것이 기본
+	- 서브쿼리를 이용해 한번에 여러행 동시입력 가능
+
+```sql
+INSERT INTO 테이블명(컬럼명)
+VALUES(값);
+```
+
+- 주의사항
+	- INTO 절의 컬럼에 VALUES 절의 컬럼값을 일대일 대응하여 입력
+	- INTO 절에 컬럼명을 생략하면 테이블의 컬럼순서와 동일한 순서로 입력됨
+	- 데이터타입을 동일하게 해야하며, 데이터의 크기가 컬럼 크기보다 작아야함
+	- 문자, 날짜는 반드시 작은따옴표 쓰기
+
+
+```sql
+INSERT INTO dept(deptno, dname, loc)
+VALUES(90, '인사과', '서울');
+
+-- 원래 테이블의 순서와 달라도 상관없음
+INSERT INTO dept(loc, dname, deptno)
+VALUES('서울', '인사과', 70);
+
+INSERT INTO dept
+VALUES(80, '인사과', '서울');
+```
+
+- 데이터에 null값도 입력 가능
+	- 묵시적 방법: 컬럼명과 값 생략
+		- INTO 절과 VAULE 절 둘다 생략해야됨 (하나만 생략하면 에러)
+	- 명시적 방법: 값에 null 키워드를 적거나 빈 문자열('') 사용
+		- null을 직접 쓰는것을 권장
+- not null 제약조건이 지정된 컬럼은 불가 (ex. Primary Key)
+
+```sql
+-- 묵시적
+INSERT INTO dept(deptno, dname)
+VALUES(91, '인사과');
+
+-- 명시적
+INSERT INTO dept
+VALUES(92, '인사과', null);
+
+INSERT INTO dept
+VALUES(92, '인사과', '');
+```
+
+- 특수값 입력 가능 (USER, SYSDATE)
+
+```sql
+INSERT INTO emp(empno, ename, job, mgr, hiredate, sal, comm, deptno)
+VALUES(9000, USER, '연구원', 7839, SYSDATE, 5000, NULL, 90);
+```
+
+- 특정 데이터타입 입력(RR/MM/DD, TO_DATE())
+
+```sql
+INSERT INTO emp
+VALUES(9001, '홍길동', 'MANAGER', 7839, '2000/01/01', 2000, NULL, 30);
+-- 날짜에 TO_DATE('2000-01-01', 'YYYY/MM/DD') 해도 됨
+```
+
+- 서브쿼리로 다중 행 입력 가능
+
+```sql
+-- emp로부터 열 두개만 카피한 비어있는 테이블 생성
+-- 제약조건은 카피 안됨
+CREATE TABLE copy_emp
+AS
+SELECT empno, ename
+FROM emp
+WHERE 1=2;
+
+-- emp로부터 선택한 여러 행을 테이블에 삽입
+INSERT INTO copy_emp(empno, ename)
+SELECT empno, ename
+FROM emp;
+```
+
+- 다중 테이블 다중 행 입력
+	- 무조건 INSERT ALL: 명시된 테이블 모두에 넣음
+	- 조건 INSERT ALL: 조건을 만족하는 테이블 모두에 넣음 (if문을 여러개 나열한 것과 동일)
+	- 조건 INSERT FIRST: 가장 먼저 만족하는 조건에 넣고, 이후의 조건은 만족해도 넣지 않음 (if-else문과 동일)
+
+```sql
+-- 무조건 INSERT ALL --
+INSERT ALL
+INTO sal_history VALUES(empno, hiredate, sal)
+INTO mgr_history VALUES(empno, mgr, sal)
+SELECT empno, hiredate, mgr, sal
+FROM emp;
+
+-- 조건 INSERT ALL --
+-- sal이 800인 행이 두 테이블 모두에 들어감
+INSERT ALL
+WHEN sal = 800 THEN
+    INTO sal_history VALUES(empno, hiredate, sal)
+WHEN sal < 2500 THEN
+    INTO mgr_history VALUES(empno, mgr, sal)
+SELECT empno, hiredate, sal, mgr
+FROM emp;
+
+-- 조건 INSERT FIRST --
+-- sal이 800인 행이 sal_history에만 들어감
+INSERT FIRST
+WHEN sal = 800 THEN
+    INTO sal_history VALUES(empno, hiredate, sal)
+WHEN sal < 2500 THEN
+    INTO mgr_history VALUES(empno, mgr, sal)
+SELECT empno, hiredate, sal, mgr
+FROM emp;
+```
+
+
+### UPDATE
+
+- UPDATE: 테이블에 저장된 행들을 변경함
+	- 한번에 여러행 동시변경 가능
+	- WHERE조건을 넣지 않으면 모든 행이 변경됨
+
+```sql
+UPDATE 테이블명
+SET 변경사항
+WHERE 조건;
+```
+
+```sql
+UPDATE dept
+SET dname = '경리과', loc = '부산'
+WHERE deptno = 90;
+```
+
+- 서브쿼리로 여러 컬럼 변경가능
+
+```sql
+UPDATE emp
+SET job = (SELECT job
+           FROM emp
+           WHERE empno = 7900),
+    sal = (SELECT sal
+           FROM emp
+           WHERE empno = 7844)
+WHERE empno = 9001;
+```
+
+
+### DELETE
+
+- DELETE: 테이블에 저장된 행들을 삭제함
+	- 한번에 여러행 삭제 가능
+	- WHERE조건을 넣지 않으면 모든 행이 삭제됨
+
+```sql
+DELETE FROM 테이블명
+WHERE 조건;
+```
+
+```sql
+DELETE FROM dept
+WHERE deptno = 91;
+```
+
+- 서브쿼리로 여러 행 삭제 가능
+
+```sql
+DELETE FROM emp
+WHERE deptno = (SELECT deptno
+                FROM dept
+                WHERE dname = '경리과');
+```
+
+
+### MERGE
+
+- MERGE: 구조가 같은 두개의 테이블을 비교해 하나로 합침
+	- ON 조건에 해당하는 행이 병합 대상 테이블에 이미 존재하면 UPDATE가, 존재하지 않으면 INSERT가 실행됨
+	- WHEN 절 안에 WHERE 구문이나 DELETE 구문을 추가할 수도 있음
+
+```sql
+MERGE INTO 병합 대상 테이블
+USING 넣을 테이블
+ON (조건)
+WHEN MATCHED THEN
+	UPDATE SET ...
+WHEN NOT MATCHED THEN
+	INSERT VALUES(...)
+```
+
+```sql
+MERGE INTO p_total total
+USING pt_01 p01
+ON (total.판매번호 = p01.판매번호)
+WHEN MATCHED THEN
+    UPDATE SET total.제품번호 = p01.제품번호
+WHEN NOT MATCHED THEN
+    INSERT VALUES (p01.판매번호, p01.제품번호, p01.수량, p01.금액);
+    
+MERGE INTO p_total total
+USING pt_02 p02
+ON (total.판매번호 = p02.판매번호)
+WHEN MATCHED THEN
+    UPDATE SET total.제품번호 = p02.제품번호
+WHEN NOT MATCHED THEN
+    INSERT VALUES(p02.판매번호, p02.제품번호, p02.수량, p02.금액);
+```
+
+
+### 트랜젝션
+
+- Transaction: 데이터베이스의 논리적 단위
+	- DML문은 트랜젝션의 대상이 됨
+	- DML을 사용하는 순간 트랜젝션이 시작되며, COMMIT이나 ROLLBACK을 실행해야 트랜젝션이 종료됨
+		- COMMIT: 트랜젝션의 모든 데이터 변경사항을 DB에 영구 반영
+		- ROLLBACK: 트랜젝션의 모든 데이터 변경사항을 취소
+
+_SQL디벨로퍼에서 DML로 테이블을 조작해도 실제 DB엔 반영이 안된 상태이며, COMMIT을 해야 실제 DB에 반영되므로 반드시 DML 사용 후 COMMIT을 해줘야 한다._
+
+```sql
+INSERT INTO copy_dept VALUES(2, 'BB', 'BB'); -- 트랜젝션 시작
+COMMIT; -- 트랜젝션 종료
+INSERT INTO copy_dept VALUES(3, 'CC', 'CC'); -- 시작
+INSERT INTO copy_dept VALUES(4, 'DD', 'DD');
+ROLLBACK; -- 종료
+
+-- DB엔 2번 값만 추가됨
+```
+
+- 하나의 트랜젝션은 하나 이상의 SQL문이 포함되며, 분할할수 없는 최소의 단위임. 그러므로 전부 적용하거나 전부 취소됨 (ALL or Nothing)
+- 트랜젝션 내 모든 데이터 변경 사항은 트랜젝션 종료 전까진 임시적임
+- 따라서 데이터 변경 전 데이터로 복구 가능함
+
+```sql
+INSERT INTO copy_dept VALUES(9, 'TT', 'TT');
+UPDATE copy_dept SET loc = '서울';
+DELETE FROM copy_dept WHERE deptno = 4;
+COMMIT/ROLLBACK; -- 위의 3줄 전부 반영/취소됨
+```
+
+- 트랜젝션 중 변경된 행은 Lock이 걸리며, 트랜젝션 종료 전까지 다른 사용자는 해당 행을 변경할 수 없음
+
+```sql
+-- scott 계정 --
+UPDATE copy_dept SET loc = '서울'
+WHERE deptno = 4;
+
+-- sys 계정 --
+DELETE FROM scott.copy_dept
+WHERE deptno = 4; -- 로딩만 돌고 실행 안됨 (Lock의 경합)
+
+-- scott 계정 --
+COMMIT; -- 로딩 끝나고 실행됨
+
+-- sys 계정 --
+COMMIT; -- 삭제 반영
+```
+
+- 트랜젝션 중 현재 사용자는 SELECT문을 이용해 미리 변경 결과를 확인할 수 있으나, 다른 사용자는 트랜젝션 종료 전까진 변경 전 결과만 확인 가능함
+
+```sql
+-- scott 계정 --
+UPDATE copy_dept SET loc = '부산'
+WHERE deptno = 1;
+
+-- sys 계정 --
+SELECT loc
+FROM scott.copy_dept
+WHERE deptno = 1; -- AA
+
+-- scott 계정 --
+COMMIT;
+
+-- sys 계정 --
+SELECT loc
+FROM scott.copy_dept
+WHERE deptno = 1; -- 부산
+```
+
+_위 두가지 특성을 통해 데이터의 일관성을 보장해준다._
