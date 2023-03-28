@@ -1,7 +1,7 @@
 ---
 date: '2023-03-21'
 title: 'Typescript 로 Queue 구현하기'
-categories: ['Typescript', '자료구조']
+categories: ['자료구조']
 summary: '백준 BFS 문제 풀려고 큐까지 구현해버렸다'
 thumbnail: './thumbnail/typescript.jpg'
 ---
