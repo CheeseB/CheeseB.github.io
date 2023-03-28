@@ -1228,6 +1228,11 @@
   resolved "https://registry.npmjs.org/@eslint/js/-/js-8.36.0.tgz"
   integrity sha512-lxJ9R5ygVm8ZWgYdUweoq5ownDlJ4upvoWmO4eLxBYHdMo+vZ/Rx0EN6MbKWDJOSUGrqJy2Gt+Dyv/VKml0fjg==
 
+"@fontsource/noto-sans-kr@^4.5.12":
+  version "4.5.12"
+  resolved "https://registry.yarnpkg.com/@fontsource/noto-sans-kr/-/noto-sans-kr-4.5.12.tgz#382d6cdd1928943ca15e80ca013e3b6cf5809f50"
+  integrity sha512-6LBOzXw/V4guB/nATaiUjCcPxwJNGw+ky5DK7/wsgUZvfk8etH9IlKdvjFVidpeCuMVjOdlka2+MEw4hwEHaHA==
+
 "@fortawesome/fontawesome-common-types@6.3.0":
   version "6.3.0"
   resolved "https://registry.npmjs.org/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-6.3.0.tgz"

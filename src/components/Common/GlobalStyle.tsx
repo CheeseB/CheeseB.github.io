@@ -1,5 +1,6 @@
 import { css, Global } from '@emotion/react';
 import React, { FunctionComponent } from 'react';
+import '@fontsource/noto-sans-kr';
 
 const defaultStyle = css`
   @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
@@ -8,7 +9,7 @@ const defaultStyle = css`
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Nanum Myeongjo', serif;
+    font-family: 'Noto Sans KR', sans-serif;
   }
 
   html,
