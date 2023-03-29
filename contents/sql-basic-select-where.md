@@ -3,7 +3,7 @@ date: '2021-01-05'
 title: '[SQL] Day1 - SQL기본, Select, Where'
 categories: ['MySQL']
 summary: 'SQL 공부'
-thumbnail: './thumbnail/mysql.png'
+thumbnail: './images/thumbnail/mysql.png'
 ---
 
 

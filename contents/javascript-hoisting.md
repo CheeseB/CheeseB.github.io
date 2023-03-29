@@ -3,7 +3,7 @@ date: '2021-08-17'
 title: '[자바스크립트] 자바스크립트 코드 해석 순서, 호이스팅'
 categories: ['Javascript']
 summary: '자바스크립트 문법 공부'
-thumbnail: './thumbnail/javascript.jpg'
+thumbnail: './images/thumbnail/javascript.jpg'
 ---
 
 ## 자바스크립트 코드 해석 순서

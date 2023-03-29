@@ -15,27 +15,51 @@ const MarkdownRenderer = styled.div`
   word-break: break-all;
 
   // Markdown Style
-  line-height: 1.8;
-  font-size: 20px;
+  line-height: 2;
+  font-size: 22px;
   font-weight: 400;
 
   // Apply Padding Attribute to All Elements
   p {
     padding: 3px 0;
+    margin: 34px 0;
   }
 
   // Adjust Heading Element Style
-  h1,
-  h2,
-  h3 {
-    font-weight: 800;
-    margin-bottom: 30px;
+  h1 {
+    font-size: 44px;
+    margin-bottom: 60px;
   }
 
-  * + h1,
-  * + h2,
-  * + h3 {
+  * + h1 {
     margin-top: 80px;
+  }
+
+  h2 {
+    font-size: 36px;
+    margin-bottom: 50px;
+  }
+
+  * + h2 {
+    margin-top: 70px;
+  }
+
+  h1 + h2 {
+    margin-top: 0;
+  }
+
+  h3 {
+    font-size: 30px;
+    margin-bottom: 40px;
+  }
+
+  * + h3 {
+    margin-top: 60px;
+  }
+
+  h1 + h3,
+  h2 + h3 {
+    margin-top: 0;
   }
 
   hr + h1,
@@ -44,55 +68,57 @@ const MarkdownRenderer = styled.div`
     margin-top: 0;
   }
 
-  h1 {
-    font-size: 30px;
-  }
-
-  h2 {
-    font-size: 25px;
-  }
-
-  h3 {
-    font-size: 20px;
-  }
-
   // Adjust Quotation Element Style
   blockquote {
     margin: 30px 0;
     padding: 5px 15px;
-    border-left: 2px solid #000000;
-    font-weight: 800;
+    border-left: 4px solid lightgray;
+    font-weight: 400;
+    font-style: italic;
+    color: grey;
   }
 
   // Adjust List Element Style
   ol,
   ul {
-    margin-left: 20px;
     padding: 30px 0;
+    margin-left: 20px;
+    font-size: 24px;
+  }
+
+  ol ul,
+  ol ol,
+  ul ol,
+  ul ul {
+    padding: 0;
+  }
+
+  li {
+    margin: 4px 0;
+  }
+
+  li p {
+    margin: 0;
   }
 
   // Adjust Horizontal Rule style
   hr {
-    border: 1px solid #000000;
+    border: 2px solid lightgray;
     margin: 100px 0;
   }
 
   // Adjust Link Element Style
   a {
-    color: #4263eb;
+    color: #ff8982;
     text-decoration: underline;
   }
 
   // Adjust Code Style
   pre[class*='language-'] {
     margin: 30px 0;
-    padding: 15px;
-    font-size: 15px;
-
-    ::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.5);
-      border-radius: 3px;
-    }
+    padding: 30px;
+    font-size: 20px;
+    border-radius: 16px;
   }
 
   code[class*='language-'],
@@ -101,30 +127,42 @@ const MarkdownRenderer = styled.div`
   }
 
   // Markdown Responsive Design
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     width: 100%;
-    padding: 80px 20px;
-    line-height: 1.6;
-    font-size: 14px;
+    padding: 100px 20px;
+    font-size: 18px;
+
+    h1,
+    h2,
+    h3 {
+      margin-bottom: 50px;
+    }
+
+    * + h1,
+    * + h2,
+    * + h3 {
+      margin-top: 70px;
+    }
 
     h1 {
-      font-size: 23px;
+      font-size: 38px;
     }
 
     h2 {
-      font-size: 20px;
+      font-size: 30px;
     }
 
     h3 {
-      font-size: 17px;
+      font-size: 24px;
     }
 
-    img {
-      width: 100%;
+    ol,
+    ul {
+      font-size: 20px;
     }
 
     hr {
-      margin: 50px 0;
+      margin: 80px 0;
     }
   }
 `;

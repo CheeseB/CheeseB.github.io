@@ -3,7 +3,7 @@ date: '2021-01-15'
 title: '[SQL] Day9 - DDL(2)'
 categories: ['MySQL']
 summary: 'SQL 공부'
-thumbnail: './thumbnail/mysql.png'
+thumbnail: './images/thumbnail/mysql.png'
 ---
 
 

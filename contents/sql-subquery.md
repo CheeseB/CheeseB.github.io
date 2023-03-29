@@ -3,7 +3,7 @@ date: '2021-01-12'
 title: '[SQL] Day6 - 서브쿼리'
 categories: ['MySQL']
 summary: 'SQL 공부'
-thumbnail: './thumbnail/mysql.png'
+thumbnail: './images/thumbnail/mysql.png'
 ---
 
 

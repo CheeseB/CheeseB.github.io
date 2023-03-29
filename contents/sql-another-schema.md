@@ -3,7 +3,7 @@ date: '2021-01-18'
 title: '[SQL] Day10 - 기타 스키마 객체'
 categories: ['MySQL']
 summary: 'SQL 공부'
-thumbnail: './thumbnail/mysql.png'
+thumbnail: './images/thumbnail/mysql.png'
 ---
 
 

@@ -3,14 +3,8 @@ date: '2023-03-28'
 title: '[잡담] 마크다운 문법 모음집'
 categories: ['잡담']
 summary: '블로그 포스팅 디자인하려고 올린 게시글'
-thumbnail: './thumbnail/cheeseball.jpg'
+thumbnail: './images/thumbnail/cheeseball.png'
 ---
-
-This is an H1
-=============
-
-This is an H2
--------------
 
 # This is a H1
 ## This is a H2
@@ -24,16 +18,10 @@ This is an H2
 >	>	> This is a third blockqute.
 
 1. 첫번째
+	1. 첫번째 안의 첫번째
+	2. 첫번째 안의 두번째
 2. 두번째
 3. 세번째
-
-* 빨강
-  * 녹색
-    * 파랑
-
-+ 빨강
-  + 녹색
-    + 파랑
 
 - 빨강
   - 녹색
@@ -82,6 +70,24 @@ class Queue<T> implements IQueue<T> {
   }
 }
 ```
+
+*single asterisks*
+_single underscores_
+**double asterisks**
+__double underscores__
+~~cancelline~~
+
+이건 줄바꿈 안한 문장
+
+줄 바꿈을 하기 위해서는 문장 마지막에서 3칸이상을 띄어쓰기해야 한다.   
+이렇게
+
+* 줄 바꿈을 하기 위해서는 문장 마지막에서 3칸이상을 띄어쓰기해야 한다.   
+  이렇게
+
+![](./images/content/2023-03-29-14-49-13.png)
+
+이미지
 
 ---
 

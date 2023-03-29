@@ -3,7 +3,7 @@ date: '2023-03-14'
 title: 'Gatsby 와 Github pages로 블로그 만들기'
 categories: ['잡담']
 summary: '기술 블로그 리뉴얼'
-thumbnail: './thumbnail/gatsby.png'
+thumbnail: './images/thumbnail/gatsby.png'
 ---
 
 ## jekyll에서 Gatsby로
@@ -24,6 +24,5 @@ thumbnail: './thumbnail/gatsby.png'
 
 ### 참고 강의
 
-- (인프런) React 기반 Gatsby로 기술 블로그 개발하기
-
-  [<https://www.inflearn.com/course/gatsby-%EA%B8%B0%EC%88%A0%EB%B8%94%EB%A1%9C%EA%B7%B8/dashboard>](https://www.inflearn.com/course/gatsby-%EA%B8%B0%EC%88%A0%EB%B8%94%EB%A1%9C%EA%B7%B8/dashboard)
+(인프런) React 기반 Gatsby로 기술 블로그 개발하기   
+[<https://www.inflearn.com/course/gatsby-%EA%B8%B0%EC%88%A0%EB%B8%94%EB%A1%9C%EA%B7%B8/dashboard>](https://www.inflearn.com/course/gatsby-%EA%B8%B0%EC%88%A0%EB%B8%94%EB%A1%9C%EA%B7%B8/dashboard)

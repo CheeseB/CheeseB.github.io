@@ -3,7 +3,7 @@ date: '2021-01-08'
 title: '[SQL] Day4 - 그룹함수'
 categories: ['MySQL']
 summary: 'SQL 공부'
-thumbnail: './thumbnail/mysql.png'
+thumbnail: './images/thumbnail/mysql.png'
 ---
 
 
