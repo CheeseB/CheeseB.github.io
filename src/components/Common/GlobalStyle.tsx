@@ -10,6 +10,8 @@ const defaultStyle = css`
     margin: 0;
     box-sizing: border-box;
     font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    color: #000;
   }
 
   html,
