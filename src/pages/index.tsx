@@ -1,13 +1,12 @@
 import React, { FunctionComponent, useMemo } from 'react';
-import { Introduction } from 'components/Main/Introduction';
-import { CategoryList } from 'components/Main/CategoryList';
 import { PostList } from 'components/Main/PostList';
 import { graphql } from 'gatsby';
 import { PostListItemType } from 'types/PostItem.types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import queryString, { ParsedQuery } from 'query-string';
-import { CategoryListProps } from 'components/Main/CategoryList';
+import { CategoryListProps } from 'components/SideNav/CategoryList';
 import { Template } from 'components/Common/Template';
+import { SideNavigation } from 'components/Common/SideNavigation';
 
 type IndexPageProps = {
   location: {
@@ -83,11 +82,11 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({
       url={siteUrl}
       image={publicURL}
     >
-      <Introduction profileImage={gatsbyImageData} />
-      <CategoryList
+      <SideNavigation
+        profileImage={gatsbyImageData}
         selectedCategory={selectedCategory}
         categoryList={categoryList}
-      />
+      ></SideNavigation>
       <PostList selectedCategory={selectedCategory} posts={edges} />
     </Template>
   );

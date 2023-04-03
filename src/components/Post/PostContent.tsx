@@ -9,7 +9,7 @@ const MarkdownRenderer = styled.div`
   // Renderer Style
   display: flex;
   flex-direction: column;
-  width: 960px;
+  width: 980px;
   margin: 0 auto;
   padding: 120px 0;
   word-break: break-all;

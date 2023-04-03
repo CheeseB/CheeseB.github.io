@@ -7,19 +7,14 @@ type ProfileImageProps = {
 };
 
 const ProfileImageWrapper = styled(GatsbyImage)`
-  width: 120px;
-  height: 120px;
-  margin-bottom: 30px;
+  width: 112px;
+  height: 112px;
+  margin-bottom: 12px;
   border-radius: 50%;
-
-  @media (max-width: 830px) {
-    width: 80px;
-    height: 80px;
-  }
 `;
 
 export const ProfileImage: FunctionComponent<ProfileImageProps> = ({
   profileImage,
 }) => {
-  return <ProfileImageWrapper image={profileImage} alt="Profile Image" />;
+  return <ProfileImageWrapper image={profileImage} alt="CheeseBall" />;
 };

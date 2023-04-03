@@ -16,7 +16,7 @@ type UtterancesAttributesType = {
 
 const UtterancesWrapper = styled.div`
   .utterances {
-    max-width: 960px;
+    max-width: 980px;
   }
 `;
 

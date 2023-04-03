@@ -22,8 +22,6 @@ const defaultStyle = css`
 
   a,
   a:hover {
-    color: inherit;
-    text-decoration: none;
     cursor: pointer;
   }
 `;

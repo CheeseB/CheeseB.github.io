@@ -2,24 +2,27 @@ import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 
 const FooterWrapper = styled.footer`
-  display: grid;
-  place-items: center;
-  margin-top: auto;
-  padding: 50px 0;
-  font-size: 15px;
-  text-align: center;
-  line-height: 1.5;
+  display: flex;
+  justify-content: end;
+  margin: 0 auto;
+  color: #b7a99a;
+  width: 980px;
+  height: 50px;
+  font-size: 12px;
+  line-height: 30px;
+  margin-top: 100px;
+  border-top: 1px solid rgba(183, 169, 154, 0.3);
+  align-self: flex-end;
 
-  @media (max-width: 830px) {
-    font-size: 13px;
+  @media (max-width: 1024px) {
+    width: calc(100% - 20px);
+  }
+
+  @media (max-height: 926px) {
+    margin-top: 60px;
   }
 `;
 
 export const Footer: FunctionComponent = () => {
-  return (
-    <FooterWrapper>
-      Thank You for Visiting My Blog, Have a Good Day 😆
-      <br />© 2023 Developer CheeseB, Powered By Gatsby.
-    </FooterWrapper>
-  );
+  return <FooterWrapper>© CheeseB, Powered By Gatsby.</FooterWrapper>;
 };

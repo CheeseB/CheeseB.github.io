@@ -3,6 +3,7 @@ import React, { FunctionComponent, ReactNode } from 'react';
 import { Footer } from './Footer';
 import { GlobalStyle } from './GlobalStyle';
 import { Helmet } from 'react-helmet-async';
+import { Header } from './Header';
 
 type TemplateProps = {
   title: string;
@@ -137,6 +138,7 @@ export const Template: FunctionComponent<TemplateProps> = ({
       </Helmet>
 
       <GlobalStyle />
+      <Header />
       {children}
       <Footer />
     </Container>
