@@ -14,17 +14,26 @@ type PostListProps = {
 
 const PostListWrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-  width: 830px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 18px;
+  width: 1200px;
   margin: 0 auto;
-  padding: 50px 0 100px;
+  padding-left: 220px;
+`;
 
-  @media (max-width: 830px) {
-    grid-template-columns: 1fr;
-    width: 100%;
-    padding: 50px 20px;
-  }
+const PostCategory = styled.div`
+  margin: 80px auto 70px;
+  padding-left: 220px;
+  text-align: center;
+`;
+
+const PostCategoryText = styled.div`
+  font-size: 20px;
+  line-height: 50px;
+  font-weight: 800;
+  color: #c25450;
+  border-bottom: 1px solid #ff8982;
+  padding: 0 60px;
 `;
 
 export const PostList: FunctionComponent<PostListProps> = ({
@@ -37,18 +46,25 @@ export const PostList: FunctionComponent<PostListProps> = ({
   );
 
   return (
-    <PostListWrapper ref={containerRef}>
-      {postList.map(
-        ({
-          node: {
-            id,
-            fields: { slug },
-            frontmatter,
-          },
-        }: PostListItemType) => (
-          <PostItem {...frontmatter} link={slug} key={id} />
-        ),
-      )}
-    </PostListWrapper>
+    <>
+      <PostCategory>
+        <PostCategoryText>
+          {selectedCategory === 'All' ? '전체 게시글' : selectedCategory}
+        </PostCategoryText>
+      </PostCategory>
+      <PostListWrapper ref={containerRef}>
+        {postList.map(
+          ({
+            node: {
+              id,
+              fields: { slug },
+              frontmatter,
+            },
+          }: PostListItemType) => (
+            <PostItem {...frontmatter} link={slug} key={id} />
+          ),
+        )}
+      </PostListWrapper>
+    </>
   );
 };

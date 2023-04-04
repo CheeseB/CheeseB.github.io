@@ -7,21 +7,23 @@ import { PostFrontmatterType } from 'types/PostItem.types';
 type PostItemProps = PostFrontmatterType & { link: string };
 
 const PostItemWrapper = styled(Link)`
+  position: relative;
+  top: 0px;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
-  transition: 0.3s box-shadow;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: top 0.2s ease;
   cursor: pointer;
 
   &:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    top: -5px;
   }
 `;
 
 const ThumbnailImage = styled(GatsbyImage)`
   width: 100%;
-  height: 200px;
+  height: 220px;
   border-radius: 10px 10px 0 0;
 `;
 
@@ -29,56 +31,56 @@ const PostItemContent = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 15px;
+  justify-content: space-between;
+  padding: 14px;
+  gap: 14px;
+`;
+
+const CategoryWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+`;
+
+const CategoryItem = styled.div`
+  font-size: 14px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background-color: #ffeccc;
+  color: #402e32;
 `;
 
 const Title = styled.div`
   display: -webkit-box;
   overflow: hidden;
-  margin-bottom: 3px;
   text-overflow: ellipsis;
   white-space: normal;
   overflow-wrap: break-word;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  font-size: 20px;
-  font-weight: 700;
-`;
-
-const Date = styled.div`
-  font-size: 14px;
-  font-weight: 400;
-  opacity: 0.7;
-`;
-
-const Category = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 10px;
-  margin: 10px -5px;
-`;
-
-const CategoryItem = styled.div`
-  margin: 2.5px 5px;
-  padding: 3px 5px;
-  border-radius: 3px;
-  background: black;
-  font-size: 14px;
-  font-weight: 700;
-  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #402e32;
 `;
 
 const Summary = styled.div`
   display: -webkit-box;
   overflow: hidden;
-  margin-top: auto;
   text-overflow: ellipsis;
   white-space: normal;
   overflow-wrap: break-word;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  font-size: 16px;
-  opacity: 0.8;
+  font-size: 14px;
+  line-height: 20px;
+  color: #b7a99a;
+`;
+
+const Date = styled.div`
+  font-size: 12px;
+  color: #504538;
 `;
 
 export const PostItem: FunctionComponent<PostItemProps> = ({
@@ -95,14 +97,14 @@ export const PostItem: FunctionComponent<PostItemProps> = ({
     <PostItemWrapper to={link}>
       <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
       <PostItemContent>
-        <Title>{title}</Title>
-        <Date>{date}</Date>
-        <Category>
+        <CategoryWrapper>
           {categories.map(category => (
             <CategoryItem key={category}>{category}</CategoryItem>
           ))}
-        </Category>
+        </CategoryWrapper>
+        <Title>{title}</Title>
         <Summary>{summary}</Summary>
+        <Date>{date}</Date>
       </PostItemContent>
     </PostItemWrapper>
   );
