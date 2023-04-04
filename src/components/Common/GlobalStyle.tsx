@@ -22,6 +22,7 @@ const defaultStyle = css`
 
   a,
   a:hover {
+    text-decoration: none;
     cursor: pointer;
   }
 `;

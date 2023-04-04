@@ -25,6 +25,10 @@ const CategoryListWrapper = styled.div`
   flex-direction: column;
   margin-top: 32px;
   padding: 0 18px;
+
+  @media (max-width: 428px) {
+    margin-top: 18px;
+  }
 `;
 
 const CategoryTitleText = styled.div`
@@ -34,6 +38,12 @@ const CategoryTitleText = styled.div`
   color: #ff8982;
   margin-bottom: 32px;
   padding: 0 14px;
+
+  @media (max-width: 428px) {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 18px;
+  }
 `;
 
 const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
@@ -55,12 +65,21 @@ const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
   &:hover {
     background-color: #f8ebe7;
   }
+
+  @media (max-width: 428px) {
+    font-size: 12px;
+    line-height: 40px;
+  }
 `;
 
 const Number = styled.span`
   font-size: 12px;
   color: inherit;
   padding-left: 4px;
+
+  @media (max-width: 428px) {
+    font-size: 10px;
+  }
 `;
 
 export const CategoryList: FunctionComponent<CategoryListProps> = ({

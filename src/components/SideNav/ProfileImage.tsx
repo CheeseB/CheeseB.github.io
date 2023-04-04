@@ -11,6 +11,11 @@ const ProfileImageWrapper = styled(GatsbyImage)`
   height: 112px;
   margin-bottom: 12px;
   border-radius: 50%;
+
+  @media (max-width: 428px) {
+    width: 80px;
+    height: 80px;
+  }
 `;
 
 export const ProfileImage: FunctionComponent<ProfileImageProps> = ({

@@ -1,7 +1,15 @@
 import styled from '@emotion/styled';
-import React from 'react';
+import React, { Dispatch, FunctionComponent, SetStateAction } from 'react';
+
+type HeaderProps = {
+  setOpen: Dispatch<SetStateAction<boolean>>;
+};
 
 const HeaderBar = styled.header`
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 3;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,9 +18,23 @@ const HeaderBar = styled.header`
   padding: 0 48px;
   background-color: #fff8ee;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: top 0.5s ease;
 
   @media (min-width: 1024px) {
-    display: none;
+    top: -52px;
+  }
+
+  @media (max-width: 744px) {
+    padding: 0 36px;
+  }
+
+  @media (max-width: 428px) {
+    height: 42px;
+    padding: 0 28px;
+  }
+
+  @media (max-width: 320px) {
+    padding: 0 18px;
   }
 `;
 
@@ -25,6 +47,11 @@ const HamburgerBtn = styled.button`
 const HamburgerBtnImage = styled.img`
   width: 32px;
   height: 32px;
+
+  @media (max-width: 428px) {
+    width: 24px;
+    height: 24px;
+  }
 `;
 
 const HeaderTitleText = styled.div`
@@ -32,16 +59,27 @@ const HeaderTitleText = styled.div`
   line-height: 30px;
   font-weight: 800;
   color: #504538;
+  position: relative;
+  top: -2px;
+
+  @media (max-width: 428px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
 `;
 
 const ProfileImage = styled.img`
   width: 40px;
   height: 40px;
+
+  @media (max-width: 428px) {
+    width: 24px;
+    height: 24px;
+  }
 `;
 
-export const Header = () => {
-  const toggleNavigationBar = () => {};
-
+export const Header: FunctionComponent<HeaderProps> = ({ setOpen }) => {
+  const toggleNavigationBar = () => setOpen(prev => !prev);
   return (
     <HeaderBar>
       <HamburgerBtn onClick={toggleNavigationBar}>

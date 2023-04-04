@@ -1,5 +1,10 @@
 import styled from '@emotion/styled';
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, {
+  Dispatch,
+  FunctionComponent,
+  ReactNode,
+  SetStateAction,
+} from 'react';
 import { Footer } from './Footer';
 import { GlobalStyle } from './GlobalStyle';
 import { Helmet } from 'react-helmet-async';
@@ -11,6 +16,7 @@ type TemplateProps = {
   url: string;
   image: string;
   children: ReactNode;
+  setOpen: Dispatch<SetStateAction<boolean>>;
 };
 
 const Container = styled.main`
@@ -24,6 +30,7 @@ export const Template: FunctionComponent<TemplateProps> = ({
   description,
   url,
   image,
+  setOpen,
   children,
 }) => {
   return (
@@ -138,7 +145,7 @@ export const Template: FunctionComponent<TemplateProps> = ({
       </Helmet>
 
       <GlobalStyle />
-      <Header />
+      <Header setOpen={setOpen} />
       {children}
       <Footer />
     </Container>

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useMemo } from 'react';
+import React, { FunctionComponent, useMemo, useState, useEffect } from 'react';
 import { PostList } from 'components/Main/PostList';
 import { graphql } from 'gatsby';
 import { PostListItemType } from 'types/PostItem.types';
@@ -75,17 +75,29 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({
     [],
   );
 
+  const [isOpen, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = 'scroll';
+  }, [isOpen]);
+
+  useEffect(() => setOpen(false), [selectedCategory]);
+
   return (
     <Template
       title={title}
       description={description}
       url={siteUrl}
       image={publicURL}
+      setOpen={setOpen}
     >
       <SideNavigation
         profileImage={gatsbyImageData}
         selectedCategory={selectedCategory}
         categoryList={categoryList}
+        isOpen={isOpen}
+        setOpen={setOpen}
       ></SideNavigation>
       <PostList selectedCategory={selectedCategory} posts={edges} />
     </Template>
