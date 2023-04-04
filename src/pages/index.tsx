@@ -7,6 +7,7 @@ import queryString, { ParsedQuery } from 'query-string';
 import { CategoryListProps } from 'components/SideNav/CategoryList';
 import { Template } from 'components/Common/Template';
 import { SideNavigation } from 'components/Common/SideNavigation';
+import { MainCheeseBall } from 'components/Main/MainCheeseBall';
 
 type IndexPageProps = {
   location: {
@@ -46,10 +47,11 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({
   },
 }) => {
   const parsed: ParsedQuery<string> = queryString.parse(search);
-  const selectedCategory: string =
-    !parsed.category || typeof parsed.category !== 'string'
-      ? 'All'
-      : parsed.category;
+  const isMainPage: boolean =
+    !parsed.category || typeof parsed.category !== 'string';
+  const selectedCategory: string = isMainPage
+    ? 'All'
+    : (parsed.category as string);
 
   const categoryList = useMemo(
     () =>
@@ -99,6 +101,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({
         isOpen={isOpen}
         setOpen={setOpen}
       ></SideNavigation>
+      {isMainPage && <MainCheeseBall />}
       <PostList selectedCategory={selectedCategory} posts={edges} />
     </Template>
   );
