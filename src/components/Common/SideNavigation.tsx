@@ -1,19 +1,24 @@
 import styled from '@emotion/styled';
 import { CategoryList } from 'components/SideNav/CategoryList';
 import { Introduction } from 'components/SideNav/Introduction';
+import { SideBarContext } from 'contexts/SideBarContext';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import React, {
   FunctionComponent,
   ReactNode,
-  Dispatch,
-  SetStateAction,
+  useEffect,
+  useContext,
 } from 'react';
 
 type NavigationOpenProps = {
   isOpen: boolean;
-  setOpen?: Dispatch<SetStateAction<boolean>>;
-  onClick?: () => void;
 };
+
+type OpenableNodeProps = {
+  children?: ReactNode;
+  className?: string;
+  onClick?: () => void;
+} & NavigationOpenProps;
 
 type NavigationProps = {
   profileImage: IGatsbyImageData;
@@ -21,12 +26,7 @@ type NavigationProps = {
   categoryList: {
     [key: string]: number;
   };
-} & NavigationOpenProps;
-
-type OpenableNodeProps = {
-  children?: ReactNode;
-  className?: string;
-} & NavigationOpenProps;
+};
 
 const NavigationBar = styled(({ isOpen, ...props }: OpenableNodeProps) => (
   <nav {...props} />
@@ -74,10 +74,16 @@ export const SideNavigation: FunctionComponent<NavigationProps> = ({
   profileImage,
   selectedCategory,
   categoryList,
-  isOpen,
-  setOpen,
 }) => {
+  const { isOpen, setOpen } = useContext(SideBarContext)!;
   const closeNavigationBar = () => setOpen!(false);
+
+  useEffect(() => {
+    if (isOpen) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = 'scroll';
+  }, [isOpen]);
+  useEffect(() => setOpen(false), [selectedCategory]);
+
   return (
     <>
       <NavigationBar isOpen={isOpen}>

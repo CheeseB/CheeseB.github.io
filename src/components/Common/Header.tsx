@@ -1,9 +1,6 @@
 import styled from '@emotion/styled';
-import React, { Dispatch, FunctionComponent, SetStateAction } from 'react';
-
-type HeaderProps = {
-  setOpen: Dispatch<SetStateAction<boolean>>;
-};
+import { SideBarContext } from 'contexts/SideBarContext';
+import React, { FunctionComponent, useContext } from 'react';
 
 const HeaderBar = styled.header`
   position: fixed;
@@ -78,8 +75,10 @@ const ProfileImage = styled.img`
   }
 `;
 
-export const Header: FunctionComponent<HeaderProps> = ({ setOpen }) => {
+export const Header: FunctionComponent = () => {
+  const { isOpen, setOpen } = useContext(SideBarContext)!;
   const toggleNavigationBar = () => setOpen(prev => !prev);
+
   return (
     <HeaderBar>
       <HamburgerBtn onClick={toggleNavigationBar}>
