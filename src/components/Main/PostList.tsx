@@ -19,12 +19,46 @@ const PostListWrapper = styled.div`
   width: 1200px;
   margin: 0 auto;
   padding-left: 220px;
+
+  @media (max-width: 1440px) {
+    grid-template-columns: 1fr 1fr;
+    width: 920px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 600px;
+    padding-left: 0;
+  }
+
+  @media (max-width: 744px) {
+    width: 100%;
+    padding: 0 36px;
+    grid-gap: 12px;
+  }
+
+  @media (max-width: 500px) {
+    padding: 0 28px;
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 320px) {
+    padding: 0 18px;
+  }
 `;
 
 const PostCategory = styled.div`
   margin: 80px auto 70px;
   padding-left: 220px;
   text-align: center;
+
+  @media (max-width: 1024px) {
+    padding-left: 0;
+    margin-top: 132px;
+  }
+
+  @media (max-width: 428px) {
+    margin: 86px auto 50px;
+  }
 `;
 
 const PostCategoryText = styled.div`
@@ -34,6 +68,18 @@ const PostCategoryText = styled.div`
   color: #c25450;
   border-bottom: 1px solid #ff8982;
   padding: 0 60px;
+
+  @media (max-width: 428px) {
+    font-size: 16px;
+    line-height: 40px;
+    padding: 0 40px;
+  }
+
+  @media (max-width: 320px) {
+    font-size: 14px;
+    line-height: 30px;
+    padding: 0 30px;
+  }
 `;
 
 export const PostList: FunctionComponent<PostListProps> = ({

@@ -42,7 +42,7 @@ const NavigationBar = styled(({ isOpen, ...props }: OpenableNodeProps) => (
   box-shadow: 2px 0px 6px rgba(0, 0, 0, 0.1);
   -ms-overflow-style: none;
   scrollbar-width: none;
-  transition: left 0.5s ease;
+  transition: all 0.5s ease;
 
   &::-webkit-scrollbar {
     display: none;

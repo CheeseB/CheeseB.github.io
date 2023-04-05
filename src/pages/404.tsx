@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import { graphql, Link } from 'gatsby';
 import { GlobalStyle } from 'components/Common/GlobalStyle';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
-import { Footer } from 'components/Common/Footer';
 
 type ErrorPageProps = {
   data: {
@@ -17,15 +16,10 @@ type ErrorPageProps = {
 
 const NotFoundPageWrapper = styled.div`
   display: flex;
-  position: relative;
+  height: 100vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 150px);
-
-  @media (max-height: 926px) {
-    min-height: calc(100vh - 110px);
-  }
 `;
 
 const NotFoundText = styled.div`
@@ -47,10 +41,6 @@ const NotFoundText = styled.div`
   @media (max-width: 320px) {
     font-size: 18px;
     line-height: 26px;
-  }
-
-  @media (max-height: 926px) {
-    margin-top: 60px;
   }
 `;
 
@@ -108,15 +98,12 @@ const NotFoundPage: FunctionComponent<ErrorPageProps> = ({
   },
 }) => {
   return (
-    <>
-      <NotFoundPageWrapper>
-        <GlobalStyle />
-        <NotFoundText>페이지를 찾을 수 없습니다.</NotFoundText>
-        <GoToMainButton to="/">홈으로 돌아가기</GoToMainButton>
-        <NotFoundImage image={gatsbyImageData} alt="404 not found" />
-      </NotFoundPageWrapper>
-      <Footer />
-    </>
+    <NotFoundPageWrapper>
+      <GlobalStyle />
+      <NotFoundText>페이지를 찾을 수 없습니다.</NotFoundText>
+      <GoToMainButton to="/">홈으로 돌아가기</GoToMainButton>
+      <NotFoundImage image={gatsbyImageData} alt="404 not found" />
+    </NotFoundPageWrapper>
   );
 };
 

@@ -13,7 +13,6 @@ const PostItemWrapper = styled(Link)`
   flex-direction: column;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  transition: top 0.2s ease;
   cursor: pointer;
 
   &:hover {
@@ -25,6 +24,14 @@ const ThumbnailImage = styled(GatsbyImage)`
   width: 100%;
   height: 220px;
   border-radius: 10px 10px 0 0;
+
+  @media (max-width: 1024px) {
+    height: 184px;
+  }
+
+  @media (max-width: 320px) {
+    height: 140px;
+  }
 `;
 
 const PostItemContent = styled.div`
@@ -34,6 +41,15 @@ const PostItemContent = styled.div`
   justify-content: space-between;
   padding: 14px;
   gap: 14px;
+
+  @media (max-width: 1024px) {
+    gap: 12px;
+  }
+
+  @media (max-width: 320px) {
+    padding: 10px;
+    gap: 10px;
+  }
 `;
 
 const CategoryWrapper = styled.div`
@@ -44,11 +60,22 @@ const CategoryWrapper = styled.div`
 
 const CategoryItem = styled.div`
   font-size: 14px;
+  line-height: 20px;
   font-weight: 600;
-  padding: 2px 6px;
+  padding: 2px 8px;
   border-radius: 4px;
   background-color: #ffeccc;
   color: #402e32;
+
+  @media (max-width: 1024px) {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  @media (max-width: 320px) {
+    font-size: 10px;
+    line-height: 16px;
+  }
 `;
 
 const Title = styled.div`
@@ -63,6 +90,16 @@ const Title = styled.div`
   font-weight: 600;
   line-height: 24px;
   color: #402e32;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  @media (max-width: 320px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
 `;
 
 const Summary = styled.div`
@@ -76,11 +113,32 @@ const Summary = styled.div`
   font-size: 14px;
   line-height: 20px;
   color: #b7a99a;
+
+  @media (max-width: 1024px) {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  @media (max-width: 320px) {
+    font-size: 10px;
+    line-height: 16px;
+  }
 `;
 
 const Date = styled.div`
   font-size: 12px;
+  line-height: 16px;
   color: #504538;
+
+  @media (max-width: 1024px) {
+    font-size: 10px;
+    line-height: 14px;
+  }
+
+  @media (max-width: 320px) {
+    font-size: 8px;
+    line-height: 12px;
+  }
 `;
 
 export const PostItem: FunctionComponent<PostItemProps> = ({
