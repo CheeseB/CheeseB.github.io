@@ -60,7 +60,6 @@ export const PostHeadInfo: FunctionComponent<PostHeadInfoProps> = ({
   date,
   categories,
 }) => {
-  const goBackPage = () => (location.href = '/');
   return (
     <PostHeadInfoWrapper>
       <Title>{title}</Title>
