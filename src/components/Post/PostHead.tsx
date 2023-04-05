@@ -18,8 +18,16 @@ const PostHeadWrapper = styled.div`
   width: 100%;
   height: 400px;
 
-  @media (max-width: 768px) {
-    height: 300px;
+  @media (max-width: 1024px) {
+    height: 340px;
+  }
+
+  @media (max-width: 428px) {
+    height: 280px;
+  }
+
+  @media (max-width: 320px) {
+    height: 240px;
   }
 `;
 
@@ -30,10 +38,18 @@ const BackgroundImage = styled((props: GatsbyImgProps) => (
   width: 100%;
   height: 400px;
   object-fit: cover;
-  filter: brightness(0.25);
+  filter: brightness(0.3);
 
-  @media (max-width: 768px) {
-    height: 300px;
+  @media (max-width: 1024px) {
+    height: 340px;
+  }
+
+  @media (max-width: 428px) {
+    height: 280px;
+  }
+
+  @media (max-width: 320px) {
+    height: 240px;
   }
 `;
 
