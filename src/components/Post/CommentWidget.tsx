@@ -1,83 +1,98 @@
 import styled from '@emotion/styled';
-import React, { createRef, FunctionComponent, useEffect } from 'react';
+import React, { FunctionComponent, useEffect } from 'react';
 
-const src = 'https://utteranc.es/client.js';
-const repo = 'CheeseB/CheeseB.github.io';
-
-type UtterancesAttributesType = {
-  src: string;
-  repo: string;
-  'issue-term': string;
-  label: string;
-  theme: string;
-  crossorigin: string;
-  async: string;
-};
-
-const UtterancesWrapper = styled.div`
-  .utterances {
-    max-width: 1340px;
-  }
-
-  .utterances-frame {
-    position: relative;
+const GiscusWrapper = styled.div`
+  .giscus {
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   @media (max-width: 1440px) {
-    .utterances {
+    .giscus {
       max-width: 928px;
     }
   }
 
   @media (max-width: 1024px) {
-    .utterances {
-      max-width: 544px;
+    .giscus {
+      max-width: 700px;
     }
   }
 
   @media (max-width: 744px) {
-    .utterances {
+    .giscus {
       max-width: 100%;
       padding: 0 36px;
     }
   }
 
   @media (max-width: 428px) {
-    .utterances {
+    .giscus {
       padding: 0 28px;
     }
   }
 
   @media (max-width: 320px) {
-    .utterances {
+    .giscus {
       padding: 0 18px;
     }
   }
 `;
 
+type GiscusAttributesType = {
+  'data-repo': string;
+  'data-repo-id': string;
+  'data-category': string;
+  'data-category-id': string;
+  'data-mapping': string;
+  'data-strict': string;
+  'data-reactions-enabled': string;
+  'data-emit-metadata': string;
+  'data-input-position': string;
+  'data-theme': string;
+  'data-loading': string;
+  'data-lang': string;
+  src: string;
+  crossorigin: string;
+  async: string;
+};
+
 export const CommentWidget: FunctionComponent = () => {
-  const element = createRef<HTMLDivElement>();
-
   useEffect(() => {
-    if (element.current === null) return;
-
-    const utterances: HTMLScriptElement = document.createElement('script');
-    const attributes: UtterancesAttributesType = {
-      src,
-      repo,
-      'issue-term': 'pathname',
-      label: 'Comment',
-      theme: `github-light`,
+    const attributes: GiscusAttributesType = {
+      'data-repo': 'CheeseB/CheeseB.github.io',
+      'data-repo-id': 'MDEwOlJlcG9zaXRvcnkyOTQ5NzE5MTc=',
+      'data-category': 'Blog Comments',
+      'data-category-id': 'DIC_kwDOEZTqDc4CVlTC',
+      'data-mapping': 'pathname',
+      'data-strict': '0',
+      'data-reactions-enabled': '1',
+      'data-emit-metadata': '0',
+      'data-input-position': 'top',
+      'data-theme': 'light',
+      'data-loading': 'lazy',
+      'data-lang': 'ko',
+      src: 'https://giscus.app/client.js',
       crossorigin: 'anonymous',
       async: 'true',
     };
 
+    const script = document.createElement('script');
     Object.entries(attributes).forEach(([key, value]) => {
-      utterances.setAttribute(key, value);
+      script.setAttribute(key, value);
     });
 
-    element.current.appendChild(utterances);
+    const container = document.getElementById('giscus-container');
+    if (container) container.appendChild(script);
+
+    return () => {
+      if (container) container.removeChild(script);
+    };
   }, []);
 
-  return <UtterancesWrapper ref={element} />;
+  return (
+    <GiscusWrapper>
+      <div id="giscus-container" />
+    </GiscusWrapper>
+  );
 };
