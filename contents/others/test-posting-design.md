@@ -1,9 +1,9 @@
 ---
 date: '2023-03-28'
-title: '[잡담] 마크다운 문법 모음집'
-categories: ['잡담']
+title: '마크다운 문법 모음집'
+categories: ['Others']
 summary: '블로그 포스팅 디자인하려고 올린 게시글'
-thumbnail: './images/thumbnail/cheeseball.png'
+thumbnail: '../images/thumbnail/cheeseball.png'
 ---
 
 # This is a H1

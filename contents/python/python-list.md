@@ -3,7 +3,7 @@ date: '2020-09-17'
 title: '[파이썬] 리스트'
 categories: ['Python']
 summary: '파이썬 문법 공부'
-thumbnail: './images/thumbnail/python.png'
+thumbnail: '../images/thumbnail/python.png'
 ---
 
 파이썬에서 빈 리스트를 생성하는 두가지 방법은 아래와 같다.

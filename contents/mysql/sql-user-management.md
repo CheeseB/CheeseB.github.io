@@ -3,7 +3,7 @@ date: '2021-01-18'
 title: '[SQL] Day10 - 사용자 관리'
 categories: ['MySQL']
 summary: 'SQL 공부'
-thumbnail: './images/thumbnail/mysql.png'
+thumbnail: '../images/thumbnail/mysql.png'
 ---
 
 ## 사용자 관리

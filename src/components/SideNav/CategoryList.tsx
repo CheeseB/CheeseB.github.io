@@ -95,7 +95,7 @@ export const CategoryList: FunctionComponent<CategoryListProps> = ({
           active={name === selectedCategory}
           key={name}
         >
-          {name === 'All' ? '전체 글' : name}
+          {name}
           <Number>({count})</Number>
         </CategoryItem>
       ))}
