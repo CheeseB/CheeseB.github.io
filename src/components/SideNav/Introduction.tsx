@@ -1,9 +1,10 @@
 import styled from '@emotion/styled';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode, useContext } from 'react';
 import { ProfileImage } from 'components/SideNav/ProfileImage';
 import { LinkIconList } from './LinkIconList';
 import { Link } from 'gatsby';
+import { SideBarContext } from 'contexts/SideBarContext';
 
 type IntroductionProps = {
   profileImage: IGatsbyImageData;
@@ -13,6 +14,7 @@ type GatsbyLinkProps = {
   children: ReactNode;
   className?: string;
   to: string;
+  onClick?: () => void;
 };
 
 const Wrapper = styled.div`
@@ -60,10 +62,15 @@ const AuthorText = styled.div`
 export const Introduction: FunctionComponent<IntroductionProps> = ({
   profileImage,
 }) => {
+  const { isOpen, setOpen } = useContext(SideBarContext)!;
+  const closeNavigationBar = () => setOpen!(false);
+
   return (
     <Wrapper>
       <ProfileImage profileImage={profileImage} />
-      <TitleText to="/">개발자맛 치즈볼</TitleText>
+      <TitleText to="/" onClick={closeNavigationBar}>
+        개발자맛 치즈볼
+      </TitleText>
       <AuthorText>CheeseB</AuthorText>
       <LinkIconList></LinkIconList>
     </Wrapper>
