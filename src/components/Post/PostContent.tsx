@@ -9,7 +9,7 @@ const MarkdownRenderer = styled.div`
   // Renderer Style
   display: flex;
   flex-direction: column;
-  width: 980px;
+  width: 1340px;
   margin: 0 auto;
   padding: 120px 0;
   word-break: break-all;
@@ -132,10 +132,13 @@ const MarkdownRenderer = styled.div`
     tab-size: 2;
   }
 
+  @media (max-width: 1440px) {
+    width: 928px;
+  }
+
   // Markdown Responsive Design
   @media (max-width: 1024px) {
-    width: 100%;
-    padding: 100px 20px;
+    width: 544px;
     font-size: 18px;
 
     h1,
@@ -169,6 +172,98 @@ const MarkdownRenderer = styled.div`
 
     hr {
       margin: 80px 0;
+    }
+
+    pre[class*='language-'] {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 744px) {
+    width: 100%;
+    padding: 120px 36px;
+  }
+
+  @media (max-width: 428px) {
+    padding: 80px 28px;
+    font-size: 12px;
+
+    p {
+      margin: 16px 0;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
+
+    * + h1 {
+      margin-top: 60px;
+    }
+
+    h2 {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    * + h2 {
+      margin-top: 50px;
+    }
+
+    h3 {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    * + h3 {
+      margin-top: 40px;
+    }
+
+    blockquote {
+      margin: 16px 0;
+      border-left: 2px solid lightgray;
+    }
+
+    ol,
+    ul {
+      font-size: 14px;
+      padding: 16px 0;
+    }
+
+    hr {
+      margin: 60px 0;
+    }
+
+    pre[class*='language-'] {
+      margin: 16px 0;
+      padding: 18px;
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 320px) {
+    padding: 80px 18px;
+    font-size: 10px;
+
+    h1 {
+      font-size: 16px;
+    }
+
+    h2 {
+      font-size: 14px;
+    }
+
+    h3 {
+      font-size: 12px;
+    }
+
+    ol,
+    ul {
+      font-size: 10px;
+    }
+
+    pre[class*='language-'] {
+      font-size: 10px;
     }
   }
 `;

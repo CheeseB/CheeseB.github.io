@@ -10,15 +10,50 @@ export type PostHeadInfoProps = {
 const PostHeadInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 1200px;
+  text-align: center;
+  justify-content: space-between;
+  width: 1340px;
   height: 100%;
   margin: 0 auto;
-  padding-left: 220px;
   color: #ffffff;
+  padding: 100px 0 40px;
+
+  @media (max-width: 1440px) {
+    width: 928px;
+  }
 
   @media (max-width: 1024px) {
+    width: 544px;
+    padding: 80px 0 60px;
+  }
+
+  @media (max-width: 744px) {
     width: 100%;
-    padding: 40px 20px;
+    padding: 80px 36px 60px;
+  }
+
+  @media (max-width: 428px) {
+    padding: 60px 28px 30px;
+  }
+
+  @media (max-width: 320px) {
+    padding: 50px 18px 20px;
+  }
+`;
+
+const Category = styled.div`
+  color: #fff;
+  font-size: 18px;
+  line-height: 26px;
+
+  @media (max-width: 1024px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  @media (max-width: 428px) {
+    font-size: 12px;
+    line-height: 18px;
   }
 `;
 
@@ -26,32 +61,44 @@ const Title = styled.div`
   display: -webkit-box;
   overflow: hidden;
   overflow-wrap: break-word;
-  margin-top: auto;
   text-overflow: ellipsis;
   white-space: normal;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  font-size: 45px;
+  font-size: 48px;
+  line-height: 70px;
   font-weight: 800;
+  color: #fff;
 
-  @media (max-width: 768px) {
-    font-size: 30px;
+  @media (max-width: 1024px) {
+    font-size: 32px;
+    line-height: 46px;
+  }
+
+  @media (max-width: 428px) {
+    font-size: 24px;
+    line-height: 34px;
+  }
+
+  @media (max-width: 320px) {
+    font-size: 18px;
+    line-height: 26px;
   }
 `;
 
-const PostData = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
-  font-size: 18px;
-  font-weight: 700;
+const Date = styled.div`
+  color: #fff;
+  font-size: 16px;
+  line-height: 24px;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: flex-start;
-    font-size: 15px;
-    font-weight: 400;
+  @media (max-width: 1024px) {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  @media (max-width: 428px) {
+    font-size: 10px;
+    line-height: 14px;
   }
 `;
 
@@ -62,11 +109,9 @@ export const PostHeadInfo: FunctionComponent<PostHeadInfoProps> = ({
 }) => {
   return (
     <PostHeadInfoWrapper>
+      <Category>{categories.join('/')}</Category>
       <Title>{title}</Title>
-      <PostData>
-        <div>{categories.join('/')}</div>
-        <div>{date}</div>
-      </PostData>
+      <Date>{date}</Date>
     </PostHeadInfoWrapper>
   );
 };

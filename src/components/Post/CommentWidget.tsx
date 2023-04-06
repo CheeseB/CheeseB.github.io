@@ -16,7 +16,42 @@ type UtterancesAttributesType = {
 
 const UtterancesWrapper = styled.div`
   .utterances {
-    max-width: 980px;
+    max-width: 1340px;
+  }
+
+  .utterances-frame {
+    position: relative;
+  }
+
+  @media (max-width: 1440px) {
+    .utterances {
+      max-width: 928px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .utterances {
+      max-width: 544px;
+    }
+  }
+
+  @media (max-width: 744px) {
+    .utterances {
+      max-width: 100%;
+      padding: 0 36px;
+    }
+  }
+
+  @media (max-width: 428px) {
+    .utterances {
+      padding: 0 28px;
+    }
+  }
+
+  @media (max-width: 320px) {
+    .utterances {
+      padding: 0 18px;
+    }
   }
 `;
 
