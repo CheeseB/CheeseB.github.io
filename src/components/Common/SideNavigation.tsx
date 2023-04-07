@@ -64,14 +64,16 @@ const Background = styled.div<NavigationOpenProps>`
 export const SideNavigation: FunctionComponent<NavigationProps> = ({
   selectedCategory,
 }) => {
-  const { isOpen, setOpen } = useContext(SideBarContext)!;
+  const { isOpen, setOpen } = useContext(SideBarContext) || {};
   const closeNavigationBar = () => setOpen!(false);
 
   useEffect(() => {
     if (isOpen) document.body.style.overflow = 'hidden';
     else document.body.style.overflow = 'scroll';
   }, [isOpen]);
-  useEffect(() => setOpen(false), [selectedCategory]);
+  useEffect(() => {
+    setOpen && setOpen(false);
+  }, [selectedCategory]);
 
   const datas = useStaticQuery(graphql`
     query getSidebarDatas {
@@ -118,7 +120,7 @@ export const SideNavigation: FunctionComponent<NavigationProps> = ({
 
   return (
     <>
-      <NavigationBar isOpen={isOpen}>
+      <NavigationBar isOpen={isOpen ? isOpen : false}>
         <Introduction
           profileImage={datas.file.childImageSharp.gatsbyImageData}
         />
@@ -127,7 +129,10 @@ export const SideNavigation: FunctionComponent<NavigationProps> = ({
           categoryList={categoryList}
         />
       </NavigationBar>
-      <Background isOpen={isOpen} onClick={closeNavigationBar}></Background>
+      <Background
+        isOpen={isOpen ? isOpen : false}
+        onClick={closeNavigationBar}
+      ></Background>
     </>
   );
 };
