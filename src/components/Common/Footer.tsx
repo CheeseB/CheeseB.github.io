@@ -2,12 +2,12 @@ import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 
 const Wrapper = styled.div`
-  width: 1200px;
+  width: 1380px;
   margin: 100px auto 50px;
   padding-left: 220px;
 
   @media (max-width: 1440px) {
-    width: 920px;
+    width: 980px;
   }
 
   @media (max-width: 1024px) {

@@ -9,9 +9,9 @@ const MarkdownRenderer = styled.div`
   // Renderer Style
   display: flex;
   flex-direction: column;
-  width: 1200px;
+  width: 1380px;
   margin: 0 auto;
-  padding: 120px 0;
+  padding: 120px 0 120px 220px;
   word-break: break-all;
 
   // Markdown Style
@@ -132,13 +132,14 @@ const MarkdownRenderer = styled.div`
   }
 
   @media (max-width: 1440px) {
-    width: 928px;
+    width: 980px;
   }
 
   // Markdown Responsive Design
   @media (max-width: 1024px) {
     width: 700px;
     font-size: 18px;
+    padding: 120px 0;
 
     h1,
     h2,

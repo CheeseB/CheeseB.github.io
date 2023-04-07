@@ -12,7 +12,6 @@ const defaultStyle = css`
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 400;
     color: #000;
-    transition: all 0.3s ease;
   }
 
   html,

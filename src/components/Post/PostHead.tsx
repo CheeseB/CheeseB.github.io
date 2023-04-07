@@ -40,9 +40,11 @@ const BackgroundImage = styled((props: GatsbyImgProps) => (
   width: 100%;
   height: 400px;
   object-fit: cover;
+  margin-left: 220px;
   filter: brightness(0.3);
 
   @media (max-width: 1024px) {
+    margin-left: 0;
     height: 340px;
   }
 

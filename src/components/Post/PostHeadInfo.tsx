@@ -12,11 +12,11 @@ const PostHeadInfoWrapper = styled.div`
   flex-direction: column;
   text-align: center;
   justify-content: space-between;
-  width: 1200px;
+  width: 1420px;
   height: 100%;
   margin: 0 auto;
   color: #ffffff;
-  padding: 100px 0 40px;
+  padding: 100px 0 40px 220px;
 
   @media (max-width: 1440px) {
     width: 928px;

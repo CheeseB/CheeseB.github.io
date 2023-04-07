@@ -15,7 +15,7 @@ const HeaderBar = styled.header`
   padding: 0 48px;
   background-color: #fff8ee;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  transition: all 0.5s ease;
+  transition: top 0.5s ease;
 
   @media (min-width: 1024px) {
     top: -52px;
