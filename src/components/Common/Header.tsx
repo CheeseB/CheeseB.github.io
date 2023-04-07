@@ -77,7 +77,7 @@ const ProfileImage = styled.img`
 `;
 
 export const Header: FunctionComponent = () => {
-  const { isOpen, setOpen } = useContext(SideBarContext)!;
+  const { setOpen } = useContext(SideBarContext)!;
   const toggleNavigationBar = () => setOpen(prev => !prev);
 
   return (
