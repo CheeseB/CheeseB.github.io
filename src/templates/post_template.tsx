@@ -1,3 +1,4 @@
+import { SideNavigation } from 'components/Common/SideNavigation';
 import { Template } from 'components/Common/Template';
 import { CommentWidget } from 'components/Post/CommentWidget';
 import { PostContent } from 'components/Post/PostContent';
@@ -41,6 +42,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
 
   return (
     <Template title={title} description={summary} url={href} image={publicURL}>
+      <SideNavigation selectedCategory={categories[0]}></SideNavigation>
       <PostHead
         title={title}
         date={date}

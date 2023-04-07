@@ -1,10 +1,8 @@
-import React, { FunctionComponent, useMemo } from 'react';
+import React, { FunctionComponent } from 'react';
 import { PostList } from 'components/Main/PostList';
 import { graphql } from 'gatsby';
 import { PostListItemType } from 'types/PostItem.types';
-import { IGatsbyImageData } from 'gatsby-plugin-image';
 import queryString, { ParsedQuery } from 'query-string';
-import { CategoryListProps } from 'components/SideNav/CategoryList';
 import { Template } from 'components/Common/Template';
 import { SideNavigation } from 'components/Common/SideNavigation';
 import { MainCheeseBall } from 'components/Main/MainCheeseBall';
@@ -25,9 +23,6 @@ type IndexPageProps = {
       edges: PostListItemType[];
     };
     file: {
-      childImageSharp: {
-        gatsbyImageData: IGatsbyImageData;
-      };
       publicURL: string;
     };
   };
@@ -40,10 +35,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({
       siteMetadata: { title, description, siteUrl },
     },
     allMarkdownRemark: { edges },
-    file: {
-      childImageSharp: { gatsbyImageData },
-      publicURL,
-    },
+    file: { publicURL },
   },
 }) => {
   const parsed: ParsedQuery<string> = queryString.parse(search);
@@ -53,30 +45,6 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({
     ? 'All'
     : (parsed.category as string);
 
-  const categoryList = useMemo(
-    () =>
-      edges.reduce(
-        (
-          list: CategoryListProps['categoryList'],
-          {
-            node: {
-              frontmatter: { categories },
-            },
-          }: PostListItemType,
-        ) => {
-          categories.forEach((category: string) => {
-            if (list[category] === undefined) list[category] = 1;
-            else list[category]++;
-          });
-          list['All']++;
-
-          return list;
-        },
-        { All: 0 },
-      ),
-    [],
-  );
-
   return (
     <Template
       title={title}
@@ -84,11 +52,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({
       url={siteUrl}
       image={publicURL}
     >
-      <SideNavigation
-        profileImage={gatsbyImageData}
-        selectedCategory={selectedCategory}
-        categoryList={categoryList}
-      ></SideNavigation>
+      <SideNavigation selectedCategory={selectedCategory}></SideNavigation>
       {isMainPage && <MainCheeseBall />}
       <PostList selectedCategory={selectedCategory} posts={edges} />
     </Template>
@@ -130,9 +94,6 @@ export const getPostList = graphql`
       }
     }
     file(name: { eq: "profile-image" }) {
-      childImageSharp {
-        gatsbyImageData(width: 120, height: 120)
-      }
       publicURL
     }
   }

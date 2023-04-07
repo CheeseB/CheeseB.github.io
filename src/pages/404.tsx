@@ -109,8 +109,8 @@ const NotFoundPage: FunctionComponent<ErrorPageProps> = ({
 
 export default NotFoundPage;
 
-export const getPostList = graphql`
-  query getPostList {
+export const getErrorImage = graphql`
+  query getErrorImage {
     file(name: { eq: "error" }) {
       childImageSharp {
         gatsbyImageData(width: 500, height: 500)

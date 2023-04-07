@@ -1,17 +1,26 @@
 import styled from '@emotion/styled';
-import { CategoryList } from 'components/SideNav/CategoryList';
+import {
+  CategoryList,
+  CategoryListProps,
+} from 'components/SideNav/CategoryList';
 import { Introduction } from 'components/SideNav/Introduction';
 import { SideBarContext } from 'contexts/SideBarContext';
-import { IGatsbyImageData } from 'gatsby-plugin-image';
+import { graphql, useStaticQuery } from 'gatsby';
 import React, {
   FunctionComponent,
   ReactNode,
   useEffect,
   useContext,
+  useMemo,
 } from 'react';
+import { PostListItemType } from 'types/PostItem.types';
 
 type NavigationOpenProps = {
   isOpen: boolean;
+};
+
+type NavigationProps = {
+  selectedCategory: string;
 };
 
 type OpenableNodeProps = {
@@ -19,14 +28,6 @@ type OpenableNodeProps = {
   className?: string;
   onClick?: () => void;
 } & NavigationOpenProps;
-
-type NavigationProps = {
-  profileImage: IGatsbyImageData;
-  selectedCategory: string;
-  categoryList: {
-    [key: string]: number;
-  };
-};
 
 const NavigationBar = styled(({ isOpen, ...props }: OpenableNodeProps) => (
   <nav {...props} />
@@ -71,9 +72,7 @@ const Background = styled(({ isOpen, ...props }: OpenableNodeProps) => (
 `;
 
 export const SideNavigation: FunctionComponent<NavigationProps> = ({
-  profileImage,
   selectedCategory,
-  categoryList,
 }) => {
   const { isOpen, setOpen } = useContext(SideBarContext)!;
   const closeNavigationBar = () => setOpen!(false);
@@ -84,10 +83,55 @@ export const SideNavigation: FunctionComponent<NavigationProps> = ({
   }, [isOpen]);
   useEffect(() => setOpen(false), [selectedCategory]);
 
+  const datas = useStaticQuery(graphql`
+    query getSidebarDatas {
+      allMarkdownRemark {
+        edges {
+          node {
+            frontmatter {
+              categories
+            }
+          }
+        }
+      }
+      file(name: { eq: "profile-image" }) {
+        childImageSharp {
+          gatsbyImageData(width: 120, height: 120)
+        }
+      }
+    }
+  `);
+
+  const categoryList = useMemo(
+    () =>
+      datas.allMarkdownRemark.edges.reduce(
+        (
+          list: CategoryListProps['categoryList'],
+          {
+            node: {
+              frontmatter: { categories },
+            },
+          }: PostListItemType,
+        ) => {
+          categories.forEach((category: string) => {
+            if (list[category] === undefined) list[category] = 1;
+            else list[category]++;
+          });
+          list['All']++;
+
+          return list;
+        },
+        { All: 0 },
+      ),
+    [],
+  );
+
   return (
     <>
       <NavigationBar isOpen={isOpen}>
-        <Introduction profileImage={profileImage} />
+        <Introduction
+          profileImage={datas.file.childImageSharp.gatsbyImageData}
+        />
         <CategoryList
           selectedCategory={selectedCategory}
           categoryList={categoryList}
