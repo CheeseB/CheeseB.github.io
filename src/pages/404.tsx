@@ -16,7 +16,7 @@ type ErrorPageProps = {
 
 const NotFoundPageWrapper = styled.div`
   display: flex;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   flex-direction: column;
   justify-content: center;
   align-items: center;

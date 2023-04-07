@@ -1,7 +1,13 @@
 import 'prismjs/themes/prism-tomorrow.css';
 import React from 'react';
 import SideBarProvider from './src/contexts/SideBarProvider';
+import ViewportHeightSetter from './src/components/ViewportHeightSetter';
 
 export const wrapRootElement = ({ element }) => {
-  return <SideBarProvider>{element}</SideBarProvider>;
+  return (
+    <SideBarProvider>
+      <ViewportHeightSetter />
+      {element}
+    </SideBarProvider>
+  );
 };
