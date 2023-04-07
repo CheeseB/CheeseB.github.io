@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import React from 'react';
 
 const Wrapper = styled.div`
+  position: relative;
   width: 1200px;
   height: 100vh;
   margin: 0 auto;
@@ -42,10 +43,135 @@ const MainGIF = styled.div`
   }
 `;
 
+const ScrollText = styled.div`
+  position: absolute;
+  bottom: 84px;
+  font-size: 24px;
+  color: #fec479;
+  line-height: 34px;
+  left: calc(50% + 110px);
+  transform: translateX(-50%);
+
+  @media (max-width: 1024px) {
+    left: 50%;
+  }
+
+  @media (max-width: 428px) {
+    font-size: 16px;
+    line-height: 24px;
+    bottom: 56px;
+  }
+
+  @media (max-width: 320px) {
+    font-size: 14px;
+    line-height: 20px;
+    bottom: 40px;
+  }
+`;
+
+const ScrollArrow = styled.img`
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: calc(50% + 110px);
+  transform: translateX(-50%);
+
+  -webkit-animation: bounce 1s infinite;
+  animation: bounce 1s infinite;
+
+  @-webkit-keyframes bounce {
+    0% {
+      bottom: 38px;
+    }
+    50% {
+      bottom: 30px;
+    }
+    100% {
+      bottom: 38px;
+    }
+  }
+
+  @keyframes bounce {
+    0% {
+      bottom: 38px;
+    }
+    50% {
+      bottom: 30px;
+    }
+    100% {
+      bottom: 38px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    left: 50%;
+  }
+
+  @media (max-width: 428px) {
+    width: 32px;
+    height: 32px;
+
+    @-webkit-keyframes bounce {
+      0% {
+        bottom: 28px;
+      }
+      50% {
+        bottom: 20px;
+      }
+      100% {
+        bottom: 28px;
+      }
+    }
+
+    @keyframes bounce {
+      0% {
+        bottom: 28px;
+      }
+      50% {
+        bottom: 20px;
+      }
+      100% {
+        bottom: 28px;
+      }
+    }
+  }
+
+  @media (max-width: 320px) {
+    width: 28px;
+    height: 28px;
+
+    @-webkit-keyframes bounce {
+      0% {
+        bottom: 20px;
+      }
+      50% {
+        bottom: 12px;
+      }
+      100% {
+        bottom: 20px;
+      }
+    }
+
+    @keyframes bounce {
+      0% {
+        bottom: 20px;
+      }
+      50% {
+        bottom: 12px;
+      }
+      100% {
+        bottom: 20px;
+      }
+    }
+  }
+`;
+
 export const MainCheeseBall = () => {
   return (
     <Wrapper>
       <MainGIF></MainGIF>
+      <ScrollText>Scroll</ScrollText>
+      <ScrollArrow src="/icon/down.svg"></ScrollArrow>
     </Wrapper>
   );
 };

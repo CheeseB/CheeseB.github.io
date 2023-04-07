@@ -19,6 +19,7 @@ const HeaderBar = styled.header`
 
   @media (min-width: 1024px) {
     top: -52px;
+    box-shadow: none;
   }
 
   @media (max-width: 744px) {

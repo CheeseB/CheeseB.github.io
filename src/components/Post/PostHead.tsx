@@ -3,12 +3,6 @@ import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import React, { FunctionComponent } from 'react';
 import { PostHeadInfo, PostHeadInfoProps } from './PostHeadInfo';
 
-type GatsbyImgProps = {
-  image: IGatsbyImageData;
-  alt: string;
-  className?: string;
-};
-
 type PostHeadProps = PostHeadInfoProps & {
   thumbnail: IGatsbyImageData;
 };
@@ -33,9 +27,8 @@ const PostHeadWrapper = styled.div`
   }
 `;
 
-const BackgroundImage = styled((props: GatsbyImgProps) => (
-  <GatsbyImage {...props} style={{ position: 'absolute' }} />
-))`
+const BackgroundImage = styled(GatsbyImage)`
+  position: absolute;
   z-index: -1;
   width: 100%;
   height: 400px;

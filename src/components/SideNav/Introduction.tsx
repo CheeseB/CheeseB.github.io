@@ -31,9 +31,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const TitleText = styled(({ ...props }: GatsbyLinkProps) => (
-  <Link {...props} />
-))`
+const TitleText = styled(Link)`
   font-weight: 600;
   font-size: 20px;
   line-height: 30px;

@@ -4,6 +4,7 @@ import { Footer } from './Footer';
 import { GlobalStyle } from './GlobalStyle';
 import { Helmet } from 'react-helmet-async';
 import { Header } from './Header';
+import { ScrollIndicator } from './ScrollIndicator';
 
 type TemplateProps = {
   title: string;
@@ -17,6 +18,13 @@ const Container = styled.main`
   display: flex;
   flex-direction: column;
   height: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+`;
+
+const Wrapper = styled.div`
+  width: 100%;
+  flex: 1;
 `;
 
 export const Template: FunctionComponent<TemplateProps> = ({
@@ -139,7 +147,8 @@ export const Template: FunctionComponent<TemplateProps> = ({
 
       <GlobalStyle />
       <Header />
-      {children}
+      <ScrollIndicator></ScrollIndicator>
+      <Wrapper>{children}</Wrapper>
       <Footer />
     </Container>
   );

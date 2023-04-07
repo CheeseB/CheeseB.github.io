@@ -8,7 +8,6 @@ import { SideBarContext } from 'contexts/SideBarContext';
 import { graphql, useStaticQuery } from 'gatsby';
 import React, {
   FunctionComponent,
-  ReactNode,
   useEffect,
   useContext,
   useMemo,
@@ -23,15 +22,7 @@ type NavigationProps = {
   selectedCategory: string;
 };
 
-type OpenableNodeProps = {
-  children?: ReactNode;
-  className?: string;
-  onClick?: () => void;
-} & NavigationOpenProps;
-
-const NavigationBar = styled(({ isOpen, ...props }: OpenableNodeProps) => (
-  <nav {...props} />
-))<NavigationOpenProps>`
+const NavigationBar = styled.nav<NavigationOpenProps>`
   position: fixed;
   left: 0;
   top: 0;
@@ -51,12 +42,11 @@ const NavigationBar = styled(({ isOpen, ...props }: OpenableNodeProps) => (
 
   @media (max-width: 1024px) {
     left: ${({ isOpen }) => (isOpen ? '0' : '-220px')};
+    box-shadow: none;
   }
 `;
 
-const Background = styled(({ isOpen, ...props }: OpenableNodeProps) => (
-  <div {...props} />
-))<NavigationOpenProps>`
+const Background = styled.div<NavigationOpenProps>`
   display: none;
   width: 100%;
   height: 100vh;
