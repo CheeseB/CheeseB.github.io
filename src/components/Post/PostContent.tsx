@@ -16,7 +16,7 @@ const MarkdownRenderer = styled.div`
 
   // Markdown Style
   line-height: 2;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 400;
 
   // Apply Padding Attribute to All Elements
@@ -33,7 +33,7 @@ const MarkdownRenderer = styled.div`
   }
 
   h1 {
-    font-size: 44px;
+    font-size: 28px;
     margin-bottom: 60px;
   }
 
@@ -42,7 +42,7 @@ const MarkdownRenderer = styled.div`
   }
 
   h2 {
-    font-size: 36px;
+    font-size: 26px;
     margin-bottom: 50px;
   }
 
@@ -55,7 +55,7 @@ const MarkdownRenderer = styled.div`
   }
 
   h3 {
-    font-size: 30px;
+    font-size: 24px;
     margin-bottom: 40px;
   }
 
@@ -88,8 +88,7 @@ const MarkdownRenderer = styled.div`
   ol,
   ul {
     padding: 30px 0;
-    margin-left: 20px;
-    font-size: 24px;
+    margin-left: 26px;
   }
 
   ol ul,
@@ -110,7 +109,7 @@ const MarkdownRenderer = styled.div`
   // Adjust Horizontal Rule style
   hr {
     border: 2px solid lightgray;
-    margin: 100px 0;
+    margin: 80px 0;
   }
 
   // Adjust Link Element Style
@@ -123,8 +122,8 @@ const MarkdownRenderer = styled.div`
   pre[class*='language-'] {
     margin: 30px 0;
     padding: 30px;
-    font-size: 20px;
     border-radius: 16px;
+    font-size: 18px;
   }
 
   code[class*='language-'],
@@ -154,24 +153,19 @@ const MarkdownRenderer = styled.div`
     }
 
     h1 {
-      font-size: 38px;
+      font-size: 26px;
     }
 
     h2 {
-      font-size: 30px;
-    }
-
-    h3 {
       font-size: 24px;
     }
 
-    ol,
-    ul {
-      font-size: 20px;
+    h3 {
+      font-size: 22px;
     }
 
     hr {
-      margin: 80px 0;
+      margin: 60px 0;
     }
 
     pre[class*='language-'] {
@@ -226,18 +220,17 @@ const MarkdownRenderer = styled.div`
 
     ol,
     ul {
-      font-size: 14px;
       padding: 16px 0;
     }
 
     hr {
-      margin: 60px 0;
+      margin: 40px 0;
     }
 
     pre[class*='language-'] {
       margin: 16px 0;
       padding: 18px;
-      font-size: 12px;
+      font-size: 10px;
     }
   }
 
@@ -257,13 +250,8 @@ const MarkdownRenderer = styled.div`
       font-size: 12px;
     }
 
-    ol,
-    ul {
-      font-size: 10px;
-    }
-
-    pre[class*='language-'] {
-      font-size: 10px;
+    hr {
+      margin: 30px 0;
     }
   }
 `;
