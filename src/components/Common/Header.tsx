@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { SideBarContext } from 'contexts/SideBarContext';
+import { Link } from 'gatsby';
 import React, { FunctionComponent, useContext } from 'react';
 
 const HeaderBar = styled.header`
@@ -52,7 +53,7 @@ const HamburgerBtnImage = styled.img`
   }
 `;
 
-const HeaderTitleText = styled.div`
+const HeaderTitleText = styled(Link)`
   font-size: 20px;
   line-height: 30px;
   font-weight: 800;
@@ -87,7 +88,7 @@ export const Header: FunctionComponent = () => {
       <HamburgerBtn onClick={toggleNavigationBar}>
         <HamburgerBtnImage src="/icon/hamburger-button.svg" alt="-" />
       </HamburgerBtn>
-      <HeaderTitleText>개발자맛 치즈볼</HeaderTitleText>
+      <HeaderTitleText to="/">개발자맛 치즈볼</HeaderTitleText>
       <ProfileImage src="/profile-image-small.png" alt=""></ProfileImage>
     </HeaderBar>
   );
