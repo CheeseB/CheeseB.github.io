@@ -156,14 +156,20 @@ const ScrollArrow = styled.img`
 `;
 
 export const MainAnimation = () => {
-  const [isVertical, setIsVertical] = useState(window.innerWidth < 428);
+  const isBrowser = typeof window !== 'undefined';
+  const isMobile = isBrowser ? window.innerWidth < 428 : false;
+  const [isVertical, setIsVertical] = useState(isMobile);
   const handleResize = () => {
-    window.innerWidth < 428 ? setIsVertical(true) : setIsVertical(false);
+    if (isBrowser)
+      window.innerWidth < 428 ? setIsVertical(true) : setIsVertical(false);
   };
 
   useEffect(() => {
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    if (isBrowser) {
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
+    return;
   });
 
   return (
