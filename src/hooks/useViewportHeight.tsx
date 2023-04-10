@@ -9,10 +9,7 @@ const useViewportHeight = () => {
 
     setVhProperty();
     window.addEventListener('resize', setVhProperty);
-
-    return () => {
-      window.removeEventListener('resize', setVhProperty);
-    };
+    return () => window.removeEventListener('resize', setVhProperty);
   }, []);
 };
 
