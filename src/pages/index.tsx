@@ -5,7 +5,7 @@ import { PostListItemType } from 'types/PostItem.types';
 import queryString, { ParsedQuery } from 'query-string';
 import { Template } from 'components/Common/Template';
 import { SideNavigation } from 'components/Common/SideNavigation';
-import { MainAnimation } from 'components/Main/MainAnimation';
+import { MainCheeseBall } from 'components/Main/MainCheeseBall';
 
 type IndexPageProps = {
   location: {
@@ -53,7 +53,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({
       image={publicURL}
     >
       <SideNavigation selectedCategory={selectedCategory}></SideNavigation>
-      {isMainPage && <MainAnimation />}
+      {isMainPage && <MainCheeseBall />}
       <PostList selectedCategory={selectedCategory} posts={edges} />
     </Template>
   );

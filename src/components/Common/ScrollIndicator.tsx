@@ -43,7 +43,10 @@ export const ScrollIndicator = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', updateScrollIndicator);
-    return () => window.removeEventListener('scroll', updateScrollIndicator);
+
+    return () => {
+      window.removeEventListener('scroll', updateScrollIndicator);
+    };
   }, []);
   return <ProgressBar scrollWidth={scrollWidth}></ProgressBar>;
 };
