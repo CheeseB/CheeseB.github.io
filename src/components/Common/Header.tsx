@@ -88,7 +88,7 @@ export const Header: FunctionComponent = () => {
         <HamburgerBtnImage src="/icon/hamburger-button.svg" alt="-" />
       </HamburgerBtn>
       <HeaderTitleText>개발자맛 치즈볼</HeaderTitleText>
-      <ProfileImage src="/profile-image-small.png"></ProfileImage>
+      <ProfileImage src="/profile-image-small.png" alt=""></ProfileImage>
     </HeaderBar>
   );
 };

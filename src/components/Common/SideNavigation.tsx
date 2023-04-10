@@ -86,11 +86,6 @@ export const SideNavigation: FunctionComponent<NavigationProps> = ({
           }
         }
       }
-      file(name: { eq: "profile-image" }) {
-        childImageSharp {
-          gatsbyImageData(width: 120, height: 120)
-        }
-      }
     }
   `);
 
@@ -121,9 +116,7 @@ export const SideNavigation: FunctionComponent<NavigationProps> = ({
   return (
     <>
       <NavigationBar isOpen={isOpen ? isOpen : false}>
-        <Introduction
-          profileImage={datas.file.childImageSharp.gatsbyImageData}
-        />
+        <Introduction />
         <CategoryList
           selectedCategory={selectedCategory}
           categoryList={categoryList}
