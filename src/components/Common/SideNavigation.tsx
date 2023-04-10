@@ -27,7 +27,7 @@ const NavigationBar = styled.nav<NavigationOpenProps>`
   left: 0;
   top: 0;
   width: 220px;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   z-index: 5;
   overflow-y: scroll;
   background-color: #fff8ee;
@@ -49,7 +49,7 @@ const NavigationBar = styled.nav<NavigationOpenProps>`
 const Background = styled.div<NavigationOpenProps>`
   display: none;
   width: 100%;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   position: fixed;
   left: 0;
   top: 0;

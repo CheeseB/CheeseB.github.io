@@ -4,7 +4,7 @@ import React from 'react';
 const Wrapper = styled.div`
   position: relative;
   width: 1200px;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   margin: 0 auto;
   padding-left: 220px;
 
