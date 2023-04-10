@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 const Wrapper = styled.div`
   width: 1380px;
-  margin: 100px auto 50px;
+  margin: 100px auto 30px;
   padding-left: 220px;
 
   @media (max-width: 1440px) {
