@@ -15,7 +15,7 @@ export const LinkIconList = () => {
         image="/icon/github.svg"
       ></LinkIcon>
       <LinkIcon
-        link="https://www.instagram.com/malang_cheeseb/"
+        link="https://www.instagram.com/cheeseb_all/"
         image="/icon/instagram.svg"
       ></LinkIcon>
       <LinkIcon
