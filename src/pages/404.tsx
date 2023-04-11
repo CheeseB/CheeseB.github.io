@@ -71,22 +71,22 @@ const GoToMainButton = styled(Link)`
 `;
 
 const NotFoundImage = styled(GatsbyImage)`
-  width: 500px;
-  height: 500px;
+  width: 360px;
+  height: 360px;
 
   @media (max-width: 1024px) {
-    width: 380px;
-    height: 380px;
-  }
-
-  @media (max-width: 428px) {
     width: 280px;
     height: 280px;
   }
 
+  @media (max-width: 428px) {
+    width: 200px;
+    height: 200px;
+  }
+
   @media (max-width: 320px) {
-    width: 220px;
-    height: 220px;
+    width: 160px;
+    height: 160px;
   }
 `;
 
@@ -113,7 +113,7 @@ export const getErrorImage = graphql`
   query getErrorImage {
     file(name: { eq: "error" }) {
       childImageSharp {
-        gatsbyImageData(width: 500, height: 500)
+        gatsbyImageData(width: 360, height: 360)
       }
     }
   }
