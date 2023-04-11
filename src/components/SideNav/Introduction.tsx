@@ -1,8 +1,14 @@
 import styled from '@emotion/styled';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 import React, { FunctionComponent, useContext } from 'react';
+import { ProfileImage } from 'components/SideNav/ProfileImage';
 import { LinkIconList } from './LinkIconList';
 import { Link } from 'gatsby';
 import { SideBarContext } from 'contexts/SideBarContext';
+
+type IntroductionProps = {
+  profileImage: IGatsbyImageData;
+};
 
 const Wrapper = styled.div`
   display: flex;
@@ -15,18 +21,6 @@ const Wrapper = styled.div`
 
   @media (max-width: 428px) {
     height: 266px;
-  }
-`;
-
-const ProfileImage = styled.img`
-  width: 112px;
-  height: 112px;
-  margin-bottom: 12px;
-  border-radius: 50%;
-
-  @media (max-width: 428px) {
-    width: 80px;
-    height: 80px;
   }
 `;
 
@@ -56,7 +50,9 @@ const AuthorText = styled.div`
   }
 `;
 
-export const Introduction: FunctionComponent = () => {
+export const Introduction: FunctionComponent<IntroductionProps> = ({
+  profileImage,
+}) => {
   const { setOpen } = useContext(SideBarContext) || {};
   const closeNavigationBar = () => {
     setOpen && setOpen(false);
@@ -64,7 +60,7 @@ export const Introduction: FunctionComponent = () => {
 
   return (
     <Wrapper>
-      <ProfileImage src="/profile-image.png" alt="CheeseBall" />
+      <ProfileImage profileImage={profileImage} />
       <TitleText to="/" onClick={closeNavigationBar}>
         개발자맛 치즈볼
       </TitleText>
