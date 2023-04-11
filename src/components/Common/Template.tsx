@@ -3,7 +3,6 @@ import React, { FunctionComponent, ReactNode } from 'react';
 import { Footer } from './Footer';
 import { GlobalStyle } from './GlobalStyle';
 import { Helmet } from 'react-helmet-async';
-import { Header } from './Header';
 import { ScrollIndicator } from './ScrollIndicator';
 
 type TemplateProps = {
@@ -146,7 +145,6 @@ export const Template: FunctionComponent<TemplateProps> = ({
       </Helmet>
 
       <GlobalStyle />
-      <Header />
       <ScrollIndicator></ScrollIndicator>
       <Wrapper>{children}</Wrapper>
       <Footer />

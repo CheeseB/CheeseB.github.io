@@ -1,7 +1,12 @@
 import styled from '@emotion/styled';
 import { SideBarContext } from 'contexts/SideBarContext';
 import { Link } from 'gatsby';
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import React, { FunctionComponent, useContext } from 'react';
+
+type HeaderProps = {
+  profileImage: IGatsbyImageData;
+};
 
 const HeaderBar = styled.header`
   position: fixed;
@@ -67,7 +72,7 @@ const HeaderTitleText = styled(Link)`
   }
 `;
 
-const ProfileImage = styled.img`
+const ProfileImage = styled(GatsbyImage)`
   width: 40px;
   height: 40px;
 
@@ -77,7 +82,7 @@ const ProfileImage = styled.img`
   }
 `;
 
-export const Header: FunctionComponent = () => {
+export const Header: FunctionComponent<HeaderProps> = ({ profileImage }) => {
   const { setOpen } = useContext(SideBarContext) || {};
   const toggleNavigationBar = () => {
     setOpen && setOpen(prev => !prev);
@@ -89,7 +94,7 @@ export const Header: FunctionComponent = () => {
         <HamburgerBtnImage src="/icon/hamburger-button.svg" alt="-" />
       </HamburgerBtn>
       <HeaderTitleText to="/">개발자맛 치즈볼</HeaderTitleText>
-      <ProfileImage src="/profile-image-small.png" alt=""></ProfileImage>
+      <ProfileImage image={profileImage} alt=""></ProfileImage>
     </HeaderBar>
   );
 };

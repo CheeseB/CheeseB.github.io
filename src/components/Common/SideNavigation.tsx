@@ -13,6 +13,7 @@ import React, {
   useMemo,
 } from 'react';
 import { PostListItemType } from 'types/PostItem.types';
+import { Header } from './Header';
 
 type NavigationOpenProps = {
   isOpen: boolean;
@@ -120,6 +121,9 @@ export const SideNavigation: FunctionComponent<NavigationProps> = ({
 
   return (
     <>
+      <Header
+        profileImage={datas.file.childImageSharp.gatsbyImageData}
+      ></Header>
       <NavigationBar isOpen={isOpen ? isOpen : false}>
         <Introduction
           profileImage={datas.file.childImageSharp.gatsbyImageData}
