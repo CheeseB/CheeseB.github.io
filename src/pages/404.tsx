@@ -1,6 +1,18 @@
+import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
-import { Link } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { GlobalStyle } from 'components/Common/GlobalStyle';
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
+
+type ErrorPageProps = {
+  data: {
+    file: {
+      childImageSharp: {
+        gatsbyImageData: IGatsbyImageData;
+      };
+    };
+  };
+};
 
 const NotFoundPageWrapper = styled.div`
   display: flex;
@@ -58,7 +70,7 @@ const GoToMainButton = styled(Link)`
   }
 `;
 
-const NotFoundImage = styled.img`
+const NotFoundImage = styled(GatsbyImage)`
   width: 500px;
   height: 500px;
 
@@ -78,15 +90,31 @@ const NotFoundImage = styled.img`
   }
 `;
 
-const NotFoundPage = () => {
+const NotFoundPage: FunctionComponent<ErrorPageProps> = ({
+  data: {
+    file: {
+      childImageSharp: { gatsbyImageData },
+    },
+  },
+}) => {
   return (
     <NotFoundPageWrapper>
       <GlobalStyle />
       <NotFoundText>페이지를 찾을 수 없습니다.</NotFoundText>
       <GoToMainButton to="/">홈으로 돌아가기</GoToMainButton>
-      <NotFoundImage src="/error.png" alt="404 not found" />
+      <NotFoundImage image={gatsbyImageData} alt="404 not found" />
     </NotFoundPageWrapper>
   );
 };
 
 export default NotFoundPage;
+
+export const getErrorImage = graphql`
+  query getErrorImage {
+    file(name: { eq: "error" }) {
+      childImageSharp {
+        gatsbyImageData(width: 500, height: 500)
+      }
+    }
+  }
+`;
