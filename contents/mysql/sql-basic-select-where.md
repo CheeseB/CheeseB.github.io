@@ -3,7 +3,7 @@ date: '2021-01-05'
 title: '[SQL] Day1 - SQL기본, Select, Where'
 categories: ['MySQL']
 summary: 'SQL 공부'
-thumbnail: '../images/thumbnail/mysql.png'
+thumbnail: '../images/thumbnail/mysql.webp'
 ---
 
 
@@ -43,13 +43,13 @@ ALTER USER hr IDENTIFIED BY hr ACCOUNT UNLOCK; -- 계정 잠금 해제 및 비�
 
 ### 관계형 데이터베이스
 
-<img src="{{site.url}}/assets/img/post/sql1.jpg">
+<img src="{{site.url}}/assets/img/post/sql1.webp">
 
 - 데이터 구조 (2차원 테이블)
 	- 열: column
 	- 행: record
 
-<img src="{{site.url}}/assets/img/post/sql2.jpg">
+<img src="{{site.url}}/assets/img/post/sql2.webp">
 
 - SQL은 대소문자 구분이 없지만 권장사항은 있음
 - SQL 명명 규칙

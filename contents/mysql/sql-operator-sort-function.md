@@ -3,7 +3,7 @@ date: '2021-01-06'
 title: '[SQL] Day2 - 연산자, 정렬, 단일행 함수(1)'
 categories: ['MySQL']
 summary: 'SQL 공부'
-thumbnail: '../images/thumbnail/mysql.png'
+thumbnail: '../images/thumbnail/mysql.webp'
 ---
 
 

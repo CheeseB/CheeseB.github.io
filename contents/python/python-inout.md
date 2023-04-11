@@ -3,7 +3,7 @@ date: '2020-09-17'
 title: '[파이썬] 입출력과 연산자'
 categories: ['Python']
 summary: '파이썬 문법 공부'
-thumbnail: '../images/thumbnail/python.png'
+thumbnail: '../images/thumbnail/python.webp'
 ---
 
 1. print(a, b, c, sep='') 이 문장에서 sep 부분을 빼고 실행시키면 자동으로 a b c 이렇게 공백으로 띄어서 출력되지만 sep을 지정하면 지정한 문자로 구분되어 출력된다. 예를들어 sep='' 이렇게 하면 abc 이렇게 붙어서 나오고 sep=',' 이렇게 하면 a,b,c 이렇게 출력된다.

@@ -3,7 +3,7 @@ date: '2021-01-13'
 title: '[SQL] Day7 - DML'
 categories: ['MySQL']
 summary: 'SQL 공부'
-thumbnail: '../images/thumbnail/mysql.png'
+thumbnail: '../images/thumbnail/mysql.webp'
 ---
 
 ## DML(Data Manipulation Language: 데이터 조작어)

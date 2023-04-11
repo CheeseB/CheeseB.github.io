@@ -3,7 +3,7 @@ date: '2021-01-08'
 title: '[SQL] Day4 - 그룹함수'
 categories: ['MySQL']
 summary: 'SQL 공부'
-thumbnail: '../images/thumbnail/mysql.png'
+thumbnail: '../images/thumbnail/mysql.webp'
 ---
 
 
@@ -125,7 +125,7 @@ HAVING SUM(sal) > 5000 AND job != 'SALESMAN'
 ORDER BY 2;
 ```
 
-<img src="{{site.url}}/assets/img/post/sql6.jpg">
+<img src="{{site.url}}/assets/img/post/sql6.webp">
 
 ```sql
 -- 위 사진과 같이 만들기

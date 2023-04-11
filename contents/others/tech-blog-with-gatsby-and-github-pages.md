@@ -3,7 +3,7 @@ date: '2023-03-14'
 title: 'Gatsby 와 Github pages로 블로그 만들기'
 categories: ['Others']
 summary: '기술 블로그 리뉴얼'
-thumbnail: '../images/thumbnail/gatsby.png'
+thumbnail: '../images/thumbnail/gatsby.webp'
 ---
 
 ## jekyll에서 Gatsby로

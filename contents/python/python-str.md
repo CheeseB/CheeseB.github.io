@@ -3,7 +3,7 @@ date: '2020-09-17'
 title: '[파이썬] 문자열 내장 함수'
 categories: ['Python']
 summary: '파이썬 문법 공부'
-thumbnail: '../images/thumbnail/python.png'
+thumbnail: '../images/thumbnail/python.webp'
 ---
 
 
