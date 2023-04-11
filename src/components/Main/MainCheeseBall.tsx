@@ -32,13 +32,13 @@ const Wrapper = styled.div`
 const MainGIF = styled.div`
   width: 100%;
   height: 100%;
-  background-image: url('/main.gif');
+  background-image: url('/main.webp');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
 
   @media (max-width: 428px) {
-    background-image: url('/main-vertical.gif');
+    background-image: url('/main-vertical.webp');
   }
 `;
 

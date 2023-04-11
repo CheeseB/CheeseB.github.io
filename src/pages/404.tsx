@@ -50,12 +50,11 @@ const GoToMainButton = styled(Link)`
   color: #c25450;
   text-decoration: underline;
   line-height: 30px;
-  margin-bottom: 16px;
+  margin-bottom: 30px;
 
   @media (max-width: 1024px) {
     font-size: 20px;
     line-height: 30px;
-    margin-bottom: 80px;
   }
 
   @media (max-width: 428px) {
@@ -66,7 +65,6 @@ const GoToMainButton = styled(Link)`
   @media (max-width: 320px) {
     font-size: 12px;
     line-height: 18px;
-    margin-bottom: 60px;
   }
 `;
 
