@@ -3,14 +3,10 @@ import React from 'react';
 
 const Wrapper = styled.div`
   position: relative;
-  width: 1200px;
+  width: 1028px;
   height: calc(var(--vh, 1vh) * 100);
   margin: 0 auto;
   padding-left: 220px;
-
-  @media (max-width: 1440px) {
-    width: 1028px;
-  }
 
   @media (max-width: 1024px) {
     width: 100%;
@@ -22,11 +18,8 @@ const Wrapper = styled.div`
   }
 
   @media (max-width: 428px) {
-    padding: 0 28px;
-  }
-
-  @media (max-width: 320px) {
-    padding: 0 18px;
+    width: 70%;
+    padding: 0;
   }
 `;
 
