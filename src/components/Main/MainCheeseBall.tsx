@@ -3,28 +3,29 @@ import React from 'react';
 
 const Wrapper = styled.div`
   position: relative;
-  width: 950px;
+  width: 1200px;
   height: calc(var(--vh, 1vh) * 100);
   margin: 0 auto;
   padding-left: 220px;
 
+  @media (max-width: 1440px) {
+    width: 1028px;
+  }
+
   @media (max-width: 1024px) {
-    width: 730px;
-    padding-left: 0;
+    width: 100%;
+    padding: 0 48px;
   }
 
   @media (max-width: 744px) {
-    width: 100%;
     padding: 0 36px;
   }
 
   @media (max-width: 428px) {
-    width: 260px;
     padding: 0 28px;
   }
 
   @media (max-width: 320px) {
-    width: 100%;
     padding: 0 18px;
   }
 `;
