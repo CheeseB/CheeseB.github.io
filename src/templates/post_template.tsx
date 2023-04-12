@@ -1,9 +1,11 @@
+import LoadingAnimation from 'components/Common/LoadingAnimation';
 import { SideNavigation } from 'components/Common/SideNavigation';
 import { Template } from 'components/Common/Template';
 import { CommentWidget } from 'components/Post/CommentWidget';
 import { PostContent } from 'components/Post/PostContent';
 import { PostHead } from 'components/Post/PostHead';
 import { graphql } from 'gatsby';
+import useLoading from 'hooks/useLoading';
 import React, { FunctionComponent } from 'react';
 import { PostPageItemType } from 'types/PostItem.types';
 
@@ -40,8 +42,11 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
     },
   } = edges[0];
 
+  const loading = useLoading();
+
   return (
     <Template title={title} description={summary} url={href} image={publicURL}>
+      {loading && <LoadingAnimation />}
       <SideNavigation selectedCategory={categories[0]}></SideNavigation>
       <PostHead
         title={title}

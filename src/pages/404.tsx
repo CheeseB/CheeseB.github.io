@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 import { graphql, Link } from 'gatsby';
 import { GlobalStyle } from 'components/Common/GlobalStyle';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import useLoading from 'hooks/useLoading';
+import LoadingAnimation from 'components/Common/LoadingAnimation';
 
 type ErrorPageProps = {
   data: {
@@ -95,13 +97,18 @@ const NotFoundPage: FunctionComponent<ErrorPageProps> = ({
     },
   },
 }) => {
+  const loading = useLoading();
+
   return (
-    <NotFoundPageWrapper>
-      <GlobalStyle />
-      <NotFoundText>페이지를 찾을 수 없습니다.</NotFoundText>
-      <GoToMainButton to="/">홈으로 돌아가기</GoToMainButton>
-      <NotFoundImage image={gatsbyImageData} alt="404 not found" />
-    </NotFoundPageWrapper>
+    <>
+      {loading && <LoadingAnimation />}
+      <NotFoundPageWrapper>
+        <GlobalStyle />
+        <NotFoundText>페이지를 찾을 수 없습니다.</NotFoundText>
+        <GoToMainButton to="/">홈으로 돌아가기</GoToMainButton>
+        <NotFoundImage image={gatsbyImageData} alt="404 not found" />
+      </NotFoundPageWrapper>
+    </>
   );
 };
 

@@ -6,6 +6,8 @@ import queryString, { ParsedQuery } from 'query-string';
 import { Template } from 'components/Common/Template';
 import { SideNavigation } from 'components/Common/SideNavigation';
 import { MainCheeseBall } from 'components/Main/MainCheeseBall';
+import useLoading from 'hooks/useLoading';
+import LoadingAnimation from 'components/Common/LoadingAnimation';
 
 type IndexPageProps = {
   location: {
@@ -44,6 +46,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({
   const selectedCategory: string = isMainPage
     ? 'All'
     : (parsed.category as string);
+  const loading = useLoading();
 
   return (
     <Template
@@ -52,6 +55,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({
       url={siteUrl}
       image={publicURL}
     >
+      {loading && <LoadingAnimation />}
       <SideNavigation selectedCategory={selectedCategory}></SideNavigation>
       {isMainPage && <MainCheeseBall />}
       <PostList selectedCategory={selectedCategory} posts={edges} />
