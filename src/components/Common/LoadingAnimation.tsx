@@ -16,10 +16,14 @@ const Wrapper = styled.div`
 `;
 
 const LottieContainer = styled.div`
-  width: 100px;
+  width: 300px;
+
+  @media (max-width: 1024px) {
+    width: 220px;
+  }
 
   @media (max-width: 428px) {
-    width: 60px;
+    width: 140px;
   }
 `;
 
@@ -30,14 +34,13 @@ const LoadingAnimation = () => {
   useEffect(() => {
     if (lottieContainer.current === null) return;
 
-    const lottie = Lottie.loadAnimation({
+    Lottie.loadAnimation({
       container: lottieContainer.current,
       renderer: 'svg',
       loop: true,
       autoplay: true,
       animationData: require('/static/lottie.json'),
     });
-    lottie.setSpeed(1.8);
   });
 
   return (
