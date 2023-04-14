@@ -3,14 +3,14 @@ import React, { FunctionComponent, useEffect } from 'react';
 
 const GiscusWrapper = styled.div`
   .giscus {
-    max-width: 1380px;
+    max-width: 1020px;
     margin: 0 auto;
     padding-left: 220px;
   }
 
   @media (max-width: 1440px) {
     .giscus {
-      max-width: 980px;
+      max-width: 920px;
     }
   }
 

@@ -12,14 +12,14 @@ const PostHeadInfoWrapper = styled.div`
   flex-direction: column;
   text-align: center;
   justify-content: space-between;
-  width: 1420px;
+  width: 1020px;
   height: 100%;
   margin: 0 auto;
   color: #ffffff;
   padding: 100px 0 100px 220px;
 
   @media (max-width: 1440px) {
-    width: 928px;
+    width: 920px;
   }
 
   @media (max-width: 1024px) {
@@ -43,8 +43,8 @@ const PostHeadInfoWrapper = styled.div`
 
 const Category = styled.div`
   color: #fff;
-  font-size: 18px;
-  line-height: 26px;
+  font-size: 16px;
+  line-height: 24px;
 
   @media (max-width: 1024px) {
     font-size: 14px;
@@ -57,7 +57,7 @@ const Category = styled.div`
   }
 `;
 
-const Title = styled.div`
+const Title = styled.h1`
   display: -webkit-box;
   overflow: hidden;
   overflow-wrap: break-word;
@@ -65,8 +65,8 @@ const Title = styled.div`
   white-space: normal;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  font-size: 40px;
-  line-height: 70px;
+  font-size: 36px;
+  line-height: 52px;
   font-weight: 800;
   color: #fff;
 

@@ -2,7 +2,7 @@
 date: '2023-03-28'
 title: '마크다운 문법 모음집'
 categories: ['Others']
-summary: '블로그 포스팅 디자인하려고 올린 게시글'
+summary: '블로그 디자인하려고 올린 게시글'
 thumbnail: '../images/thumbnail/cheeseball.webp'
 ---
 
@@ -18,14 +18,18 @@ thumbnail: '../images/thumbnail/cheeseball.webp'
 >	>	> This is a third blockqute.
 
 1. 첫번째
-	1. 첫번째 안의 첫번째
-	2. 첫번째 안의 두번째
 2. 두번째
-3. 세번째
+	1. 두번째 안의 첫번째
+	2. 두번째 안의 두번째
+2. 세번째
+3. 네번째
 
 - 빨강
+- 분홍
+- 보라
   - 녹색
     - 파랑
+- 검정
 
 * 1단계
   - 2단계

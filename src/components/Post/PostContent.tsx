@@ -9,20 +9,20 @@ const MarkdownRenderer = styled.div`
   // Renderer Style
   display: flex;
   flex-direction: column;
-  width: 1380px;
+  width: 1020px;
   margin: 0 auto;
-  padding: 120px 0 120px 220px;
+  padding: 100px 0 100px 220px;
   word-break: break-all;
 
   // Markdown Style
-  line-height: 2;
-  font-size: 20px;
+  line-height: 1.8;
+  font-size: 18px;
   font-weight: 400;
 
   // Apply Padding Attribute to All Elements
   p {
-    padding: 3px 0;
-    margin: 34px 0;
+    padding: 2px 0;
+    margin: 20px 0;
   }
 
   // Adjust Heading Element Style
@@ -33,21 +33,21 @@ const MarkdownRenderer = styled.div`
   }
 
   h1 {
-    font-size: 28px;
-    margin-bottom: 60px;
+    font-size: 32px;
+    margin-bottom: 40px;
   }
 
   * + h1 {
-    margin-top: 80px;
+    margin-top: 70px;
   }
 
   h2 {
     font-size: 26px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
   }
 
   * + h2 {
-    margin-top: 70px;
+    margin-top: 60px;
   }
 
   h1 + h2 {
@@ -56,11 +56,11 @@ const MarkdownRenderer = styled.div`
 
   h3 {
     font-size: 24px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 
   * + h3 {
-    margin-top: 60px;
+    margin-top: 50px;
   }
 
   h1 + h3,
@@ -76,7 +76,7 @@ const MarkdownRenderer = styled.div`
 
   // Adjust Quotation Element Style
   blockquote {
-    margin: 30px 0;
+    margin: 20px 0;
     padding: 5px 15px;
     border-left: 4px solid lightgray;
     font-weight: 400;
@@ -84,10 +84,14 @@ const MarkdownRenderer = styled.div`
     color: grey;
   }
 
+  blockquote p {
+    margin: 0;
+  }
+
   // Adjust List Element Style
   ol,
   ul {
-    padding: 30px 0;
+    padding: 20px 0;
     margin-left: 26px;
   }
 
@@ -109,7 +113,7 @@ const MarkdownRenderer = styled.div`
   // Adjust Horizontal Rule style
   hr {
     border: 2px solid lightgray;
-    margin: 80px 0;
+    margin: 60px 0;
   }
 
   // Adjust Link Element Style
@@ -120,10 +124,9 @@ const MarkdownRenderer = styled.div`
 
   // Adjust Code Style
   pre[class*='language-'] {
-    margin: 30px 0;
-    padding: 30px;
+    margin: 20px 0;
+    padding: 20px;
     border-radius: 16px;
-    font-size: 18px;
   }
 
   code[class*='language-'],
@@ -132,45 +135,24 @@ const MarkdownRenderer = styled.div`
   }
 
   @media (max-width: 1440px) {
-    width: 980px;
+    width: 920px;
   }
 
-  // Markdown Responsive Design
   @media (max-width: 1024px) {
     width: 700px;
-    font-size: 18px;
-    padding: 120px 0;
-
-    h1,
-    h2,
-    h3 {
-      margin-bottom: 50px;
-    }
-
-    * + h1,
-    * + h2,
-    * + h3 {
-      margin-top: 70px;
-    }
+    font-size: 16px;
+    padding: 100px 0;
 
     h1 {
-      font-size: 26px;
+      font-size: 28px;
     }
 
     h2 {
-      font-size: 24px;
-    }
-
-    h3 {
       font-size: 22px;
     }
 
-    hr {
-      margin: 60px 0;
-    }
-
-    pre[class*='language-'] {
-      font-size: 16px;
+    h3 {
+      font-size: 20px;
     }
   }
 
@@ -184,59 +166,58 @@ const MarkdownRenderer = styled.div`
     font-size: 12px;
 
     p {
-      margin: 16px 0;
+      margin: 14px 0;
     }
 
     h1 {
       font-size: 20px;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
 
     * + h1 {
-      margin-top: 60px;
+      margin-top: 50px;
     }
 
     h2 {
       font-size: 18px;
-      margin-bottom: 30px;
+      margin-bottom: 24px;
     }
 
     * + h2 {
-      margin-top: 50px;
+      margin-top: 40px;
     }
 
     h3 {
       font-size: 16px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     * + h3 {
-      margin-top: 40px;
+      margin-top: 30px;
     }
 
     blockquote {
-      margin: 16px 0;
+      margin: 14px 0;
       border-left: 2px solid lightgray;
     }
 
     ol,
     ul {
-      padding: 16px 0;
+      padding: 14px 0;
     }
 
     hr {
-      margin: 40px 0;
+      margin: 30px 0;
     }
 
     pre[class*='language-'] {
-      margin: 16px 0;
-      padding: 18px;
-      font-size: 10px;
+      margin: 14px 0;
+      padding: 14px;
     }
   }
 
   @media (max-width: 320px) {
-    padding: 80px 18px;
+    padding: 60px 18px;
     font-size: 10px;
 
     h1 {
@@ -249,10 +230,6 @@ const MarkdownRenderer = styled.div`
 
     h3 {
       font-size: 12px;
-    }
-
-    hr {
-      margin: 30px 0;
     }
   }
 `;
