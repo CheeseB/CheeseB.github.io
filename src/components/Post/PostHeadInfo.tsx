@@ -16,7 +16,7 @@ const PostHeadInfoWrapper = styled.div`
   height: 100%;
   margin: 0 auto;
   color: #ffffff;
-  padding: 100px 0 40px 220px;
+  padding: 100px 0 100px 220px;
 
   @media (max-width: 1440px) {
     width: 928px;
@@ -24,20 +24,20 @@ const PostHeadInfoWrapper = styled.div`
 
   @media (max-width: 1024px) {
     width: 700px;
-    padding: 80px 0 60px;
+    padding: 80px 0;
   }
 
   @media (max-width: 744px) {
     width: 100%;
-    padding: 80px 36px 60px;
+    padding: 80px 36px;
   }
 
   @media (max-width: 428px) {
-    padding: 60px 28px 30px;
+    padding: 60px 28px;
   }
 
   @media (max-width: 320px) {
-    padding: 50px 18px 20px;
+    padding: 50px 18px;
   }
 `;
 

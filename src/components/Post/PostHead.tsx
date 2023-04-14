@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import React, { FunctionComponent } from 'react';
 import { PostHeadInfo, PostHeadInfoProps } from './PostHeadInfo';
+import { Waves } from './Waves';
 
 type PostHeadProps = PostHeadInfoProps & {
   thumbnail: IGatsbyImageData;
@@ -59,6 +60,7 @@ export const PostHead: FunctionComponent<PostHeadProps> = ({
   return (
     <PostHeadWrapper>
       <BackgroundImage image={thumbnail} alt="thumbnail" />
+      <Waves />
       <PostHeadInfo title={title} date={date} categories={categories} />
     </PostHeadWrapper>
   );
