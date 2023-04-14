@@ -6,7 +6,6 @@ interface PostContentProps {
 }
 
 const MarkdownRenderer = styled.div`
-  // Renderer Style
   display: flex;
   flex-direction: column;
   width: 1020px;
@@ -14,18 +13,24 @@ const MarkdownRenderer = styled.div`
   padding: 100px 0 100px 220px;
   word-break: break-all;
 
-  // Markdown Style
   line-height: 1.8;
   font-size: 18px;
   font-weight: 400;
 
-  // Apply Padding Attribute to All Elements
+  strong {
+    font-weight: 600;
+    background-color: #ffeccc;
+  }
+
+  del {
+    color: grey;
+  }
+
   p {
     padding: 2px 0;
     margin: 20px 0;
   }
 
-  // Adjust Heading Element Style
   h1,
   h2,
   h3 {
@@ -74,25 +79,21 @@ const MarkdownRenderer = styled.div`
     margin-top: 0;
   }
 
-  // Adjust Quotation Element Style
   blockquote {
     margin: 20px 0;
     padding: 5px 15px;
-    border-left: 4px solid lightgray;
-    font-weight: 400;
-    font-style: italic;
-    color: grey;
+    border-left: 4px solid #fec479;
+    background-color: #fff8f0;
   }
 
   blockquote p {
     margin: 0;
   }
 
-  // Adjust List Element Style
   ol,
   ul {
     padding: 20px 0;
-    margin-left: 26px;
+    list-style: none;
   }
 
   ol ul,
@@ -103,26 +104,83 @@ const MarkdownRenderer = styled.div`
   }
 
   li {
-    margin: 4px 0;
+    margin: 10px 0;
+  }
+
+  li li {
+    margin-left: 26px;
   }
 
   li p {
     margin: 0;
   }
 
-  // Adjust Horizontal Rule style
+  ol {
+    counter-reset: list-counter;
+  }
+
+  ol li::before {
+    content: counter(list-counter);
+    counter-increment: list-counter;
+    width: 0.5em;
+    height: 0.5em;
+    padding: 0.5em;
+    margin-right: 12px;
+    border-radius: 50%;
+    border: 4px solid #ffeccc;
+    background-color: #fec479;
+    color: #fff;
+    font-weight: bold;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  ol li li::before {
+    width: 0.4em;
+    height: 0.4em;
+    padding: 0.4em;
+    border: none;
+    background: none;
+    color: #fec479;
+  }
+
+  ul li::before {
+    content: '';
+    width: 0.3em;
+    height: 0.3em;
+    padding: 0.3em;
+    margin-right: 12px;
+    border-radius: 50%;
+    border: 4px solid #ffeccc;
+    background-color: #fec479;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  ul li li::before {
+    width: 0.2em;
+    height: 0.2em;
+    padding: 0.2em;
+    border: 3px solid #fec479;
+    background-color: #fff;
+  }
+
+  ul li li li::before {
+    border: none;
+    background-color: #fec479;
+  }
+
   hr {
     border: 2px solid lightgray;
     margin: 60px 0;
   }
 
-  // Adjust Link Element Style
   a {
     color: #ff8982;
     text-decoration: underline;
   }
 
-  // Adjust Code Style
   pre[class*='language-'] {
     margin: 20px 0;
     padding: 20px;
@@ -204,6 +262,18 @@ const MarkdownRenderer = styled.div`
     ol,
     ul {
       padding: 14px 0;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    li li {
+      margin-left: 20px;
+    }
+
+    ol li::before {
+      margin-right: 8px;
     }
 
     hr {

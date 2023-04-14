@@ -13,14 +13,17 @@ thumbnail: '../images/thumbnail/cheeseball.webp'
 ##### This is a H5
 ###### This is a H6
 
-> This is a first blockqute.
->	> This is a second blockqute.
->	>	> This is a third blockqute.
+> This is a first blockquote.
+>	> This is a second blockquote.
+>	>	> This is a third blockquote.
+
+> 이것은 인용구입니다
 
 1. 첫번째
 2. 두번째
 	1. 두번째 안의 첫번째
 	2. 두번째 안의 두번째
+		1. 두번째 안의 두번째 안의 첫번째
 2. 세번째
 3. 네번째
 
@@ -75,15 +78,15 @@ class Queue<T> implements IQueue<T> {
 }
 ```
 
-*single asterisks*
-_single underscores_
-**double asterisks**
-__double underscores__
-~~cancelline~~
+*기울임꼴*
+_기울임꼴_
+**강조하기**
+__강조하기__
+~~취소선~~
 
 이건 줄바꿈 안한 문장
 
-줄 바꿈을 하기 위해서는 문장 마지막에서 3칸이상을 띄어쓰기해야 한다.   
+줄 바꿈을 하기 위해서는 문장 마지막에서 **3칸이상**을 띄어쓰기해야 한다.   
 이렇게
 
 * 줄 바꿈을 하기 위해서는 문장 마지막에서 3칸이상을 띄어쓰기해야 한다.   
