@@ -29,7 +29,7 @@ const NavigationBar = styled.nav<NavigationOpenProps>`
   top: 0;
   width: 220px;
   height: calc(var(--vh, 1vh) * 100);
-  z-index: 5;
+  z-index: 99;
   overflow-y: scroll;
   background-color: #fff8ee;
   box-shadow: 2px 0px 6px rgba(0, 0, 0, 0.1);
@@ -42,6 +42,7 @@ const NavigationBar = styled.nav<NavigationOpenProps>`
   }
 
   @media (max-width: 1024px) {
+    z-index: 102;
     left: ${({ isOpen }) => (isOpen ? '0' : '-220px')};
     box-shadow: none;
   }
@@ -55,7 +56,7 @@ const Background = styled.div<NavigationOpenProps>`
   left: 0;
   top: 0;
   background: rgba(0, 0, 0, 0.3);
-  z-index: 4;
+  z-index: 101;
 
   @media (max-width: 1024px) {
     display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};

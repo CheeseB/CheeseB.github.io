@@ -12,7 +12,7 @@ const HeaderBar = styled.header`
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 3;
+  z-index: 97;
   display: flex;
   justify-content: space-between;
   align-items: center;
