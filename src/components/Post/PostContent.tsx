@@ -17,6 +17,10 @@ const MarkdownRenderer = styled.div`
   font-size: 18px;
   font-weight: 400;
 
+  * {
+    color: #402e32;
+  }
+
   strong {
     font-weight: 600;
     background-color: #ffeccc;
@@ -29,6 +33,10 @@ const MarkdownRenderer = styled.div`
   p {
     padding: 2px 0;
     margin: 20px 0;
+  }
+
+  img {
+    border-radius: 10px;
   }
 
   h1,
@@ -125,21 +133,22 @@ const MarkdownRenderer = styled.div`
     width: 0.5em;
     height: 0.5em;
     padding: 0.5em;
+    font-size: 0.9em;
     margin-right: 12px;
     border-radius: 50%;
     border: 4px solid #ffeccc;
     background-color: #fec479;
     color: #fff;
-    font-weight: bold;
     display: inline-flex;
     justify-content: center;
     align-items: center;
   }
 
   ol li li::before {
-    width: 0.4em;
-    height: 0.4em;
-    padding: 0.4em;
+    width: 0.3em;
+    height: 0.3em;
+    padding: 0.3em;
+    font-size: 1em;
     border: none;
     background: none;
     color: #fec479;
@@ -147,9 +156,9 @@ const MarkdownRenderer = styled.div`
 
   ul li::before {
     content: '';
-    width: 0.3em;
-    height: 0.3em;
-    padding: 0.3em;
+    width: 0.2em;
+    height: 0.2em;
+    padding: 0.2em;
     margin-right: 12px;
     border-radius: 50%;
     border: 4px solid #ffeccc;
@@ -159,9 +168,9 @@ const MarkdownRenderer = styled.div`
   }
 
   ul li li::before {
-    width: 0.2em;
-    height: 0.2em;
-    padding: 0.2em;
+    width: 0.15em;
+    height: 0.15em;
+    padding: 0.15em;
     border: 3px solid #fec479;
     background-color: #fff;
   }
@@ -172,7 +181,10 @@ const MarkdownRenderer = styled.div`
   }
 
   hr {
-    border: 2px solid lightgray;
+    border-width: 0 0 4px;
+    border-style: solid;
+    border-image: url('/icon/dot.svg') 0 0 100% repeat;
+    width: 100%;
     margin: 60px 0;
   }
 
@@ -272,7 +284,8 @@ const MarkdownRenderer = styled.div`
       margin-left: 20px;
     }
 
-    ol li::before {
+    ol li::before,
+    ul li::before {
       margin-right: 8px;
     }
 
