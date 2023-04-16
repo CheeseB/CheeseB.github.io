@@ -6,17 +6,12 @@ summary: 'SQL 공부'
 thumbnail: '../images/thumbnail/mysql.webp'
 ---
 
-
 ## 활동 정리
 
-1. 오라클 DBMS 설치
-	- 11g XE
-2. 관리자 설정
-	- sys/oracle
-3. SQLdeveloper 설치
-	- sys계정 접속 추가
-4. sys계정으로부터 scott/tiger 계정 생성
-	- 권한 부여: 접속, 테이블 사용 권한
+1. 오라클 DBMS 설치 (11g XE)
+2. 관리자 설정 (sys/oracle)
+3. SQLdeveloper 설치 (sys계정 접속 추가)
+4. sys계정으로부터 scott/tiger 계정 생성 (권한 부여: 접속, 테이블 사용 권한)
 5. sys로부터 scott의 테이블 생성
 6. 데이터베이스 개요, select, where문 학습
 
@@ -43,19 +38,14 @@ ALTER USER hr IDENTIFIED BY hr ACCOUNT UNLOCK; -- 계정 잠금 해제 및 비�
 
 ### 관계형 데이터베이스
 
-<img src="{{site.url}}/assets/img/post/sql1.webp">
-
 - 데이터 구조 (2차원 테이블)
 	- 열: column
 	- 행: record
-
-<img src="{{site.url}}/assets/img/post/sql2.webp">
 
 - SQL은 대소문자 구분이 없지만 권장사항은 있음
 - SQL 명명 규칙
 	- 대문자: SQL 예약어
 	- 소문자: 테이블, 뷰, 컬럼을 비롯한 모든 식별자
-
 
 ### SELECT
 

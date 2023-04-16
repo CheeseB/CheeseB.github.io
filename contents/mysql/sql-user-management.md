@@ -51,12 +51,9 @@ ALTER USER user01 IDENTIFIED BY user01;
 
 - 시스템 권한
 
-<img src="{{site.url}}/assets/img/post/sql11.webp">
-<img src="{{site.url}}/assets/img/post/sql12.webp">
 
 - 객체 권한
 
-<img src="{{site.url}}/assets/img/post/sql13.webp">
 
 ### 권한 부여 및 회수
 
@@ -126,7 +123,6 @@ TO public;
     - 롤과 관련된 권한이 변경화면 롤 부여받은 모든 사용자들의 권한이 자동으로 변경됨
   - 권한의 선택적 가용성 (활성화/비활성화 가능)
 
-<img src="{{site.url}}/assets/img/post/sql14.webp">
 
 ```sql
 GRANT CONNECT, RESOURCE TO tester01;

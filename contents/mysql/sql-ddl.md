@@ -67,7 +67,6 @@ CREATE TABLE employee
 - 데이터 타입 종류
 	- VARCHAR는 CHAR와 달리 쓴 글자 길이에 따라 차지하는 공간이 맞춰짐. 괄호안의 숫자는 최대길이
 
-<img src="{{site.url}}/assets/img/post/sql9.webp">
 
 ```sql
 -- ROWID를 이용한 행 검색
@@ -142,7 +141,6 @@ WHERE 1=2;
 - 일시적으로 DISABLE/ENABLE 할 수도 있음
 - 제약조건 이름은 '테이블명_컬럼명_제약종류(PK/FK/UK/NN/CK)' 이렇게 짓는것을 권장
 
-<img src="{{site.url}}/assets/img/post/sql10.webp">
 
 ```sql
 -- 컬럼 레벨

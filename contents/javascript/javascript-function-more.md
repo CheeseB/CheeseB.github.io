@@ -302,120 +302,109 @@ alert(multiply(1, 2)); // 2
 
 ECMAScript 6 에선 마침표 3개(...)를 찍어 표기하는 전개 연산자가 추가되었다. 전개 연산자는 함수나 배열에 적용 가능하며, 전개 연산자를 사용하는 경우는 다음과 같다.
 
-
-
 - 가변 매개변수 함수를 만들 때
 - 함수 호출 시 배열의 요소를 하나하나 매개변수로 넣고 싶을 때
 
 
-
-1. 가변 매개변수 함수를 만들 때
-
-
-
-	이전에는 arguments 객체를 활용해서 가변 매개변수를 만들었지만, 전개 연산자를 사용해서 만들 수도 있다.
+이전에는 arguments 객체를 활용해서 가변 매개변수를 만들었지만, 전개 연산자를 사용해서 만들 수도 있다.
 
 
 
-	```javascript
-	// arguments 객체 사용
-	function test1() {
-		alert(arguments[0]);
-		alert(arguments[1]);
-		alert(arguments[2]);
-	}
+```javascript
+// arguments 객체 사용
+function test1() {
+	alert(arguments[0]);
+	alert(arguments[1]);
+	alert(arguments[2]);
+}
 
-	// 전개 연산자 사용
-	function test2(...numbers) {
-		alert(numbers[0]);
-		alert(numbers[1]);
-		alert(numbers[2]);
-	}
-	```
-
-
-
-	전개 연산자로 받는 매개변수의 이름을 arguments로 정의하면 기존의 arguments 객체가 덮어씌워지므로 다른 이름을 사용하는 것이 좋다.
+// 전개 연산자 사용
+function test2(...numbers) {
+	alert(numbers[0]);
+	alert(numbers[1]);
+	alert(numbers[2]);
+}
+```
 
 
 
-	전개 연산자는 다른 매개변수와 조합해서 입력할 수도 있다. 이 때 전개 연산자는 반드시 맨 뒤 매개변수에 딱 하나만 사용해야 한다. (앞에다 사용하면 어디까지가 가변 매개변수인지 모르기 때문)
+전개 연산자로 받는 매개변수의 이름을 arguments로 정의하면 기존의 arguments 객체가 덮어씌워지므로 다른 이름을 사용하는 것이 좋다.
 
 
 
-	```javascript
-	function test(a, b, ...numbers) {
-		console.log(numbers);
-	}
-
-	test(1, 2, 3, 4, 5); // [3, 4, 5]
-	```
+전개 연산자는 다른 매개변수와 조합해서 입력할 수도 있다. 이 때 전개 연산자는 반드시 맨 뒤 매개변수에 딱 하나만 사용해야 한다. (앞에다 사용하면 어디까지가 가변 매개변수인지 모르기 때문)
 
 
 
-	arguments 객체를 사용해서 가변 매개변수 함수를 만들 때보다 전개 연산자를 사용할 때 좋은 점은 아래와 같다.
+```javascript
+function test(a, b, ...numbers) {
+	console.log(numbers);
+}
+
+test(1, 2, 3, 4, 5); // [3, 4, 5]
+```
 
 
 
-	- 다른 매개변수와 조합 가능
-	- 매개변수에 좀 더 명확한 이름을 붙여 가독성을 향상
+arguments 객체를 사용해서 가변 매개변수 함수를 만들 때보다 전개 연산자를 사용할 때 좋은 점은 아래와 같다.
 
 
 
-	또한 arguments 객체는 배열이 아니라 배열처럼 생긴 특별한 객체인 '배열 유사 객체' 이지만, 전개 연산자로 입력한 변수는 완전한 배열이라는 것이 다른 점이다.
+- 다른 매개변수와 조합 가능
+- 매개변수에 좀 더 명확한 이름을 붙여 가독성을 향상
 
 
 
-2. 함수 호출 시 배열의 요소를 하나하나 매개변수로 넣고 싶을 때
+또한 arguments 객체는 배열이 아니라 배열처럼 생긴 특별한 객체인 '배열 유사 객체' 이지만, 전개 연산자로 입력한 변수는 완전한 배열이라는 것이 다른 점이다.
 
 
 
-	배열의 요소를 매개변수로 다 넣고 싶을 때, 이전의 ECMAScript 5 까지는 아래와 같이 해야 했다.
+배열의 요소를 매개변수로 다 넣고 싶을 때, 이전의 ECMAScript 5 까지는 아래와 같이 해야 했다.
 
 
 
-	```javascript
-	function test(a, b, c, d) {
-		alert(`${a}:${b}:${c}:${d}`);
-	}
+```javascript
+function test(a, b, c, d) {
+	alert(`${a}:${b}:${c}:${d}`);
+}
 
-	var array = [1, 2, 3, 4];
-	test.apply(null, array); // 1:2:3:4
-	```
-
-
-
-	모든 함수에는 apply() 메서드가 있다. 첫번째 매개변수는 함수 내부에서 활용할 this 객체, 두번째는 매개변수 배열을 넣는다.
+var array = [1, 2, 3, 4];
+test.apply(null, array); // 1:2:3:4
+```
 
 
 
-	위 방법은 첫번째 매개변수를 잘못 사용하면 문제가 될 수도 있고, 코드의 가독성이 떨어지기 때문에 ECMAScript 6 에서는 전개 연산자로 함수의 매개변수에 배열을 전개해서 넣을 수 있도록 했다.
+모든 함수에는 apply() 메서드가 있다. 첫번째 매개변수는 함수 내부에서 활용할 this 객체, 두번째는 매개변수 배열을 넣는다.
 
 
 
-	```javascript
-	function test(a, b, c, d) {
-		alert(`${a}:${b}:${c}:${d}`);
-	}
-
-	var array = [1, 2, 3, 4];
-	test(...array); // 1:2:3:4
-	```
+위 방법은 첫번째 매개변수를 잘못 사용하면 문제가 될 수도 있고, 코드의 가독성이 떨어지기 때문에 ECMAScript 6 에서는 전개 연산자로 함수의 매개변수에 배열을 전개해서 넣을 수 있도록 했다.
 
 
 
-	또한 아래와 같이 일부를 배열로 채우고 나머지에 다른 매개변수를 넣거나, 배열을 병합해서 매개변수로 전달하는 것도 가능하다.
+```javascript
+function test(a, b, c, d) {
+	alert(`${a}:${b}:${c}:${d}`);
+}
+
+var array = [1, 2, 3, 4];
+test(...array); // 1:2:3:4
+```
 
 
 
-	```javascript
-	function test(a, b, c, d) {
-		alert(`${a}:${b}:${c}:${d}`);
-	}
+또한 아래와 같이 일부를 배열로 채우고 나머지에 다른 매개변수를 넣거나, 배열을 병합해서 매개변수로 전달하는 것도 가능하다.
 
-	var array = [1, 2];
 
-	test(10, 20, ...array); // 10:20:1:2
-	test(...array, 3, 4); // 1:2:3:4
-	test(...array, ...array); // 1:2:1:2
-	```
+
+```javascript
+function test(a, b, c, d) {
+	alert(`${a}:${b}:${c}:${d}`);
+}
+
+var array = [1, 2];
+
+test(10, 20, ...array); // 10:20:1:2
+test(...array, 3, 4); // 1:2:3:4
+test(...array, ...array); // 1:2:1:2
+```

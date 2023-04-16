@@ -67,8 +67,6 @@ GROUP BY d.dname;
 
 - 두개 이상의 테이블 조인
 
-<img src="{{site.url}}/assets/img/post/sql7.webp">
-<img src="{{site.url}}/assets/img/post/sql8.webp">
 
 - Non-Equi 조인: 조인 조건에 "=" 외의 연산자(BETWEEN, >, <= 등)를 사용하여, 값이 정확히 일치하진 않는 경우에 사용
 

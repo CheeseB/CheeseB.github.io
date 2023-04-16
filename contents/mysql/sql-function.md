@@ -100,7 +100,6 @@ FROM dual; -- 1, -1, 0
 - SYSDATE/SYSTIMESTAMP: 서버에 설정된 날짜/날짜+시간 리턴
 	- 날짜에 사칙연산 가능
 
-<img src="{{site.url}}/assets/img/post/sql3.webp">
 
 ```sql
 SELECT SYSDATE 오늘, SYSDATE+1 내일, SYSDATE-1 어제
@@ -201,8 +200,6 @@ WHERE hiredate = TO_DATE('82/01/23'); -- 명시적 변환
 
 - TO_CHAR 함수는 변환 시 형식을 지정할 수 있음
 
-<img src="{{site.url}}/assets/img/post/sql4.webp">
-<img src="{{site.url}}/assets/img/post/sql5.webp">
 
 ```sql
 SELECT SYSDATE, TO_CHAR(SYSDATE, 'YYYY/MM/DD, (AM)DY HH24:MI:SS')

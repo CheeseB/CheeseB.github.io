@@ -23,6 +23,10 @@ const MarkdownRenderer = styled.div`
 
   strong {
     font-weight: 600;
+  }
+
+  mark {
+    font-weight: 600;
     background-color: #ffeccc;
   }
 
@@ -115,16 +119,21 @@ const MarkdownRenderer = styled.div`
     margin: 10px 0;
   }
 
-  li li {
-    margin-left: 26px;
-  }
-
   li p {
     margin: 0;
+    padding: 0;
+    display: inline;
+    font-weight: 600;
+    vertical-align: middle;
   }
 
   ol {
     counter-reset: list-counter;
+  }
+
+  ol li {
+    padding-left: 44px;
+    text-indent: -44px;
   }
 
   ol li::before {
@@ -142,9 +151,11 @@ const MarkdownRenderer = styled.div`
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    text-indent: 0;
   }
 
-  ol li li::before {
+  ol li li::before,
+  ul ol li::before {
     width: 0.3em;
     height: 0.3em;
     padding: 0.3em;
@@ -152,6 +163,11 @@ const MarkdownRenderer = styled.div`
     border: none;
     background: none;
     color: #fec479;
+  }
+
+  ul li {
+    padding-left: 32px;
+    text-indent: -32px;
   }
 
   ul li::before {
@@ -165,9 +181,11 @@ const MarkdownRenderer = styled.div`
     background-color: #fec479;
     display: inline-block;
     vertical-align: middle;
+    text-indent: 0;
   }
 
-  ul li li::before {
+  ul li li::before,
+  ol ul li::before {
     width: 0.15em;
     height: 0.15em;
     padding: 0.15em;
@@ -280,8 +298,14 @@ const MarkdownRenderer = styled.div`
       margin: 8px 0;
     }
 
-    li li {
-      margin-left: 20px;
+    ol li {
+      padding-left: 34px;
+      text-indent: -34px;
+    }
+
+    ul li {
+      padding-left: 24px;
+      text-indent: -24px;
     }
 
     ol li::before,

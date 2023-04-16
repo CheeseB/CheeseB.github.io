@@ -125,7 +125,6 @@ HAVING SUM(sal) > 5000 AND job != 'SALESMAN'
 ORDER BY 2;
 ```
 
-<img src="{{site.url}}/assets/img/post/sql6.webp">
 
 ```sql
 -- 위 사진과 같이 만들기
