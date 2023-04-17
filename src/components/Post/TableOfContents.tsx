@@ -5,19 +5,17 @@ type TableOfContentsProps = {
   contents: string;
 };
 
-type ShowTableProps = {
-  showTable: boolean;
+type FixTableProps = {
+  fixTable: boolean;
 };
 
-const TOC = styled.div<ShowTableProps>`
-  position: fixed;
+const TOC = styled.div<FixTableProps>`
+  position: ${({ fixTable }) => (fixTable ? 'fixed' : 'absolute')};
   width: 260px;
-  top: 120px;
+  top: ${({ fixTable }) => (fixTable ? '120px' : '520px')};
   left: calc(82%);
   padding: 10px;
   border-left: 2px solid #dfe0df;
-  opacity: ${({ showTable }) => (showTable ? '100' : '0')};
-  transition: opacity 0.2s ease;
 
   p,
   li {
@@ -69,9 +67,9 @@ const TOC = styled.div<ShowTableProps>`
 export const TableOfContents: FunctionComponent<TableOfContentsProps> = ({
   contents,
 }) => {
-  const [showTable, setShowTable] = useState(false);
+  const [fixTable, setFixTable] = useState(false);
   const handleScroll = () => {
-    window.scrollY >= 400 ? setShowTable(true) : setShowTable(false);
+    window.scrollY >= 400 ? setFixTable(true) : setFixTable(false);
   };
 
   useEffect(() => {
@@ -83,7 +81,7 @@ export const TableOfContents: FunctionComponent<TableOfContentsProps> = ({
 
   return (
     <TOC
-      showTable={showTable}
+      fixTable={fixTable}
       dangerouslySetInnerHTML={{ __html: contents }}
     ></TOC>
   );
