@@ -4,6 +4,7 @@ import { Template } from 'components/Common/Template';
 import { CommentWidget } from 'components/Post/CommentWidget';
 import { PostContent } from 'components/Post/PostContent';
 import { PostHead } from 'components/Post/PostHead';
+import { TableOfContents } from 'components/Post/TableOfContents';
 import { graphql } from 'gatsby';
 import useLoading from 'hooks/useLoading';
 import React, { FunctionComponent } from 'react';
@@ -29,6 +30,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
   const {
     node: {
       html,
+      tableOfContents,
       frontmatter: {
         title,
         summary,
@@ -54,6 +56,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
         categories={categories}
         thumbnail={gatsbyImageData}
       />
+      <TableOfContents contents={tableOfContents} />
       <PostContent html={html} />
       <CommentWidget />
     </Template>
@@ -68,6 +71,7 @@ export const queryMarkdownDataBySlug = graphql`
       edges {
         node {
           html
+          tableOfContents
           frontmatter {
             title
             summary
