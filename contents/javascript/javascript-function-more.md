@@ -24,6 +24,13 @@ thumbnail: '../images/thumbnail/javascript.webp'
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 alert('a');
 
@@ -39,6 +46,13 @@ alert('c');
 위의 예시에서 타이머의 시간을 0으로 설정한다 해도 다른 코드가 끝날때까진 실행되지 않기 때문에 출력 순서는 abc가 아닌 acb가 된다.
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 // 실행 불가
@@ -63,6 +77,13 @@ while(true) {}
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 for(var i = 0; i < 3; i++) {
 	setTimeout(function(){
@@ -79,6 +100,13 @@ for(var i = 0; i < 3; i++) {
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 for (var i = 0; i < 3; i++) {
 	(function(closed_i) {
@@ -94,6 +122,13 @@ for (var i = 0; i < 3; i++) {
 다른 해결 방법으론 배열의 forEach() 메서드가 있다. forEach() 메서드는 배열 요소 하나하나를 콜백함수의 매개변수로 사용할 수 있도록 한다.
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 // 콜백함수의 i 인자에 배열 요소가 차례로 들어가며 호출됨
@@ -114,6 +149,13 @@ for (var i = 0; i < 3; i++) {
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 const arr = [1,2,3,4,5];
 
@@ -132,6 +174,13 @@ ECMAScript 6에서는 반복문에 let 키워드를 사용함으로써 간단히
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 for(let i = 0; i < 3; i++) {
 	setTimeout(function(){
@@ -149,6 +198,13 @@ for(let i = 0; i < 3; i++) {
 자바스크립트에선 매개변수를 입력하지 않았을 때 매개변수를 강제로 초기화할 수 있다. 단순히 매개변수가 undefined 라면 값을 넣어주는 방식으로 구현할 수 있다.
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 function test(a, b, c) {
@@ -169,6 +225,13 @@ test(100, 50); // 100:50:20
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 function test(a, b, c) {
 	// b값이 있으면 b를 넣고 없으면 10을 넣음
@@ -187,6 +250,13 @@ test(100, 50);
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 true || alert('실행되지 않음');
 false || alert('실행됨');
@@ -196,6 +266,13 @@ false && alert('실행되지 않음');
 ```
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 if (10 < 20) {
@@ -212,6 +289,13 @@ if (10 < 20) {
 - 논리 연산 결과를 변수에 넣으면 나중에 연산된 피연산자의 값이 들어가는 점을 활용한다.
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 var a = 0;
@@ -231,6 +315,13 @@ ECMAScript6 에서는 기본 매개변수를 쉽게 만들 수 있는 문법을 
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 function test(a, b = 10, c = 20) {
 	alert(a + ':' + b + ':' + c);
@@ -248,6 +339,13 @@ test(100, 50);
 익명 함수를 다음과 같이 간단하게 사용할 수 있는 것이 ECMAScript 6에 추가된 화살표 함수이다.
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 // function() {}
@@ -288,6 +386,13 @@ ECMAScript 6 코드를 ECMAScript 5 코드로 변환해주는 바벨과 같은 �
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 const multiply = (a, b) => a * b;
 
@@ -309,6 +414,13 @@ ECMAScript 6 에선 마침표 3개(...)를 찍어 표기하는 전개 연산자�
 이전에는 arguments 객체를 활용해서 가변 매개변수를 만들었지만, 전개 연산자를 사용해서 만들 수도 있다.
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 // arguments 객체 사용
@@ -335,6 +447,13 @@ function test2(...numbers) {
 전개 연산자는 다른 매개변수와 조합해서 입력할 수도 있다. 이 때 전개 연산자는 반드시 맨 뒤 매개변수에 딱 하나만 사용해야 한다. (앞에다 사용하면 어디까지가 가변 매개변수인지 모르기 때문)
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 function test(a, b, ...numbers) {
@@ -363,6 +482,13 @@ arguments 객체를 사용해서 가변 매개변수 함수를 만들 때보다 
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 function test(a, b, c, d) {
 	alert(`${a}:${b}:${c}:${d}`);
@@ -382,6 +508,13 @@ test.apply(null, array); // 1:2:3:4
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 function test(a, b, c, d) {
 	alert(`${a}:${b}:${c}:${d}`);
@@ -396,6 +529,13 @@ test(...array); // 1:2:3:4
 또한 아래와 같이 일부를 배열로 채우고 나머지에 다른 매개변수를 넣거나, 배열을 병합해서 매개변수로 전달하는 것도 가능하다.
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 function test(a, b, c, d) {

@@ -36,6 +36,13 @@ setTimeout() 함수는 한번만 실행하므로 특별히 주의할 사항이 �
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 // 1초마다 함수 실행
 var intervalID = setInterval(function() {
@@ -83,6 +90,13 @@ setTimeout() 함수와 setInterval()함수를 사용하면 타이머 아이디�
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 var willEval = '';
 willEval += 'var number = 10;';
@@ -114,6 +128,13 @@ eval() 함수는 문자열을 자바스크립트 코드로 실행하는 함수�
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 var number = 1/0;
 alert(number + ':' + isFinite(number)); // Infinity : false
@@ -124,6 +145,13 @@ alert(number + ':' + isFinite(number)); // Infinity : false
 또한 자바스크립트에는 Infinity라는 변수가 존재하지만, 음수를 0으로 나누면 -Infinity가 되므로 Infinity 변수와 비교하지 말고 반드시 isFinite() 함수를 사용해야 한다.
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 var number = -10/0;
@@ -138,6 +166,13 @@ alert(isFinite(number)) // false
 NaN도 마찬가지로 NaN 이라는 변수가 존재하지만 NaN끼리 비교하는 것은 불가하므로 반드시 isNaN() 함수로 확인해야한다.
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 alert(NaN == NaN) // false
@@ -165,6 +200,13 @@ Number() 함수는 인자에 숫자로 바꿀수 없는 부분이 하나라도 �
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 var won = '1000원';
 var dollar = '1.5$';
@@ -183,6 +225,13 @@ parseInt()는 맨 처음에 0x로 시작하면 16진수로 생각하고 변환�
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 parseInt('0x273'); // 627
 parseInt('273'); // 273
@@ -196,6 +245,13 @@ parseInt()함수의 두번째 매개변수에 진법을 입력하면 해당 진�
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 parseInt('FF', 16); // 255
 parseInt('52', 10); // 52
@@ -206,6 +262,13 @@ parseInt('10', 2) // 2
 
 
 parseFloat() 함수는 중간에 e가 들어가면 자릿수로 인식한다.
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 parseFloat('52.273e5'); // 5227300

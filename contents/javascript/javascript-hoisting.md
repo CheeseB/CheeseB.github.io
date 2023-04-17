@@ -10,6 +10,13 @@ thumbnail: '../images/thumbnail/javascript.webp'
 
 예시
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```js
 debugger;
 var title = "js";
@@ -36,6 +43,13 @@ getTitle();
 
 ## 호이스팅 예시
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```js
 console.log(getBook()); // 2
 
@@ -51,6 +65,13 @@ function getBook() {
 
 console.log(getBook()); // 2
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 console.log(getBook()); // 1
@@ -68,6 +89,13 @@ var getBook = function () {
 console.log(getBook()); // 2
 ```
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```js
 console.log(getBook()); // 2
 
@@ -83,6 +111,13 @@ function getBook() {
 
 console.log(getBook()); // 1
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 console.log(getBook); // undefined

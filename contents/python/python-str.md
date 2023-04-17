@@ -9,6 +9,13 @@ thumbnail: '../images/thumbnail/python.webp'
 
 upper - 전부 대문자로 만들기
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```python
 msg = "Hello World"
 print(msg.upper()) # HELLO WORLD
@@ -19,11 +26,25 @@ print(msg) # Hello World
 
 lower - 전부 소문자로 만들기
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```python
 print(msg.lower()) # hello world
 ```
 
 find - 주어진 단어가 나오는 가장 첫 인덱스를 리턴
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```python
 print(msg.find('l')) # 2
@@ -31,11 +52,25 @@ print(msg.find('l')) # 2
 
 count - 주어진 단어가 나오는 개수를 리턴
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```python
 print(msg.count('l')) # 3
 ```
 
 [start:end] - 문자열의 start인덱스부터 end-1 인덱스까지 슬라이스
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```python
 print(msg[1:4]) # ell
@@ -45,11 +80,25 @@ print(msg[8:]) # rld
 
 len - 문자열의 길이 리턴
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```python
 print(len(msg)) # 11
 ```
 
 isupper - 문자가 대문자인지 확인
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```python
 # 이렇게 for문을 쓰면 msg문자열의 문자 하나하나씩 접근 가능
@@ -60,6 +109,13 @@ for x in msg:
 
 islower - 문자가 소문자인지 확인
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```python
 for x in msg:
     if x.islower():
@@ -67,6 +123,13 @@ for x in msg:
 ```
 
 isalpha - 문자가 알파벳인지 확인
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```python
 for x in msg:
@@ -76,12 +139,26 @@ for x in msg:
 
 ord - 문자의 아스키 값 리턴
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```python
 tmp = 'A'
 print(ord(tmp)) # 65
 ```
 
 chr - 아스키 값에 해당하는 문자 리턴
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```python
 tmp = 65

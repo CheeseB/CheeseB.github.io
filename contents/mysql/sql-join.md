@@ -25,6 +25,13 @@ thumbnail: '../images/thumbnail/mysql.webp'
 	- 첫번째 테이블과 두번째 테이블의 모든 행이 서로 조인되는 경우
 	- 양쪽 행의 개수를 곱한 결과
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT empno, ename, job, dept.deptno, dname, loc
 FROM dept, emp -- FROM에서 테이블 두개 쉼표로 같이쓰면 조인
@@ -35,6 +42,13 @@ FROM dept, emp -- FROM에서 테이블 두개 쉼표로 같이쓰면 조인
 	- 단순 조인, 내부 조인이라고도 함
 	- WHERE절에 테이블의 조인 조건을 명시
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT emp.empno, emp.ename, dept.dname, dept.loc
 FROM emp, dept
@@ -43,11 +57,25 @@ WHERE emp.deptno = dept.deptno; -- 부서번호가 같은 행끼리 합치기
 
 - 테이블명에 alias를 적용했을 경우엔 SELECT 절과 WHERE절에 테이블명이 아닌 alias를 사용해야 함
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT e.empno, e.ename, d.dname, d.loc
 FROM emp e, dept d
 WHERE e.deptno = d.deptno;
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- 예제) 입사년도가 1982년도 미만인 사원의 부서이름과 부서별 인원 출력
@@ -70,11 +98,25 @@ GROUP BY d.dname;
 
 - Non-Equi 조인: 조인 조건에 "=" 외의 연산자(BETWEEN, >, <= 등)를 사용하여, 값이 정확히 일치하진 않는 경우에 사용
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT e.ename, e.sal, s.grade
 FROM emp e, salgrade s
 WHERE e.sal BETWEEN s.losal AND s.hisal
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- 예제) Non_Equi 조인으로 3개의 테이블 조인 
@@ -90,11 +132,25 @@ AND e.sal BETWEEN s.losal AND s.hisal;
 	- FROM절에 두개의 테이블을 사용하는 것처럼 같은 테이블에 대해 두개의 alias를 작성해서 구분지어야 함
 	- 컬럼에 대해서도 어떤 테이블에서 왔는지 alias명을 반드시 기술해야 함
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT a.ename 사원, b.ename 관리자
 FROM emp a, emp b
 WHERE a.mgr = b.empno; -- b.empno(+) 로 바꾸면 null도 같이나옴
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- 예제) 7369번 사원의 이름, 관리자번호/이름/부서이름 선택
@@ -103,6 +159,13 @@ FROM emp e, emp m, dept d
 WHERE e.mgr = m.empno AND m.deptno = d.deptno
 AND e.empno = 7369;
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- 예제) 사원의 관리자의 관리자까지 표시 (3중 self-join)
@@ -114,6 +177,13 @@ WHERE e.mgr = m.empno AND m.mgr = mm.empno;
 - Outer 조인: 조인 조건을 만족하지 못하는 행들도 결과에 나타낼 수 있음
 	- 원래는 조인 조건을 만족하지 않는 행은 결과에 나타나지 않음
 	- "(+)" 기호를 사용하며, 조인시킬 값이 없는 조인 측에 위치시킴 (한쪽에만 위치할 수 있음)
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- 상위 관리자가 없는 사원의 이름도 전부 표시
@@ -132,6 +202,13 @@ AND m.mgr = mm.empno(+);
 
 - CROSS JOIN: Catasian Product와 동일함
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT empno, ename, dname
 FROM dept CROSS JOIN emp;
@@ -141,12 +218,26 @@ FROM dept CROSS JOIN emp;
 	- 같은 이름을 가진 컬럼에 기반하여 알아서 조인해줌
 	- 양쪽 테이블에 공통 컬럼명이 반드시 하나만 있어야 함 (2개 이상이면 2개 이상의 값이 서로같은것만 추출하게 됨)
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT empno, ename, deptno, dname, loc
 FROM emp NATURAL JOIN dept;
 ```
 
 - NATURAL JOIN과 USING 에선 공통 컬럼명에 alias를 사용하면 안됨
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- error!
@@ -164,6 +255,13 @@ WHERE e.empno = 7369;
 	- NATURAL JOIN 과 비슷한 기능을 하며, 함께 사용 불가
 	- JOIN ~ USING 절과 JOIN ~ ON 절에서의 JOIN은 사실 INNER JOIN이지만 보통 INNER는 생략하고 사용함
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT empno, ename, dname, loc
 FROM emp JOIN dept USING(deptno);
@@ -178,12 +276,26 @@ _NATURAL JOIN, JOIN ~ USING, Equi-Join 세가지 모두 한가지 공통컬럼�
 - JOIN ~ ON: 조인할 컬럼을 명시하고, 임의의 조건으로 조인할 때 사용
 	- 복잡한 조건의 조인이 가능함 (서브쿼리, AND/OR 연산자 등)
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 -- INNER ~ ON 절에선 어느 테이블의 공통컬럼을 표시할 지 명시해줘야 함
 SELECT e.empno, e.ename, d.deptno, d.dname, d.loc
 FROM emp e INNER JOIN dept d
 ON e.deptno = d.deptno;
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- 예제) 부서번호가 10번인 사원이름, 부서이름, 부서지역 표시
@@ -226,6 +338,13 @@ ON m.mgr = mm.empno;
 - LEFT/RIGHT OUTER JOIN: 좌/우측 테이블의 모든 행이 우/좌 측 테이블의 행들과 일치 여부 관계없이 모두 출력됨
 	- 오라클 조인의 "(+)" 연산과 동일함
 - FULL OUTER JOIN: LEFT, RIGHT OUTER JOIN 결과를 합집합으로 처리한 결과와 동일함(UNION)
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- 상위 관리자가 없는 사원의 이름도 전부 표시

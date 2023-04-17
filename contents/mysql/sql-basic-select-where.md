@@ -22,6 +22,13 @@ thumbnail: '../images/thumbnail/mysql.webp'
 
 - 유저 생성, 변경 및 권한 부여
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 CREATE USER scott IDENTIFIED BY tiger; -- scott/tiger 계정의 생성
 ALTER USER scott IDENTIFIED BY tiger; -- scott 계정의 비밀번호를 tiger로 변경
@@ -29,6 +36,13 @@ GRANT CONNECT, RESOURCE TO scott; -- 관리자가 scott에게 db접속 및 사�
 ```
 
 - 계정 잠금 설정 및 해제
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 ALTER USER hr ACCOUNT LOCK/UNLOCK; -- 계정 잠금 설정/해제
@@ -51,6 +65,13 @@ ALTER USER hr IDENTIFIED BY hr ACCOUNT UNLOCK; -- 계정 잠금 해제 및 비�
 
 - 기본 select, from 구문
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT * FROM emp;
 SELECT ename FROM emp;
@@ -59,6 +80,13 @@ SELECT empno, ename FROM emp; -- 쉼표로 여러 컬럼 열거하면 쓴 순서
 
 - 3줄에 걸쳐 쓴 select, from, where 구문
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT empno, ename
 FROM emp
@@ -66,6 +94,13 @@ WHERE ROWNUM < 10;
 ```
 
 - 테이블 정보 조회
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 SELECT * FROM TAB; -- 현재 갖고있는 모든 테이블 조회
@@ -76,6 +111,13 @@ DESC dept; -- dept테이블의 컬럼정보 조회
 	- 원본 컬럼명이 바뀌진 않음
 	- 별칭에서 AS는 생략 가능함
 	- 별칭에 공백문자 등 특수문자를 사용하려면 쌍따옴표로 묶어줘야 함
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 SELECT ename AS 성명, empno AS 사번, sal AS 급여 FROM emp;
@@ -91,6 +133,13 @@ SELECT ename AS "사원 이름" FROM emp;
 	- 큰따옴표 사용: only 별칭
 
 - '&#124;&#124;' 이건 여러개의 문자열을 연결해서 하나의 문자열로 생성함
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 SELECT ename||sal AS "이름+월급" FROM emp; -- 컬럼+컬럼
@@ -109,6 +158,13 @@ SELECT ename||'의 직급은 '||job||'이다.' AS "사원별 직급" FROM emp;
 	- NVL2(컬럼, A, B): 컬럼값이 null이 아니면 A, null이면 B로 표시
 	- 역시나 원본값은 안바뀜
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT empno 번호, ename 이름, sal 월급, sal*12+NVL(comm, 0) 연봉 FROM emp;
 ```
@@ -116,12 +172,26 @@ SELECT empno 번호, ename 이름, sal 월급, sal*12+NVL(comm, 0) 연봉 FROM e
 - dual 테이블은 연산값을 테스트하고 테이블로 출력해보고 싶을때 씀
 	- sys에 디폴트로 dual이란 테이블 있음
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT 10*10 FROM dual; -- 100
 SELECT SYSDATE FROM dual; -- 21/01/05
 ```
 
 - DISTINCT 키워드는 중복값 제거
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 SELECT DISTINCT job FROM emp;
@@ -132,17 +202,38 @@ SELECT DISTINCT job FROM emp;
 
 - WHERE 키워드는 검색조건 지정
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT empno, ename, job, deptno
 FROM emp
 WHERE deptno = 30; -- SQL에서는 '같다'라는 표현식을 = 하나만 씀 (== 아님)
 ```
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT empno, ename, sal, sal*12 연봉
 FROM emp
 WHERE ename = 'BLAKE'; -- '=' 연산자로 문자 비교 시 대소문자까지 정확히 일치해야함
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 SELECT empno, ename, job, deptno

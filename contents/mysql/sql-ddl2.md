@@ -14,9 +14,23 @@ thumbnail: '../images/thumbnail/mysql.webp'
 	- FK까지 삭제하려면 CASCADE CONSTRAINTS 옵션 사용
 - FLASHBACK: 삭제된 테이블 복구
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 DROP TABLE 테이블명;
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 DROP TABLE dept_new CASCADE CONSTRAINTS;
@@ -30,6 +44,13 @@ FLASHBACK TABLE dept_new TO BEFORE DROP;
 	- 테이블이 사용하던 저장공간을 해제 (DELETE는 저장공간을 해제하진 않음)
 	- ROLLBACK 정보를 발생시키지 않아 DELETE보다 수행속도가 빠르지만 ROLLBACK이 불가함
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 TRUNCATE TABLE 테이블명;
 ```
@@ -38,6 +59,13 @@ TRUNCATE TABLE 테이블명;
 ### 테이블 변경 (ALTER)
 
 - RENAME: 테이블 이름 변경
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 RENAME 테이블명 TO 새 테이블명;
@@ -50,12 +78,26 @@ RENAME 테이블명 TO 새 테이블명;
 
 - 컬럼 추가
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 ALTER TABLE 테이블명
 ADD (컬럼명 데이터타입,
 	 컬럼명 데이터타입,
 	 ...);
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 ALTER TABLE emp04
@@ -70,12 +112,26 @@ ADD (email		VARCHAR2(10),
 		- 모든 행의 컬럼값이 NULL일 때만 가능
 	- 디폴트 값을 변경하면 변경 이후에 입력된 행에만 적용됨
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 ALTER TABLE 테이블명
 MODIFY (컬럼명 데이터타입,
 		컬럼명 데이터타입,
 		...);
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 ALTER TABLE scott_t
@@ -85,10 +141,24 @@ MODIFY (num		NUMBER(6),
 
 - 컬렴 이름 변경
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 ALTER TABLE 테이블명
 RENAME COLUMN 컬럼명 TO 새 컬럼명;
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 ALTER TABLE scott_t
@@ -99,15 +169,36 @@ RENAME COLUMN address TO addr;
 	- CASCADE CONSTRAINTS 옵션 사용하면 해당 컬럼 참조하는 모든 제약조건 삭제됨
 	- 삭제된 컬럼이 포함된 모든 제약조건도 삭제
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 ALTER TABLE 테이블명
 DROP (컬럼명);
 ```
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 ALTER TABLE emp04
 DROP (email);
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 CREATE TABLE scott_cas
@@ -148,10 +239,24 @@ WHERE table_name = 'SCOTT_CAS';
 
 - 제약조건 추가
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 ALTER TABLE 테이블명
 ADD CONSTRAINT 제약조건명 제약종류(컬럼)
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 CREATE TABLE scott_t3
@@ -171,11 +276,25 @@ MODIFY (name VARCHAR2(10) NOT NULL);
 	- CASCADE 옵션은 모든 종속적인 제약조건을 같이 삭제함
 	- PK, UK는 그냥 써도 되고 나머진 제약조건명을 명시해야 함
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 ALTER TABLE 테이블명
 DROP PRIMARY KEY/ UNIQUE(컬럼)/
 	 CONSTRAINT 제약조건명;
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 SELECT constraint_name, table_name, column_name
@@ -204,10 +323,24 @@ WHERE table_name = 'SCOTT_T3';
 - 제약조건 활성화/비활성화
 	- CASCADE 옵션 추가 시 해당 제약조건과 관련된 제약조건 모두를 비활성화함
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 ALTER TABLE 테이블명
 DISABLE/ENABLE CONSTRAINT 제약조건명;
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 CREATE TABLE scott_t4

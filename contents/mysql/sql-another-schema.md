@@ -31,6 +31,13 @@ thumbnail: '../images/thumbnail/mysql.webp'
 - CREATE VIEW 권한을 가져야 뷰 생성 가능
 - 서브쿼리에 복잡한 SELECT문을 정의 가능하며, ORDER BY를 사용하려면 검색 시 뷰에 기술함
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 -- sys --
 GRANT CREATE VIEW TO scott;
@@ -45,12 +52,26 @@ WHERE empno = 10;
 
 - 작성한 뷰 확인
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT view_name
 FROM user_views;
 ```
 
 - 뷰를 수정하려면 CREATE OR REPLACE 사용
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 CREATE OR REPLACE VIEW emp_view
@@ -63,6 +84,13 @@ WHERE e.deptno = 20;
 
 - 뷰에서 함수 사용 시 반드시 결과값에 별칭을 부여해야 함
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 CREATE VIEW emp_view4
 AS
@@ -73,12 +101,26 @@ GROUP BY deptno;
 
 - 뷰에서 DML을 사용하면 원본 테이블에도 적용됨
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 DELETE FROM emp_view5
 WHERE deptno = 20;
 ```
 
 - WITH CHECK OPTION 사용 시 WHERE 조건에 해당하는 데이터만 INSERT, UPDATE를 수행할 수 있음
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 CREATE OR REPLACE VIEW emp_view6
@@ -95,6 +137,13 @@ WHERE empno = 7521; -- error!
 
 - WITH READ ONLY 옵션이 붙은 뷰는 DML작업이 불가함
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 CREATE OR REPLACE VIEW dpet_view
 AS
@@ -110,12 +159,26 @@ WHERE ename = 'KING';
 - 뷰 제거
 	- 기본 테이블에는 영향을 미치지 않음
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 DROP VIEW dept_view;
 ```
 
 - 인라인 뷰도 뷰의 일종
 	- SQL문이 실행되는 동안만 임시적으로 사용
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 SELECT e.deptno, total_sum, total_avg, cnt
@@ -133,6 +196,13 @@ WHERE e.deptno = d.deptno;
 - 시퀀스(SEQUENCE): 여러 사용자들이 공유하는 DB객체로서, 호출될 때마다 중복되지 않은 고유한 숫자를 리턴함
 	- 기본키 컬럼에 사용할 값을 발생시키는 데 주로 사용함
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 CREATE SEQUENCE 시퀀스명
 INCREMENT BY n -- 얼마씩 증가할지
@@ -147,6 +217,13 @@ CACHE n / NOCACHE -- 미리 값 지정
 
 
 ### 시퀀스 작성
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 CREATE SEQUENCE emp_seq
@@ -167,12 +244,26 @@ FROM user_sequences; -- 만든 시퀀스 확인
 	- 시퀀스명.CURRVAL
 	- 반드시 NEXTVAL로 번호를 추출한 후에 사용해야 함
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT emp_seq.NEXTVAL, emp_seq.CURRVAL
 FROM dual;
 ```
 
 - INCREMENT BY를 음수로 하고 사이클 돌리면 값이 점점 감소하며, MINVALUE 도달 시 MAXVALUE로 다음 사이클 넘어감
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 CREATE SEQUENCE emp_seq2
@@ -187,6 +278,13 @@ CYCLE;
 - ALTER SEQUENCE로 시퀀스 수정 가능
 	- START WITH 부분은 수정이 안되므로 DROP 후에 다시 생성해야함
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 ALTER SEQUENCE emp_seq2
 INCREMENT BY -20
@@ -195,6 +293,13 @@ NOCACHE;
 ```
 
 - 테이블에 시퀀스 사용
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 CREATE TABLE dept06
@@ -219,6 +324,13 @@ SELECT * FROM dept06;
 
 - 시퀀스 삭제
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 DROP SEQUENCE dept_deptno_seq4;
 ```
@@ -232,6 +344,13 @@ DROP SEQUENCE dept_deptno_seq4;
 	- 객체에 대한 접근방법을 단순화 할 수 있음(보안문제 해결)
 	- 객체이름 길이 단축 가능
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 CREATE SYNONYM 동의어 이름
 FOR 테이블명;
@@ -239,6 +358,13 @@ FOR 테이블명;
 
 
 ### 동의어 작성
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- sys --
@@ -253,6 +379,13 @@ INSERT INTO d_syn VALUES (80, 'AA', 'AA');
 ```
 
 - 다른 계정에서 동의어를 생성하면 스키마.테이블명 이렇게 쓸 필요 없이 동의어 사용 가능
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- sys --
@@ -296,6 +429,13 @@ SELECT * FROM dept_s;
 
 
 ### 인덱스 작성
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 SELECT * FROM emp WHERE ename = 'SMITH'; -- 0.055초

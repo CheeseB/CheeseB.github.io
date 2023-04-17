@@ -20,6 +20,13 @@ thumbnail: '../images/thumbnail/mysql.webp'
 	- SELECT 뿐 아니라 FROM, WHERE, HAVING, ORDER BY, UPDATE, INSERT INTO 절에도 사용 가능
 	- 서브쿼리엔 반드시 괄호를 써야하며, 서브쿼리 안에선 ORDER BY절 사용 불가함
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT sal
 FROM emp
@@ -54,6 +61,13 @@ WHERE sal < (SELECT sal
 - 단일행 서브쿼리: 서브쿼리가 한개의 행을 리턴
 	- 반드시 단일행 연산자를 사용해야 함(=, >, <, >=, <=, !=)
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT ename, sal
 FROM emp
@@ -62,6 +76,13 @@ WHERE sal > (SELECT AVG(sal)
 ```
 
 - 하나의 메인 쿼리에 여러개의 서브쿼리 사용 가능
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 SELECT ename, job, hiredate, sal
@@ -76,6 +97,13 @@ AND sal > (SELECT sal
 
 - HAVING 절에도 서브쿼리 사용 가능
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT deptno, MIN(sal)
 FROM emp
@@ -84,6 +112,13 @@ HAVING MIN(sal) > (SELECT MIN(sal)
                   FROM emp
                   WHERE deptno = 20)
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- 'SALES' 부서의 인원수보다 적은 부서의 부서명, 인원수 검색
@@ -101,6 +136,13 @@ HAVING COUNT(*) < (SELECT COUNT(*)
 - 복수행 서브쿼리: 서브쿼리가 여러개의 행을 리턴
 	- 반드시 복수행 연산자를 사용해야 함(IN, ANY, ALL, EXISTS)
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT ename, deptno, sal
 FROM emp
@@ -110,6 +152,13 @@ WHERE deptno IN(SELECT deptno
 ```
 
 - IN: 서브쿼리 결과 중 하나라도 일치하면 됨
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- 업무별로 최소급여를 받는 사원의 정보 출력
@@ -123,6 +172,13 @@ WHERE sal IN (SELECT MIN(sal)
 - ALL: 서브쿼리의 결과 모두에 대해서 조건을 만족해야 함
 	- 부등호 조건에 사용
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT empno, ename, sal
 FROM emp
@@ -134,6 +190,13 @@ WHERE sal > ALL(SELECT sal
 - ANY: 서브쿼리의 결과 중 하나에 대해서만 조건을 만족해도 됨
 	- 부등호 조건에 사용
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT empno, ename, sal
 FROM emp
@@ -144,6 +207,13 @@ WHERE sal > ANY(SELECT sal
 
 - EXISTS: 서브쿼리의 결과가 존재하는지 여부를 확인
 	- 결과가 하나도 없으면 조건이 거짓이 되어, 선택되는 레코드가 없음
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 SELECT *
@@ -162,6 +232,13 @@ WHERE EXISTS(SELECT empno
 - 비교 방법
 	- Pairwise: 컬럼을 쌍으로 묶어서 동시에 비교
 	- Unpairwise: 컬럼별로 나누어서 비교 후 AND 연산 처리
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- 부서별로 가장 많은 sal을 받는 사원정보 출력
@@ -190,6 +267,13 @@ AND sal IN (SELECT MAX(sal)
 - 인라인 뷰: FROM절 뒤에 테이블명 대신 서브쿼리가 사용됨
 	- 하나의 가상 테이블을 반환
 	- 서브쿼리 내의 컬럼을 메인쿼리에서 사용 가능
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 SELECT e.deptno, total_sum, cnt

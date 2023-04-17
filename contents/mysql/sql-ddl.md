@@ -34,6 +34,13 @@ thumbnail: '../images/thumbnail/mysql.webp'
 	- 생성한 객체들은 생성한 계정이 소유하며, 다른 스키마는 기본적으로 접근이 불가함 (권한 할당 필요)
 	- 권한을 가진 사용자가 다른 스키마에 접근하기 위해선 '스키마.객체명' 형식으로 접근해야 함
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT * FROM scott.dept; -- 스키마.객체명
 ```
@@ -49,12 +56,26 @@ SELECT * FROM scott.dept; -- 스키마.객체명
 	- 예약어 사용 불가
 	- 대소문자 구분 안함
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 CREATE TABLE 테이블명
 (컬럼명	데이터타입,
  컬럼명	데이터타입,
  ...);
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 CREATE TABLE employee
@@ -68,6 +89,13 @@ CREATE TABLE employee
 	- VARCHAR는 CHAR와 달리 쓴 글자 길이에 따라 차지하는 공간이 맞춰짐. 괄호안의 숫자는 최대길이
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 -- ROWID를 이용한 행 검색
 SELECT ROWID, deptno
@@ -80,6 +108,13 @@ WHERE ROWID = 'AAAE5cAAEAAAAFMAAA';
 
 - DEFAULT: 해당 컬럼에 값을 지정하지 않으면 자동으로 디폴트값이 입력됨
 	- NULL값이 저장되는 것을 방지
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- 일반 컬럼 --
@@ -109,6 +144,13 @@ VALUES(2, DEFAULT); -- 2, 21/01/14
 	- CTAS라고 함
 	- 지정된 컬럼의 개수와 서브쿼리에서 리턴된 컬럼 개수가 일치해야 함
 	- 새로 생성된 테이블에 컬럼, 컬럼의 데이터 타입, 데이터들이 복사되지만 not null을 제외한 제약 조건은 복사되지 않음 (Primary Key 등)
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- 그대로 복사 --
@@ -142,6 +184,13 @@ WHERE 1=2;
 - 제약조건 이름은 '테이블명_컬럼명_제약종류(PK/FK/UK/NN/CK)' 이렇게 짓는것을 권장
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 -- 컬럼 레벨
 CREATE TABLE 테이블명
@@ -157,6 +206,13 @@ CREATE TABLE 테이블명
 
 - USER_CONSTRAINTS 데이터 사전을 조회하면 테이블의 제약조건 확인 가능
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT *
 FROM USER_CONSTRAINTS
@@ -171,6 +227,13 @@ WHERE table_name IN('DEPARTMENT', 'EMPLOYEE');
 		- 컬럼의 집합(복합 컬럼)은 사용 가능
 		- 복합 컬럼 지정은 테이블레벨만 가능
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 CREATE TABLE department
 (deptno NUMBER(2) CONSTRAINT department_deptno_pk PRIMARY KEY,
@@ -181,6 +244,13 @@ INSERT INTO department VALUES(10, '인사과', '서울');
 INSERT INTO department VALUES(10, '영업', '서울'); -- error!
 INSERT INTO department VALUES(NULL, '영업', '서울'); -- error!
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- 컬럼 레벨
@@ -194,6 +264,13 @@ CREATE TABLE pk_tab2
  name   VARCHAR2(10),
  CONSTRAINT pk_tab2_id_pk PRIMARY KEY(id));
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- 복합 컬럼으로 기본키 지정
@@ -216,6 +293,13 @@ INSERT INTO department3 VALUES (10, 'AA', 'BB');
 	- 복합 컬럼 사용가능
 		- 복합 컬럼 지정은 테이블레벨만 가능
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 -- 컬럼 레벨
 CREATE TABLE uni_tab1
@@ -235,6 +319,13 @@ INSERT INTO uni_tab1 VALUES (10, 'BB', 'BB'); --error!
 INSERT INTO uni_tab1 VALUES (null, 'AA', 'AA');
 ```
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 -- 복합 컬럼 사용
 CREATE TABLE sawon
@@ -248,6 +339,13 @@ CREATE TABLE sawon
 	- 컬럼 레벨에서만 지정 가능
 - PRIMARY KEY를 UNIQUE + NOT NULL 로도 지정 가능
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 CREATE TABLE department6
 (deptno NUMBER(4) CONSTRAINT department6_deptno_pk UNIQUE NOT NULL,
@@ -258,6 +356,13 @@ CREATE TABLE department6
 ```
 
 - CHECK(CK): 해당 컬럼에 반드시 만족해야 될 조건을 지정
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 CREATE TABLE sawon1
@@ -283,6 +388,13 @@ INSERT INTO sawon2 VALUES (20, 'AA', '뭵'); -- error!
 		 - 지정한 열의 값과 일치하거나 NULL값이어야 함
 	- 복합 컬럼 사용가능
 	- 컬럼 레벨일 땐 REFERENCES만, 테이블 레벨일 땐 FOREIGN KEY 와 REFERENCES 키워드 둘다 사용해 줘야 함
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- 부모 테이블 --
@@ -317,6 +429,13 @@ CONSTRAINT emp03_deptno_fk FOREIGN KEY(deptno) REFERENCES dept02(deptno));
 - 부모 테이블에서 자식 테이블이 참조하고 있는 값이 있는 행은 삭제할 수 없음
 - 자식테이블은 지워도 부모테이블에 영향 없음
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 DELETE FROM dept02
 WHERE deptno = 10; -- error! (child record found)
@@ -325,6 +444,13 @@ WHERE deptno = 10; -- error! (child record found)
 - 부모 테이블의 행 삭제 시 문제될 수 있는 자식 테이블 행 설정법
 	- ON DELETE CASCADE: 부모 테이블의 행이 삭제되면 해당 행을 참조하는 자식 테이블의 행도 같이 삭제
 	- ON DELETE SET NULL: 부모 테이블의 행이 삭제되면 해당 행을 참조하는 자식 테이블의 컬럼을 NULL로 설정
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- ON DELETE CASCADE --
@@ -337,6 +463,13 @@ DELETE FROM dept02
 WHERE deptno = 10;
 -- deptno가 10번인 행이 부모, 자식 테이블에서 모두 삭제
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- ON DELETE SET NULL --
@@ -353,6 +486,13 @@ WHERE deptno = 20;
 
 - DROP 명령어로 부모 테이블 삭제 시 CASCADE CONSTRAINTS 옵션을 주어야만 삭제가 가능하며, 자식 테이블의 제약조건(FK)도 함께 삭제됨
 - 제약조건만 사라질 뿐, 데이터는 그대로임
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 DROP TABLE dept02; -- error!

@@ -37,6 +37,12 @@ thumbnail: '../images/thumbnail/cheeseball.webp'
     + 3단계
       + 4단계
 
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```typescript
 interface IQueue<T> {
   queue: T[];

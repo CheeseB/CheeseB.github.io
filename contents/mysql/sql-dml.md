@@ -32,6 +32,13 @@ thumbnail: '../images/thumbnail/mysql.webp'
 	- 한번에 하나의 행을 입력하는 것이 기본
 	- 서브쿼리를 이용해 한번에 여러행 동시입력 가능
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 INSERT INTO 테이블명(컬럼명)
 VALUES(값);
@@ -43,6 +50,13 @@ VALUES(값);
 	- 데이터타입을 동일하게 해야하며, 데이터의 크기가 컬럼 크기보다 작아야함
 	- 문자, 날짜는 반드시 작은따옴표 쓰기
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 INSERT INTO dept(deptno, dname, loc)
@@ -63,6 +77,13 @@ VALUES(80, '인사과', '서울');
 		- null을 직접 쓰는것을 권장
 - not null 제약조건이 지정된 컬럼은 불가 (ex. Primary Key)
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 -- 묵시적
 INSERT INTO dept(deptno, dname)
@@ -78,12 +99,26 @@ VALUES(92, '인사과', '');
 
 - 특수값 입력 가능 (USER, SYSDATE)
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 INSERT INTO emp(empno, ename, job, mgr, hiredate, sal, comm, deptno)
 VALUES(9000, USER, '연구원', 7839, SYSDATE, 5000, NULL, 90);
 ```
 
 - 특정 데이터타입 입력(RR/MM/DD, TO_DATE())
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 INSERT INTO emp
@@ -92,6 +127,13 @@ VALUES(9001, '홍길동', 'MANAGER', 7839, '2000/01/01', 2000, NULL, 30);
 ```
 
 - 서브쿼리로 다중 행 입력 가능
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- emp로부터 열 두개만 카피한 비어있는 테이블 생성
@@ -112,6 +154,13 @@ FROM emp;
 	- 무조건 INSERT ALL: 명시된 테이블 모두에 넣음
 	- 조건 INSERT ALL: 조건을 만족하는 테이블 모두에 넣음 (if문을 여러개 나열한 것과 동일)
 	- 조건 INSERT FIRST: 가장 먼저 만족하는 조건에 넣고, 이후의 조건은 만족해도 넣지 않음 (if-else문과 동일)
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- 무조건 INSERT ALL --
@@ -149,11 +198,25 @@ FROM emp;
 	- 한번에 여러행 동시변경 가능
 	- WHERE조건을 넣지 않으면 모든 행이 변경됨
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 UPDATE 테이블명
 SET 변경사항
 WHERE 조건;
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 UPDATE dept
@@ -162,6 +225,13 @@ WHERE deptno = 90;
 ```
 
 - 서브쿼리로 여러 컬럼 변경가능
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 UPDATE emp
@@ -181,10 +251,24 @@ WHERE empno = 9001;
 	- 한번에 여러행 삭제 가능
 	- WHERE조건을 넣지 않으면 모든 행이 삭제됨
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 DELETE FROM 테이블명
 WHERE 조건;
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 DELETE FROM dept
@@ -192,6 +276,13 @@ WHERE deptno = 91;
 ```
 
 - 서브쿼리로 여러 행 삭제 가능
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 DELETE FROM emp
@@ -207,6 +298,13 @@ WHERE deptno = (SELECT deptno
 	- ON 조건에 해당하는 행이 병합 대상 테이블에 이미 존재하면 UPDATE가, 존재하지 않으면 INSERT가 실행됨
 	- WHEN 절 안에 WHERE 구문이나 DELETE 구문을 추가할 수도 있음
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 MERGE INTO 병합 대상 테이블
 USING 넣을 테이블
@@ -216,6 +314,13 @@ WHEN MATCHED THEN
 WHEN NOT MATCHED THEN
 	INSERT VALUES(...)
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 MERGE INTO p_total total
@@ -246,6 +351,13 @@ WHEN NOT MATCHED THEN
 
 _SQL디벨로퍼에서 DML로 테이블을 조작해도 실제 DB엔 반영이 안된 상태이며, COMMIT을 해야 실제 DB에 반영되므로 반드시 DML 사용 후 COMMIT을 해줘야 한다._
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 INSERT INTO copy_dept VALUES(2, 'BB', 'BB'); -- 트랜젝션 시작
 COMMIT; -- 트랜젝션 종료
@@ -260,6 +372,13 @@ ROLLBACK; -- 종료
 - 트랜젝션 내 모든 데이터 변경 사항은 트랜젝션 종료 전까진 임시적임
 - 따라서 데이터 변경 전 데이터로 복구 가능함
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 INSERT INTO copy_dept VALUES(9, 'TT', 'TT');
 UPDATE copy_dept SET loc = '서울';
@@ -268,6 +387,13 @@ COMMIT/ROLLBACK; -- 위의 3줄 전부 반영/취소됨
 ```
 
 - 트랜젝션 중 변경된 행은 Lock이 걸리며, 트랜젝션 종료 전까지 다른 사용자는 해당 행을 변경할 수 없음
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- scott 계정 --
@@ -286,6 +412,13 @@ COMMIT; -- 삭제 반영
 ```
 
 - 트랜젝션 중 현재 사용자는 SELECT문을 이용해 미리 변경 결과를 확인할 수 있으나, 다른 사용자는 트랜젝션 종료 전까진 변경 전 결과만 확인 가능함
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- scott 계정 --

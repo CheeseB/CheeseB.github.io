@@ -13,6 +13,13 @@ thumbnail: '../images/thumbnail/mysql.webp'
 
 - 날짜형식에도 비교 연산 가능
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT empno, ename, sal, hiredate
 FROM emp
@@ -20,6 +27,13 @@ WHERE hiredate >= '81/11/17'; -- 81년 11월 17일 이후
 ```
 
 - BETWEEN a AND b: a와 b 사이 (a, b 포함)
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 SELECT empno, ename, sal
@@ -33,6 +47,13 @@ WHERE hiredate BETWEEN '81/01/01' AND '81/12/31'; -- 날짜
 
 - IN(a,b,c,...): 괄호 안의 값과 일치하는
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT empno, ename, job
 FROM emp
@@ -42,6 +63,13 @@ WHERE empno IN(7839, 7844, 7876);
 - null 비교할땐 IS NULL, IS NOT NULL 사용
 	- '=' 연산자 사용 불가
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT comm
 FROM emp
@@ -49,6 +77,13 @@ WHERE comm IS NOT NULL;
 ```
 
 - 다중 리스트
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 SELECT ename, job, deptno
@@ -59,6 +94,13 @@ WHERE (job, deptno) IN (('MANAGER', 20),('CLERK', 30));
 - LIKE: 검색할 문자열을 정확히 알수없을 때 사용
 	- %: 0글자 이상의 임의 문자
 	- _: 1글자의 임의 문자
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 SELECT empno, ename, job
@@ -85,6 +127,13 @@ WHERE ename LIKE '____'; -- 4자리 글자
 - 검색할 문자열에 '%' 나 '_' 가 들어가 있을땐 ESCAPE 사용
 	- ESCAPE로 지정한 문자 다음에 나오는 문자를 일반문자로 인식
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 -- '_'가 포함된 문자열을 찾고자 함
 
@@ -105,6 +154,13 @@ WHERE ename LIKE '%\_%' ESCAPE '\'; -- '_'를 일반문자로 인식(O)
 ### 논리 연산자
 
 - AND, OR, NOT
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 SELECT DISTINCT job, sal
@@ -127,6 +183,13 @@ WHERE ename NOT LIKE 'J%';
 3. 비교
 4. AND
 5. OR
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 SELECT ename, job, sal, comm
@@ -157,6 +220,13 @@ AND sal <= 3000;
 
 - FROM -> WHERE -> ORDER BY 순으로 써야 에러 안남
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT empno
 FROM emp
@@ -168,6 +238,13 @@ ORDER BY ename DESC; -- 내림
 ```
 
 - ORDER BY의 기준이 되는 열은 별칭이나 쓰인 순서로 지정할 수 있음
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 SELECT ename, empno, sal 월급
@@ -181,6 +258,13 @@ ORDER BY 2; -- empno 기준 정렬
 
 - 다중 정렬도 가능
 	- 앞 컬럼 기준으로 먼저 정렬 후, 뒤 컬럼 기준으로 정렬
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 SELECT ename, deptno, sal as 월급
@@ -210,6 +294,13 @@ ORDER BY 2, 3;
 
 - INITCAP: 각 단어의 첫글자를 대문자로, 나머지는 소문자로 변경
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT deptno, INITCAP(dname), INITCAP(loc)
 FROM dept;
@@ -219,6 +310,13 @@ SELECT INITCAP('ORACLE database') FROM dual; -- Oracle Database
 
 - LOWER: 모든 글자를 소문자로 변경
 - UPPER: 모든 글자를 대문자로 변경
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 SELECT empno, deptno, job
@@ -233,6 +331,13 @@ WHERE ename = UPPER('king');
 - CONCAT: 두개의 문자열 합성 ('&#124;&#124;' 과 같음)
 	- 두개의 매개변수만 사용 가능
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT CONCAT('으악', ' 뭐야')
 FROM dual; -- 으악 뭐야
@@ -240,10 +345,24 @@ FROM dual; -- 으악 뭐야
 
 - LENGTH: 문자열 길이 출력
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT LENGTH('으악 뭐야')
 FROM dual; -- 5
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- 이름 길이 내림차순 정렬 후 알파벳순 정렬
@@ -256,6 +375,13 @@ ORDER BY 2 DESC, 1;
 	- 인덱스는 1부터 시작
 	- 없으면 0 반환
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT INSTR('MILLER', 'L', 1, 2) FROM dual;
 -- 'MILLER'의 1번째 글자부터 탐색 시작
@@ -266,6 +392,13 @@ SELECT INSTR('MILLER', 'L', 1, 2) FROM dual;
 	- 문자열의 총 길이가 지정한 길이가 될때까지
 	- 첫번째 문자열이 지정한 길이보다 크면 첫번째 문자열을 n길이만큼만 반환함
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 SELECT LPAD('yyy', 6, '*') FROM dual; -- ***yyy
 SELECT RPAD('yyy', 6, '*') FROM dual; -- yyy***
@@ -274,6 +407,13 @@ SELECT LPAD('yyy', 2, '*') FROM dual; -- yy
 
 - SUBSTR: 부분 문자열 추출
 	- 문자열 끝까지 추출시 세번째 인자 생략 가능
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 SELECT SUBSTR('abcdefg', 3, 2) FROM dual;
@@ -286,6 +426,13 @@ SELECT SUBSTR('abcdefg', 4) FROM dual;
 -- 'abcdefg'의 4번째 글자부터 끝까지 반환 (반환값: defg)
 ```
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 -- 예제) 주민번호 뒷글자 처리
 SELECT RPAD(SUBSTR('000101-3234232', 1, 8), 14, '*')
@@ -294,6 +441,13 @@ FROM dual;
 ```
 
 - REPLACE: 특정 문자열을 다른 문자열로 치환
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 SELECT REPLACE('JACK and JUE', 'J', 'X') FROM dual;

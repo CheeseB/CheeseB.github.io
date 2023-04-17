@@ -20,6 +20,13 @@ thumbnail: '../images/thumbnail/mysql.webp'
 - DB관리자가 사용자를 생성하고 비밀번호를 변경함
 - 생성된 사용자는 아무 권한도 부여받지 않아 어떠한 작업도 불가함
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 -- 유저 생성
 CREATE USER 유저명 IDENTIFIED BY 비밀번호;
@@ -27,6 +34,13 @@ CREATE USER 유저명 IDENTIFIED BY 비밀번호;
 -- 유저 비밀번호 변경
 ALTER USER 유저명 IDENTIFIED BY 비밀번호;
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 CREATE USER user01 IDENTIFIED BY oracle;
@@ -59,6 +73,13 @@ ALTER USER user01 IDENTIFIED BY user01;
 
 - 시스템 권한
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 -- 권한 부여
 GRANT 권한 TO 유저;
@@ -67,6 +88,13 @@ GRANT 권한 TO 유저;
 REVOKE 권한 FROM 유저;
 ```
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 GRANT CREATE SESSION, CREATE TABLE TO user01;
 REVOKE CREATE SESSION, CREATE TABLE FROM user01;
@@ -74,10 +102,24 @@ REVOKE CREATE SESSION, CREATE TABLE FROM user01;
 
 - 객체 권한
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 -- 권한 부여
 GRANT 권한 ON 객체 TO 유저;
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- scott --
@@ -94,6 +136,13 @@ SET loc = 'AAA';
 
 - WITH GRANT OPTION 사용하면 부여받은 권한을 다른 사용자에게 부여할 수 있음
   - REVOKE로 권한 회수 시 WITH GRANT OPTION에 의해 다른 사람에게 부여된 권한도 연쇄적으로 회수됨
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- scott --
@@ -124,11 +173,25 @@ TO public;
   - 권한의 선택적 가용성 (활성화/비활성화 가능)
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 GRANT CONNECT, RESOURCE TO tester01;
 ```
 
 - 기존에 있는 롤 말고도 직접 롤을 만들수 있음
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 -- 3가지 권한 가진 롤 생성
@@ -147,6 +210,13 @@ GRANT clerk TO user03;
 
 - 부여된 권한 확인
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 -- 시스템 권한 확인
 SELECT grantee, privilege FROM dba_sys_privs
@@ -161,6 +231,13 @@ WHERE grantee = 'CLERK';
 
 - 기존 계정의 잠금/잠금 해제
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```sql
 ALTER USER scott ACCOUNT LOCK;
 ALTER USER 사용자명 ACCOUNT UNLOCK;
@@ -169,6 +246,13 @@ ALTER USER 사용자명 ACCOUNT UNLOCK;
 ## 중요내용 정리
 
 - 아래 세가지 명령어만 잘 알아둬도 유저 생성 및 권한부여는 됨
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```sql
 CREATE USER tester01 IDENTIFIED BY test;

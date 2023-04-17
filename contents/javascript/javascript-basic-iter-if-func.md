@@ -49,6 +49,13 @@ confirm() 함수
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 52 + '12' // 5212
 '52' + '12' // 5212
@@ -60,6 +67,13 @@ confirm() 함수
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 4 * '3' // 12
 '4' * '3' // 12
@@ -70,6 +84,13 @@ confirm() 함수
 Number(), String()으로 자료형을 변환시키듯 Boolean()을 통해 불 자료형으로 변환시키는 것도 가능
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 // 아래의 다섯가지 경우만 false로 변환됨
@@ -83,6 +104,13 @@ Boolean(undefined)
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 // 아래의 두개도 비어있지 않은 문자열이므로 true로 변환
 Boolean('0')
@@ -94,6 +122,13 @@ Boolean('false')
 == 이 연산자는 두 값을 비교할 때 자료형을 동일하게 변환해서 비교 (자료형 무시하고 값만 비교), === 이 연산자는 있는 그대로 비교 (자료형도 비교)
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 // 전부 true (=== 로 쓰면 전부 false)
@@ -109,6 +144,13 @@ Boolean('false')
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 // 123 + 42 는 168이다
 alert('123 + 45 는 ' + (123 + 45) + '이다');
@@ -117,6 +159,13 @@ alert(`123 + 45 는 ${123 + 45}이다`)
 ```
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 // 변수도 사용 가능
@@ -143,6 +192,13 @@ let은 메모리 등의 자원을 적절히 이용할 수 있도록 특정 스�
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 {
 	var varA = 10;
@@ -160,6 +216,13 @@ alert(i); // 오류 없이 동작
 ```
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 {
@@ -183,6 +246,13 @@ var로 선언한 변수는 (특히 비동기 함수를 사용할 때) 다양한 
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 // var 키워드 사용
 // 1초 간격으로 0,1,2를 출력하길 의도했지만
@@ -196,6 +266,13 @@ for (var i = 0; i < 3; i++) {
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 // let 키워드 사용
 // 의도한 대로 1초 간격으로 0,1,2를 출력함
@@ -207,6 +284,13 @@ for (let i = 0; i < 3; i++) {
 ```
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 // ECMAscript 5 이전까지의 해결 방법
@@ -230,6 +314,13 @@ for (var i = 0; i < 3; i++) {
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 var array = [123, 'String', true, function(){}, {}, [273, 103]]
 ```
@@ -244,6 +335,13 @@ for 반복문의 특이한 사용
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 var startTime = new Date().getTime();
 
@@ -257,6 +355,13 @@ alert('초당 연산 수: ' + cps);
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 // 배열의 인덱스를 통해 값 접근
 for (var i in array) {
@@ -265,6 +370,13 @@ for (var i in array) {
 ```
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 // 배열의 값에 바로 접근
@@ -288,6 +400,13 @@ for of 는 ECMAscript 5 이전 버전에선 사용 불가하므로 주의
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 var func_var = function() {
 	// blabla..
@@ -300,6 +419,13 @@ alert(typeof(func_var)); // function
 
 자바스크립트에서 함수를 작성하는 방법 (선언적 함수)
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 function func_name() {
 	// blabla..
@@ -309,6 +435,13 @@ function func_name() {
 
 
 웹 브라우저는 스크립트의 내용을 한줄씩 읽기 전에 선언적 함수부터 읽으므로 함수 선언보다 위에서 호출해도 잘 동작함.
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 func_name();
@@ -324,6 +457,13 @@ function func_name() {
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 // 에러!
 func_var();
@@ -338,6 +478,13 @@ var func_var = function() {
 동일한 이름의 선언적 함수와 익명함수를 같이 쓴다면 익명함수가 실행됨. 선언적 함수가 먼저 생성되고 익명함수가 나중에 생성되기 때문
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 var test = function() {alert('함수 A');}
@@ -357,6 +504,13 @@ test(); // '함수 A' 출력
 자바스크립트에선 함수를 호출할 때 함수 생성 시 지정한 매개변수 개수보다 많거나 적은 매개변수를 사용하는 것을 허용함. 이 때 추가된 매개변수는 무시, 부족한 매개변수는 undefined 처리됨
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 function test(a, b) {
@@ -386,6 +540,13 @@ test('a'); // a undefined
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 function sumAll() {
 	alert(typeof(arguments) + ':' + arguments.length);
@@ -395,6 +556,13 @@ sumAll(1,2,3,4,5); // obj:5
 ```
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 function sumAll() {
@@ -414,6 +582,13 @@ alert(sumAll(1,2,3,4,5)); // 15
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 function sumAll() {
 	var output = 0;
@@ -432,6 +607,13 @@ ECMAscript 6 버전이라면 아래와 같이 for of 구문을 사용해도 좋�
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 function sumAll() {
 	let output = 0;
@@ -449,6 +631,13 @@ alert(sumAll(1,2,3,4,5));
 Array() 함수처럼 매개변수의 개수가 다를 때 서로 다르게 동작하도록 하려면 arguments의 요소 개수에 따라 조건을 설정하면 됨
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 function test() {
@@ -472,6 +661,13 @@ function test() {
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 function returnNothing() {
 	return;
@@ -486,6 +682,13 @@ alert(output); // undefined
 내부함수는 함수 내부에 선언하는 함수를 뜻함. 내부 함수는 해당 함수를 포함하는 함수에서만 사용할 수 있음
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 function external_func() {
@@ -509,6 +712,13 @@ internal_func2(); // 에러!
 한 프로그램에 같은 이름의 함수가 있다면 뒤에 선언한 함수에 덮어씌어짐. 내부함수를 사용하면 외부에 같은 이름의 함수가 있어도 내부 함수를 우선 실행하므로 충돌을 방지함
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 
@@ -537,6 +747,13 @@ function square(width, height, hypotenuse) {
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 // 위의 square 함수를 내부함수로 변경
 // 외부의 함수에 영향을 받지 않지만 외부에서 사용 불가
@@ -554,11 +771,25 @@ function pythagoras(width, height) {
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 (function() {
 	alert('선언하자마자 실행해버리깃!');
 })();
 ```
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 (function(a, b) {
@@ -571,6 +802,13 @@ function pythagoras(width, height) {
 다른 함수의 매개변수로 전달하는 함수를 콜백함수라고 함
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 function callTenTimes(cb) {
@@ -592,6 +830,13 @@ callTenTimes(callback);
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 callTenTimes(function() {
 	alert('함수 호출');
@@ -603,6 +848,13 @@ callTenTimes(function() {
 함수를 리턴하는 함수
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 function returnFunction(){
@@ -631,6 +883,13 @@ var로 변수를 선언했다 해도 함수 안에 있는 변수는 지역변수
 
 
 
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```javascript
 function test(name) {
 	var output = 'hello' + name;
@@ -645,6 +904,13 @@ alert (output); // 에러!
 하지만 클로저를 사용하면 이 규칙을 위반할 수 있음.
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 function test(name) {
@@ -675,6 +941,13 @@ test('js')(); // hello js
 	클로저 함수로 인해 남은 지역 변수는 클로저 함수 각각의 고유한 변수임
 
 
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```javascript
 function test(name) {

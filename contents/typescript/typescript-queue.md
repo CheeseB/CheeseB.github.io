@@ -20,6 +20,12 @@ BFS를 구현하기 위해선 큐가 필요하지만 자바스크립트엔 큐�
 
 **선형 큐**
 
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```typescript
 interface IQueue<T> {
   queue: T[];
@@ -60,6 +66,12 @@ class Queue<T> implements IQueue<T> {
 ```
 
 **원형 큐**
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```typescript
 interface IQueue<T> {

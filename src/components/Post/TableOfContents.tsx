@@ -32,7 +32,7 @@ const TOC = styled.div<FixTableProps>`
     font-size: 16px;
     color: grey;
     line-height: 1.8em;
-    padding-left: 8px;
+    padding-left: 12px;
     border-radius: 10px;
     transition: background-color 0.3s ease;
   }
@@ -46,8 +46,7 @@ const TOC = styled.div<FixTableProps>`
   }
 
   ul ul {
-    margin-left: 20px;
-    padding-left: 12px;
+    margin-left: 18px;
   }
 
   ul ul li a {

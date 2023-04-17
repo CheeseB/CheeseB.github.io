@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
-import useHtmlCodeParser from 'hooks/useHtmlCodeParser';
 
 interface PostContentProps {
   html: string;
@@ -255,7 +254,7 @@ const MarkdownRenderer = styled.div`
   }
 
   hr {
-    border-width: 0 0 6px;
+    border-width: 0 0 4px;
     border-style: solid;
     border-image: url('/icon/dot.svg') 0 0 100% repeat;
     width: 100%;
@@ -269,23 +268,16 @@ const MarkdownRenderer = styled.div`
 
   .gatsby-highlight {
     position: relative;
-    margin: 20px 0;
+    margin-bottom: 20px;
   }
 
   .gatsby-highlight::after {
     content: attr(data-language);
     position: absolute;
-    bottom: 8px;
-    right: 12px;
+    top: -36px;
+    right: 18px;
     color: #cfd2d1;
     font-size: 12px;
-  }
-
-  pre[class*='language-'] {
-    margin: 0;
-    padding: 20px;
-    border-radius: 0 0 10px 10px;
-    background-color: #282c34;
   }
 
   code[class*='language-'],
@@ -293,12 +285,40 @@ const MarkdownRenderer = styled.div`
     tab-size: 2;
   }
 
+  pre[class*='language-'] {
+    margin: 0;
+    padding: 20px;
+    border-radius: 0 0 10px 10px;
+    max-height: 600px;
+    overflow: scroll;
+    font-size: 16px;
+  }
+
+  pre[class*='language-']::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  pre[class*='language-']::-webkit-scrollbar-thumb {
+    background-color: #434041;
+    border-radius: 4px;
+  }
+
+  pre[class*='language-']::-webkit-scrollbar-corner {
+    display: none;
+  }
+
+  code[class*='language-'] span.token.parameter {
+    color: #ccc;
+  }
+
   .code-header {
     display: flex;
     align-items: center;
-    padding: 14px;
+    padding: 16px;
     background-color: #434041;
     border-radius: 8px 8px 0 0;
+    margin-top: 20px;
   }
 
   .code-header .btn {
@@ -320,47 +340,14 @@ const MarkdownRenderer = styled.div`
     background-color: #43c645;
   }
 
-  .code-body {
-    max-height: 600px;
-    overflow: scroll;
+  .line-numbers .line-numbers-rows {
+    border-right: none;
+    padding: 20px;
   }
 
-  .code-body::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-
-  .code-body::-webkit-scrollbar-thumb {
-    background-color: #3a3f4b;
-    border-radius: 4px;
-  }
-
-  .code-body::-webkit-scrollbar-corner {
-    display: none;
-  }
-
-  .line {
-    counter-increment: line-idx;
-    line-height: 1.6;
-    color: #dfe0df;
-  }
-
-  .line::before {
-    content: counter(line-idx);
-    width: 24px;
-    display: inline-block;
-    text-align: right;
-    margin-right: 16px;
-    font-size: 0.8rem;
-    color: #747a7a;
-  }
-
-  .line:hover {
-    background-color: #262830;
-  }
-
-  .line:hover::before {
-    color: #cfd2d1;
+  .line-numbers .line-numbers-rows > span {
+    font-size: 16px;
+    line-height: 1.61em;
   }
 
   @media (max-width: 1512px) {
@@ -383,6 +370,15 @@ const MarkdownRenderer = styled.div`
 
     h4 {
       font-size: 18px;
+    }
+
+    pre[class*='language-'] {
+      font-size: 14px;
+    }
+
+    .line-numbers .line-numbers-rows > span {
+      font-size: 14px;
+      line-height: 1.56em;
     }
   }
 
@@ -469,41 +465,43 @@ const MarkdownRenderer = styled.div`
     }
 
     .gatsby-highlight {
-      margin: 14px 0;
+      margin-bottom: 14px;
+    }
+
+    .gatsby-highlight::after {
+      top: -28px;
+      right: 14px;
+      font-size: 10px;
     }
 
     pre[class*='language-'] {
       padding: 14px;
-    }
-
-    .gatsby-highlight::after {
-      bottom: 6px;
-      right: 10px;
+      max-height: 400px;
       font-size: 10px;
     }
 
+    pre[class*='language-']::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
     .code-header {
+      margin-top: 14px;
       padding: 12px;
     }
 
     .code-header .btn {
       width: 12px;
       height: 12px;
-      margin: 0 4px;
     }
 
-    .code-body {
-      max-height: 400px;
+    .line-numbers .line-numbers-rows {
+      padding: 14px;
     }
 
-    .code-body::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-
-    .line::before {
-      width: 16px;
-      margin-right: 14px;
+    .line-numbers .line-numbers-rows > span {
+      font-size: 10px;
+      line-height: 1.67em;
     }
   }
 
@@ -522,17 +520,20 @@ const MarkdownRenderer = styled.div`
     h4 {
       font-size: 12px;
     }
+
+    pre[class*='language-'] {
+      font-size: 8px;
+    }
+
+    .line-numbers .line-numbers-rows > span {
+      font-size: 8px;
+      line-height: 2.08em;
+    }
   }
 `;
 
 export const PostContent: FunctionComponent<PostContentProps> = ({ html }) => {
-  const htmlString = useHtmlCodeParser(html);
+  // const htmlString = useHtmlCodeParser(html);
 
-  return (
-    <MarkdownRenderer
-      dangerouslySetInnerHTML={{
-        __html: htmlString,
-      }}
-    />
-  );
+  return <MarkdownRenderer dangerouslySetInnerHTML={{ __html: html }} />;
 };
