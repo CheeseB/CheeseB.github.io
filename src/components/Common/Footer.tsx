@@ -2,30 +2,19 @@ import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 
 const Wrapper = styled.div`
-  width: 1020px;
-  margin: 100px auto 30px;
-  padding-left: 220px;
-
-  @media (max-width: 1440px) {
-    width: 920px;
-  }
+  width: 100%;
+  padding: 100px 36px 30px 256px;
 
   @media (max-width: 1024px) {
-    width: 700px;
-    padding-left: 0;
-  }
-
-  @media (max-width: 744px) {
-    width: 100%;
-    padding: 0 36px;
+    padding: 100px 36px 30px;
   }
 
   @media (max-width: 428px) {
-    padding: 0 28px;
+    padding: 100px 28px 30px;
   }
 
   @media (max-width: 320px) {
-    padding: 0 18px;
+    padding: 100px 18px 30px;
   }
 `;
 

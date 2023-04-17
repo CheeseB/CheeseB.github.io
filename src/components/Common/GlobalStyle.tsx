@@ -19,6 +19,7 @@ const defaultStyle = css`
   #___gatsby {
     height: 100%;
     -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
   }
 
   a,

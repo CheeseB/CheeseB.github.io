@@ -9,9 +9,9 @@ interface PostContentProps {
 const MarkdownRenderer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 1020px;
+  width: 860px;
   margin: 0 auto;
-  padding: 100px 0 100px 220px;
+  padding: 100px 0 100px 60px;
   word-break: break-all;
 
   line-height: 1.8;
@@ -44,6 +44,10 @@ const MarkdownRenderer = styled.div`
     border-radius: 10px;
   }
 
+  a.anchor.before {
+    display: none;
+  }
+
   h1,
   h2,
   h3,
@@ -54,7 +58,30 @@ const MarkdownRenderer = styled.div`
   h2 {
     font-size: 32px;
     margin-bottom: 40px;
-    border-bottom: 3px solid #fec479;
+    line-height: 1.5em;
+    padding-bottom: 24px;
+    position: relative;
+  }
+
+  h2:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 6px;
+    width: 60px;
+    border-radius: 8px;
+    background-color: #fec479;
+  }
+
+  h2:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    height: 1px;
+    width: 100%;
+    background-color: #fec479;
   }
 
   * + h2 {
@@ -336,8 +363,9 @@ const MarkdownRenderer = styled.div`
     color: #cfd2d1;
   }
 
-  @media (max-width: 1440px) {
+  @media (max-width: 1512px) {
     width: 920px;
+    padding-left: 220px;
   }
 
   @media (max-width: 1024px) {
@@ -374,6 +402,11 @@ const MarkdownRenderer = styled.div`
     h2 {
       font-size: 20px;
       margin-bottom: 30px;
+      padding-bottom: 14px;
+    }
+
+    h2:before {
+      width: 30px;
     }
 
     * + h2 {
