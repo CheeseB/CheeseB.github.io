@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
+import useHtmlCodeParser from 'hooks/useHtmlCodeParser';
 
 interface PostContentProps {
   html: string;
@@ -45,49 +46,51 @@ const MarkdownRenderer = styled.div`
 
   h1,
   h2,
-  h3 {
+  h3,
+  h4 {
     font-weight: 800;
   }
 
-  h1 {
+  h2 {
     font-size: 32px;
     margin-bottom: 40px;
+    border-bottom: 3px solid #fec479;
   }
 
-  * + h1 {
+  * + h2 {
     margin-top: 70px;
   }
 
-  h2 {
+  h3 {
     font-size: 26px;
     margin-bottom: 30px;
   }
 
-  * + h2 {
+  * + h3 {
     margin-top: 60px;
   }
 
-  h1 + h2 {
-    margin-top: 0;
-  }
-
-  h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-
-  * + h3 {
-    margin-top: 50px;
-  }
-
-  h1 + h3,
   h2 + h3 {
     margin-top: 0;
   }
 
-  hr + h1,
+  h4 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  * + h4 {
+    margin-top: 50px;
+  }
+
+  h2 + h4,
+  h3 + h4 {
+    margin-top: 0;
+  }
+
   hr + h2,
-  hr + h3 {
+  hr + h3,
+  hr + h4 {
     margin-top: 0;
   }
 
@@ -100,6 +103,32 @@ const MarkdownRenderer = styled.div`
 
   blockquote p {
     margin: 0;
+  }
+
+  table {
+    margin: 20px 0;
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+  }
+
+  th {
+    text-align: left;
+    font-weight: 600;
+    background: #fff8ee;
+    border-top: 1px solid #dfe0df;
+    border-bottom: 1px solid #dfe0df;
+  }
+
+  td,
+  th {
+    padding: 0.8em 0.6em;
+    vertical-align: middle;
+  }
+
+  td {
+    border-bottom: 1px solid #dfe0df;
+    background: #fff;
   }
 
   ol,
@@ -199,7 +228,7 @@ const MarkdownRenderer = styled.div`
   }
 
   hr {
-    border-width: 0 0 4px;
+    border-width: 0 0 6px;
     border-style: solid;
     border-image: url('/icon/dot.svg') 0 0 100% repeat;
     width: 100%;
@@ -211,15 +240,100 @@ const MarkdownRenderer = styled.div`
     text-decoration: underline;
   }
 
-  pre[class*='language-'] {
+  .gatsby-highlight {
+    position: relative;
     margin: 20px 0;
+  }
+
+  .gatsby-highlight::after {
+    content: attr(data-language);
+    position: absolute;
+    bottom: 8px;
+    right: 12px;
+    color: #cfd2d1;
+    font-size: 12px;
+  }
+
+  pre[class*='language-'] {
+    margin: 0;
     padding: 20px;
-    border-radius: 16px;
+    border-radius: 0 0 10px 10px;
+    background-color: #282c34;
   }
 
   code[class*='language-'],
   pre[class*='language-'] {
     tab-size: 2;
+  }
+
+  .code-header {
+    display: flex;
+    align-items: center;
+    padding: 14px;
+    background-color: #434041;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .code-header .btn {
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    margin: 0 4px;
+  }
+
+  .code-header .btn.red {
+    background-color: #f5655b;
+  }
+
+  .code-header .btn.yellow {
+    background-color: #f6bd3b;
+  }
+
+  .code-header .btn.green {
+    background-color: #43c645;
+  }
+
+  .code-body {
+    max-height: 600px;
+    overflow: scroll;
+  }
+
+  .code-body::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  .code-body::-webkit-scrollbar-thumb {
+    background-color: #3a3f4b;
+    border-radius: 4px;
+  }
+
+  .code-body::-webkit-scrollbar-corner {
+    display: none;
+  }
+
+  .line {
+    counter-increment: line-idx;
+    line-height: 1.6;
+    color: #dfe0df;
+  }
+
+  .line::before {
+    content: counter(line-idx);
+    width: 24px;
+    display: inline-block;
+    text-align: right;
+    margin-right: 16px;
+    font-size: 0.8rem;
+    color: #747a7a;
+  }
+
+  .line:hover {
+    background-color: #262830;
+  }
+
+  .line:hover::before {
+    color: #cfd2d1;
   }
 
   @media (max-width: 1440px) {
@@ -231,16 +345,16 @@ const MarkdownRenderer = styled.div`
     font-size: 16px;
     padding: 100px 0;
 
-    h1 {
+    h2 {
       font-size: 28px;
     }
 
-    h2 {
+    h3 {
       font-size: 22px;
     }
 
-    h3 {
-      font-size: 20px;
+    h4 {
+      font-size: 18px;
     }
   }
 
@@ -257,36 +371,40 @@ const MarkdownRenderer = styled.div`
       margin: 14px 0;
     }
 
-    h1 {
+    h2 {
       font-size: 20px;
       margin-bottom: 30px;
     }
 
-    * + h1 {
+    * + h2 {
       margin-top: 50px;
     }
 
-    h2 {
+    h3 {
       font-size: 18px;
       margin-bottom: 24px;
     }
 
-    * + h2 {
+    * + h3 {
       margin-top: 40px;
     }
 
-    h3 {
-      font-size: 16px;
+    h4 {
+      font-size: 14px;
       margin-bottom: 18px;
     }
 
-    * + h3 {
+    * + h4 {
       margin-top: 30px;
     }
 
     blockquote {
       margin: 14px 0;
       border-left: 2px solid lightgray;
+    }
+
+    table {
+      margin: 14px 0;
     }
 
     ol,
@@ -317,9 +435,42 @@ const MarkdownRenderer = styled.div`
       margin: 30px 0;
     }
 
-    pre[class*='language-'] {
+    .gatsby-highlight {
       margin: 14px 0;
+    }
+
+    pre[class*='language-'] {
       padding: 14px;
+    }
+
+    .gatsby-highlight::after {
+      bottom: 6px;
+      right: 10px;
+      font-size: 10px;
+    }
+
+    .code-header {
+      padding: 12px;
+    }
+
+    .code-header .btn {
+      width: 12px;
+      height: 12px;
+      margin: 0 4px;
+    }
+
+    .code-body {
+      max-height: 400px;
+    }
+
+    .code-body::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    .line::before {
+      width: 16px;
+      margin-right: 14px;
     }
   }
 
@@ -327,20 +478,28 @@ const MarkdownRenderer = styled.div`
     padding: 60px 18px;
     font-size: 10px;
 
-    h1 {
+    h2 {
       font-size: 16px;
     }
 
-    h2 {
+    h3 {
       font-size: 14px;
     }
 
-    h3 {
+    h4 {
       font-size: 12px;
     }
   }
 `;
 
 export const PostContent: FunctionComponent<PostContentProps> = ({ html }) => {
-  return <MarkdownRenderer dangerouslySetInnerHTML={{ __html: html }} />;
+  const htmlString = useHtmlCodeParser(html);
+
+  return (
+    <MarkdownRenderer
+      dangerouslySetInnerHTML={{
+        __html: htmlString,
+      }}
+    />
+  );
 };
