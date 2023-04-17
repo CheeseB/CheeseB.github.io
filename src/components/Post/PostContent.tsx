@@ -308,6 +308,7 @@ const MarkdownRenderer = styled.div`
     display: none;
   }
 
+  code[class*='language-'] span.token.interpolation,
   code[class*='language-'] span.token.parameter {
     color: #ccc;
   }
@@ -340,16 +341,6 @@ const MarkdownRenderer = styled.div`
     background-color: #43c645;
   }
 
-  .line-numbers .line-numbers-rows {
-    border-right: none;
-    padding: 20px;
-  }
-
-  .line-numbers .line-numbers-rows > span {
-    font-size: 16px;
-    line-height: 1.61em;
-  }
-
   @media (max-width: 1512px) {
     width: 920px;
     padding-left: 220px;
@@ -374,11 +365,6 @@ const MarkdownRenderer = styled.div`
 
     pre[class*='language-'] {
       font-size: 14px;
-    }
-
-    .line-numbers .line-numbers-rows > span {
-      font-size: 14px;
-      line-height: 1.56em;
     }
   }
 
@@ -494,15 +480,6 @@ const MarkdownRenderer = styled.div`
       width: 12px;
       height: 12px;
     }
-
-    .line-numbers .line-numbers-rows {
-      padding: 14px;
-    }
-
-    .line-numbers .line-numbers-rows > span {
-      font-size: 10px;
-      line-height: 1.67em;
-    }
   }
 
   @media (max-width: 320px) {
@@ -523,11 +500,6 @@ const MarkdownRenderer = styled.div`
 
     pre[class*='language-'] {
       font-size: 8px;
-    }
-
-    .line-numbers .line-numbers-rows > span {
-      font-size: 8px;
-      line-height: 2.08em;
     }
   }
 `;
