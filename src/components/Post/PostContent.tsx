@@ -36,7 +36,7 @@ const MarkdownRenderer = styled.div`
 
   p {
     padding: 2px 0;
-    margin: 20px 0;
+    margin: 16px 0;
   }
 
   img {
@@ -89,15 +89,11 @@ const MarkdownRenderer = styled.div`
 
   h3 {
     font-size: 26px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 
   * + h3 {
     margin-top: 60px;
-  }
-
-  h2 + h3 {
-    margin-top: 0;
   }
 
   h4 {
@@ -109,19 +105,15 @@ const MarkdownRenderer = styled.div`
     margin-top: 50px;
   }
 
-  h2 + h4,
-  h3 + h4 {
-    margin-top: 0;
-  }
-
-  hr + h2,
-  hr + h3,
-  hr + h4 {
+  h1 + *,
+  h2 + *,
+  h3 + *,
+  h4 + * {
     margin-top: 0;
   }
 
   blockquote {
-    margin: 20px 0;
+    margin: 16px 0;
     padding: 5px 15px;
     border-left: 4px solid #fec479;
     background-color: #fff8f0;
@@ -132,7 +124,7 @@ const MarkdownRenderer = styled.div`
   }
 
   table {
-    margin: 20px 0;
+    margin: 16px 0;
     width: 100%;
     border-collapse: collapse;
     overflow: hidden;
@@ -159,7 +151,7 @@ const MarkdownRenderer = styled.div`
 
   ol,
   ul {
-    padding: 20px 0;
+    padding: 16px 0;
     list-style: none;
   }
 
@@ -268,7 +260,7 @@ const MarkdownRenderer = styled.div`
 
   .gatsby-highlight {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
 
   .gatsby-highlight::after {
@@ -319,7 +311,7 @@ const MarkdownRenderer = styled.div`
     padding: 16px;
     background-color: #434041;
     border-radius: 8px 8px 0 0;
-    margin-top: 20px;
+    margin-top: 16px;
   }
 
   .code-header .btn {
@@ -378,7 +370,7 @@ const MarkdownRenderer = styled.div`
     font-size: 12px;
 
     p {
-      margin: 14px 0;
+      margin: 12px 0;
     }
 
     h2 {
@@ -397,7 +389,7 @@ const MarkdownRenderer = styled.div`
 
     h3 {
       font-size: 18px;
-      margin-bottom: 24px;
+      margin-bottom: 14px;
     }
 
     * + h3 {
@@ -406,25 +398,32 @@ const MarkdownRenderer = styled.div`
 
     h4 {
       font-size: 14px;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
 
     * + h4 {
       margin-top: 30px;
     }
 
+    h1 + *,
+    h2 + *,
+    h3 + *,
+    h4 + * {
+      margin-top: 0;
+    }
+
     blockquote {
-      margin: 14px 0;
-      border-left: 2px solid lightgray;
+      margin: 12px 0;
+      border-left: 2px solid #fec479;
     }
 
     table {
-      margin: 14px 0;
+      margin: 12px 0;
     }
 
     ol,
     ul {
-      padding: 14px 0;
+      padding: 12px 0;
     }
 
     li {
@@ -451,7 +450,7 @@ const MarkdownRenderer = styled.div`
     }
 
     .gatsby-highlight {
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .gatsby-highlight::after {
@@ -472,7 +471,7 @@ const MarkdownRenderer = styled.div`
     }
 
     .code-header {
-      margin-top: 14px;
+      margin-top: 12px;
       padding: 12px;
     }
 
