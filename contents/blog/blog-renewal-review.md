@@ -1,6 +1,6 @@
 ---
 date: '2023-04-17'
-title: '개발자맛 치즈볼 블로그 리뉴얼 후기 및 참고 사이트 정리'
+title: '블로그 리뉴얼 후기 및 참고 사이트 정리'
 categories: ['Blog']
 summary: '블로그 디자인과 개발을 마치고'
 thumbnail: '../images/thumbnail/cheeseball.webp'
