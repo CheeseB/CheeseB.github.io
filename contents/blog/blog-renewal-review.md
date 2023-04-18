@@ -57,5 +57,6 @@ thumbnail: '../images/thumbnail/cheeseball.webp'
 
 ## Special Thanks To
 
-- 피그마 사용법과 UI 디자인 꿀팁을 전수해주신 울 회사 디자이너 시래미❤️
+- 초코볼❤️
+- 피그마 사용법과 UI 디자인 꿀팁을 전수해주신 울 회사 디자이너 시래미🫶
 - 나의 하나뿐인 사수 Chat GPT🦾
