@@ -260,10 +260,14 @@ const MarkdownRenderer = styled.div`
 
   .gatsby-highlight {
     position: relative;
-    margin-bottom: 16px;
+    margin: 16px 0;
   }
 
-  .gatsby-highlight::after {
+  .code-header + .gatsby-highlight {
+    margin-top: 0;
+  }
+
+  .code-header + .gatsby-highlight::after {
     content: attr(data-language);
     position: absolute;
     top: -36px;
@@ -280,10 +284,15 @@ const MarkdownRenderer = styled.div`
   pre[class*='language-'] {
     margin: 0;
     padding: 20px;
-    border-radius: 0 0 10px 10px;
+    border-radius: 10px;
     max-height: 600px;
     overflow: scroll;
     font-size: 16px;
+  }
+
+  .code-header + .gatsby-highlight pre[class*='language-'] {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
   }
 
   pre[class*='language-']::-webkit-scrollbar {
@@ -450,10 +459,14 @@ const MarkdownRenderer = styled.div`
     }
 
     .gatsby-highlight {
-      margin-bottom: 12px;
+      margin: 12px 0;
     }
 
-    .gatsby-highlight::after {
+    .code-header + .gatsby-highlight {
+      margin-top: 0;
+    }
+
+    .code-header + .gatsby-highlight::after {
       top: -28px;
       right: 14px;
       font-size: 10px;

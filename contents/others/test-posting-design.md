@@ -37,49 +37,19 @@ thumbnail: '../images/thumbnail/cheeseball.webp'
     + 3단계
       + 4단계
 
+
+```javascript
+this is code block
+```
+
 <div class="code-header">
 	<span class="red btn"></span>
 	<span class="yellow btn"></span>
 	<span class="green btn"></span>
 </div>
 
-```typescript
-interface IQueue<T> {
-  queue: T[];
-  head: number;
-  tail: number;
-
-  enqueue(element: T): void;
-  dequeue(): T;
-  isEmpty(): boolean;
-}
-
-class Queue<T> implements IQueue<T> {
-  queue: T[];
-  head: number;
-  tail: number;
-
-  constructor() {
-    this.queue = [];
-    this.head = 0;
-    this.tail = 0;
-  }
-
-  enqueue(element: T) {
-    this.queue[this.tail] = element;
-    this.tail += 1;
-  }
-
-  dequeue(): T {
-    if (this.isEmpty()) throw new Error('queue is empty!');
-    this.head += 1;
-    return this.queue[this.head - 1]!;
-  }
-
-  isEmpty(): boolean {
-    return this.head === this.tail;
-  }
-}
+```javascript
+this is code block too
 ```
 
 
