@@ -19,9 +19,13 @@ export const LinkIconList = () => {
         image="/icon/instagram.svg"
       ></LinkIcon>
       <LinkIcon
+        link="https://cheeseb.github.io/rss"
+        image="/icon/rss.svg"
+      ></LinkIcon>
+      {/* <LinkIcon
         link="mailto:2489ckckck@naver.com"
         image="/icon/email.svg"
-      ></LinkIcon>
+      ></LinkIcon> */}
     </Wrapper>
   );
 };

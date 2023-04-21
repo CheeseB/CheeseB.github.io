@@ -118,6 +118,12 @@ module.exports = {
                 {
                   title: '개발자맛 치즈볼',
                   output: '/rss.xml',
+                  setup: options => ({
+                    ...options,
+                    site_url: 'https://cheeseb.github.io/',
+                    description: '주니어 프론트엔드 개발자의 개발일기 입니다.',
+                    author: `CheeseB`,
+                  }),
                   serialize: ({ query: { site, allMarkdownRemark } }) => {
                     return allMarkdownRemark.edges.map(edge => {
                       return Object.assign({}, edge.node.frontmatter, {
@@ -126,6 +132,7 @@ module.exports = {
                         date: edge.node.frontmatter.date,
                         url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                         guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                        author: site.siteMetadata.author,
                         custom_elements: [
                           { 'content:encoded': edge.node.html },
                         ],
