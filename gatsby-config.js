@@ -100,17 +100,9 @@ module.exports = {
             },
           },
           {
-            resolve: 'gatsby-plugin-google-analytics',
+            resolve: 'gatsby-plugin-google-gtag',
             options: {
-              trackingId: 'G-R0Z17QLND3',
-              head: true,
-            },
-          },
-          {
-            resolve: `gatsby-plugin-gtag`,
-            options: {
-              trackingId: `G-R0Z17QLND3`,
-              head: true,
+              trackingIds: ['G-R0Z17QLND3'],
             },
           },
           {
