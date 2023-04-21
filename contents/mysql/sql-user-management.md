@@ -6,6 +6,8 @@ summary: 'SQL 공부'
 thumbnail: '../images/thumbnail/mysql.webp'
 ---
 
+<small>예전 블로그에 작성된 글을 옮긴 게시글입니다.</small>
+
 ## 사용자 관리
 
 ### DB 보안 종류

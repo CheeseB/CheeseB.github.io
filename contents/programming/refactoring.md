@@ -6,6 +6,8 @@ summary: '어떤 코드에 어떻게 리팩토링을 해야하는가'
 thumbnail: '../images/thumbnail/refactoring.webp'
 ---
 
+<small>노션으로 작성한 글을 옮긴 게시글입니다.</small>
+
 ## 리팩터링을 해야 하는 코드 유형
 
 ### 1. 기이한 이름

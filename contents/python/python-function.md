@@ -6,6 +6,7 @@ summary: '파이썬 문법 공부'
 thumbnail: '../images/thumbnail/python.webp'
 ---
 
+<small>예전 블로그에 작성된 글을 옮긴 게시글입니다.</small>
 
 파이썬에서 함수 정의는 def 키워드를 사용한다. for문, if문과 마찬가지로 들여쓰기 되어있는 부분 까지가 함수 정의 부분이다.
 

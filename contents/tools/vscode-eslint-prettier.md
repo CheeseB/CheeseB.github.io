@@ -6,6 +6,8 @@ summary: 'VScode 세팅'
 thumbnail: '../images/thumbnail/vscode.webp'
 ---
 
+<small>예전 블로그에 작성된 글을 옮긴 게시글입니다.</small>
+
 ### 그냥 자바스크립트
 
 <https://sunmon.github.io/vscode-eslint-prettier-setting/>

@@ -6,6 +6,8 @@ summary: '파이썬 문법 공부'
 thumbnail: '../images/thumbnail/python.webp'
 ---
 
+<small>예전 블로그에 작성된 글을 옮긴 게시글입니다.</small>
+
 
 upper - 전부 대문자로 만들기
 

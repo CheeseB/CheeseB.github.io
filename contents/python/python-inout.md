@@ -6,6 +6,8 @@ summary: '파이썬 문법 공부'
 thumbnail: '../images/thumbnail/python.webp'
 ---
 
+<small>예전 블로그에 작성된 글을 옮긴 게시글입니다.</small>
+
 1. print(a, b, c, sep=”) 이 문장에서 sep 부분을 빼고 실행시키면 자동으로 a b c 이렇게 공백으로 띄어서 출력되지만 sep을 지정하면 지정한 문자로 구분되어 출력된다. 예를들어 sep=” 이렇게 하면 abc 이렇게 붙어서 나오고 sep=’,’ 이렇게 하면 a,b,c 이렇게 출력된다.
 2. print(a, end=’ ’) 이 문장에서 end부분을 빼고 실행하면 자동으로 a를 출력한 뒤 줄바꿈이 출력된다. 하지만 end를 지정하면 a 출력 후 지정한 문자가 출력된다. 예를들어 print(a, end=’ ‘)이땐 a 뒤에 공백이 출력되고 print(a, end=’,’) 이땐 a 뒤에 쉼표가 출력된다.
 3. input()함수로 입력받은 것은 문자열 형태이다. 그러므로 a, b = input().split() 으로 문자열을 받았다면 a = int(a) b = int(b) 이렇게 따로따로 바꾸거나 애초에 a, b = map(int, input().split()) 이렇게 받으면 된다.

@@ -6,6 +6,8 @@ summary: '자바스크립트 문법 공부'
 thumbnail: '../images/thumbnail/javascript.webp'
 ---
 
+<small>예전 블로그에 작성된 글을 옮긴 게시글입니다.</small>
+
 ## 기본 문법, 반복문, 조건문
 
 
