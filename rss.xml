@@ -1,45 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[개발자맛 치즈볼]]></title><description><![CDATA[주니어 프론트엔드 개발자의 개발일기 입니다.]]></description><link>https://cheeseb.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 21 Apr 2023 09:10:34 GMT</lastBuildDate><author><![CDATA[CheeseB]]></author><item><title><![CDATA[RSS 테스트 게시글]]></title><description><![CDATA[RSS 알림 잘 가나 보려고 만든 게시글]]></description><link>https://cheeseb.github.io/others/test-rss-feed/</link><guid isPermaLink="false">https://cheeseb.github.io/others/test-rss-feed/</guid><category><![CDATA[Others]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Thu, 20 Apr 2023 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/24c85c8414b9798ed6aa222b30720b9a/0f09e/2023-04-21-18-10-12.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 67.70833333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAIAAACgpqunAAAACXBIWXMAAA7DAAAOwwHHb6hkAAADYUlEQVR42gFWA6n8AO/n2fPu5vTw6/Pu6fLs5uzk2+jd0+bc0t7Qw93Nv9fJvbifismqkcytkMWjgsOgfMKgfcOlicavmMm4qADy7OPz7ujy7ebr4tji18zl29Ley7zax7jYxrfPtJ/MtKKRdGF+ZFStjnbGoX7Cm3fCnHfAn33GqpHKuKYA8uzj8Ojc7uLT7NzL69bG6dbI28e20Luq3M/E2Me7xKaSRTYuBQwOQjUtuo9uxZ96xqSCxKOEx6yVyrqpAPHr3+7hz+/cx+XSwH9vZoJtY+DKvOLVy+vl4Ofh293NwmBQSA4ODzUqJKN1WcKef8esk8eulsi0osq6rADw6Nrs3sv04Mqzm4spLjEZFRLdzML28u3z7Oby6N/t5NzbzcKhinySd2W5mIDGrZfJtaLKuKfKuqvKuqsA8ObX7d3I6s6y2KySbWBbh3dt/Pbx6uHbsaKXeG5ojH512cq+2sq81MCw0r6u0b+x0cCy0MCyy7usx7mqAPLt5PDm2Ozax+/byurQwvbr5Pn288CzqzMuLAYFBA0LCJN6atO8q827q9bEtNK/rtG+rc+9rMu6q8i4qgD08/L08e3y6+Px6+Px7ejw7+389fCbjYYZFRQcGxkQEA+EZFXRsJvQuqjEpo/Jq5PMs53KtaDJuKfIuqsA9PT09PHt8+7p8+7o8/Hu9ff39Ozl2se+YE1HGBQRUzszuIZ00ayYl3xqkGRIvZd5waOIw6mQx7OgyLmqAPT09PLu6e/o3uzg1eTPv+re1fHr5fHc0tevpHFNRnFFPY5bT2dGOIVfSq2EaKyBYLSQcL2ghcWxnMq6qwD09PTz7uns4NPn08Dcv6XTsZnKqpvMnI7ckYyGNTdkJCh5KSmCTTu+mH6pf2Kmelyvi2y7noPGsp7MvK0A9PT08/Ds7uPX6dnI5c+75M+95M6/48a36p+ewUpQtUxSuTxByYBwupp9onNTqX9hspBzvqKKx7OfzLurAPT09PTy8PDp4Ove0OrayujWx+7i1vHr4u7LxOWFf910b9yDes6kjLqScrWMbraSdb6gh8Wslsq2osy7qwD09PT08/Hy7eXu59zt49jt49jt49jt5dvu5Nnr2Mvix7bav6nOr5XJp43FpYvFpo3HrJXLtqPQv6/Rw7TCQEq/EbuA1gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;picture&gt;
-          &lt;source
-              srcset=&quot;/static/24c85c8414b9798ed6aa222b30720b9a/a59e9/2023-04-21-18-10-12.webp 192w,
-/static/24c85c8414b9798ed6aa222b30720b9a/0ca9f/2023-04-21-18-10-12.webp 384w,
-/static/24c85c8414b9798ed6aa222b30720b9a/0c8fb/2023-04-21-18-10-12.webp 640w&quot;
-              sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
-              type=&quot;image/webp&quot;
-            /&gt;
-          &lt;source
-            srcset=&quot;/static/24c85c8414b9798ed6aa222b30720b9a/3b721/2023-04-21-18-10-12.png 192w,
-/static/24c85c8414b9798ed6aa222b30720b9a/66595/2023-04-21-18-10-12.png 384w,
-/static/24c85c8414b9798ed6aa222b30720b9a/0f09e/2023-04-21-18-10-12.png 640w&quot;
-            sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
-            type=&quot;image/png&quot;
-          /&gt;
-          &lt;img
-            class=&quot;gatsby-resp-image-image&quot;
-            src=&quot;/static/24c85c8414b9798ed6aa222b30720b9a/0f09e/2023-04-21-18-10-12.png&quot;
-            alt=&quot;2023 04 21 18 10 12&quot;
-            title=&quot;&quot;
-            loading=&quot;lazy&quot;
-            decoding=&quot;async&quot;
-            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-          /&gt;
-        &lt;/picture&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Gatsby와 Typescript로 깃허브 블로그 만들기(1) - Gatsby 기본 개념 및 프로젝트 생성]]></title><description><![CDATA[블로그 개발일지]]></description><link>https://cheeseb.github.io/blog/github-blog-with-gatsby-ts-basic/</link><guid isPermaLink="false">https://cheeseb.github.io/blog/github-blog-with-gatsby-ts-basic/</guid><category><![CDATA[Blog]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Mon, 17 Apr 2023 15:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;gatsby란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#gatsby%EB%9E%80&quot; aria-label=&quot;gatsby란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Gatsby란?&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[개발자맛 치즈볼]]></title><description><![CDATA[주니어 프론트엔드 개발자의 개발일기 입니다.]]></description><link>https://cheeseb.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 21 Apr 2023 09:18:27 GMT</lastBuildDate><author><![CDATA[CheeseB]]></author><item><title><![CDATA[Gatsby와 Typescript로 깃허브 블로그 만들기(1) - Gatsby 기본 개념 및 프로젝트 생성]]></title><description><![CDATA[블로그 개발일지]]></description><link>https://cheeseb.github.io/blog/github-blog-with-gatsby-ts-basic/</link><guid isPermaLink="false">https://cheeseb.github.io/blog/github-blog-with-gatsby-ts-basic/</guid><category><![CDATA[Blog]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Mon, 17 Apr 2023 15:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;gatsby란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#gatsby%EB%9E%80&quot; aria-label=&quot;gatsby란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Gatsby란?&lt;/h2&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
