@@ -116,7 +116,7 @@ module.exports = {
 							`,
               feeds: [
                 {
-                  title: '개발자맛 치즈볼 RSS Feed',
+                  title: '개발자맛 치즈볼',
                   serialize: ({ query: { site, allMarkdownRemark } }) => {
                     return allMarkdownRemark.edges.map(edge => {
                       return Object.assign({}, edge.node.frontmatter, {
