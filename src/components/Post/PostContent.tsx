@@ -30,6 +30,12 @@ const MarkdownRenderer = styled.div`
     background-color: #ffeccc;
   }
 
+  small {
+    font-style: italic;
+    color: grey;
+    font-size: inherit;
+  }
+
   del {
     color: grey;
   }
