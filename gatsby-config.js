@@ -4,6 +4,7 @@ module.exports = {
     description: `주니어 프론트엔드 개발자의 개발일기 입니다.`,
     author: `CheeseB`,
     siteUrl: 'https://cheeseb.github.io/',
+    link: 'https://cheeseb.github.io/',
   },
   plugins: [
     `gatsby-plugin-react-helmet-async`,
@@ -110,6 +111,7 @@ module.exports = {
 											description
 											siteUrl
 											author
+											link
 										}
 									}
 								}
@@ -117,6 +119,7 @@ module.exports = {
               feeds: [
                 {
                   title: '개발자맛 치즈볼',
+                  link: 'https://cheeseb.github.io/',
                   serialize: ({ query: { site, allMarkdownRemark } }) => {
                     return allMarkdownRemark.edges.map(edge => {
                       return Object.assign({}, edge.node.frontmatter, {
