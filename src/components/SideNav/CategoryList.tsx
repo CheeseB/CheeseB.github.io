@@ -23,6 +23,7 @@ const CategoryListWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  gap: 8px;
   margin-top: 32px;
   padding: 0 18px;
 

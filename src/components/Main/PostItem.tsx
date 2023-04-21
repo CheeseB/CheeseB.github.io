@@ -126,10 +126,31 @@ const Summary = styled.div`
   }
 `;
 
+const Under = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 const Date = styled.div`
   font-size: 12px;
   line-height: 16px;
   color: #504538;
+
+  @media (max-width: 1024px) {
+    font-size: 10px;
+    line-height: 14px;
+  }
+
+  @media (max-width: 320px) {
+    font-size: 8px;
+    line-height: 12px;
+  }
+`;
+
+const Author = styled.div`
+  font-size: 12px;
+  line-height: 16px;
+  color: #c28e46;
 
   @media (max-width: 1024px) {
     font-size: 10px;
@@ -163,7 +184,10 @@ export const PostItem: FunctionComponent<PostItemProps> = ({
         </CategoryWrapper>
         <Title>{title}</Title>
         <Summary>{summary}</Summary>
-        <Date>{date}</Date>
+        <Under>
+          <Date>{date}</Date>
+          <Author>CheeseB</Author>
+        </Under>
       </PostItemContent>
     </PostItemWrapper>
   );
