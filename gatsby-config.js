@@ -103,12 +103,14 @@ module.exports = {
             resolve: 'gatsby-plugin-google-analytics',
             options: {
               trackingId: 'G-R0Z17QLND3',
+              head: true,
             },
           },
           {
             resolve: `gatsby-plugin-gtag`,
             options: {
               trackingId: `G-R0Z17QLND3`,
+              head: true,
             },
           },
           {
