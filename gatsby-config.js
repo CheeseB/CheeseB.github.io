@@ -88,6 +88,8 @@ module.exports = {
           {
             resolve: 'gatsby-plugin-robots-txt',
             options: {
+              host: 'https://cheeseb.github.io/',
+              sitemap: 'https://cheeseb.github.io/sitemap.xml',
               policy: [{ userAgent: '*', allow: '/' }],
             },
           },
