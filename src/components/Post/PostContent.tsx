@@ -259,6 +259,10 @@ const MarkdownRenderer = styled.div`
     margin: 60px 0;
   }
 
+  hr + * {
+    margin-top: 0;
+  }
+
   a {
     color: #ff8982;
     text-decoration: underline;
@@ -462,6 +466,10 @@ const MarkdownRenderer = styled.div`
 
     hr {
       margin: 30px 0;
+    }
+
+    hr + * {
+      margin-top: 0;
     }
 
     .gatsby-highlight {
