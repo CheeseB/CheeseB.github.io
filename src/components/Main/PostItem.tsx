@@ -148,6 +148,7 @@ const Date = styled.div`
 `;
 
 const Author = styled.div`
+  visibility: hidden;
   font-size: 12px;
   line-height: 16px;
   color: #c28e46;
