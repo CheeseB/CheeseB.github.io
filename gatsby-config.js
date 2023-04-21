@@ -99,6 +99,70 @@ module.exports = {
               icon: 'static/favicon/favicon-96x96.png',
             },
           },
+          {
+            resolve: `gatsby-plugin-feed`,
+            options: {
+              query: `
+								{
+									site {
+										siteMetadata {
+											title
+											description
+											siteUrl
+											author
+										}
+									}
+								}
+							`,
+              feeds: [
+                {
+                  title: '개발자맛 치즈볼 RSS Feed',
+                  serialize: ({ query: { site, allMarkdownRemark } }) => {
+                    return allMarkdownRemark.edges.map(edge => {
+                      return Object.assign({}, edge.node.frontmatter, {
+                        title: edge.node.frontmatter.title,
+                        description: edge.node.frontmatter.summary,
+                        date: edge.node.frontmatter.date,
+                        url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                        guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                        custom_elements: [
+                          { 'content:encoded': edge.node.html },
+                        ],
+                      });
+                    });
+                  },
+                  query: `
+										{
+											allMarkdownRemark(
+												sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
+											) {
+												edges {
+													node {
+														html
+														fields {
+															slug
+														}
+														frontmatter {
+															title
+															summary
+															date(formatString: "YYYY.MM.DD.")
+															categories
+															thumbnail {
+																childImageSharp {
+																	gatsbyImageData
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									`,
+                  output: '/rss.xml',
+                },
+              ],
+            },
+          },
         ],
       },
     },

@@ -147,23 +147,6 @@ const Date = styled.div`
   }
 `;
 
-const Author = styled.div`
-  visibility: hidden;
-  font-size: 12px;
-  line-height: 16px;
-  color: #c28e46;
-
-  @media (max-width: 1024px) {
-    font-size: 10px;
-    line-height: 14px;
-  }
-
-  @media (max-width: 320px) {
-    font-size: 8px;
-    line-height: 12px;
-  }
-`;
-
 export const PostItem: FunctionComponent<PostItemProps> = ({
   title,
   date,
@@ -187,7 +170,6 @@ export const PostItem: FunctionComponent<PostItemProps> = ({
         <Summary>{summary}</Summary>
         <Under>
           <Date>{date}</Date>
-          <Author>CheeseB</Author>
         </Under>
       </PostItemContent>
     </PostItemWrapper>
