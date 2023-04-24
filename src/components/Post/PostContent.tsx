@@ -311,7 +311,7 @@ const MarkdownRenderer = styled.div`
   }
 
   pre[class*='language-']::-webkit-scrollbar-thumb {
-    background-color: #434041;
+    background-color: #5d5d5d;
     border-radius: 4px;
   }
 
