@@ -73,11 +73,12 @@ To create a production build, use gatsby build
 ![](../images/content/2023-04-18-15-07-09.png)
 
 다음 포스팅에선 완성된 블로그의 프로젝트 구조를 분석하고,   
-개츠비에 타입스크립트를 적용하는 방법에 대해 다룰 것이다.
+개츠비에 타입스크립트를 적용하는 방법과 여러 설정에 대해 다룰 것이다.
 
 ---
 
 #### 참고 링크
 
+[주현도 - React 기반 Gatsby로 기술 블로그 개발하기](https://www.inflearn.com/course/gatsby-%EA%B8%B0%EC%88%A0%EB%B8%94%EB%A1%9C%EA%B7%B8/dashboard)
 [Deeming - Gatsby는 처음이라 :: 개념부터 프로젝트 시작까지](https://mnxmnz.github.io/gatsby/what-is-gatsby/)   
 [Dev World - GraphQl이란 무엇인가?](https://kotlinworld.com/330)
