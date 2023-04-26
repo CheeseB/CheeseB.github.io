@@ -72,8 +72,6 @@ To create a production build, use gatsby build
 
 ![](../images/content/2023-04-18-15-07-09.png)
 
-다음 포스팅에선 완성된 블로그의 프로젝트 구조를 분석하고,   
-개츠비에 타입스크립트를 적용하는 방법과 여러 설정에 대해 다룰 것이다.
 
 ---
 
