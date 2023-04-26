@@ -69,9 +69,9 @@ tsconfig.json
 
 폴더 구조
 
-- **src/** : 소스 폴더
-- **static/** : 파비콘, 아이콘, lottie 등 이미지 소스 저장
-- **contents/** : 블로그 게시글 마크다운 파일과 게시글에 쓰일 이미지 저장
+- **src** : 소스 폴더
+- **static** : 파비콘, 아이콘, lottie 등 이미지 소스 저장
+- **contents** : 블로그 게시글 마크다운 파일과 게시글에 쓰일 이미지 저장
 
 설정 파일
 
@@ -193,9 +193,9 @@ gatsby-config.js 파일의 siteMetadata 에 블로그에 대한 정보를 적는
 ```js
 module.exports = {
   siteMetadata: {
-    title: `개발자맛 치즈볼`,
-    description: `주니어 프론트엔드 개발자의 개발일기 입니다.`,
-    author: `CheeseB`,
+    title: '개발자맛 치즈볼',
+    description: '주니어 프론트엔드 개발자의 개발일기 입니다.',
+    author: 'CheeseB',
     siteUrl: 'https://cheeseb.github.io/',
   },
   plugins: [
