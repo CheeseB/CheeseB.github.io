@@ -324,6 +324,18 @@ const MarkdownRenderer = styled.div`
     color: #ccc;
   }
 
+  code[class*='language-'] span.token.regex-delimiter {
+    color: #67cdcc;
+  }
+
+  code[class*='language-'] span.token.regex-source.language-regex {
+    color: #7ec699;
+  }
+
+  code[class*='language-'] span.token.regex-flags {
+    color: #cc99cd;
+  }
+
   .code-header {
     display: flex;
     align-items: center;
