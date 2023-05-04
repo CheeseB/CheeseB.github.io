@@ -33,7 +33,7 @@ const MarkdownRenderer = styled.div`
   small {
     font-style: italic;
     color: grey;
-    font-size: inherit;
+    font-size: 16px;
   }
 
   del {
@@ -364,6 +364,13 @@ const MarkdownRenderer = styled.div`
     background-color: #43c645;
   }
 
+  .source {
+    color: grey;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
   @media (max-width: 1512px) {
     width: 920px;
     padding-left: 220px;
@@ -389,6 +396,14 @@ const MarkdownRenderer = styled.div`
     pre[class*='language-'] {
       font-size: 14px;
     }
+
+    small {
+      font-size: 14px;
+    }
+
+    .source {
+      font-size: 12px;
+    }
   }
 
   @media (max-width: 744px) {
@@ -402,6 +417,15 @@ const MarkdownRenderer = styled.div`
 
     p {
       margin: 12px 0;
+    }
+
+    small {
+      font-size: 10px;
+    }
+
+    .source {
+      font-size: 8px;
+      margin-bottom: 12px;
     }
 
     h2 {
@@ -539,11 +563,17 @@ const MarkdownRenderer = styled.div`
     pre[class*='language-'] {
       font-size: 8px;
     }
+
+    small {
+      font-size: 8px;
+    }
+
+    .source {
+      font-size: 6px;
+    }
   }
 `;
 
 export const PostContent: FunctionComponent<PostContentProps> = ({ html }) => {
-  // const htmlString = useHtmlCodeParser(html);
-
   return <MarkdownRenderer dangerouslySetInnerHTML={{ __html: html }} />;
 };

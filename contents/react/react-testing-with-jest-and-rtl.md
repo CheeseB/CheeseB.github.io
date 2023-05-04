@@ -1,91 +1,36 @@
 ---
-date: '2023-05-02'
-title: 'Jest와 React Testing Library 로 리액트 테스트코드 작성하기'
+date: ''
+title: 'Jest 와 React Testing Library로 리액트 테스트 코드 작성하기 - 아직 작성중'
 categories: ['React']
-summary: '프론트엔드에서 테스트 하는법'
+summary: ''
 thumbnail: '../images/thumbnail/react.webp'
 ---
 
-항상 프론트엔드 기능 구현과 수정을 할 때마다 하나하나 클릭하고 입력해 보면서 직접 테스트를 해 왔었는데, 꼼꼼히 테스트를 하려다 보니 개발하는 시간보다 테스트하는 시간이 더 오래 걸렸던 적이 많았다.   
-이런 비효율성을 조금이라도 덜어보고자 리액트에서 테스트 코드를 작성하는 법을 알아보았다. 사실 테스트코드니 TDD 니 이런 개념을 공부할 때마다 프론트와는 동떨어져 있는 개념인 것 같았고, 무엇을 어떻게 테스트해야 하는 건지도 몰랐는데, 이번 기회에 테스트코드 작성법을 익히고 실무에도 적용해 보도록 하려 한다.
-
-## 프론트엔드 테스트의 필요성
-
-프론트엔드에서도 테스트 코드 작성이 중요한 이유는 다음과 같습니다.
-
-- 코드의 품질 향상: 테스트를 통해 코드의 견고함을 확인하고, 버그를 사전에 찾아낼 수 있습니다.
-- 리팩토링 용이성: 테스트 코드가 있으면 기능 변경이나 코드 개선을 할 때 안전하게 진행할 수 있습니다.
-- 개발 생산성 향상: 테스트 코드를 작성하면서 코드를 이해하는데 도움이 되고, 다른 개발자들과의 협업을 원활하게 할 수 있습니다.
-
-## 테스트의 종류
-
-테스트에는 여러 종류가 있습니다. 주요 테스트 종류와 정의는 다음과 같습니다.
-
-- 단위테스트(Unit Test): 개별적인 기능, 함수, 컴포넌트 등을 독립적으로 테스트하는 것입니다.
-- 통합테스트(Integration Test): 여러 단위가 결합된 상태에서 올바르게 작동하는지 확인하는 테스트입니다.
-- E2E 테스트(End-to-End Test): 사용자 관점에서 애플리케이션의 모든 부분이 잘 작동하는지 확인하는 테스트입니다.
-
-## 각 테스트에 쓰이는 툴들과 각자의 장단점
-
-- 단위테스트 툴: Jest, Mocha, Jasmine 등이 있습니다.
-  - 장점: 빠른 테스트 속도, 적은 리소스 사용
-  - 단점: 전체 시스템 동작을  확인하기 어려움
-- 통합테스트 툴: Jest, Cypress 등이 있습니다.
-  - 장점: 여러 컴포넌트 간의 상호작용을 테스트할 수 있음
-  - 단점: 설정이 복잡할 수 있고, 테스트 시간이 상대적으로 길어질 수 있음
-- E2E 테스트 툴: Cypress, Selenium, Puppeteer 등이 있습니다.
-  - 장점: 실제 사용자 시나리오를 가장 잘 반영함
-  - 단점: 테스트 작성과 유지보수가 어려울 수 있고, 실행 시간이 길어질 수 있음
-
-### 단위테스트 툴
-
-- **Jest**
-  - 장점: 설정이 쉽고, 병렬 테스트 실행 지원, 모의(Mock) 기능이 강력함
-  - 단점: 큰 프로젝트에서 실행 속도가 느릴 수 있음
-- **Mocha**
-  - 장점: 유연한 설정, 각종 플러그인 지원
-  - 단점: 모의(Mock) 기능이 부족함, 설정이 복잡할 수 있음
-- **Jasmine**
-  - 장점: BDD 스타일 테스트 작성, 기본적인 모의(Mock) 기능 제공
-  - 단점: 실행 속도가 상대적으로 느림, 병렬 테스트 미지원
-
-### 통합테스트 툴
-
-- **Jest**
-  - 장점: 단위테스트와 같은 설정을 사용하여 일관성 유지, 병렬 테스트 실행 지원
-  - 단점: 리액트 외의 프로젝트에서 통합 테스트 설정이 복잡할 수 있음
-- **Cypress**
-  - 장점: 시각적인 테스트 실행 환경 제공, 설정이 간단함
-  - 단점: E2E 테스트에 주로 사용되어 통합 테스트를 위한 기능이 부족할 수 있음
-
-### E2E 테스트 툴
-
-- **Cypress**
-  - 장점: 사용하기 쉬운 API, 빠른 테스트 실행 속도, 실시간 디버깅 지원
-  - 단점: 크로스 브라우저 테스트 지원이 미흡함
-- **Selenium**
-  - 장점: 다양한 프로그래밍 언어 지원, 크로스 브라우저 테스트 지원
-  - 단점: 테스트 작성과 유지보수가 어려움, 실행 속도가 느림
-- **Puppeteer**
-  - 장점: 크롬 브라우저에서 빠른 테스트 실행, Headless 브라우저 지원
-  - 단점: 크로스 브라우저 테스트 미지원, API가 복잡할 수 있음
-
-## Jest 란?
-
-Jest는 페이스북에서 개발한 자바스크립트 테스트 프레임워크로, 리액트 프로젝트에서 주로 사용됩니다. Jest의 주요 특징은 다음과 같습니다.
-
-- 간편한 설정: 설정이 쉽고 기본값이 잘 구성되어 있어, 프로젝트에 빠르게 도입할 수 있습니다.
-- 빠른 테스트 실행: 병렬 테스트 실행이 가능하며, 변경된 파일에 대해서만 테스트를 실행할 수 있어 빠른 테스트를 지원합니다.
-- 모의(Mock) 기능: 함수, 모듈, 타이머 등을 손쉽게 모의할 수 있어 단위 테스트 작성을 편리하게 합니다.
-
-## React Testing Library 란?
-
-React Testing Library는 리액트 컴포넌트 테스트를 위한 라이브러리로, 사용자 관점에서 테스트를 작성할 수 있게 도와줍니다. 주요 특징은 다음과 같습니다.
-
-- 사용자 중심의 테스트: 사용자가 직접 경험하는 것과 유사한 방식으로 테스트를 작성할 수 있습니다.
-- 컴포넌트에 직접 접근하지 않음: 컴포넌트의 내부 구현을 알 필요 없이 테스트를 작성할 수 있어 견고한 테스트를 작성할 수 있습니다.
-
 ## 테스트 코드 작성법
+
+리액트 테스트 코드는 일반적으로 컴포넌트와 같은 디렉토리에 위치시키는 것이 좋습니다. 테스트 파일의 이름은 해당 컴포넌트의 이름과 같게 하되, .test.js 또는 .spec.js 확장자를 사용하여 테스트 파일임을 나타냅니다. 예를 들어, MyComponent.js라는 컴포넌트가 있다면 테스트 파일의 이름은 MyComponent.test.js 또는 MyComponent.spec.js로 지정하면 됩니다.
+
+테스트를 실행시키려면, 다음 단계를 따르세요.
+
+테스트 라이브러리 설치: 테스트를 실행하려면 Jest를 사용하는 것이 좋습니다. 리액트 프로젝트에서 Jest를 사용하려면, 필요한 패키지를 설치해야 합니다. 아래의 명령어로 패키지를 설치할 수 있습니다.
+
+```bash
+npm install --save-dev jest @testing-library/react @testing-library/jest-dom @testing-library/user-event
+```
+
+테스트 스크립트 작성: MyComponent.test.js 파일을 생성하고 테스트 코드를 작성하세요. 예를 들어:
+
+```jsx
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import MyComponent from './MyComponent';
+
+test('renders MyComponent without crashing', () => {
+  render(<MyComponent />);
+  const linkElement = screen.getByText(/Hello, world!/i);
+  expect(linkElement).toBeInTheDocument();
+});
+```
 
 Jest와 React Testing Library를 사용해 리액트 컴포넌트의 테스트 코드를 작성하는 예시입니다.
 
@@ -119,10 +64,42 @@ test('button click updates text', () => {
 이 예시에서는 App 컴포넌트를 렌더링하고, "learn react"라는 텍스트와 "click me"라는 버튼이 있는지 확인합니다.
 그다음 버튼을 클릭하여 텍스트가 "clicked!"로 변경되는지 확인합니다.
 
+## 테스트 실행
 
-## 참고 링크
+테스트 실행: package.json 파일에 테스트 스크립트를 추가합니다. scripts 섹션에 다음을 추가하세요:
 
-[Jest 공식 문서](https://jestjs.io/)   
-[React Testing Library 공식 문서](https://testing-library.com/docs/react-testing-library/intro/)   
-[테스트 종류와 정의](https://www.softwaretestinghelp.com/types-of-software-testing/)   
-[테스트 도구 비교](https://www.browserstack.com/guide/jest-vs-mocha)
+```json
+"scripts": {
+  "test": "jest"
+}
+```
+
+테스트 실행: 터미널에서 다음 명령어를 입력하여 테스트를 실행합니다.
+
+```bash
+npm test
+```
+
+테스트 결과 출력은 일반적으로 아래와 같은 형식으로 나타납니다. 여기서는 MyComponent라는 컴포넌트의 테스트 결과를 예로 들겠습니다.
+
+```yaml
+PASS src/MyComponent.test.js
+  ✓ renders MyComponent without crashing (25ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        2.145s, estimated 3s
+Ran all test suites.
+```
+
+이 출력에서 주요한 정보는 다음과 같습니다:
+
+PASS src/MyComponent.test.js: 테스트 파일이 성공적으로 통과했음을 나타냅니다.
+✓ renders MyComponent without crashing (25ms): 개별 테스트 케이스의 결과와 실행 시간을 보여줍니다. 여기서는 "renders MyComponent without crashing"이라는 테스트 케이스가 25ms 만에 성공적으로 실행되었습니다.
+Test Suites: 1 passed, 1 total: 전체 테스트 스위트의 수와 통과한 스위트의 수를 보여줍니다.
+Tests: 1 passed, 1 total: 전체 테스트 케이스의 수와 통과한 케이스의 수를 보여줍니다.
+Snapshots: 0 total: 스냅샷 테스트의 전체 개수를 보여줍니다.
+Time: 2.145s, estimated 3s: 테스트 실행에 걸린 시간과 예상 시간을 보여줍니다.
+Ran all test suites.: 모든 테스트 스위트가 실행되었음을 나타냅니다.
+테스트가 실패한 경우, 오류 메시지와 함께 실패한 테스트 케이스에 대한 정보가 출력됩니다. 이를 통해 문제를 해결할 수 있습니다.
