@@ -1,4 +1,476 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[개발자맛 치즈볼]]></title><description><![CDATA[주니어 프론트엔드 개발자의 개발일기 입니다.]]></description><link>https://cheeseb.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 26 Apr 2023 05:06:50 GMT</lastBuildDate><author><![CDATA[CheeseB]]></author><item><title><![CDATA[Gatsby와 Typescript로 깃허브 블로그 만들기(2) - 프로젝트 구조 및 개발환경 세팅하기]]></title><description><![CDATA[블로그 개발일지]]></description><link>https://cheeseb.github.io/blog/github-blog-with-gatsby-ts-project-structure-and-setting/</link><guid isPermaLink="false">https://cheeseb.github.io/blog/github-blog-with-gatsby-ts-project-structure-and-setting/</guid><category><![CDATA[Blog]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Tue, 25 Apr 2023 15:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;프로젝트-구조&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B5%AC%EC%A1%B0&quot; aria-label=&quot;프로젝트 구조 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;프로젝트 구조&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[개발자맛 치즈볼]]></title><description><![CDATA[주니어 프론트엔드 개발자의 개발일기 입니다.]]></description><link>https://cheeseb.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 04 May 2023 07:08:46 GMT</lastBuildDate><author><![CDATA[CheeseB]]></author><item><title><![CDATA[프론트엔드 개발자를 위한 테스트]]></title><description><![CDATA[프론트엔드 개발자에게 필요한 테스트의 종류와 개념]]></description><link>https://cheeseb.github.io/frontend/frontend-test/</link><guid isPermaLink="false">https://cheeseb.github.io/frontend/frontend-test/</guid><category><![CDATA[Frontend]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Wed, 03 May 2023 15:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;테스트에-대해-알아본-이유&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%97%90-%EB%8C%80%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B8-%EC%9D%B4%EC%9C%A0&quot; aria-label=&quot;테스트에 대해 알아본 이유 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;테스트에 대해 알아본 이유&lt;/h2&gt;
+&lt;p&gt;매번 테스트코드니 TDD 니 이런 개념을 공부할 때마다 프론트는 해당이 되지 않는 것 같다는 생각이 들었고, 무엇을 어떻게 테스트해야 하는 건지도 몰랐다. 그래서 프론트엔드 개발자는 어쩔수 없이 브라우저에서 하나하나 직접 살펴보고 클릭하고 입력해 가면서 테스트를 해야 하는 줄로만 알았다. 실제로도 계속 그런 식으로 업무를 하고 있었고..🥲&lt;br&gt;
+그러다보니 개발하는 시간보다 테스트하는 시간이 더 오래 걸릴 정도로 테스트에 너무 많은 시간을 소비하곤 했고, 업무 시간을 비효율적으로 쓰게 되었다.&lt;br&gt;
+그러다 프론트엔드에서도 테스트 코드를 작성한다는 것을 알게 되었고, 리액트에서 테스트 코드를 작성하는 법을 알아보다가 테스트의 개념을 먼저 정리할 필요가 있어보여서 게시글을 쓰게 되었다.&lt;/p&gt;
+&lt;p&gt;이번 포스팅에선 프론트엔드에서 쓰이는 테스팅 기법에 대해 설명하고, 테스트 코드 작성 예시는 이후에 개별 포스팅으로 자세히 다룰 예정이다.&lt;/p&gt;
+&lt;h2 id=&quot;프론트엔드-테스트의-필요성&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C-%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%9D%98-%ED%95%84%EC%9A%94%EC%84%B1&quot; aria-label=&quot;프론트엔드 테스트의 필요성 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;프론트엔드 테스트의 필요성&lt;/h2&gt;
+&lt;h3 id=&quot;리팩토링이-용이함&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81%EC%9D%B4-%EC%9A%A9%EC%9D%B4%ED%95%A8&quot; aria-label=&quot;리팩토링이 용이함 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;리팩토링이 용이함&lt;/h3&gt;
+&lt;p&gt;위에서 말한 것처럼 기능 추가, 변경 등을 할 때마다 개발자가 직접 일일이 테스트하는 것은 매우 비효율적이고 안전하지도 못하다. 코드에서 중요한 부분은 테스트 코드를 실행시킴으로써 효율적이고 안전하게 테스트를 할 수 있다.&lt;/p&gt;
+&lt;h3 id=&quot;코드-품질과-개발-생산성이-향상됨&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%BD%94%EB%93%9C-%ED%92%88%EC%A7%88%EA%B3%BC-%EA%B0%9C%EB%B0%9C-%EC%83%9D%EC%82%B0%EC%84%B1%EC%9D%B4-%ED%96%A5%EC%83%81%EB%90%A8&quot; aria-label=&quot;코드 품질과 개발 생산성이 향상됨 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;코드 품질과 개발 생산성이 향상됨&lt;/h3&gt;
+&lt;p&gt;테스트를 통해 코드의 견고함을 확인하고, 버그를 사전에 찾아낼 수 있다.&lt;br&gt;
+또한 테스트 코드를 작성하면서 코드를 이해하는데 도움이 되고, 다른 개발자들과의 협업을 원활하게 할 수 있다.&lt;/p&gt;
+&lt;h2 id=&quot;테스트의-종류&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%9D%98-%EC%A2%85%EB%A5%98&quot; aria-label=&quot;테스트의 종류 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;테스트의 종류&lt;/h2&gt;
+&lt;h3 id=&quot;정적-테스트static-test&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EC%A0%81-%ED%85%8C%EC%8A%A4%ED%8A%B8static-test&quot; aria-label=&quot;정적 테스트static test permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정적 테스트(Static Test)&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;코드를 실행시키지 않고 테스트를 하는 것&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Type 에러나 Reference 에러와 같이 개발자의 실수로 인해 발생하는 에러를 방지할 수 있으며,&lt;br&gt;
+더 좋은 코드를 작성하는 습관을 기르는데 도움을 준다.&lt;/p&gt;
+&lt;p&gt;ESLint 와 Typescript 가 이에 해당한다.&lt;/p&gt;
+&lt;h3 id=&quot;단위테스트unit-test&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8B%A8%EC%9C%84%ED%85%8C%EC%8A%A4%ED%8A%B8unit-test&quot; aria-label=&quot;단위테스트unit test permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;단위테스트(Unit Test)&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;개별적인 기능, 함수, 컴포넌트 등 작은 단위를 독립적으로 테스트하는 것&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;프론트엔드에서는 단일 컴포넌트나 단일 서비스가 단위가 될 수 있으며,&lt;br&gt;
+&lt;strong&gt;특정 컴포넌트를 렌더링해서 깨지지 않는지 확인하는 것&lt;/strong&gt;을 예로 들 수 있다.&lt;/p&gt;
+&lt;p&gt;또한 별도의 통합이 필요 없기 때문에 백엔드 API가 구현이 되어있지 않아도 작성할 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1ed5f8946261a7e4b455ed7612888c4c/e7a62/2023-05-04-11-09-50.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 27.604166666666668%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABCElEQVR42k2Ou0oEQRBF56P9C1NFBEM3EIzEZDEQMRAxU/Cx7oyiszP7mN6dsZ9VXdUl2iqe4CaXW3UKo/VkMinLsqoqABARJkLv5Jf6vS6n5fR5qpQSkZQRiQjF3G88hhDBBrdZL5JIWz2eH+3n5Rr00vUBwSNYbz76jiI6Y0Tk7nJcbF0feEaXsBkW48Od5eyVIgZnWJKI7N2fbt8ei4iRWL49nI129bAmopQSQiisdxSJYqRIxhoWWdUvVyejbzUhpkgxuzJzwBARg/36/HRzUbRN2zRNXdc5AYAQ1XyWtVNKwzCsutUPXRdCyHd1r4qUkvdeKWWtZeZc/AcA+r7XWudk5r/qExlFUoQN1zXHAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/1ed5f8946261a7e4b455ed7612888c4c/a59e9/2023-05-04-11-09-50.webp 192w,
+/static/1ed5f8946261a7e4b455ed7612888c4c/0ca9f/2023-05-04-11-09-50.webp 384w,
+/static/1ed5f8946261a7e4b455ed7612888c4c/dc9b9/2023-05-04-11-09-50.webp 768w,
+/static/1ed5f8946261a7e4b455ed7612888c4c/d655e/2023-05-04-11-09-50.webp 965w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/1ed5f8946261a7e4b455ed7612888c4c/3b721/2023-05-04-11-09-50.png 192w,
+/static/1ed5f8946261a7e4b455ed7612888c4c/66595/2023-05-04-11-09-50.png 384w,
+/static/1ed5f8946261a7e4b455ed7612888c4c/fe486/2023-05-04-11-09-50.png 768w,
+/static/1ed5f8946261a7e4b455ed7612888c4c/e7a62/2023-05-04-11-09-50.png 965w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/1ed5f8946261a7e4b455ed7612888c4c/fe486/2023-05-04-11-09-50.png&quot;
+            alt=&quot;2023 05 04 11 09 50&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;div class=&quot;source&quot;&gt;출처: https://martinfowler.com/bliki/UnitTest.html&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;Sociable 테스트: 의존성이 있는 코드와 함께 테스트 (자식 컴포넌트를 포함해서 렌더링)&lt;/li&gt;
+&lt;li&gt;Solitary 테스트: 의존성이 있는 코드를 모조품으로 대체하여 테스트 (자식 컴포넌트를 *모킹해서 렌더링)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;small&gt;* 모킹(Mocking): 모조품을 만들어서 일단 코드가 돌아가게 하는 것&lt;/small&gt;&lt;/p&gt;
+&lt;p&gt;소프트웨어의 구조가 명확하지 않고, 단일 유닛의 기능이 자주 변경되는 환경에서는 테스트가 자주 변경되어야 하며 이는 테스트 작성의 효율을 떨어뜨리기 때문에 이런 환경에서는 유닛 테스트를 추천하지 않는다.&lt;/p&gt;
+&lt;h3 id=&quot;통합테스트integration-test&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%86%B5%ED%95%A9%ED%85%8C%EC%8A%A4%ED%8A%B8integration-test&quot; aria-label=&quot;통합테스트integration test permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;통합테스트(Integration Test)&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;두개 이상의 모듈이 실제로 연결된 상태에서 올바르게 작동하는지 확인하는 테스트&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;유닛들 간의 데이터를 주고받는 환경을 테스트한다.&lt;br&gt;
+프론트엔드 통합 테스트에선 &lt;strong&gt;UI와 API 간의 상호작용이 올바르게 일어나는지&lt;/strong&gt;, &lt;strong&gt;state에 따른 UI의 변경이 올바르게 동작하는지&lt;/strong&gt; 등을 확인할 수 있다.&lt;br&gt;
+전략에 따라서 프론트엔드 전체 유닛들만 통합하여 테스트하거나, 백엔드와 DB 전체를 통합해서 테스트하는 경우도 있다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e8af98ec1549ddfe9a5bee21a64b5b9b/ca38a/2023-05-04-12-47-34.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 48.4375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABeElEQVR42pWSvW4TQRDH76F4GUqeBB6ABiFRoECDBCJtRAWOiSKRlFGCHRQRsOOzz3fe2++d837NoDvLKVAo2PK3+5v5z2oKydZGMC2YkS395ynqxW1TzppytlnNfQdEhIhWC6u4UVxzJjd15+zDshGtVdyBsopvoX8Ug2fVglWLTflbauY65bQkoi1YpwUYBU6DUSnGAgmDgebLWXRuVy+lKDeVES0SzQ9H88OvPYyR10verHizkmzdWZ1iKIhInF2MHz0xv1Z95oxElFPKPoR6OXn2evL0YJCDkS1oAVaBUVYL30FxfvzRratO2uXsVrfNrjkiJkJ+eRHKO8KEA6xh++lu3d/ez3zy4XkQnIiO378avXuxMxExY87BYwg70gfU5tvVdO8iIRaT0Xh2evr5ctoCRHjoVwczd+Cvp1gu/M+be1gcHby5Yfzx0XgOfg//cjMR/VhevT152UUft10eSC/nIUf49ybgkFOCuK6+pxQzZtx3+AMn3jcGTmbjngAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/e8af98ec1549ddfe9a5bee21a64b5b9b/a59e9/2023-05-04-12-47-34.webp 192w,
+/static/e8af98ec1549ddfe9a5bee21a64b5b9b/0ca9f/2023-05-04-12-47-34.webp 384w,
+/static/e8af98ec1549ddfe9a5bee21a64b5b9b/dc9b9/2023-05-04-12-47-34.webp 768w,
+/static/e8af98ec1549ddfe9a5bee21a64b5b9b/b7132/2023-05-04-12-47-34.webp 871w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/e8af98ec1549ddfe9a5bee21a64b5b9b/3b721/2023-05-04-12-47-34.png 192w,
+/static/e8af98ec1549ddfe9a5bee21a64b5b9b/66595/2023-05-04-12-47-34.png 384w,
+/static/e8af98ec1549ddfe9a5bee21a64b5b9b/fe486/2023-05-04-12-47-34.png 768w,
+/static/e8af98ec1549ddfe9a5bee21a64b5b9b/ca38a/2023-05-04-12-47-34.png 871w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/e8af98ec1549ddfe9a5bee21a64b5b9b/fe486/2023-05-04-12-47-34.png&quot;
+            alt=&quot;2023 05 04 12 47 34&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;div class=&quot;source&quot;&gt;출처: https://martinfowler.com/bliki/IntegrationTest.html&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;broad 테스트: 의존성이 있는 모든 모듈이 연결된 상태로 테스트&lt;/li&gt;
+&lt;li&gt;narrow 테스트: 연결된 모듈을 모킹하여 테스트&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;UI와 API 간의 연결 테스트를 예로 들었을 때 broad test는 실제 API를 호출하여 테스트 하는것, narrow test는 API 클라이언트를 모킹하거나 가상 API 서버를 이용하여 테스트하는 것이라고 볼 수 있다.&lt;/p&gt;
+&lt;h3 id=&quot;e2e-테스트end-to-end-test&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#e2e-%ED%85%8C%EC%8A%A4%ED%8A%B8end-to-end-test&quot; aria-label=&quot;e2e 테스트end to end test permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;E2E 테스트(End-to-End Test)&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;실제 사용자의 입장에서 애플리케이션의 모든 부분이 잘 작동하는지 확인하는 테스트&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;End to End 라는 말 그대로, 소프트웨어의 가장 끝단과 끝단인 사용자로부터 백엔드 인프라까지 테스트하는 것을 의미하며, 프론트엔드에서는 &lt;strong&gt;실제 브라우저를 실행해서 테스트&lt;/strong&gt;하는 것을 말한다.&lt;br&gt;
+&lt;strong&gt;사용자 관점에서 전체 시나리오를 테스트&lt;/strong&gt;하기 때문에, 코드의 변경에도 테스트를 변경할 필요가 없으며 소프트웨어의 무결성을 보장하기 가장 좋다.&lt;br&gt;
+하지만 매우 많은 테스트가 필요하고, 시간이 오래 걸려서 자주 테스트하기는 어렵다. 또한 프론트엔드만 따로 테스트하는 것이 불가능하고 백엔드와의 통합이 필요하며, 네트워크 에러 등 실행 환경의 문제로 테스트가 실패할 수도 있다는 단점이 있다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;각각의 테스트는 따로 사용하기도, 같이 사용하기도 한다.&lt;br&gt;
+특히 유닛 테스트와 통합 테스트는 &lt;strong&gt;React-Testing-Library&lt;/strong&gt;와 같이 동시에 지원하는 툴이 많기 때문에 전략에 따라 섞어서 사용하기도 한다.&lt;/p&gt;
+&lt;h2 id=&quot;테스트-도구&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%85%8C%EC%8A%A4%ED%8A%B8-%EB%8F%84%EA%B5%AC&quot; aria-label=&quot;테스트 도구 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;테스트 도구&lt;/h2&gt;
+&lt;h3 id=&quot;단위-테스트&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8B%A8%EC%9C%84-%ED%85%8C%EC%8A%A4%ED%8A%B8&quot; aria-label=&quot;단위 테스트 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;단위 테스트&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;장점&lt;/th&gt;
+&lt;th&gt;단점&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Jest&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;- 설정이 쉬움, 병렬 테스트 실행을 지원함&lt;br&gt;- 모의(Mock) 기능이 강력함&lt;/td&gt;
+&lt;td&gt;- 큰 프로젝트에서 실행 속도가 느릴 수 있음&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Mocha&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;- 유연한 설정, 각종 플러그인 지원&lt;/td&gt;
+&lt;td&gt;- 모의(Mock) 기능이 부족함&lt;br&gt;- 설정이 복잡할 수 있음&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Jasmine&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;- BDD 스타일 테스트 작성&lt;br&gt;- 기본적인 모의(Mock) 기능 제공&lt;/td&gt;
+&lt;td&gt;- 실행 속도가 상대적으로 느림&lt;br&gt;- 병렬 테스트 미지원&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;공식 사이트
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://jestjs.io/&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;Jest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://mochajs.org/&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;Mocha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://jasmine.github.io/index.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;Jasmine&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;통합-테스트&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%86%B5%ED%95%A9-%ED%85%8C%EC%8A%A4%ED%8A%B8&quot; aria-label=&quot;통합 테스트 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;통합 테스트&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;장점&lt;/th&gt;
+&lt;th&gt;단점&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Jest&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;- 단위테스트와 같은 설정을 사용하여 일관성 유지&lt;/td&gt;
+&lt;td&gt;- 리액트 외의 프로젝트에서 통합 테스트 설정이 복잡할 수 있음&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Cypress&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;- 시각적인 테스트 실행 환경 제공&lt;br&gt;- 설정이 간단함&lt;/td&gt;
+&lt;td&gt;- E2E 테스트에 주로 사용되어 통합 테스트를 위한 기능이 부족할 수 있음&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&quot;e2e-테스트&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#e2e-%ED%85%8C%EC%8A%A4%ED%8A%B8&quot; aria-label=&quot;e2e 테스트 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;E2E 테스트&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;장점&lt;/th&gt;
+&lt;th&gt;단점&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Cypress&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;- 사용하기 쉬운 API&lt;br&gt;- 빠른 테스트 실행 속도, 실시간 디버깅 지원&lt;/td&gt;
+&lt;td&gt;- 크로스 브라우저 테스트 지원이 미흡함&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Selenium&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;- 다양한 프로그래밍 언어 지원&lt;br&gt;- 크로스 브라우저 테스트 지원&lt;/td&gt;
+&lt;td&gt;- 테스트 작성과 유지보수가 어려움&lt;br&gt;- 실행 속도가 느림&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Puppeteer&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;- 크롬 브라우저에서 빠른 테스트 실행&lt;br&gt;- Headless 브라우저 지원&lt;/td&gt;
+&lt;td&gt;- 크로스 브라우저 테스트 미지원&lt;br&gt;- API가 복잡할 수 있음&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;공식 사이트
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.cypress.io/&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;Cypress&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.selenium.dev/&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;Selenium&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pptr.dev/&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;Puppeteer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;위에서 서술하진 않았지만 가장 많이 쓰이는 테스팅 툴은 &lt;strong&gt;React Testing Library&lt;/strong&gt;이며, 그 다음으로 &lt;strong&gt;Jest&lt;/strong&gt;가 많이 사용된다. React Testing Library는 다른 테스트 프레임워크와 동시 사용이 가능하며, 그 중 Jest와 함께 사용하는 것이 권장되는 조합이다. 이는 Jest가 React 와 밀접하게 통합되어 있고, Facebook 에서 동시에 관리하고 있기 때문이다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1cebe7a2ea2c99b34d88e3341096c290/3643c/2023-05-04-14-29-16.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 73.95833333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACEklEQVR42o2S246bMBBA8ydbfB9fsQ0hBIIJOCFhs6pU9bH//x0Vu23VldptpfNwXo7GmvEOY8BIECKVDrjghEqpQoEYZUrqUCDKhQFZfiqYgHITBAjLAm3smK2oDrzuTV6Jrzl0LjwYJOGuKj4TOYJdVHhBbJ+ivB1NKYW1KpS6dHpHhRMm6q6L90zrJKdvcFqRjA0/zu4qqN/bZoyDVGcbllBdmagYOMYV53KntFXGVceYP7enxxq74bj0vEsuprTPAz9k065lm7Q7uNT4DNwDBEo1wnLnvJVKtQc1T4f55XH/2s2TT4N2Yw9zJuHQimayU82q3rlLiI5pKx1wg4jcYeoIiwQmXX15KqI6NM06x3SYR/tYY8yJnM46X5Idfe31ySEFrFQ8KEzljlBFqKLMEmox2dZOuRZliDn1a8r3yuSFnxc95Jsdby5FHkqoPdR4m0zkK/BTNlAhmDQiVP3aXxZ/zD2dr7afYjUQbrkKTPnf4/dQibEsnrgIcXgM91vori093yBfid/zqmWu+nv8CmEKIWG7trrPea33l6THjKVnJm5f6+P4jaIQBZZx7pdbWHIZvPLBaWu3U/0zxlQhBBRs+zy2l1ZoA9JhJP5rMsavfSFEk9zyImIrQkNMhZn+EROqGDd/FMr0JljQmOj+UnBPTCT2fQyy/CUIA2X6TRg3AhxCwJkWXGPMMYK3Z38HqBag6BcMw8AAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/1cebe7a2ea2c99b34d88e3341096c290/a59e9/2023-05-04-14-29-16.webp 192w,
+/static/1cebe7a2ea2c99b34d88e3341096c290/0ca9f/2023-05-04-14-29-16.webp 384w,
+/static/1cebe7a2ea2c99b34d88e3341096c290/dc9b9/2023-05-04-14-29-16.webp 768w,
+/static/1cebe7a2ea2c99b34d88e3341096c290/e2c2f/2023-05-04-14-29-16.webp 1152w,
+/static/1cebe7a2ea2c99b34d88e3341096c290/08048/2023-05-04-14-29-16.webp 1400w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/1cebe7a2ea2c99b34d88e3341096c290/3b721/2023-05-04-14-29-16.png 192w,
+/static/1cebe7a2ea2c99b34d88e3341096c290/66595/2023-05-04-14-29-16.png 384w,
+/static/1cebe7a2ea2c99b34d88e3341096c290/fe486/2023-05-04-14-29-16.png 768w,
+/static/1cebe7a2ea2c99b34d88e3341096c290/d2d74/2023-05-04-14-29-16.png 1152w,
+/static/1cebe7a2ea2c99b34d88e3341096c290/3643c/2023-05-04-14-29-16.png 1400w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/1cebe7a2ea2c99b34d88e3341096c290/fe486/2023-05-04-14-29-16.png&quot;
+            alt=&quot;2023 05 04 14 29 16&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;div class=&quot;source&quot;&gt;2020 테스트도구의 만족도 기준 순위 (출처: https://2020.stateofjs.com/ko-KR/technologies/testing/)&lt;/div&gt;
+&lt;h2 id=&quot;jest-란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#jest-%EB%9E%80&quot; aria-label=&quot;jest 란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Jest 란?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;페이스북에서 개발한 자바스크립트 테스트 프레임워크 (리액트 프로젝트에서 주로 사용)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;제공-기능&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%9C%EA%B3%B5-%EA%B8%B0%EB%8A%A5&quot; aria-label=&quot;제공 기능 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;제공 기능&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;테스트 실행기&lt;/li&gt;
+&lt;li&gt;단언(assertion) 라이브러리&lt;/li&gt;
+&lt;li&gt;mock 함수, 코드 커버리지 도구 등&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;특징-및-장점&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%8A%B9%EC%A7%95-%EB%B0%8F-%EC%9E%A5%EC%A0%90&quot; aria-label=&quot;특징 및 장점 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;특징 및 장점&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;다양한 환경에서 테스트 가능&lt;/strong&gt;: 프론트엔드 뿐 아니라 Node.js 환경에 구축된 백엔드 애플리케이션도 테스트 가능&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;간편한 설정&lt;/strong&gt;: 설정이 쉽고 기본값이 잘 구성되어 있어, 프로젝트에 빠르게 도입할 수 있다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;빠른 테스트 실행&lt;/strong&gt;: 병렬 테스트 실행이 가능하며, 변경된 파일에 대해서만 테스트를 실행할 수 있어 빠른 테스트를 지원한다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;모의(Mock) 기능&lt;/strong&gt;: 함수, 모듈, API 등을 손쉽게 모킹할 수 있어 단위 테스트 작성을 편리하게 한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;사용-예시&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%82%AC%EC%9A%A9-%EC%98%88%EC%8B%9C&quot; aria-label=&quot;사용 예시 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;사용 예시&lt;/h3&gt;
+&lt;p&gt;사칙연산 함수들을 테스트하는 간단한 예시이다.&lt;/p&gt;
+&lt;div class=&quot;code-header&quot;&gt;
+	&lt;span class=&quot;red btn&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;yellow btn&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;green btn&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// 구현 코드 (calculator.js)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;a&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; b&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; a &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; b&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;subtract&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;a&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; b&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; a &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; b&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;multiply&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;a&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; b&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; a &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; b&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;divide&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;a&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; b&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;b &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Cannot divide by zero&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; a &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; b&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; add&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; subtract&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; multiply&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; divide &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;code-header&quot;&gt;
+	&lt;span class=&quot;red btn&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;yellow btn&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;green btn&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// 테스트 코드 (calculator.test.js)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; add&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; subtract&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; multiply&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; divide &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;./calculator&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;adds 1 + 2 to equal 3&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toBe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;subtracts 5 - 2 to equal 3&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;subtract&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toBe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;multiplies 2 * 3 to equal 6&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;multiply&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toBe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;divides 6 / 2 to equal 3&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;divide&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toBe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;throws an error when dividing by zero&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;divide&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toThrowError&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Cannot divide by zero&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;test 함수를 사용하여 테스트 케이스를 정의하고, expect 와 toBe / toThrowError 를 사용하여 결과를 검증한다.&lt;/p&gt;
+&lt;p&gt;이후, 터미널에서 ‘jest’ 명령어를 실행하여 테스트를 실행할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;code-header&quot;&gt;
+	&lt;span class=&quot;red btn&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;yellow btn&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;green btn&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ jest&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;테스트가 성공적으로 통과되면, 터미널에 아래와 같은 결과가 출력된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;PASS  ./calculator.test.js
+  ✓ adds &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; + &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt; to equal &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;5ms&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  ✓ subtracts &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt; - &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt; to equal &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;1ms&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  ✓ multiplies &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt; * &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt; to equal &lt;span class=&quot;token number&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;1ms&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  ✓ divides &lt;span class=&quot;token number&quot;&gt;6&lt;/span&gt; / &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt; to equal &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;1ms&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  ✓ throws an error when dividing by zero &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;2ms&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+Test Suites: &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; passed, &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; total
+Tests:       &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt; passed, &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt; total
+Snapshots:   &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; total
+Time:        &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;.357s&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;react-testing-library-란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#react-testing-library-%EB%9E%80&quot; aria-label=&quot;react testing library 란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;React Testing Library 란?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;리액트 컴포넌트 테스트를 위한 라이브러리&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;2018년에 처음 등장해서 지금까지 개발되고 있는 테스팅 도구들의 집합체이며, &lt;strong&gt;*사용자 관점에서 UI를 테스트&lt;/strong&gt; 할 수 있게 도와준다.&lt;br&gt;
+테스트 실행기나 단언 라이브러리를 포함하고 있지는 않아서, Jest와 같은 테스트 프레임워크와 함께 사용해야 한다.&lt;/p&gt;
+&lt;small&gt;
+	* 기존 프론트엔드 테스트는 기능 그 자체보다는 컴포넌트 내부 상태 변경과 같은 상세한 구현을 테스트하여, 개발 속도를 저하시키고 생산성을 떨어뜨리는 문제가 있었다. 이러한 문제를 개선하기 위해 등장한 것이 테스팅 라이브러리이다.&lt;br&gt;&lt;br&gt;
+	사용자는 컴포넌트 내부의 상태가 어떻게 바뀌고, 내부 메서드가 어떻게 호출되는지 등에 대해 전혀 관심이 없기 때문에 테스트 코드를 작성할 때도 이에 대해선 테스트하지 말자는 입장으로 테스팅 라이브러리가 개발되었다.&lt;br&gt;&lt;br&gt;
+	이러한 접근 방식은 내부 구현을 수정할 때 테스트가 깨지지 않게 함으로써 리팩토링을 더욱 수월하게 해준다.
+&lt;/small&gt;
+&lt;h3 id=&quot;제공-기능-1&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%9C%EA%B3%B5-%EA%B8%B0%EB%8A%A5-1&quot; aria-label=&quot;제공 기능 1 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;제공 기능&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;리액트 컴포넌트를 가상으로 렌더링하여 동작을 확인하고 렌더링 결과를 확인 가능&lt;/li&gt;
+&lt;li&gt;DOM 요소를 선택하고, 이벤트를 발생시키는 데 필요한 유틸리티 함수를 제공&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;특징-및-장점-1&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%8A%B9%EC%A7%95-%EB%B0%8F-%EC%9E%A5%EC%A0%90-1&quot; aria-label=&quot;특징 및 장점 1 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;특징 및 장점&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;사용자 중심의 테스트&lt;/strong&gt;: 사용자가 직접 경험하는 것과 유사한 방식으로 테스트를 작성할 수 있다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;컴포넌트에 직접 접근하지 않음&lt;/strong&gt;: 컴포넌트의 내부 구현을 알 필요 없이 테스트를 작성할 수 있어 견고한 테스트를 작성할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;사용-예시-1&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%82%AC%EC%9A%A9-%EC%98%88%EC%8B%9C-1&quot; aria-label=&quot;사용 예시 1 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;사용 예시&lt;/h3&gt;
+&lt;p&gt;버튼 클릭 시 텍스트가 변경되는 컴포넌트를 테스트하는 예시이다.&lt;/p&gt;
+&lt;div class=&quot;code-header&quot;&gt;
+	&lt;span class=&quot;red btn&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;yellow btn&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;green btn&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// 컴포넌트 (ButtonWithText.js)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; React&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; useState &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;react&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;ButtonWithText&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;text&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; setText&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Hello, world!&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;handleClick&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;setText&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;You clicked the button!&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;data-testid&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;text&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;text&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;data-testid&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;button&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;handleClick&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        Click me!
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; ButtonWithText&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;code-header&quot;&gt;
+	&lt;span class=&quot;red btn&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;yellow btn&quot;&gt;&lt;/span&gt;
+	&lt;span class=&quot;green btn&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// 테스트 코드 (ButtonWithText.test.js)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; React &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;react&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; render&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; fireEvent &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;@testing-library/react&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; ButtonWithText &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./ButtonWithText&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;renders initial text and changes it when button is clicked&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; getByTestId &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;ButtonWithText &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; textElement &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getByTestId&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;text&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; buttonElement &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getByTestId&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;button&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token function&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;textElement&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;textContent&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toBe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Hello, world!&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  fireEvent&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;click&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;buttonElement&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token function&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;textElement&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;textContent&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toBe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;You clicked the button!&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위의 코드에서는 render 함수로 컴포넌트를 렌더링하고, fireEvent 함수를 사용하여 버튼 클릭 이벤트를 시뮬레이션한다. 그리고 expect를 사용하여 텍스트의 내용이 변경되는지 검증한다.&lt;/p&gt;
+&lt;p&gt;여기서도 마찬가지로 ‘jest’ 명령어로 테스트를 실행 가능하다.&lt;br&gt;
+테스트가 성공적으로 통과되면 터미널에 아래와 같은 결과가 출력된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;PASS  ./ButtonWithText.test.js
+  ✓ renders initial text and changes it when button is clicked &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;32ms&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+Test Suites: &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; passed, &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; total
+Tests:       &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; passed, &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; total
+Snapshots:   &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; total
+Time:        &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;.964s&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;공식-사이트&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B3%B5%EC%8B%9D-%EC%82%AC%EC%9D%B4%ED%8A%B8&quot; aria-label=&quot;공식 사이트 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;공식 사이트&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://testing-library.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;Testing Library&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;이후 포스팅에서는 Jest와 React Testing Library를 사용해서 리액트 테스트 코드를 작성하는 다양한 예시를 더 자세하게 다룰 예정이다.&lt;/p&gt;
+&lt;h2 id=&quot;참고-링크&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0-%EB%A7%81%ED%81%AC&quot; aria-label=&quot;참고 링크 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고 링크&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://react.dev/&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;React 공식 문서&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://testing-library.com/docs/react-testing-library/intro/&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;React Testing Library 공식 문서&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://jestjs.io/docs/getting-started&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;Jest 공식 문서&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.mathpresso.com/%EB%AA%A8%EB%8D%98-%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A0%84%EB%9E%B5-1%ED%8E%B8-841e87a613b2&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;콴다 팀블로그 - 모던 프론트엔드 테스트 전략&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://velog.io/@couchcoding/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%95%B4%EC%95%BC%ED%95%A0%EA%B9%8Cwith-react-testing-library&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;couchcoding.log - 프론트엔드 테스트 해야할까?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://velog.io/@leehyunho2001/%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%A5%BC-%EC%B2%98%EC%9D%8C-%EA%B3%B5%EB%B6%80%ED%95%98%EB%8A%94-%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C-%EA%B0%9C%EB%B0%9C%EC%9E%90%EC%9D%98-%EA%B0%9C%EB%85%90-%EB%8B%A4%EC%A7%80%EA%B8%B0&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;leehyunho2001.log - 테스트를 처음 공부하는 프론트엔드 개발자의 개념 다지기&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Gatsby와 Typescript로 깃허브 블로그 만들기(2) - 프로젝트 구조 및 개발환경 세팅하기]]></title><description><![CDATA[블로그 개발일지]]></description><link>https://cheeseb.github.io/blog/github-blog-with-gatsby-ts-project-structure-and-setting/</link><guid isPermaLink="false">https://cheeseb.github.io/blog/github-blog-with-gatsby-ts-project-structure-and-setting/</guid><category><![CDATA[Blog]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Tue, 25 Apr 2023 15:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;프로젝트-구조&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B5%AC%EC%A1%B0&quot; aria-label=&quot;프로젝트 구조 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;프로젝트 구조&lt;/h2&gt;
 &lt;div class=&quot;code-header&quot;&gt;
 	&lt;span class=&quot;red btn&quot;&gt;&lt;/span&gt;
 	&lt;span class=&quot;yellow btn&quot;&gt;&lt;/span&gt;
@@ -534,7 +1006,7 @@ To create a production build, use gatsby build&lt;/code&gt;&lt;/pre&gt;&lt;/div&
 &lt;li&gt;초코볼❤️&lt;/li&gt;
 &lt;li&gt;피그마 사용법과 UI 디자인 꿀팁을 전수해주신 울 회사 디자이너 시래미🫶&lt;/li&gt;
 &lt;li&gt;나의 하나뿐인 사수 Chat GPT🦾&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[마크다운 문법 모음집]]></title><description><![CDATA[블로그 디자인하려고 올린 게시글]]></description><link>https://cheeseb.github.io/others/test-posting-design/</link><guid isPermaLink="false">https://cheeseb.github.io/others/test-posting-design/</guid><category><![CDATA[Others]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Mon, 27 Mar 2023 15:00:00 GMT</pubDate><content:encoded>&lt;h1 id=&quot;this-is-a-h1&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#this-is-a-h1&quot; aria-label=&quot;this is a h1 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;This is a H1&lt;/h1&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[마크다운 문법 모음집]]></title><description><![CDATA[블로그 디자인하려고 올린 게시글]]></description><link>https://cheeseb.github.io/others/markdown/</link><guid isPermaLink="false">https://cheeseb.github.io/others/markdown/</guid><category><![CDATA[Others]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Mon, 27 Mar 2023 15:00:00 GMT</pubDate><content:encoded>&lt;h1 id=&quot;this-is-a-h1&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#this-is-a-h1&quot; aria-label=&quot;this is a h1 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;This is a H1&lt;/h1&gt;
 &lt;h2 id=&quot;this-is-a-h2&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#this-is-a-h2&quot; aria-label=&quot;this is a h2 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;This is a H2&lt;/h2&gt;
 &lt;h3 id=&quot;this-is-a-h3&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#this-is-a-h3&quot; aria-label=&quot;this is a h3 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;This is a H3&lt;/h3&gt;
 &lt;h4 id=&quot;this-is-a-h4&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#this-is-a-h4&quot; aria-label=&quot;this is a h4 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;This is a H4&lt;/h4&gt;
@@ -617,19 +1089,19 @@ To create a production build, use gatsby build&lt;/code&gt;&lt;/pre&gt;&lt;/div&
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;먕&lt;/td&gt;
-&lt;td&gt;먕먕&lt;/td&gt;
-&lt;td&gt;먀먀먕&lt;/td&gt;
+&lt;td&gt;내용1&lt;/td&gt;
+&lt;td&gt;내용2&lt;/td&gt;
+&lt;td&gt;내용3&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;먀먕먕&lt;/td&gt;
-&lt;td&gt;먀먕&lt;/td&gt;
-&lt;td&gt;먕&lt;/td&gt;
+&lt;td&gt;내용1&lt;/td&gt;
+&lt;td&gt;내용2&lt;/td&gt;
+&lt;td&gt;내용3&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;밍&lt;/td&gt;
-&lt;td&gt;먕&lt;/td&gt;
-&lt;td&gt;묭&lt;/td&gt;
+&lt;td&gt;내용1&lt;/td&gt;
+&lt;td&gt;내용2&lt;/td&gt;
+&lt;td&gt;내용3&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
