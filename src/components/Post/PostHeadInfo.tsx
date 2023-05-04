@@ -43,17 +43,17 @@ const PostHeadInfoWrapper = styled.div`
 
 const Category = styled.div`
   color: #fff;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 18px;
+  line-height: 26px;
 
   @media (max-width: 1024px) {
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 16px;
+    line-height: 22px;
   }
 
   @media (max-width: 428px) {
-    font-size: 12px;
-    line-height: 18px;
+    font-size: 14px;
+    line-height: 20px;
   }
 `;
 
@@ -65,14 +65,14 @@ const Title = styled.h1`
   white-space: normal;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  font-size: 36px;
-  line-height: 52px;
+  font-size: 38px;
+  line-height: 54px;
   font-weight: 800;
   color: #fff;
 
   @media (max-width: 1024px) {
     font-size: 32px;
-    line-height: 46px;
+    line-height: 50px;
   }
 
   @media (max-width: 428px) {
@@ -88,17 +88,17 @@ const Title = styled.h1`
 
 const Date = styled.div`
   color: #fff;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 18px;
+  line-height: 26px;
 
   @media (max-width: 1024px) {
-    font-size: 12px;
-    line-height: 18px;
+    font-size: 14px;
+    line-height: 20px;
   }
 
   @media (max-width: 428px) {
-    font-size: 10px;
-    line-height: 14px;
+    font-size: 12px;
+    line-height: 16px;
   }
 `;
 
