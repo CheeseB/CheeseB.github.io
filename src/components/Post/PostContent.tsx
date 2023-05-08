@@ -252,7 +252,7 @@ const MarkdownRenderer = styled.div`
   }
 
   hr {
-    border-width: 0 0 4px;
+    border-width: 0 0 6px;
     border-style: solid;
     border-image: url('/icon/dot.svg') 0 0 100% repeat;
     width: 100%;

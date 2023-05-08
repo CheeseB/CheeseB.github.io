@@ -29,6 +29,7 @@ const NotFoundText = styled.div`
   font-weight: 600;
   line-height: 52px;
   margin-bottom: 20px;
+  color: #402e32;
 
   @media (max-width: 1024px) {
     font-size: 32px;
