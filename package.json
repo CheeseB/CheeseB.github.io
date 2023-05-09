@@ -68,7 +68,8 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "deploy": "gatsby build && gh-pages -d public -b master",
-		"post": "gatsby build && gh-pages -d public -b master && git add . && git commit -m \"add post\" && git push origin dev"
+		"change": "node change_webp.js",
+		"all": "node change_webp.js && gatsby build && gh-pages -d public -b master && git add . && git commit -m \"add post\" && git push origin dev"
   },
   "repository": {
     "type": "git",
