@@ -106,7 +106,7 @@ const chingtao: Omit<AddressBook, 'address'|'company'> = {
 - 기존에 정의되어 있는 타입을 새로운 타입으로 변환해주는 문법
 - 자바스크립트 map() 함수를 타입에 적용한 것과 같은 효과
 
-![](../images/content/2023-04-24-13-18-45.png)
+![](../images/content/2023-04-24-13-18-45.webp)
 
 ### 맵드 타입의 기본 문법
 

@@ -97,9 +97,9 @@ tsc --module amd Test.ts
 타입스크립트 환경에서도 쓸 수 있게 따로 타입만 정리해서 넣어둔 파일
 - node_modules의 @types 폴더 안 모듈들에서 확인 가능
 
-![](../images/content/2023-04-24-13-11-35.png)
+![](../images/content/2023-04-24-13-11-35.webp)
 
-![](../images/content/2023-04-24-13-11-41.png)
+![](../images/content/2023-04-24-13-11-41.webp)
 
 ### 타입스크립트 선언 파일 만들기
 
@@ -120,7 +120,7 @@ JS파일과 함께 d.ts 파일이 생성됨
     - 필요에 따라 typeRoots 폴더 안에 모듈명 폴더를 추가로 만들어
     그 안에 index.d.ts 파일을 생성해도 됨
 
-![](../images/content/2023-04-24-13-11-51.png)
+![](../images/content/2023-04-24-13-11-51.webp)
 
 ## 인덱싱
 

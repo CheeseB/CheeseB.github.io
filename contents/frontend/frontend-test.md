@@ -45,7 +45,7 @@ ESLint 와 Typescript 가 이에 해당한다.
 
 또한 별도의 통합이 필요 없기 때문에 백엔드 API가 구현이 되어있지 않아도 작성할 수 있다.
 
-![](../images/content/2023-05-04-11-09-50.png)
+![](../images/content/2023-05-04-11-09-50.webp)
 
 <div class="source">출처: https://martinfowler.com/bliki/UnitTest.html</div>
 
@@ -64,7 +64,7 @@ ESLint 와 Typescript 가 이에 해당한다.
 프론트엔드 통합 테스트에선 **UI와 API 간의 상호작용이 올바르게 일어나는지**, **state에 따른 UI의 변경이 올바르게 동작하는지** 등을 확인할 수 있다.   
 전략에 따라서 프론트엔드 전체 유닛들만 통합하여 테스트하거나, 백엔드와 DB 전체를 통합해서 테스트하는 경우도 있다.
 
-![](../images/content/2023-05-04-12-47-34.png)
+![](../images/content/2023-05-04-12-47-34.webp)
 
 <div class="source">출처: https://martinfowler.com/bliki/IntegrationTest.html</div>
 
@@ -127,7 +127,7 @@ End to End 라는 말 그대로, 소프트웨어의 가장 끝단과 끝단인 �
 
 위에서 서술하진 않았지만 가장 많이 쓰이는 테스팅 툴은 **React Testing Library**이며, 그 다음으로 **Jest**가 많이 사용된다. React Testing Library는 다른 테스트 프레임워크와 동시 사용이 가능하며, 그 중 Jest와 함께 사용하는 것이 권장되는 조합이다. 이는 Jest가 React 와 밀접하게 통합되어 있고, Facebook 에서 동시에 관리하고 있기 때문이다.
 
-![](../images/content/2023-05-04-14-29-16.png)
+![](../images/content/2023-05-04-14-29-16.webp)
 
 <div class="source">2020 테스트도구의 만족도 기준 순위 (출처: https://2020.stateofjs.com/ko-KR/technologies/testing/)</div>
 

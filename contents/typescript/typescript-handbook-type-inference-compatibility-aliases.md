@@ -248,9 +248,9 @@ userInput = "new input";
 
 - VSCode 상의 프리뷰가 다르게 표시됨
 
-![](../images/content/2023-04-24-12-53-21.png)
+![](../images/content/2023-04-24-12-53-21.webp)
 
-![](../images/content/2023-04-24-12-53-29.png)
+![](../images/content/2023-04-24-12-53-29.webp)
 
 ### type VS interface
 

@@ -29,7 +29,7 @@ thumbnail: '../images/thumbnail/cheeseball.webp'
 
 ## 사용 기술
 
-![](../images/content/2023-04-18-10-41-38.png)
+![](../images/content/2023-04-18-10-41-38.webp)
 
 
 ## 참고 사이트
