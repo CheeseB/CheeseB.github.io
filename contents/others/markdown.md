@@ -37,6 +37,7 @@ thumbnail: '../images/thumbnail/cheeseball.webp'
     + 3단계
       + 4단계
 
+한줄 `this is code` 코드
 
 ```javascript
 this is code block
