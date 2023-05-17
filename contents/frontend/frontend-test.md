@@ -345,6 +345,72 @@ Time:        1.964s
 
 [Testing Library](https://testing-library.com/)
 
+## 기본적인 테스팅 전략: Given When Then 패턴
+
+테스트 시나리오를 작성할 때 주로 사용되는 패턴으로,
+
+1. **Given**: 주어진 조건에 대한 코드를 작성 (테스트할 데이터나 컴포넌트를 초기화하는 로직 등)
+2. **When**: 테스트할 행동에 대한 코드 작성
+3. **Then**: 테스트 검증 로직에 대한 코드 작성
+
+데이터가 주어지고 어떤 동작을 했을때 어떤 결과가 나오는지에 대해 기술해야 한다.
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
+```js
+// given
+const a = 1;
+const b = 2;
+
+// when
+const result = plus(a,b);
+
+// then
+assert result === 3;
+```
+
+여기서, `then` 부분에는 반드시 어떤 로직을 담아서는 안되고 상수 값으로 기술해야 한다.
+
+```js
+// 안좋은 테스트 예시
+assert result === a + b;
+```
+
+<small> "1+2 는 무엇인가" 라는 문제를 풀다가 답안지를 봤는데, "정답은 1+2 이다." 라고 나와있으면 얼마나 어이없을지를 생각해보면 될 것 같다.. </small>
+
+아래는 Given When Then 전략을 React Testing Library 에 적용한 예시이다.
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
+```jsx
+import {render, screen} from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import '@testing-library/jest-dom'
+import Fetch from './fetch'
+
+test('loads and displays greeting', async () => {
+  // Given 
+  // 컴포넌트를 랜더링
+  render(<Fetch url="/greeting" />)
+
+  // When
+  // Load Greeting 글씨를 찾아서 클릭
+  await userEvent.click(screen.getByText('Load Greeting'))
+
+  // Then
+  // heading에 hello there이 있는지 검증
+  expect(screen.getByRole('heading')).toHaveTextContent('hello there')
+})
+```
+
 ---
 
 이후 포스팅에서는 Jest와 React Testing Library를 사용해서 리액트 테스트 코드를 작성하는 다양한 예시를 더 자세하게 다룰 예정이다.
