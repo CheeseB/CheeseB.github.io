@@ -1,6 +1,6 @@
 ---
 date: '2023-05-04'
-title: '프론트엔드 개발자를 위한 테스트'
+title: '프론트엔드 개발자를 위한 테스트 (1) - 개념 정리'
 categories: ['Frontend']
 summary: '프론트엔드 개발자에게 필요한 테스트의 종류와 개념'
 thumbnail: '../images/thumbnail/frontend.webp'
@@ -413,7 +413,7 @@ test('loads and displays greeting', async () => {
 
 ---
 
-이후 포스팅에서는 Jest와 React Testing Library를 사용해서 리액트 테스트 코드를 작성하는 다양한 예시를 더 자세하게 다룰 예정이다.
+[이후 포스팅](https://cheeseb.github.io/react/react-testing-with-jest-and-rtl/)에서는 Jest와 React Testing Library를 사용해서 리액트 테스트 코드를 작성하는 기본적인 예시를 다룰 예정이다.
 
 
 ## 참고 링크
