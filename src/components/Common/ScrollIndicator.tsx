@@ -14,7 +14,6 @@ const ProgressBar = styled.div<ScrollProps>`
   background-color: #fec479;
   border-radius: 10px;
   z-index: 100;
-  transition: width 0.3s ease;
 
   @media (max-width: 744px) {
     height: 2px;
