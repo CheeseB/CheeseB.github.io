@@ -1,7 +1,7 @@
 ---
 date: '2023-04-18'
 title: 'Gatsby와 Typescript로 깃허브 블로그 만들기(1) - Gatsby 기본 개념 및 프로젝트 생성'
-categories: ['Blog']
+categories: ['Blog', 'Gatsby', 'React']
 summary: '블로그 개발일지'
 thumbnail: '../images/thumbnail/gatsby.webp'
 ---

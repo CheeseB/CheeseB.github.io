@@ -1,7 +1,7 @@
 ---
 date: '2023-03-14'
 title: '기술 블로그 리뉴얼'
-categories: ['Blog']
+categories: ['Blog', 'Diary']
 summary: 'jekyll에서 Gatsby로'
 thumbnail: '../images/thumbnail/gatsby.webp'
 ---
