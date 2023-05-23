@@ -1,9 +1,9 @@
 ---
 date: '2023-05-18'
 title: 'Jest와 Jest-DOM 의 Matcher 함수 모음'
-categories: ['React']
+categories: ['Testing', 'Javascript']
 summary: '테스트 코드에서의 검증을 위한 Matcher 함수들'
-thumbnail: '../images/thumbnail/react.webp'
+thumbnail: '../images/thumbnail/testing.webp'
 ---
 
 ## Jest 의 기본 Matcher

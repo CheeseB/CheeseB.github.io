@@ -1,9 +1,9 @@
 ---
 date: '2023-05-18'
 title: 'React Testing Library 쿼리 함수 모음'
-categories: ['React']
+categories: ['Testing', 'React']
 summary: 'DOM 요소를 조회하는 함수들'
-thumbnail: '../images/thumbnail/react.webp'
+thumbnail: '../images/thumbnail/testing.webp'
 ---
 
 ## React Testing Library의 DOM 요소 조회 함수

@@ -1,7 +1,7 @@
 ---
 date: '2022-09-14'
 title: '[리팩터링 책 스터디] 3장. 코드에서 나는 악취'
-categories: ['Programming']
+categories: ['Study']
 summary: '어떤 코드에 어떻게 리팩토링을 해야하는가'
 thumbnail: '../images/thumbnail/refactoring.webp'
 ---

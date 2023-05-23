@@ -1,9 +1,9 @@
 ---
 date: '2023-05-17'
 title: '프론트엔드 개발자를 위한 테스트(2) - 기본적인 테스트 코드 작성법'
-categories: ['React']
+categories: ['Testing', 'React']
 summary: 'Jest 와 React Testing Library로 리액트 테스트 코드 작성하기'
-thumbnail: '../images/thumbnail/react.webp'
+thumbnail: '../images/thumbnail/testing.webp'
 ---
 
 [이전 포스팅](https://cheeseb.github.io/frontend/frontend-test/)에서 프론트엔드 개발자에게 필요한 테스트의 종류와 개념에 대해 이론적인 측면에서 다뤄 보았다. 이번 시간에는 실제로 리액트에서 Jest 와 React Testing Library 를 활용해서 테스트 코드를 작성하는 방법을 알아보려 한다.
