@@ -109,7 +109,7 @@ export const PostHeadInfo: FunctionComponent<PostHeadInfoProps> = ({
 }) => {
   return (
     <PostHeadInfoWrapper>
-      <Category>{categories.join('/')}</Category>
+      <Category>{categories.join(' / ')}</Category>
       <Title>{title}</Title>
       <Date>{date}</Date>
     </PostHeadInfoWrapper>
