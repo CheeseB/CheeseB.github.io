@@ -249,8 +249,6 @@ Time:        1.602s
 
 ---
 
-[다음 포스팅](https://cheeseb.github.io/testing/react-testing-with-jest-and-rtl-advanced/)은 테스트 코드에서 유저 이벤트를 발생시키는 방법, 다른 모듈을 Mocking 하는 법 등 더 심화된 테스트 코드 작성법에 대해 다룰 예정이다.
-
 ## 참고 자료
 
 - [Jest 공식 웹사이트](https://jestjs.io/)
