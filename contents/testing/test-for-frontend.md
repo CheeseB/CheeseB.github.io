@@ -413,7 +413,7 @@ test('loads and displays greeting', async () => {
 
 ---
 
-[이후 포스팅](https://cheeseb.github.io/react/react-testing-with-jest-and-rtl/)에서는 Jest와 React Testing Library를 사용해서 리액트 테스트 코드를 작성하는 기본적인 예시를 다룰 예정이다.
+[이후 포스팅](https://cheeseb.github.io/testing/react-testing-with-jest-and-rtl/)에서는 Jest와 React Testing Library를 사용해서 리액트 테스트 코드를 작성하는 기본적인 예시를 다룰 예정이다.
 
 
 ## 참고 링크

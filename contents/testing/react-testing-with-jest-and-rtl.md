@@ -6,7 +6,7 @@ summary: 'Jest 와 React Testing Library로 리액트 테스트 코드 작성하
 thumbnail: '../images/thumbnail/testing.webp'
 ---
 
-[이전 포스팅](https://cheeseb.github.io/frontend/frontend-test/)에서 프론트엔드 개발자에게 필요한 테스트의 종류와 개념에 대해 이론적인 측면에서 다뤄 보았다. 이번 시간에는 실제로 리액트에서 Jest 와 React Testing Library 를 활용해서 테스트 코드를 작성하는 방법을 알아보려 한다.
+[이전 포스팅](https://cheeseb.github.io/testing/test-for-frontend/)에서 프론트엔드 개발자에게 필요한 테스트의 종류와 개념에 대해 이론적인 측면에서 다뤄 보았다. 이번 시간에는 실제로 리액트에서 Jest 와 React Testing Library 를 활용해서 테스트 코드를 작성하는 방법을 알아보려 한다.
 
 ## 테스팅 라이브러리 설치 및 세팅
 
@@ -249,7 +249,7 @@ Time:        1.602s
 
 ---
 
-다음 포스팅은 테스트 코드에서 유저 이벤트를 발생시키는 방법, 다른 모듈을 Mocking 하는 법 등 더 심화된 테스트 코드 작성법에 대해 다룰 예정이다.
+[다음 포스팅](https://cheeseb.github.io/testing/react-testing-with-jest-and-rtl-advanced/)은 테스트 코드에서 유저 이벤트를 발생시키는 방법, 다른 모듈을 Mocking 하는 법 등 더 심화된 테스트 코드 작성법에 대해 다룰 예정이다.
 
 ## 참고 자료
 
