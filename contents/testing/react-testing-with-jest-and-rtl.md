@@ -247,6 +247,8 @@ Snapshots:   0 total
 Time:        1.602s
 ```
 
+---
+
 ## 참고 자료
 
 - [Jest 공식 웹사이트](https://jestjs.io/)
