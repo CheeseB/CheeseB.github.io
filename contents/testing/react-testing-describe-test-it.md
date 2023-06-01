@@ -1,6 +1,6 @@
 ---
 date: '2023-06-01'
-title: '프론트엔드 개발자를 위한 테스트(3) - Describe, Test, It 키워드'
+title: 'Jest의 Describe, Test, It 키워드'
 categories: ['Testing', 'React']
 summary: '포스팅 요약'
 thumbnail: '../images/thumbnail/testing.webp'

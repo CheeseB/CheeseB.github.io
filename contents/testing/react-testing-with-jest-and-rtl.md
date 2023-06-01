@@ -1,8 +1,8 @@
 ---
 date: '2023-05-17'
-title: '프론트엔드 개발자를 위한 테스트(2) - 기본적인 테스트 코드 작성법'
+title: 'Jest 와 React Testing Library로 리액트 테스트 코드 작성하기'
 categories: ['Testing', 'React']
-summary: 'Jest 와 React Testing Library로 리액트 테스트 코드 작성하기'
+summary: '기본적인 테스트 코드 작성법'
 thumbnail: '../images/thumbnail/testing.webp'
 ---
 
@@ -246,8 +246,6 @@ Tests:       1 failed, 1 total
 Snapshots:   0 total
 Time:        1.602s
 ```
-
----
 
 ## 참고 자료
 

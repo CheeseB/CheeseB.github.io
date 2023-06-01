@@ -1,6 +1,6 @@
 ---
 date: '2023-05-04'
-title: '프론트엔드 개발자를 위한 테스트 (1) - 개념 정리'
+title: '프론트엔드 개발자를 위한 테스트'
 categories: ['Testing']
 summary: '프론트엔드 개발자에게 필요한 테스트의 종류와 개념'
 thumbnail: '../images/thumbnail/testing.webp'
