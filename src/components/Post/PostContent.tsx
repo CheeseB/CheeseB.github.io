@@ -320,7 +320,8 @@ const MarkdownRenderer = styled.div`
 
   code[class*='language-'] span.token.interpolation,
   code[class*='language-'] span.token.parameter,
-  code[class*='language-'] span.token.script {
+  code[class*='language-'] span.token.script,
+  code[class*='language-'] span.token.plain-text {
     color: #ccc;
   }
 
