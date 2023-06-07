@@ -39,7 +39,7 @@ userEvent.type(password, "Test1234");
 
 지원하는 이벤트는 다음과 같다.
 
-![](../images/content/2023-06-01-15-54-53.png)
+![](../images/content/2023-06-01-15-54-53.webp)
 
 
 ### 사용 예시
@@ -78,7 +78,7 @@ describe('Login test', () => {
 });
 ```
 
-![](../images/content/2023-06-01-15-49-33.png)
+![](../images/content/2023-06-01-15-49-33.webp)
 
 
 두번 클릭 시 텍스트가 다시 바뀌므로 테스트에 실패한다.
@@ -112,7 +112,7 @@ describe('Login test', () => {
 });
 ```
 
-![](../images/content/2023-06-01-15-50-56.png)
+![](../images/content/2023-06-01-15-50-56.webp)
 
 #### Keyboard 이벤트
 

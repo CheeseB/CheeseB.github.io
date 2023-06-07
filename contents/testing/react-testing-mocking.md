@@ -80,7 +80,7 @@ yarn add msw --dev
 
 src 안에 mocks 폴더를 만들고, 그 안에 `server.js` 파일과 `handlers.js` 파일을 만든다.
 
-![](../images/content/2023-06-01-20-11-05.png)
+![](../images/content/2023-06-01-20-11-05.webp)
 
 #### CRA 환경에서 MSW 사용하기
 
@@ -408,7 +408,7 @@ describe('Todo list', () => {
 });
 ```
 
-![](../images/content/2023-06-02-15-27-21.png)
+![](../images/content/2023-06-02-15-27-21.webp)
 
 ## MSW의 다양한 사용법
 

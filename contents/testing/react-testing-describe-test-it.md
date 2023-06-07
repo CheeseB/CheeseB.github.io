@@ -75,10 +75,10 @@ describe('my beverage', () => {
 });
 ```
 
-![](../images/content/2023-06-01-14-36-02.png)
+![](../images/content/2023-06-01-14-36-02.webp)
 <div class="source">describe 사용 전</div>
 
-![](../images/content/2023-06-01-14-35-28.png)
+![](../images/content/2023-06-01-14-35-28.webp)
 <div class="source">describe 사용 후</div>
 
 
