@@ -91,7 +91,48 @@ userEvent<span class="token punctuation">.</span><span class="token function">ty
 <p><code class="language-text">import userEvent from '@testing-library/user-event';</code><br>
 위와 같이 임포트해서 사용할 수 있다.</p>
 <p>지원하는 이벤트는 다음과 같다.</p>
-<p><img src="../images/content/2023-06-01-15-54-53.png" alt=""></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 666px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/ed595c6f3c5e3f87e4a17c5d1b55a47a/4c012/2023-06-01-15-54-53.webp"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 64.0625%; position: relative; bottom: 0; left: 0; background-image: url('data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAABwAwCdASoUAA0APtFUpEuoJKOhsAgBABoJaQAAVGPkuARiUAAA/vITU4H1fb6YCkANRkA8AAA='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/ed595c6f3c5e3f87e4a17c5d1b55a47a/a59e9/2023-06-01-15-54-53.webp 192w,
+/static/ed595c6f3c5e3f87e4a17c5d1b55a47a/0ca9f/2023-06-01-15-54-53.webp 384w,
+/static/ed595c6f3c5e3f87e4a17c5d1b55a47a/4c012/2023-06-01-15-54-53.webp 666w"
+              sizes="(max-width: 666px) 100vw, 666px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/ed595c6f3c5e3f87e4a17c5d1b55a47a/a59e9/2023-06-01-15-54-53.webp 192w,
+/static/ed595c6f3c5e3f87e4a17c5d1b55a47a/0ca9f/2023-06-01-15-54-53.webp 384w,
+/static/ed595c6f3c5e3f87e4a17c5d1b55a47a/4c012/2023-06-01-15-54-53.webp 666w"
+            sizes="(max-width: 666px) 100vw, 666px"
+            type="image/webp"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/ed595c6f3c5e3f87e4a17c5d1b55a47a/4c012/2023-06-01-15-54-53.webp"
+            alt="2023 06 01 15 54 53"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
 <h3 id="사용-예시" style="position:relative;"><a href="#%EC%82%AC%EC%9A%A9-%EC%98%88%EC%8B%9C" aria-label="사용 예시 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>사용 예시</h3>
 <p>테스트할 버튼 컴포넌트는 처음엔 ‘Login’ 이라는 텍스트가 적혀있고, 클릭 시 ‘Logout’ 과 ‘Login’ 텍스트가 번갈아가며 나타나도록 구현했다고 가정한다.</p>
 <h4 id="click-이벤트" style="position:relative;"><a href="#click-%EC%9D%B4%EB%B2%A4%ED%8A%B8" aria-label="click 이벤트 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Click 이벤트</h4>
@@ -122,7 +163,48 @@ userEvent<span class="token punctuation">.</span><span class="token function">ty
     <span class="token function">expect</span><span class="token punctuation">(</span>btn<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveTextContent</span><span class="token punctuation">(</span><span class="token string">'Logout'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
-<p><img src="../images/content/2023-06-01-15-49-33.png" alt=""></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 657px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/f48eff34d23eadca46e27d87a74c1020/8af9e/2023-06-01-15-49-33.webp"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 59.895833333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAABwAwCdASoUAAwAPtFUo0uoJKMhsAgBABoJaQAAUrmfTxPx7MAA/vAPu040VMaaMMH5yhyKPsfXEI1MspiVAAAA'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/f48eff34d23eadca46e27d87a74c1020/a59e9/2023-06-01-15-49-33.webp 192w,
+/static/f48eff34d23eadca46e27d87a74c1020/0ca9f/2023-06-01-15-49-33.webp 384w,
+/static/f48eff34d23eadca46e27d87a74c1020/8af9e/2023-06-01-15-49-33.webp 657w"
+              sizes="(max-width: 657px) 100vw, 657px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/f48eff34d23eadca46e27d87a74c1020/a59e9/2023-06-01-15-49-33.webp 192w,
+/static/f48eff34d23eadca46e27d87a74c1020/0ca9f/2023-06-01-15-49-33.webp 384w,
+/static/f48eff34d23eadca46e27d87a74c1020/8af9e/2023-06-01-15-49-33.webp 657w"
+            sizes="(max-width: 657px) 100vw, 657px"
+            type="image/webp"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/f48eff34d23eadca46e27d87a74c1020/8af9e/2023-06-01-15-49-33.webp"
+            alt="2023 06 01 15 49 33"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
 <p>두번 클릭 시 텍스트가 다시 바뀌므로 테스트에 실패한다.</p>
 <div class="code-header">
 	<span class="red btn"></span>
@@ -149,7 +231,52 @@ userEvent<span class="token punctuation">.</span><span class="token function">ty
     <span class="token function">expect</span><span class="token punctuation">(</span>btn<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveTextContent</span><span class="token punctuation">(</span><span class="token string">'Logout'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
-<p><img src="../images/content/2023-06-01-15-50-56.png" alt=""></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/fdc80c989a20ce7f859c2f08a98ae04b/92c1e/2023-06-01-15-50-56.webp"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 69.79166666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAgCdASoUAA4APtFUo0uoJKMhsAgBABoJaQAAlYgAAP7xQbJ3EgIxXUs4AAAA'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/fdc80c989a20ce7f859c2f08a98ae04b/a59e9/2023-06-01-15-50-56.webp 192w,
+/static/fdc80c989a20ce7f859c2f08a98ae04b/0ca9f/2023-06-01-15-50-56.webp 384w,
+/static/fdc80c989a20ce7f859c2f08a98ae04b/dc9b9/2023-06-01-15-50-56.webp 768w,
+/static/fdc80c989a20ce7f859c2f08a98ae04b/e2c2f/2023-06-01-15-50-56.webp 1152w,
+/static/fdc80c989a20ce7f859c2f08a98ae04b/92c1e/2023-06-01-15-50-56.webp 1222w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/fdc80c989a20ce7f859c2f08a98ae04b/a59e9/2023-06-01-15-50-56.webp 192w,
+/static/fdc80c989a20ce7f859c2f08a98ae04b/0ca9f/2023-06-01-15-50-56.webp 384w,
+/static/fdc80c989a20ce7f859c2f08a98ae04b/dc9b9/2023-06-01-15-50-56.webp 768w,
+/static/fdc80c989a20ce7f859c2f08a98ae04b/e2c2f/2023-06-01-15-50-56.webp 1152w,
+/static/fdc80c989a20ce7f859c2f08a98ae04b/92c1e/2023-06-01-15-50-56.webp 1222w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/webp"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/fdc80c989a20ce7f859c2f08a98ae04b/dc9b9/2023-06-01-15-50-56.webp"
+            alt="2023 06 01 15 50 56"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
 <h4 id="keyboard-이벤트" style="position:relative;"><a href="#keyboard-%EC%9D%B4%EB%B2%A4%ED%8A%B8" aria-label="keyboard 이벤트 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Keyboard 이벤트</h4>
 <blockquote>
 <p>userEvent.tab() 으로 키보드에서 tab을 누르거나, userEvent.keyboard(‘key’) 로 파라미터에 해당하는 키를 누를 수 있다.</p>

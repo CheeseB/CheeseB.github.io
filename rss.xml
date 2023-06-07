@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[개발자맛 치즈볼]]></title><description><![CDATA[주니어 프론트엔드 개발자의 개발일기 입니다.]]></description><link>https://cheeseb.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 02 Jun 2023 09:09:34 GMT</lastBuildDate><author><![CDATA[CheeseB]]></author><item><title><![CDATA[React 테스트 코드에서 Mocking 사용하기(1) - 백엔드 API 요청 모킹하기]]></title><description><![CDATA[Jest의 모킹 기능으로 가짜 API 만들기]]></description><link>https://cheeseb.github.io/testing/react-testing-mocking/</link><guid isPermaLink="false">https://cheeseb.github.io/testing/react-testing-mocking/</guid><category><![CDATA[Testing]]></category><category><![CDATA[React]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Wed, 31 May 2023 15:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;모킹mocking-이란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AA%A8%ED%82%B9mocking-%EC%9D%B4%EB%9E%80&quot; aria-label=&quot;모킹mocking 이란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;모킹(Mocking) 이란?&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[개발자맛 치즈볼]]></title><description><![CDATA[주니어 프론트엔드 개발자의 개발일기 입니다.]]></description><link>https://cheeseb.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 07 Jun 2023 03:58:38 GMT</lastBuildDate><author><![CDATA[CheeseB]]></author><item><title><![CDATA[React 테스트 코드에서 Mocking 사용하기(1) - 백엔드 API 요청 모킹하기]]></title><description><![CDATA[Jest의 모킹 기능으로 가짜 API 만들기]]></description><link>https://cheeseb.github.io/testing/react-testing-mocking/</link><guid isPermaLink="false">https://cheeseb.github.io/testing/react-testing-mocking/</guid><category><![CDATA[Testing]]></category><category><![CDATA[React]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Wed, 31 May 2023 15:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;모킹mocking-이란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AA%A8%ED%82%B9mocking-%EC%9D%B4%EB%9E%80&quot; aria-label=&quot;모킹mocking 이란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;모킹(Mocking) 이란?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;단위 테스트를 작성할 때, 해당 코드가 의존하는 부분을 가짜(mock)로 대체하는 기법&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -62,7 +62,46 @@
 &lt;span class=&quot;token comment&quot;&gt;# yarn&lt;/span&gt;
 &lt;span class=&quot;token function&quot;&gt;yarn&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt; msw &lt;span class=&quot;token parameter variable&quot;&gt;--dev&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;src 안에 mocks 폴더를 만들고, 그 안에 &lt;code class=&quot;language-text&quot;&gt;server.js&lt;/code&gt; 파일과 &lt;code class=&quot;language-text&quot;&gt;handlers.js&lt;/code&gt; 파일을 만든다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-06-01-20-11-05.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 283px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d4bfc2a02a4a258eee375000ca2d8ee6/88a05/2023-06-01-20-11-05.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 59.895833333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAgCdASoUAAwAPtFWo0uoJKMhsAgBABoJZwAAfqoAAP7wTynlK1YFkGLYcIRcum1RQZ4jt5vm98D60JT0w8swdrCxQAAA&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/d4bfc2a02a4a258eee375000ca2d8ee6/a59e9/2023-06-01-20-11-05.webp 192w,
+/static/d4bfc2a02a4a258eee375000ca2d8ee6/88a05/2023-06-01-20-11-05.webp 283w&quot;
+              sizes=&quot;(max-width: 283px) 100vw, 283px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/d4bfc2a02a4a258eee375000ca2d8ee6/a59e9/2023-06-01-20-11-05.webp 192w,
+/static/d4bfc2a02a4a258eee375000ca2d8ee6/88a05/2023-06-01-20-11-05.webp 283w&quot;
+            sizes=&quot;(max-width: 283px) 100vw, 283px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/d4bfc2a02a4a258eee375000ca2d8ee6/88a05/2023-06-01-20-11-05.webp&quot;
+            alt=&quot;2023 06 01 20 11 05&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;h4 id=&quot;cra-환경에서-msw-사용하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#cra-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-msw-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0&quot; aria-label=&quot;cra 환경에서 msw 사용하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;CRA 환경에서 MSW 사용하기&lt;/h4&gt;
 &lt;p&gt;CRA 로 프로젝트를 만들면 src 내에 &lt;code class=&quot;language-text&quot;&gt;setupTest.js&lt;/code&gt; 파일이 있을 것이다. 이는 테스트 환경을 세팅하기 위한 파일로, 초기에는 jset-dom 라이브러리를 임포트하는 구문 밖에 없다.&lt;br&gt;
 CRA 환경에서 MSW를 사용하기 위해선 이 파일 안에 다음과 같이 작성해야 한다.&lt;/p&gt;
@@ -326,7 +365,48 @@ rest.get / rest.post 등 요청을 보낼 HTTP 메서드를 명시하고 첫번�
     &lt;span class=&quot;token function&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;list&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toHaveLength&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-06-02-15-27-21.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 723px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/908d1cd71941c87a06b3cfdd5e439a0a/d196b/2023-06-02-15-27-21.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 43.75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAABQAwCdASoUAAkAPtFUo0uoJKMhsAgBABoJaQAAXfJdkk+SAAD+8HybTXd1Nt0GrY0Z/ItSyeaTJCE/kAAAAA==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/908d1cd71941c87a06b3cfdd5e439a0a/a59e9/2023-06-02-15-27-21.webp 192w,
+/static/908d1cd71941c87a06b3cfdd5e439a0a/0ca9f/2023-06-02-15-27-21.webp 384w,
+/static/908d1cd71941c87a06b3cfdd5e439a0a/d196b/2023-06-02-15-27-21.webp 723w&quot;
+              sizes=&quot;(max-width: 723px) 100vw, 723px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/908d1cd71941c87a06b3cfdd5e439a0a/a59e9/2023-06-02-15-27-21.webp 192w,
+/static/908d1cd71941c87a06b3cfdd5e439a0a/0ca9f/2023-06-02-15-27-21.webp 384w,
+/static/908d1cd71941c87a06b3cfdd5e439a0a/d196b/2023-06-02-15-27-21.webp 723w&quot;
+            sizes=&quot;(max-width: 723px) 100vw, 723px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/908d1cd71941c87a06b3cfdd5e439a0a/d196b/2023-06-02-15-27-21.webp&quot;
+            alt=&quot;2023 06 02 15 27 21&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&quot;msw의-다양한-사용법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#msw%EC%9D%98-%EB%8B%A4%EC%96%91%ED%95%9C-%EC%82%AC%EC%9A%A9%EB%B2%95&quot; aria-label=&quot;msw의 다양한 사용법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;MSW의 다양한 사용법&lt;/h2&gt;
 &lt;h3 id=&quot;cookie&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#cookie&quot; aria-label=&quot;cookie permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Cookie&lt;/h3&gt;
 &lt;p&gt;fetch 에서는 보안상의 이유로 쿠키 세팅을 할 수 없으나, MSW는 클라이언트 측에서 실행되므로 보안 위반 없이 응답으로 mock 쿠키를 수신할 있다.&lt;/p&gt;
@@ -426,7 +506,48 @@ userEvent&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span 
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;import userEvent from &apos;@testing-library/user-event&apos;;&lt;/code&gt;&lt;br&gt;
 위와 같이 임포트해서 사용할 수 있다.&lt;/p&gt;
 &lt;p&gt;지원하는 이벤트는 다음과 같다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-06-01-15-54-53.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 666px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ed595c6f3c5e3f87e4a17c5d1b55a47a/4c012/2023-06-01-15-54-53.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 64.0625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAABwAwCdASoUAA0APtFUpEuoJKOhsAgBABoJaQAAVGPkuARiUAAA/vITU4H1fb6YCkANRkA8AAA=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/ed595c6f3c5e3f87e4a17c5d1b55a47a/a59e9/2023-06-01-15-54-53.webp 192w,
+/static/ed595c6f3c5e3f87e4a17c5d1b55a47a/0ca9f/2023-06-01-15-54-53.webp 384w,
+/static/ed595c6f3c5e3f87e4a17c5d1b55a47a/4c012/2023-06-01-15-54-53.webp 666w&quot;
+              sizes=&quot;(max-width: 666px) 100vw, 666px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/ed595c6f3c5e3f87e4a17c5d1b55a47a/a59e9/2023-06-01-15-54-53.webp 192w,
+/static/ed595c6f3c5e3f87e4a17c5d1b55a47a/0ca9f/2023-06-01-15-54-53.webp 384w,
+/static/ed595c6f3c5e3f87e4a17c5d1b55a47a/4c012/2023-06-01-15-54-53.webp 666w&quot;
+            sizes=&quot;(max-width: 666px) 100vw, 666px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/ed595c6f3c5e3f87e4a17c5d1b55a47a/4c012/2023-06-01-15-54-53.webp&quot;
+            alt=&quot;2023 06 01 15 54 53&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;h3 id=&quot;사용-예시&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%82%AC%EC%9A%A9-%EC%98%88%EC%8B%9C&quot; aria-label=&quot;사용 예시 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;사용 예시&lt;/h3&gt;
 &lt;p&gt;테스트할 버튼 컴포넌트는 처음엔 ‘Login’ 이라는 텍스트가 적혀있고, 클릭 시 ‘Logout’ 과 ‘Login’ 텍스트가 번갈아가며 나타나도록 구현했다고 가정한다.&lt;/p&gt;
 &lt;h4 id=&quot;click-이벤트&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#click-%EC%9D%B4%EB%B2%A4%ED%8A%B8&quot; aria-label=&quot;click 이벤트 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Click 이벤트&lt;/h4&gt;
@@ -457,7 +578,48 @@ userEvent&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span 
     &lt;span class=&quot;token function&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;btn&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toHaveTextContent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Logout&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-06-01-15-49-33.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 657px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f48eff34d23eadca46e27d87a74c1020/8af9e/2023-06-01-15-49-33.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 59.895833333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAABwAwCdASoUAAwAPtFUo0uoJKMhsAgBABoJaQAAUrmfTxPx7MAA/vAPu040VMaaMMH5yhyKPsfXEI1MspiVAAAA&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/f48eff34d23eadca46e27d87a74c1020/a59e9/2023-06-01-15-49-33.webp 192w,
+/static/f48eff34d23eadca46e27d87a74c1020/0ca9f/2023-06-01-15-49-33.webp 384w,
+/static/f48eff34d23eadca46e27d87a74c1020/8af9e/2023-06-01-15-49-33.webp 657w&quot;
+              sizes=&quot;(max-width: 657px) 100vw, 657px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/f48eff34d23eadca46e27d87a74c1020/a59e9/2023-06-01-15-49-33.webp 192w,
+/static/f48eff34d23eadca46e27d87a74c1020/0ca9f/2023-06-01-15-49-33.webp 384w,
+/static/f48eff34d23eadca46e27d87a74c1020/8af9e/2023-06-01-15-49-33.webp 657w&quot;
+            sizes=&quot;(max-width: 657px) 100vw, 657px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/f48eff34d23eadca46e27d87a74c1020/8af9e/2023-06-01-15-49-33.webp&quot;
+            alt=&quot;2023 06 01 15 49 33&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;두번 클릭 시 텍스트가 다시 바뀌므로 테스트에 실패한다.&lt;/p&gt;
 &lt;div class=&quot;code-header&quot;&gt;
 	&lt;span class=&quot;red btn&quot;&gt;&lt;/span&gt;
@@ -484,7 +646,52 @@ userEvent&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span 
     &lt;span class=&quot;token function&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;btn&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toHaveTextContent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Logout&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-06-01-15-50-56.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/fdc80c989a20ce7f859c2f08a98ae04b/92c1e/2023-06-01-15-50-56.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 69.79166666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAgCdASoUAA4APtFUo0uoJKMhsAgBABoJaQAAlYgAAP7xQbJ3EgIxXUs4AAAA&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/fdc80c989a20ce7f859c2f08a98ae04b/a59e9/2023-06-01-15-50-56.webp 192w,
+/static/fdc80c989a20ce7f859c2f08a98ae04b/0ca9f/2023-06-01-15-50-56.webp 384w,
+/static/fdc80c989a20ce7f859c2f08a98ae04b/dc9b9/2023-06-01-15-50-56.webp 768w,
+/static/fdc80c989a20ce7f859c2f08a98ae04b/e2c2f/2023-06-01-15-50-56.webp 1152w,
+/static/fdc80c989a20ce7f859c2f08a98ae04b/92c1e/2023-06-01-15-50-56.webp 1222w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/fdc80c989a20ce7f859c2f08a98ae04b/a59e9/2023-06-01-15-50-56.webp 192w,
+/static/fdc80c989a20ce7f859c2f08a98ae04b/0ca9f/2023-06-01-15-50-56.webp 384w,
+/static/fdc80c989a20ce7f859c2f08a98ae04b/dc9b9/2023-06-01-15-50-56.webp 768w,
+/static/fdc80c989a20ce7f859c2f08a98ae04b/e2c2f/2023-06-01-15-50-56.webp 1152w,
+/static/fdc80c989a20ce7f859c2f08a98ae04b/92c1e/2023-06-01-15-50-56.webp 1222w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/fdc80c989a20ce7f859c2f08a98ae04b/dc9b9/2023-06-01-15-50-56.webp&quot;
+            alt=&quot;2023 06 01 15 50 56&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;h4 id=&quot;keyboard-이벤트&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#keyboard-%EC%9D%B4%EB%B2%A4%ED%8A%B8&quot; aria-label=&quot;keyboard 이벤트 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Keyboard 이벤트&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p&gt;userEvent.tab() 으로 키보드에서 tab을 누르거나, userEvent.keyboard(‘key’) 로 파라미터에 해당하는 키를 누를 수 있다.&lt;/p&gt;
@@ -594,9 +801,91 @@ describe를 사용하는 것이 필수는 아니지만, 테스트를 작성할 �
     &lt;span class=&quot;token function&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;myBeverage&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;sour&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toBeFalsy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-06-01-14-36-02.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 666px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/88f590d9ae5eb9036b56506330c85e41/4c012/2023-06-01-14-36-02.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 54.166666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAAAwAwCdASoUAAsAPtFUo0uoJKMhsAgBABoJaQAAXKUcRaQAAP7yE420l3o7vGTg0mVNh0q6YYodf3Ylm4AAAA==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/88f590d9ae5eb9036b56506330c85e41/a59e9/2023-06-01-14-36-02.webp 192w,
+/static/88f590d9ae5eb9036b56506330c85e41/0ca9f/2023-06-01-14-36-02.webp 384w,
+/static/88f590d9ae5eb9036b56506330c85e41/4c012/2023-06-01-14-36-02.webp 666w&quot;
+              sizes=&quot;(max-width: 666px) 100vw, 666px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/88f590d9ae5eb9036b56506330c85e41/a59e9/2023-06-01-14-36-02.webp 192w,
+/static/88f590d9ae5eb9036b56506330c85e41/0ca9f/2023-06-01-14-36-02.webp 384w,
+/static/88f590d9ae5eb9036b56506330c85e41/4c012/2023-06-01-14-36-02.webp 666w&quot;
+            sizes=&quot;(max-width: 666px) 100vw, 666px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/88f590d9ae5eb9036b56506330c85e41/4c012/2023-06-01-14-36-02.webp&quot;
+            alt=&quot;2023 06 01 14 36 02&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;div class=&quot;source&quot;&gt;describe 사용 전&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-06-01-14-35-28.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 642px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a5ae5912d9895d55a10f2e48a76d7837/321fb/2023-06-01-14-35-28.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 59.895833333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAwAwCdASoUAAwAPtFUo0uoJKMhsAgBABoJaVefADdBNwAAAP7xCCA1a+sWijW8b5QF1zf4Id3dKP7swSqopSKwiSrgAAAA&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/a5ae5912d9895d55a10f2e48a76d7837/a59e9/2023-06-01-14-35-28.webp 192w,
+/static/a5ae5912d9895d55a10f2e48a76d7837/0ca9f/2023-06-01-14-35-28.webp 384w,
+/static/a5ae5912d9895d55a10f2e48a76d7837/321fb/2023-06-01-14-35-28.webp 642w&quot;
+              sizes=&quot;(max-width: 642px) 100vw, 642px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/a5ae5912d9895d55a10f2e48a76d7837/a59e9/2023-06-01-14-35-28.webp 192w,
+/static/a5ae5912d9895d55a10f2e48a76d7837/0ca9f/2023-06-01-14-35-28.webp 384w,
+/static/a5ae5912d9895d55a10f2e48a76d7837/321fb/2023-06-01-14-35-28.webp 642w&quot;
+            sizes=&quot;(max-width: 642px) 100vw, 642px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/a5ae5912d9895d55a10f2e48a76d7837/321fb/2023-06-01-14-35-28.webp&quot;
+            alt=&quot;2023 06 01 14 35 28&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;div class=&quot;source&quot;&gt;describe 사용 후&lt;/div&gt;
 &lt;h2 id=&quot;참고-자료&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0-%EC%9E%90%EB%A3%8C&quot; aria-label=&quot;참고 자료 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고 자료&lt;/h2&gt;
 &lt;ul&gt;
