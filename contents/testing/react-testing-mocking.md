@@ -1,8 +1,8 @@
 ---
 date: '2023-06-01'
-title: 'React 테스트 코드에서 Mocking 사용하기(1) - 백엔드 API 요청 모킹하기'
+title: 'React 테스트 코드에서 MSW로 백엔드 API 요청 모킹하기'
 categories: ['Testing', 'React']
-summary: 'Jest의 모킹 기능으로 가짜 API 만들기'
+summary: 'MSW를 사용해서 가짜 API 만들기'
 thumbnail: '../images/thumbnail/testing.webp'
 ---
 
