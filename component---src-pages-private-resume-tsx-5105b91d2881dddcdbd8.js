@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkgatsby_starter_default=self.webpackChunkgatsby_starter_default||[]).push([[833],{6561:function(t,e,a){a.r(e);var u=a(7294),r=a(8208),s=a(5177),l=a(917);e.default=()=>{const t=(0,r.Z)();return(0,l.tZ)(u.Fragment,null,t&&(0,l.tZ)(s.Z,null),"이력서 페이지!")}}}]);
-//# sourceMappingURL=component---src-pages-private-resume-tsx-5105b91d2881dddcdbd8.js.map
