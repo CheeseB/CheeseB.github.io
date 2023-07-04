@@ -1,5 +1,5 @@
 ---
-date: '2023-07-03'
+date: '2023-07-04'
 title: '[리트코드] 1. Two Sum (두 수의 합) - 타입스크립트'
 categories: ['Algorithm', 'Typescript']
 summary: '타입스크립트로 알고리즘 문제풀기'
