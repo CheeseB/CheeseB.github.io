@@ -50,6 +50,12 @@ Output: 9
 - nextPeak에 도달하면 peak를 nextPeak로 갱신하고, 다시 nextPeak를 찾음
 - 끝에 도달할 때까지 반복
 
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```ts
 function trap(height: number[]): number {
   let answer = 0;
