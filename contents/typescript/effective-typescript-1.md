@@ -201,7 +201,270 @@ tsconfig 의 다른 옵션들은 [Typescript Guidebook](https://yamoo9.gitbook.i
 - 코드의 타입 오류를 체크
 - 최신 타입스크립트/자바스크립트 를 구버전의 자바스크립트로 변환
 
-이 두가지는 서로 완벽히 독립적이기 때문에, 타입 오류를 체크하는 것이 자바스크립트의 컴파일이나 실행에 영향을 주지 못한다.
+이 두가지는 서로 완벽히 독립적이며, 자바스크립트로 컴파일되는 과정에서 타입 관련된 코드(인터페이스, 타입, 타입 구문)는 모두 제거된다. 그러므로 타입 오류를 체크하는 것이 자바스크립트의 컴파일이나 실행에 영향을 주지 못한다. 이로 인해 타입스크립트는 다음과 같은 특징을 갖는다.
+
+### 1. 타입 오류가 있는 코드도 컴파일이 가능하다.
+
+하지만 tsconfig에 noEmitOnError 를 설정하면 오류가 있을때 컴파일하지 않는다.
+
+### 2 .런타임에는 타입 체크가 불가능하다.
+
+위에서 설명하듯이, 타입 체크는 런타임에 아무 영향을 주지 못한다.
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
+```ts
+interface Square {
+  width: number;
+}
+
+interface Rectangle extends Square {
+  height: number;
+}
+
+type Shape = Square | Rectangle;
+
+function calculateArea(shape: Shape) {
+  if (shape instanceof Rectangle) {
+                  // ~~~~~~~~~ 'Rectangle' only refers to a type, but is being used as a value here
+    return shape.width * shape.height;
+                    		//        ~~~~~~ Property 'height' does not exist on type 'Shape'
+  } else {
+    return shape.width * shape.width;
+  }
+}
+```
+
+위 예시에서 instanceof 는 런타임 연산이지만 Rectangle은 타입이므로 에러가 발생하며, if문이 제 역할을 하지 못한다.
+
+이럴 때 런타임에 타입 정보를 유지할 수 있는 방법이 있다.
+
+#### 속성의 존재 여부 체크
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
+```ts
+function calculateArea(shape: Shape) {
+  if ('height' in shape) {
+    return shape.width * shape.height;
+  } else {
+    return shape.width * shape.width;
+  }
+}
+```
+
+속성 체크는 런타임 값에 관련되지만 타입 체커 또한 shape의 타입을 Rectangle로 보정해 준다.
+
+#### 태그된 유니온 사용
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
+```ts
+interface Square {
+  kind: 'square';
+  width: number;
+}
+
+interface Rectangle {
+  kind: 'rectangle';
+  height: number;
+  width: number;
+}
+
+type Shape = Square | Rectangle;
+
+function calculateArea(shape: Shape) {
+  if (shape.kind === 'rectangle') {
+    return shape.width * shape.height;
+  } else {
+    return shape.width * shape.width;
+  }
+}
+```
+
+여기서 kind 속성이 태그가 되며, 태그를 이용하여 분기 처리를 한다.
+
+#### 타입을 클래스로 만들기
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
+```ts
+class Square {
+  constructor(public width: number) {}
+}
+
+class Rectangle extends Square {
+  constructor(public override width: number, public height: number) {
+    super(width);
+  }
+}
+
+type Shape = Square | Rectangle; // 타입으로 사용
+
+function calculateArea(shape: Shape) {
+  if (shape instanceof Rectangle) { // 값으로 사용
+    return shape.width * shape.height;
+  } else {
+    return shape.width * shape.width;
+  }
+}
+```
+
+클래스는 타입으로도, 값으로도 사용 가능하므로 타입 오류도 해결되고 instanceof 연산도 제 역할을 한다.
+
+### 3. 타입 연산은 런타임에 영향을 주지 않는다.
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
+```ts
+// ts
+function asNumber(val: number | string): number {
+  return val as number;
+}
+
+// 컴파일 후의 js
+function asNumber(val) {
+  return val;
+}
+```
+
+위 타입스크립트 코드는 number 혹은 string 타입의 매개변수를 number 형식으로 정제해서 리턴하려는 의도를 가지고 있지만, as Number는 타입 체커를 통과하기 위한 타입 연산일 뿐 런타임에서 값에 적용하지 못한다.
+
+위 코드는 아래와 같이 수정해야 제대로 동작한다.
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
+```ts
+function asNumber(val: number | string): number {
+  return typeof(val) === 'string' ? Number(val) : val;
+}
+```
+
+### 4. 런타임 타입은 선언된 타입과 다를 수 있다.
+
+타입스크립트의 선언된 타입과 실제 런타임에서의 타입이 맞지 않을 수 있다는 것을 항상 염두에 두어야 한다.
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
+```ts
+function turnLightOn() {}
+function turnLightOff() {}
+
+function setLightSwitch(value: boolean) {
+  switch (value) {
+    case true:
+      turnLightOn();
+      break;
+    case false:
+      turnLightOff();
+      break;
+    default:
+      console.log('이 부분이 실행될 수 있을까?');
+  }
+}
+```
+
+위 코드를 예시로 든다면, 만약 개발 도중 setLightSwitch 함수에 boolean 외의 다른 값을 넣어 호출하려 한다면 에러를 표시할 것이다. 하지만 런타임에 그 외의 값이 들어오지 않을 거라는 보장을 하진 못한다. 아래의 예시처럼 네트워크 호출로 받아온 값을 사용할 때가 그런 경우이다.
+
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
+```ts
+interface LightApiResponse {
+  lightSwitchValue: boolean;
+}
+
+async function setLight() {
+  const response = await fetch('/light');
+  const result: LightApiResponse = await response.json();
+  setLightSwitch(result.lightSwitchValue);
+}
+```
+
+이러한 경우에는 타입 선언을 했더라도 실제로 런타임에 네트워크에서는 다른 타입의 값을 넘겨줄 수 있으며, 타입스크립트가 이를 미리 알 수는 없다.
+
+이렇게 타입 선언을 제대로 했더라도 런타임 시 예외 상황이 발생할 수 있으므로 타입스크립트에만 너무 의지하지 않고 항상 별도의 예외 처리를 해 주는 것이 좋을 것 같다.
+
+### 5. 타입스크립트 타입으로는 함수를 오버로드 할 수 없다.
+
+> **오버로딩**: <br> 한 모듈 안에 동일한 이름의 함수가 있더라도 매개변수의 개수나 타입이 다르면 사용이 가능한 것 <br> <small>(오버라이딩: 부모 클래스에서 상속받은 메서드를 자식 클래스에서 재정의하는 것)</small>
+
+자바나 C++ 같은 언어는 함수 오버로딩이 가능하지만, 타입스크립트는 타입과 런타임이 무관하기 때문에 오버로딩이 불가능하다.
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
+```ts
+function add(a: number, b: number) { return a + b; }
+      // ~~~ Duplicate function implementation
+function add(a: string, b: string) { return a + b; }
+      // ~~~ Duplicate function implementation
+```
+
+하나의 함수에 여러 선언문을 작성하여 여러 타입 정보를 제공하는 것은 가능하지만(타입 수준의 오버로딩), 실제 구현체는 오직 하나만 존재한다.
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
+```ts
+function add(a: number, b: number): number;
+function add(a: string, b: string): string;
+
+function add(a, b) {
+  return a + b;
+}
+
+const three = add(1, 2);
+const twelve = add('1', '2');
+```
+
+![](../images/content/2023-07-20-13-43-23.webp)
+
+이러한 스타일의 오버로딩 사용 시, 위와 같이 타입 에러가 발생하므로 tsconfig에서 noImplicitAny를 false로 지정해 주어야 한다.
+
+### 6. 타입스크립트 타입은 런타임 성능에 영향을 주지 않는다.
+
+타입스크립트 컴파일러가 빌드타임 오버헤드가 있을 뿐, 타입스크립트의 타입은 런타임에 비용이 전혀 들지 않는다.
 
 ## 아이템 4. 구조적 타이핑에 익숙해지기
 
