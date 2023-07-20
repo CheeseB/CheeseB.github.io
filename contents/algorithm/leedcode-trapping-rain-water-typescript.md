@@ -92,3 +92,48 @@ function trap(height: number[]): number {
   return answer;
 }
 ```
+
+## 더 좋은 풀이법 (투포인터)
+
+<small>> Runtime 75ms (beats 61.61%)</small><br>
+<small>> Memory 45.5MB (beats 70.38%)</small>
+
+리스트의 맨 처음과 맨 끝을 가리키는 두개의 포인터를 활용하는 방법이다.
+
+- 왼쪽 포인터: 0, 오른쪽 포인터: length - 1 로 초기화
+- 양쪽 포인터가 각각 maxHeight 변수를 가짐
+- 두개의 포인터를 비교해서, height가 더 작은 쪽이 점점 가운데로 가까워지며 빗물을 더하는 방식
+- maxHeight를 현재 height와 비교하여 갱신하고, (maxHeight - height) 값을 정답에 더함
+- 양쪽 포인터가 만날 때까지 반복
+
+이 방식으로 하면 O(n) 으로 해결할 수 있다.
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
+```ts
+function trap(height: number[]): number {
+  let answer = 0;
+  let left = 0;
+  let right = height.length - 1;
+  let leftMax = 0,
+    rightMax = 0;
+
+  while (left < right) {
+    if (height[left] <= height[right]) {
+      leftMax = Math.max(leftMax, height[left]);
+      answer += leftMax - height[left];
+      left++;
+    } else {
+      rightMax = Math.max(rightMax, height[right]);
+      answer += rightMax - height[right];
+      right--;
+    }
+  }
+
+  return answer;
+}
+```
