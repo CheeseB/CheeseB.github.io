@@ -8,7 +8,7 @@ thumbnail: '../images/thumbnail/typescript.webp'
 
 ## 문제 상황
 
-number | string 타입의 값을 가지는 countObject 객체의 값들 중에서, number 타입인 값들만 더하는 코드를 작성하던 중 다음과 같은 타입 오류가 발생했다.
+`number | string` 타입의 값을 가지는 countObject 객체의 값들 중에서, number 타입인 값들만 더하는 코드를 작성하던 중 다음과 같은 타입 오류가 발생했다.
 
 <div class="code-header">
 	<span class="red btn"></span>
@@ -47,7 +47,46 @@ sumOfCountsByPlatform[countByPlatform.platform] = Object.values(countByPlatform)
 여기서 `(value): value is number` 부분이 바로 is 키워드를 사용한 부분이며,   
 filter의 콜백함수가 반환하는 값(value) 이 number 라고 명시해 줌으로써 reduce에 들어가는 값이 오직 number 타입이란 것을 타입스크립트가 알게 했다.
 
-## is 키워드 (as 키워드와 다른점)
+## is 키워드
 
+> 특정 함수의 리턴 타입에 is 키워드를 사용하면, 해당 함수를 거쳐서 나온 return 값이 true 일 때 변수의 타입을 좁힐수 있다.
 
-https://velog.io/@kwak1539/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-is-as-%EB%AC%B8%EB%B2%95-%EC%A0%95%EB%A6%AC
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
+```ts
+function isString(test: any): test is string{
+    return typeof test === "string";
+}
+
+function example(foo: any){
+    if(isString(foo)){
+        console.log(foo.length); // string
+    }
+}
+
+example("hello world");
+```
+
+위 예시를 살펴봤을 때, isString 의 리턴 타입에 `test is string` 이라고 명시해 두었기 때문에 isString 함수를 호출한 범위 내에서 test 타입을 string으로 좁힐수 있는 것이다.
+
+![](../images/content/2023-07-21-17-10-27.webp)
+
+<div class="source">is 연산자 생략</div>
+
+![](../images/content/2023-07-21-17-10-51.webp)
+
+<div class="source">is 연산자 사용</div>
+
+### as 키워드와 다른 점
+
+타입을 좁혀준다는 점에서 as 키워드와 is 키워드는 비슷해 보이지만   
+**as** 키워드는 **'이 변수는 이런 타입이야!'** 라고 하나의 변수에 대해 타입을 단언하는 것이라면,   
+**is** 키워드는 **'이 함수의 매개변수에 대해 필터링을 거쳤으니 이 타입밖에 나올수 없어!'** 라고 알려주는 느낌이다.
+
+## 참고 사이트
+
+- [KwakKwakKwak.log - [타입스크립트] 'is', 'as' 문법 정리](https://velog.io/@kwak1539/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-is-as-%EB%AC%B8%EB%B2%95-%EC%A0%95%EB%A6%AC)
