@@ -162,7 +162,9 @@ yarn tsc --init
 
 [tsconfig 로 컴파일 옵션 설정하기](https://yamoo9.gitbook.io/typescript/cli-env/tsconfig)
 
-여기서, paths 옵션에 추가한 매핑 경로를 사용하기 위해선 gatsby-node.js 에서 Webpack Config를 추가해줘야 한다.
+여기서, paths 옵션은 절대 경로를 사용하기 위해 경로를 매핑하는 옵션이다.
+이를 사용하기 위해선 baseUrl로 기준 경로를 설정하고, 이를 기반으로 path에 경로를 작성하면 된다.
+그리고 실제로 이 매핑 경로를 사용하기 위해 gatsby-node.js 에서 Webpack Config를 추가해줘야 한다.
 
 ```js
 // Setup Import Alias
