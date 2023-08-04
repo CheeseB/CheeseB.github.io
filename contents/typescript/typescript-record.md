@@ -197,6 +197,14 @@ const chartData: ChartDataType = {
 
 ---
 
+### 마치며
+
+이번 시간에는 유틸리티 타입 중 하나인 Record 타입에 대해서 다뤄 보았는데, 이전에 한 번 다룬적 있는 [Omit 타입](https://cheeseb.github.io/typescript/typescript-utility-omit/)을 비롯한 타입스크립트의 유틸리티 타입들은 알아두면 매우 유용하게 쓸 수 있을 것 같다.
+
+- [타입스크립트 공식 문서 - 유틸리티 타입들](https://www.typescriptlang.org/ko/docs/handbook/utility-types.html)
+
+그리고 이번 포스팅에서 이야기한 것 처럼, 프로젝트 시작 전 팀원들과 상의한 끝에 타입 정의를 interface로 통일하기로 했지만 개발을 진행할수록 개인적으로 type이 더 쓰기 좋은 것 같다고 느꼈다. 유틸리티 타입과 맵드 타입을 
+
 
 ## 참고 링크
 
