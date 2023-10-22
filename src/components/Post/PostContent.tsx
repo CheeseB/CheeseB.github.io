@@ -322,7 +322,8 @@ const MarkdownRenderer = styled.div`
   code[class*='language-'] span.token.parameter,
   code[class*='language-'] span.token.script,
   code[class*='language-'] span.token.plain-text,
-  code[class*='language-'] span.token.format-spec {
+  code[class*='language-'] span.token.format-spec,
+  span.token.language-css {
     color: #ccc;
   }
 
@@ -334,7 +335,8 @@ const MarkdownRenderer = styled.div`
     color: #7ec699;
   }
 
-  code[class*='language-'] span.token.regex-flags {
+  code[class*='language-'] span.token.regex-flags,
+  code[class*='language-'] span.token.rule {
     color: #cc99cd;
   }
 
