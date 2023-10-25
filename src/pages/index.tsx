@@ -1,13 +1,13 @@
-import React, { FunctionComponent } from 'react';
+import LoadingAnimation from 'components/Common/LoadingAnimation';
+import { SideNavigation } from 'components/Common/SideNavigation';
+import { Template } from 'components/Common/Template';
+import { MainCheeseBall } from 'components/Main/MainCheeseBall';
 import { PostList } from 'components/Main/PostList';
 import { graphql } from 'gatsby';
-import { PostListItemType } from 'types/PostItem.types';
-import queryString, { ParsedQuery } from 'query-string';
-import { Template } from 'components/Common/Template';
-import { SideNavigation } from 'components/Common/SideNavigation';
-import { MainCheeseBall } from 'components/Main/MainCheeseBall';
 import useLoading from 'hooks/useLoading';
-import LoadingAnimation from 'components/Common/LoadingAnimation';
+import queryString, { ParsedQuery } from 'query-string';
+import { FunctionComponent } from 'react';
+import { PostListItemType } from 'types/PostItem.types';
 
 type IndexPageProps = {
   location: {
@@ -97,7 +97,7 @@ export const getPostList = graphql`
         }
       }
     }
-    file(name: { eq: "profile-image" }) {
+    file(name: { eq: "cheeseball" }) {
       publicURL
     }
   }
