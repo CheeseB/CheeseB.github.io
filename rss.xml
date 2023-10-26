@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[개발자맛 치즈볼]]></title><description><![CDATA[주니어 프론트엔드 개발자의 개발일기 입니다.]]></description><link>https://cheeseb.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 25 Oct 2023 08:56:57 GMT</lastBuildDate><author><![CDATA[CheeseB]]></author><item><title><![CDATA[[CSS] CSS의 Cascading 규칙]]></title><description><![CDATA[!important를 남발하지 않기 위해 알아야 할 css의 우선순위 규칙]]></description><link>https://cheeseb.github.io/css/css-cascading/</link><guid isPermaLink="false">https://cheeseb.github.io/css/css-cascading/</guid><category><![CDATA[CSS]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Sat, 21 Oct 2023 15:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;캐스케이딩-cascading-이란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%BA%90%EC%8A%A4%EC%BC%80%EC%9D%B4%EB%94%A9-cascading-%EC%9D%B4%EB%9E%80&quot; aria-label=&quot;캐스케이딩 cascading 이란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;캐스케이딩 (Cascading) 이란?&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[개발자맛 치즈볼]]></title><description><![CDATA[주니어 프론트엔드 개발자의 개발일기 입니다.]]></description><link>https://cheeseb.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 26 Oct 2023 02:58:16 GMT</lastBuildDate><author><![CDATA[CheeseB]]></author><item><title><![CDATA[[CSS] CSS의 Cascading 규칙]]></title><description><![CDATA[!important를 남발하지 않기 위해 알아야 할 css의 우선순위 규칙]]></description><link>https://cheeseb.github.io/css/css-cascading/</link><guid isPermaLink="false">https://cheeseb.github.io/css/css-cascading/</guid><category><![CDATA[CSS]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Sat, 21 Oct 2023 15:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;캐스케이딩-cascading-이란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%BA%90%EC%8A%A4%EC%BC%80%EC%9D%B4%EB%94%A9-cascading-%EC%9D%B4%EB%9E%80&quot; aria-label=&quot;캐스케이딩 cascading 이란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;캐스케이딩 (Cascading) 이란?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;하나의 요소에 여러 CSS선언이 영향을 줄 때, 충돌을 방지하기 위한 &lt;strong&gt;CSS 적용 우선순위&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -139,13 +139,56 @@ top, right, bottom, left 속성 뿐 아니라 z-index 속성도 아무 영향을
   &lt;span class=&quot;token property&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 20px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;token property&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; blue&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-10-22-21-20-40.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 578px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/04ad7121d88a6b64746ce6b7f4c11d2f/9cd87/2023-10-22-21-20-40.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 32.29166666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAAAwBACdASoUAAYAPtFUpEuoJKOhsAgBABoJbACdMoEnZ+yaBCyys7HW74AA/ogWonaffD5V7U4nVfyjgZybrz9VCeyufORvV7kqjH0frDGPa+ydhdOdL8X/9c8czZZpD1Z/4Tdr6g70dPUaB9106N/Ur+RLj/p/+P+IAYxdS1g4cvAAAAA=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/04ad7121d88a6b64746ce6b7f4c11d2f/a59e9/2023-10-22-21-20-40.webp 192w,
+/static/04ad7121d88a6b64746ce6b7f4c11d2f/0ca9f/2023-10-22-21-20-40.webp 384w,
+/static/04ad7121d88a6b64746ce6b7f4c11d2f/9cd87/2023-10-22-21-20-40.webp 578w&quot;
+              sizes=&quot;(max-width: 578px) 100vw, 578px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/04ad7121d88a6b64746ce6b7f4c11d2f/a59e9/2023-10-22-21-20-40.webp 192w,
+/static/04ad7121d88a6b64746ce6b7f4c11d2f/0ca9f/2023-10-22-21-20-40.webp 384w,
+/static/04ad7121d88a6b64746ce6b7f4c11d2f/9cd87/2023-10-22-21-20-40.webp 578w&quot;
+            sizes=&quot;(max-width: 578px) 100vw, 578px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/04ad7121d88a6b64746ce6b7f4c11d2f/9cd87/2023-10-22-21-20-40.webp&quot;
+            alt=&quot;2023 10 22 21 20 40&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;div class=&quot;source&quot;&gt;출처: https://developer.mozilla.org/ko/docs/Web/CSS/position&lt;/div&gt;
 &lt;h2 id=&quot;relative&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#relative&quot; aria-label=&quot;relative permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;relative&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;배치 기준: 원래 있어야 할 위치&lt;/li&gt;
 &lt;li&gt;위치 조정 (top, right, bottom, left): 적용 가능&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;static처럼 원래 있어야 할 위치를 기준으로 배치가 되지만, 그 상태에서 위치를 조정할 수 있다.&lt;/p&gt;
+&lt;p&gt;static처럼 원래 있어야 할 위치를 기준으로 배치가 되지만, 그 상태에서 위치를 조정할 수 있다.&lt;br&gt;
+위치가 조정되어도 원래 있었던 곳의 공간은 그대로 차지한다.&lt;/p&gt;
 &lt;div class=&quot;code-header&quot;&gt;
 	&lt;span class=&quot;red btn&quot;&gt;&lt;/span&gt;
 	&lt;span class=&quot;yellow btn&quot;&gt;&lt;/span&gt;
@@ -157,15 +200,56 @@ top, right, bottom, left 속성 뿐 아니라 z-index 속성도 아무 영향을
   &lt;span class=&quot;token property&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 20px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;token property&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; blue&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-10-22-21-40-10.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 574px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/719492365e284edfc36b642d93d6acc3/70180/2023-10-22-21-40-10.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 43.22916666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAACwAwCdASoUAAkAPtFWpEuoJKOhsAgBABoJbACdDBWgLZCVtcjVoAD9U5oUmiKBr56WOWPj63U0nZQryXfU+VWbuxcTcVOWE0z5d+XGZtSeETlHNtM8yU9/bBS/wr6PwGiRw9UiH4TXIbvfE7mx9MOVftnwkOf4Qfp+5vqcRUVfDLmTj9/xaK5IZTy3/mf9w7L5/Mf9P/x/xtzL6lx/0AAA&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/719492365e284edfc36b642d93d6acc3/a59e9/2023-10-22-21-40-10.webp 192w,
+/static/719492365e284edfc36b642d93d6acc3/0ca9f/2023-10-22-21-40-10.webp 384w,
+/static/719492365e284edfc36b642d93d6acc3/70180/2023-10-22-21-40-10.webp 574w&quot;
+              sizes=&quot;(max-width: 574px) 100vw, 574px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/719492365e284edfc36b642d93d6acc3/a59e9/2023-10-22-21-40-10.webp 192w,
+/static/719492365e284edfc36b642d93d6acc3/0ca9f/2023-10-22-21-40-10.webp 384w,
+/static/719492365e284edfc36b642d93d6acc3/70180/2023-10-22-21-40-10.webp 574w&quot;
+            sizes=&quot;(max-width: 574px) 100vw, 574px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/719492365e284edfc36b642d93d6acc3/70180/2023-10-22-21-40-10.webp&quot;
+            alt=&quot;2023 10 22 21 40 10&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;div class=&quot;source&quot;&gt;출처: https://developer.mozilla.org/ko/docs/Web/CSS/position&lt;/div&gt;
 &lt;h2 id=&quot;absolute&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#absolute&quot; aria-label=&quot;absolute permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;absolute&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;배치 기준: 상위 요소 중 static이 아닌 요소 or 최상위 요소&lt;/li&gt;
 &lt;li&gt;위치 조정 (top, right, bottom, left): 적용 가능&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;상위 요소들 중 static 속성이 아닌 가장 가까운 요소를 기준으로 배치된다. static 속성이 아닌 요소가 존재하지 않는다면 최상위 요소인 &amp;#x3C;body&gt;를 기준으로 배치된다.&lt;/p&gt;
-&lt;p&gt;대부분 취상위 요소가 아닌, 특정 요소를 기준으로 배치하기 위해 absolute를 사용한다.&lt;br&gt;
-그러므로 absolute로 설정한 요소의 부모 요소를 relative로 지정해 주는 것이 관례이다.&lt;/p&gt;
+&lt;p&gt;기존 배치에서 아예 빠져버리기 때문에, 너비를 따로 지정해두지 않으면 기본적으로 내부 콘텐츠만큼의 너비를 가진다. 그래서 내부 요소도 없고 너비 지정도 되어있지 않으면 화면에 보이지 않으므로 따로 너비 지정을 해주거나 left, right 속성을 둘다 지정해주면 그 사이 간격만큼 너비가 생긴다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;static이 아닌 상위 요소가 존재할 때&lt;/li&gt;
 &lt;/ul&gt;
@@ -197,7 +281,49 @@ top, right, bottom, left 속성 뿐 아니라 z-index 속성도 아무 영향을
   &lt;span class=&quot;token property&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 20px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;token property&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; blue&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-10-22-21-56-34.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 429px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1fe7d9c82fce448933c5b21ce8610e55/0d06c/2023-10-22-21-56-34.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 41.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAADQBACdASoUAAgAPtFUo0uoJKMhsAgBABoJbACdL1J6S1AC+AAKH+rv+HjlGICWQAD8ETk5Sct1Z+9BH0VbZb6rGZHrcPo6qBZyzfEEj2ez15kvtzJLSp6uzYVTy65ssY/FpKf0xOrGKJ/+IyWjb62ebjDxYlWw0Hj+Rv4WJS+nOqFKSaxoQCq+mQTyneOy0Dmrj5e/+P+n/GA7bHwFc/k+OAAAAA==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/1fe7d9c82fce448933c5b21ce8610e55/a59e9/2023-10-22-21-56-34.webp 192w,
+/static/1fe7d9c82fce448933c5b21ce8610e55/0ca9f/2023-10-22-21-56-34.webp 384w,
+/static/1fe7d9c82fce448933c5b21ce8610e55/0d06c/2023-10-22-21-56-34.webp 429w&quot;
+              sizes=&quot;(max-width: 429px) 100vw, 429px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/1fe7d9c82fce448933c5b21ce8610e55/a59e9/2023-10-22-21-56-34.webp 192w,
+/static/1fe7d9c82fce448933c5b21ce8610e55/0ca9f/2023-10-22-21-56-34.webp 384w,
+/static/1fe7d9c82fce448933c5b21ce8610e55/0d06c/2023-10-22-21-56-34.webp 429w&quot;
+            sizes=&quot;(max-width: 429px) 100vw, 429px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/1fe7d9c82fce448933c5b21ce8610e55/0d06c/2023-10-22-21-56-34.webp&quot;
+            alt=&quot;2023 10 22 21 56 34&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;div class=&quot;source&quot;&gt;출처: https://developer.mozilla.org/ko/docs/Web/CSS/position&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;static이 아닌 상위 요소가 존재하지 않을 때&lt;/li&gt;
 &lt;/ul&gt;
@@ -223,7 +349,49 @@ top, right, bottom, left 속성 뿐 아니라 z-index 속성도 아무 영향을
   &lt;span class=&quot;token property&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 20px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;token property&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; blue&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-10-22-21-58-14.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 462px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/af6cac8c7488e90e0eab81c3130c0c73/0b6e4/2023-10-22-21-58-14.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 42.1875%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAADQAwCdASoUAAgAPtFWpEuoJKOhsAgBABoJbACsDBOwMYQz1xv5fgAA/Dutb2pJvRQvCrKtZ4OZdXSoIs7AH1vwbBmTii5avyVw/tnz+qkKjmUQNBtQyDorVlF5n/rutt/yM/2R/xgODl/T7efws4/GZPRgz5Q/3l14fPbf/j/j/laUWAA=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/af6cac8c7488e90e0eab81c3130c0c73/a59e9/2023-10-22-21-58-14.webp 192w,
+/static/af6cac8c7488e90e0eab81c3130c0c73/0ca9f/2023-10-22-21-58-14.webp 384w,
+/static/af6cac8c7488e90e0eab81c3130c0c73/0b6e4/2023-10-22-21-58-14.webp 462w&quot;
+              sizes=&quot;(max-width: 462px) 100vw, 462px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/af6cac8c7488e90e0eab81c3130c0c73/a59e9/2023-10-22-21-58-14.webp 192w,
+/static/af6cac8c7488e90e0eab81c3130c0c73/0ca9f/2023-10-22-21-58-14.webp 384w,
+/static/af6cac8c7488e90e0eab81c3130c0c73/0b6e4/2023-10-22-21-58-14.webp 462w&quot;
+            sizes=&quot;(max-width: 462px) 100vw, 462px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/af6cac8c7488e90e0eab81c3130c0c73/0b6e4/2023-10-22-21-58-14.webp&quot;
+            alt=&quot;2023 10 22 21 58 14&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;div class=&quot;source&quot;&gt;출처: https://developer.mozilla.org/ko/docs/Web/CSS/position&lt;/div&gt;
 &lt;h2 id=&quot;fixed&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#fixed&quot; aria-label=&quot;fixed permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;fixed&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;배치 기준: 뷰포트 (브라우저 전체화면)&lt;/li&gt;
@@ -231,6 +399,7 @@ top, right, bottom, left 속성 뿐 아니라 z-index 속성도 아무 영향을
 &lt;/ul&gt;
 &lt;p&gt;요소를 화면의 특정 부분에 고정시키고 싶을 때 사용한다.
 사용자에게 보이는 화면을 기준으로 배치되기 때문에, 스크롤해도 밀려나지 않는다.&lt;/p&gt;
+&lt;p&gt;absolute와 동일하게 기존 배치에서 아예 빠져서 내부 콘텐츠만큼의 너비만 가지므로, 따로 width를 지정하거나 left, right 속성을 둘다 지정해주어야 너비가 생긴다.&lt;/p&gt;
 &lt;div class=&quot;code-header&quot;&gt;
 	&lt;span class=&quot;red btn&quot;&gt;&lt;/span&gt;
 	&lt;span class=&quot;yellow btn&quot;&gt;&lt;/span&gt;
@@ -309,6 +478,27 @@ top, right, bottom, left 속성 뿐 아니라 z-index 속성도 아무 영향을
 		&lt;div style=&quot;display: inline-block; padding: 6px; position: sticky; top: 20px; left: 20px; background: #ff8982;&quot;&gt;sticky&lt;/div&gt;     
 	&lt;/div&gt;
 &lt;/div&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;inset-속성&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#inset-%EC%86%8D%EC%84%B1&quot; aria-label=&quot;inset 속성 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;inset 속성&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;top, right, bottom, left 순서대로 위치를 지정하는 축약식 속성&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;inset은 top, right, bottom, left 속성을 한번에 지정할 수 있도록 하는 속성이다.&lt;br&gt;
+margin, padding과 마찬가지로 &lt;em&gt;상우하좌, 상하/좌우, 상/좌우/하, 상/우/하/좌&lt;/em&gt; 네가지 방법으로 정의가 가능하다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token property&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; absolute&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;token property&quot;&gt;inset&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 10px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;/* all edges */&lt;/span&gt;
+	&lt;span class=&quot;token property&quot;&gt;inset&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 4px 8px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;/* top,bottom left,right */&lt;/span&gt;
+	&lt;span class=&quot;token property&quot;&gt;inset&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 5px 15px 10px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;/* top left,right bottom */&lt;/span&gt;
+	&lt;span class=&quot;token property&quot;&gt;inset&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 2.4em 3em 3em 3em&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;/* top right bottom left */&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;absolute 속성에서 left, right 속성을 둘 다 지정하면 그 사이 간격만큼 너비가 생기는데 (top, bottom 사이에도 동일하게 높이가 생김), 이걸 이용해서 자식 요소가 부모에 꽉 차게 덮어버리도록 하고 싶으면 top, right, bottom, left를 모두 0으로 주면 되며, &lt;strong&gt;이것을 간단하게 &lt;code class=&quot;language-text&quot;&gt;inset: 0;&lt;/code&gt; 으로 해결 가능하다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../images/content/2023-10-26-11-40-47.webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;div class=&quot;source&quot;&gt;출처: https://developer.mozilla.org/ko/docs/Web/CSS/position&lt;/div&gt;
+&lt;p&gt;만약 꽉 차게 하는것이 아닌, 조금 여백을 두고 가운데에 위치하도록 하고 싶으면 &lt;code class=&quot;language-text&quot;&gt;inset: 10px&lt;/code&gt;처럼 간격을 주면 된다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../images/content/2023-10-26-11-41-00.webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;div class=&quot;source&quot;&gt;출처: https://developer.mozilla.org/ko/docs/Web/CSS/position&lt;/div&gt;
 &lt;h2 id=&quot;참고-자료&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0-%EC%9E%90%EB%A3%8C&quot; aria-label=&quot;참고 자료 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고 자료&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/CSS/position&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;MDN - position&lt;/a&gt;&lt;/li&gt;
