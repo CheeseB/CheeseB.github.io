@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[개발자맛 치즈볼]]></title><description><![CDATA[주니어 프론트엔드 개발자의 개발일기 입니다.]]></description><link>https://cheeseb.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 26 Oct 2023 02:58:16 GMT</lastBuildDate><author><![CDATA[CheeseB]]></author><item><title><![CDATA[[CSS] CSS의 Cascading 규칙]]></title><description><![CDATA[!important를 남발하지 않기 위해 알아야 할 css의 우선순위 규칙]]></description><link>https://cheeseb.github.io/css/css-cascading/</link><guid isPermaLink="false">https://cheeseb.github.io/css/css-cascading/</guid><category><![CDATA[CSS]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Sat, 21 Oct 2023 15:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;캐스케이딩-cascading-이란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%BA%90%EC%8A%A4%EC%BC%80%EC%9D%B4%EB%94%A9-cascading-%EC%9D%B4%EB%9E%80&quot; aria-label=&quot;캐스케이딩 cascading 이란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;캐스케이딩 (Cascading) 이란?&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[개발자맛 치즈볼]]></title><description><![CDATA[주니어 프론트엔드 개발자의 개발일기 입니다.]]></description><link>https://cheeseb.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 26 Oct 2023 03:13:12 GMT</lastBuildDate><author><![CDATA[CheeseB]]></author><item><title><![CDATA[[CSS] CSS의 Cascading 규칙]]></title><description><![CDATA[!important를 남발하지 않기 위해 알아야 할 css의 우선순위 규칙]]></description><link>https://cheeseb.github.io/css/css-cascading/</link><guid isPermaLink="false">https://cheeseb.github.io/css/css-cascading/</guid><category><![CDATA[CSS]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Sat, 21 Oct 2023 15:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;캐스케이딩-cascading-이란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%BA%90%EC%8A%A4%EC%BC%80%EC%9D%B4%EB%94%A9-cascading-%EC%9D%B4%EB%9E%80&quot; aria-label=&quot;캐스케이딩 cascading 이란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;캐스케이딩 (Cascading) 이란?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;하나의 요소에 여러 CSS선언이 영향을 줄 때, 충돌을 방지하기 위한 &lt;strong&gt;CSS 적용 우선순위&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -494,10 +494,92 @@ margin, padding과 마찬가지로 &lt;em&gt;상우하좌, 상하/좌우, 상/�
 	&lt;span class=&quot;token property&quot;&gt;inset&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 2.4em 3em 3em 3em&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;/* top right bottom left */&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;absolute 속성에서 left, right 속성을 둘 다 지정하면 그 사이 간격만큼 너비가 생기는데 (top, bottom 사이에도 동일하게 높이가 생김), 이걸 이용해서 자식 요소가 부모에 꽉 차게 덮어버리도록 하고 싶으면 top, right, bottom, left를 모두 0으로 주면 되며, &lt;strong&gt;이것을 간단하게 &lt;code class=&quot;language-text&quot;&gt;inset: 0;&lt;/code&gt; 으로 해결 가능하다.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-10-26-11-40-47.webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 463px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2d6fe484433bb8cbe6ad97e24748165f/fb1d9/2023-10-26-12-12-14.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 59.895833333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAACQBACdASoUAAwAPtFipk0oJiOiMAgBABoJbACdH8IwBggALZGRuXRnwcwnfCAA/Du7jUfIiNtbSr4jShaGpix8ejm2KgnW3IT+8Vp67+NG/4zK2ESnQRjjV7XarPC0+3teqJvRw/RxUAV9WnWTleynfZiXbYpuwS3ajuXkmaPS/9+WzzyAAAAA&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/2d6fe484433bb8cbe6ad97e24748165f/a59e9/2023-10-26-12-12-14.webp 192w,
+/static/2d6fe484433bb8cbe6ad97e24748165f/0ca9f/2023-10-26-12-12-14.webp 384w,
+/static/2d6fe484433bb8cbe6ad97e24748165f/fb1d9/2023-10-26-12-12-14.webp 463w&quot;
+              sizes=&quot;(max-width: 463px) 100vw, 463px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/2d6fe484433bb8cbe6ad97e24748165f/a59e9/2023-10-26-12-12-14.webp 192w,
+/static/2d6fe484433bb8cbe6ad97e24748165f/0ca9f/2023-10-26-12-12-14.webp 384w,
+/static/2d6fe484433bb8cbe6ad97e24748165f/fb1d9/2023-10-26-12-12-14.webp 463w&quot;
+            sizes=&quot;(max-width: 463px) 100vw, 463px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/2d6fe484433bb8cbe6ad97e24748165f/fb1d9/2023-10-26-12-12-14.webp&quot;
+            alt=&quot;2023 10 26 12 12 14&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;div class=&quot;source&quot;&gt;출처: https://developer.mozilla.org/ko/docs/Web/CSS/position&lt;/div&gt;
 &lt;p&gt;만약 꽉 차게 하는것이 아닌, 조금 여백을 두고 가운데에 위치하도록 하고 싶으면 &lt;code class=&quot;language-text&quot;&gt;inset: 10px&lt;/code&gt;처럼 간격을 주면 된다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-10-26-11-41-00.webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 464px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ea822d3bb3720a827a9eabd080ff2756/3fd41/2023-10-26-12-12-33.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 61.979166666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAAAQBACdASoUAAwAPtFcpkyoJSOiMAgBABoJbACdACHfkscgtdC904cHAAD+mxFzpGEf8Ub7s8qJx5a4hd0SnHIXn/yzffM+HctCrazoJraxxxHyK0wWdkH1nSk2tv/LYWmGe2BMNXsl95mFQM6klglAAAA=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/ea822d3bb3720a827a9eabd080ff2756/a59e9/2023-10-26-12-12-33.webp 192w,
+/static/ea822d3bb3720a827a9eabd080ff2756/0ca9f/2023-10-26-12-12-33.webp 384w,
+/static/ea822d3bb3720a827a9eabd080ff2756/3fd41/2023-10-26-12-12-33.webp 464w&quot;
+              sizes=&quot;(max-width: 464px) 100vw, 464px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/ea822d3bb3720a827a9eabd080ff2756/a59e9/2023-10-26-12-12-33.webp 192w,
+/static/ea822d3bb3720a827a9eabd080ff2756/0ca9f/2023-10-26-12-12-33.webp 384w,
+/static/ea822d3bb3720a827a9eabd080ff2756/3fd41/2023-10-26-12-12-33.webp 464w&quot;
+            sizes=&quot;(max-width: 464px) 100vw, 464px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/ea822d3bb3720a827a9eabd080ff2756/3fd41/2023-10-26-12-12-33.webp&quot;
+            alt=&quot;2023 10 26 12 12 33&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;div class=&quot;source&quot;&gt;출처: https://developer.mozilla.org/ko/docs/Web/CSS/position&lt;/div&gt;
 &lt;h2 id=&quot;참고-자료&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0-%EC%9E%90%EB%A3%8C&quot; aria-label=&quot;참고 자료 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고 자료&lt;/h2&gt;
 &lt;ul&gt;
