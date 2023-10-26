@@ -47,14 +47,17 @@ top, right, bottom, left 속성 뿐 아니라 z-index 속성도 아무 영향을
 }
 ```
 
-![](../images/content/2023-10-22-21-20-40.png)
+![](../images/content/2023-10-22-21-20-40.webp)
+
+<div class="source">출처: https://developer.mozilla.org/ko/docs/Web/CSS/position</div>
 
 ## relative
 
 - 배치 기준: 원래 있어야 할 위치
 - 위치 조정 (top, right, bottom, left): 적용 가능
 
-static처럼 원래 있어야 할 위치를 기준으로 배치가 되지만, 그 상태에서 위치를 조정할 수 있다.
+static처럼 원래 있어야 할 위치를 기준으로 배치가 되지만, 그 상태에서 위치를 조정할 수 있다.   
+위치가 조정되어도 원래 있었던 곳의 공간은 그대로 차지한다.
 
 <div class="code-header">
 	<span class="red btn"></span>
@@ -71,7 +74,9 @@ static처럼 원래 있어야 할 위치를 기준으로 배치가 되지만, �
 }
 ```
 
-![](../images/content/2023-10-22-21-40-10.png)
+![](../images/content/2023-10-22-21-40-10.webp)
+
+<div class="source">출처: https://developer.mozilla.org/ko/docs/Web/CSS/position</div>
 
 ## absolute
 
@@ -80,8 +85,7 @@ static처럼 원래 있어야 할 위치를 기준으로 배치가 되지만, �
 
 상위 요소들 중 static 속성이 아닌 가장 가까운 요소를 기준으로 배치된다. static 속성이 아닌 요소가 존재하지 않는다면 최상위 요소인 \<body\>를 기준으로 배치된다.
 
-대부분 취상위 요소가 아닌, 특정 요소를 기준으로 배치하기 위해 absolute를 사용한다.   
-그러므로 absolute로 설정한 요소의 부모 요소를 relative로 지정해 주는 것이 관례이다.
+기존 배치에서 아예 빠져버리기 때문에, 너비를 따로 지정해두지 않으면 기본적으로 내부 콘텐츠만큼의 너비를 가진다. 그래서 내부 요소도 없고 너비 지정도 되어있지 않으면 화면에 보이지 않으므로 따로 너비 지정을 해주거나 left, right 속성을 둘다 지정해주면 그 사이 간격만큼 너비가 생긴다.
 
 - static이 아닌 상위 요소가 존재할 때
 
@@ -121,7 +125,9 @@ static처럼 원래 있어야 할 위치를 기준으로 배치가 되지만, �
 }
 ```
 
-![](../images/content/2023-10-22-21-56-34.png)
+![](../images/content/2023-10-22-21-56-34.webp)
+
+<div class="source">출처: https://developer.mozilla.org/ko/docs/Web/CSS/position</div>
 
 - static이 아닌 상위 요소가 존재하지 않을 때
 
@@ -155,7 +161,9 @@ static처럼 원래 있어야 할 위치를 기준으로 배치가 되지만, �
 }
 ```
 
-![](../images/content/2023-10-22-21-58-14.png)
+![](../images/content/2023-10-22-21-58-14.webp)
+
+<div class="source">출처: https://developer.mozilla.org/ko/docs/Web/CSS/position</div>
 
 ## fixed
 
@@ -164,6 +172,8 @@ static처럼 원래 있어야 할 위치를 기준으로 배치가 되지만, �
 
 요소를 화면의 특정 부분에 고정시키고 싶을 때 사용한다. 
 사용자에게 보이는 화면을 기준으로 배치되기 때문에, 스크롤해도 밀려나지 않는다.
+
+absolute와 동일하게 기존 배치에서 아예 빠져서 내부 콘텐츠만큼의 너비만 가지므로, 따로 width를 지정하거나 left, right 속성을 둘다 지정해주어야 너비가 생긴다.
 
 <div class="code-header">
 	<span class="red btn"></span>
@@ -257,6 +267,38 @@ sticky 요소에서의 top, right, bottom, left 속성은 처음부터 적용되
 		<div style="display: inline-block; padding: 6px; position: sticky; top: 20px; left: 20px; background: #ff8982;">sticky</div>     
 	</div>
 </div>
+
+---
+
+## inset 속성
+
+> top, right, bottom, left 순서대로 위치를 지정하는 축약식 속성
+
+inset은 top, right, bottom, left 속성을 한번에 지정할 수 있도록 하는 속성이다.   
+margin, padding과 마찬가지로 _상우하좌, 상하/좌우, 상/좌우/하, 상/우/하/좌_ 네가지 방법으로 정의가 가능하다.
+
+```css
+{
+	position: absolute;
+
+	inset: 10px; /* all edges */
+	inset: 4px 8px; /* top,bottom left,right */
+	inset: 5px 15px 10px; /* top left,right bottom */
+	inset: 2.4em 3em 3em 3em; /* top right bottom left */
+}
+```
+
+absolute 속성에서 left, right 속성을 둘 다 지정하면 그 사이 간격만큼 너비가 생기는데 (top, bottom 사이에도 동일하게 높이가 생김), 이걸 이용해서 자식 요소가 부모에 꽉 차게 덮어버리도록 하고 싶으면 top, right, bottom, left를 모두 0으로 주면 되며, **이것을 간단하게 `inset: 0;` 으로 해결 가능하다.**
+
+![](../images/content/2023-10-26-11-40-47.webp)
+
+<div class="source">출처: https://developer.mozilla.org/ko/docs/Web/CSS/position</div>
+
+만약 꽉 차게 하는것이 아닌, 조금 여백을 두고 가운데에 위치하도록 하고 싶으면 `inset: 10px`처럼 간격을 주면 된다.
+
+![](../images/content/2023-10-26-11-41-00.webp)
+
+<div class="source">출처: https://developer.mozilla.org/ko/docs/Web/CSS/position</div>
 
 ## 참고 자료
 
