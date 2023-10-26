@@ -379,7 +379,7 @@ top, right, bottom, left 속성 뿐 아니라 z-index 속성도 아무 영향을
 </ul>
 <p>부모 요소가 스크롤될 때, 자식 요소가 스크롤에 밀려나지 않도록 하기 위해 사용한다.<br>
 초기에는 static처럼 일반적인 문서 흐름대로 위치하고 공간도 그대로 차지하고 있다가, 스크롤이 지정된 위치(top, right, bottom, left로 지정해둔 위치)에 도달하면 그 자리에 fixed처럼 고정된다.<br>
-다만 브라우저를 기준으로 고정되는 fixed와 달리, sticky 요소는 부모 요소의 내부에서만 고정되므로, 화면 전체가 스크롤되어 부모 요소가 밀려나면 그 안의 sticky 또한 밀려나게 된다.</p>
+다만 브라우저를 기준으로 고정되는 fixed와 달리, sticky 요소는 부모 요소의 내부에서만 고정되므로, 부모 요소 자체가 스크롤에 밀려나면 그 안의 sticky 또한 밀려나게 된다.</p>
 <p>sticky 요소에서의 top, right, bottom, left 속성은 처음부터 적용되는 것이 아닌, 스크롤 시 고정될 위치를 지정해준다. top과 bottom은 아래로 스크롤했을 때, right와 left는 좌우로 스크롤했을 때 동작한다.</p>
 <div class="code-header">
 	<span class="red btn"></span>
