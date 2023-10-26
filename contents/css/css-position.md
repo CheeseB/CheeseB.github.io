@@ -290,13 +290,13 @@ margin, padding과 마찬가지로 _상우하좌, 상하/좌우, 상/좌우/하,
 
 absolute 속성에서 left, right 속성을 둘 다 지정하면 그 사이 간격만큼 너비가 생기는데 (top, bottom 사이에도 동일하게 높이가 생김), 이걸 이용해서 자식 요소가 부모에 꽉 차게 덮어버리도록 하고 싶으면 top, right, bottom, left를 모두 0으로 주면 되며, **이것을 간단하게 `inset: 0;` 으로 해결 가능하다.**
 
-![](../images/content/2023-10-26-11-40-47.webp)
+![](../images/content/2023-10-26-12-12-14.webp)
 
 <div class="source">출처: https://developer.mozilla.org/ko/docs/Web/CSS/position</div>
 
 만약 꽉 차게 하는것이 아닌, 조금 여백을 두고 가운데에 위치하도록 하고 싶으면 `inset: 10px`처럼 간격을 주면 된다.
 
-![](../images/content/2023-10-26-11-41-00.webp)
+![](../images/content/2023-10-26-12-12-33.webp)
 
 <div class="source">출처: https://developer.mozilla.org/ko/docs/Web/CSS/position</div>
 
