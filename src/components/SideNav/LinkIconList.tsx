@@ -14,17 +14,13 @@ export const LinkIconList = () => {
         image="/icon/github.svg"
       ></LinkIcon>
       <LinkIcon
-        link="https://www.instagram.com/cheeseb_all/"
+        link="https://www.instagram.com/o_cheeseb_o/"
         image="/icon/instagram.svg"
       ></LinkIcon>
       <LinkIcon
         link="https://cheeseb.github.io/rss"
         image="/icon/rss.svg"
       ></LinkIcon>
-      {/* <LinkIcon
-        link="mailto:2489ckckck@naver.com"
-        image="/icon/email.svg"
-      ></LinkIcon> */}
     </Wrapper>
   );
 };
