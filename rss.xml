@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[개발자맛 치즈볼]]></title><description><![CDATA[주니어 프론트엔드 개발자의 개발일기 입니다.]]></description><link>https://cheeseb.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 01 Nov 2023 07:32:32 GMT</lastBuildDate><author><![CDATA[CheeseB]]></author><item><title><![CDATA[[소소한 개발팁] git add . VS git add *]]></title><description><![CDATA[내가 안 까먹으려고 바로 적어두는 개발 팁]]></description><link>https://cheeseb.github.io/git/git-add-all/</link><guid isPermaLink="false">https://cheeseb.github.io/git/git-add-all/</guid><category><![CDATA[Git]]></category><category><![CDATA[Memo]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Tue, 31 Oct 2023 15:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;git-add--과-git-add--명령어의-차이&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#git-add--%EA%B3%BC-git-add--%EB%AA%85%EB%A0%B9%EC%96%B4%EC%9D%98-%EC%B0%A8%EC%9D%B4&quot; aria-label=&quot;git add  과 git add  명령어의 차이 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;git add . 과 git add * 명령어의 차이&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[개발자맛 치즈볼]]></title><description><![CDATA[주니어 프론트엔드 개발자의 개발일기 입니다.]]></description><link>https://cheeseb.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 01 Nov 2023 09:50:27 GMT</lastBuildDate><author><![CDATA[CheeseB]]></author><item><title><![CDATA[[소소한 개발팁] git add . VS git add *]]></title><description><![CDATA[내가 안 까먹으려고 바로 적어두는 개발 팁]]></description><link>https://cheeseb.github.io/git/git-add-all/</link><guid isPermaLink="false">https://cheeseb.github.io/git/git-add-all/</guid><category><![CDATA[Git]]></category><category><![CDATA[Memo]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Tue, 31 Oct 2023 15:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;git-add--과-git-add--명령어의-차이&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#git-add--%EA%B3%BC-git-add--%EB%AA%85%EB%A0%B9%EC%96%B4%EC%9D%98-%EC%B0%A8%EC%9D%B4&quot; aria-label=&quot;git add  과 git add  명령어의 차이 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;git add . 과 git add * 명령어의 차이&lt;/h2&gt;
 &lt;p&gt;두 명령어 모두 &lt;strong&gt;현재 디렉토리 안의 모든 파일을 add&lt;/strong&gt; 시키지만,&lt;br&gt;
 .gitignore 를 반영하느냐 안하느냐의 차이가 있다.&lt;/p&gt;
 &lt;ul&gt;
@@ -5325,6 +5325,29 @@ To create a production build, use gatsby build&lt;/code&gt;&lt;/pre&gt;&lt;/div&
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;ol이랑 ul 섞어 쓰려면 들여쓰기 두번씩 해야됨&lt;/li&gt;
+&lt;li&gt;순서있는 항목
+&lt;ul&gt;
+&lt;li&gt;그 안에 순서 없는 항목1
+&lt;ul&gt;
+&lt;li&gt;그 안에 또 순서 없는 항목&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;순서 없는 항목2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;순서 있는 항목2
+&lt;ol&gt;
+&lt;li&gt;그 안에 순서 있는 항목1
+&lt;ol&gt;
+&lt;li&gt;그 안에 또 순서 있는 항목&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;그 안에 순서 있는 항목2&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;한줄 &lt;code class=&quot;language-text&quot;&gt;this is code&lt;/code&gt; 코드&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt; is code block&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;div class=&quot;code-header&quot;&gt;
@@ -5338,7 +5361,11 @@ To create a production build, use gatsby build&lt;/code&gt;&lt;/pre&gt;&lt;/div&
 &lt;strong&gt;강조하기&lt;/strong&gt;
 &lt;strong&gt;강조하기&lt;/strong&gt;
 &lt;del&gt;취소선&lt;/del&gt;
-&lt;mark&gt;형광펜 강조&lt;/mark&gt;&lt;/p&gt;
+&lt;em&gt;&lt;strong&gt;기울이면서 강조하기&lt;/strong&gt;&lt;/em&gt;
+&lt;em&gt;&lt;strong&gt;기울이면서 강조하기&lt;/strong&gt;&lt;/em&gt;
+&lt;mark&gt;형광펜 배경&lt;/mark&gt;&lt;/p&gt;
+&lt;p&gt;&lt;sub&gt;아래첨자&lt;/sub&gt;텍스트
+&lt;sup&gt;위첨자&lt;/sup&gt;텍스트&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
