@@ -23,6 +23,10 @@ const defaultStyle = css`
     scroll-behavior: smooth;
   }
 
+  body {
+    overflow: unset !important;
+  }
+
   a,
   a:hover {
     text-decoration: none;
