@@ -33,7 +33,6 @@ const NavigationBar = styled.nav<NavigationOpenProps>`
   overflow-y: scroll;
   background-color: #fff8ee;
   box-shadow: 2px 0px 6px rgba(0, 0, 0, 0.1);
-  -ms-overflow-style: none;
   scrollbar-width: none;
   transition: left 0.5s ease;
 
