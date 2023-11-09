@@ -13,8 +13,6 @@ thumbnail: '../images/thumbnail/javascript.webp'
 객체 내부, 메서드 호출, 생성자 new 호출, 명시적 bind 등등 여러 상황이 있지만   
 이런 상황이 아닐 때 기본적으로 this 는 브라우저에선 window 객체를, 노드에서는 빈 객체를 가리킨다.
 
-<small>리액트에서 찍어봤을때는 undefined가 나왔는데, 리액트도 브라우저에서 동작할텐데 왜 window 가 아닌 undefined가 나오는건지 모르겠다. 아직 리액트에 대한 이해가 부족한 것 같아 이 부분은 좀 더 알아봐야 할 것 같다. (아시는분 댓글좀)</small>
-
 ```js
 function showThis() {
 	console.log(this);
