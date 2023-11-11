@@ -90,7 +90,7 @@ module.exports = {
             options: {
               host: 'https://cheeseb.github.io/',
               sitemap: 'https://cheeseb.github.io/sitemap.xml',
-              policy: [{ userAgent: '*', disallow: ['/private/'] }],
+              policy: [{ userAgent: '*', allow: '/' }],
             },
           },
           {
