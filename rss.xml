@@ -1,19 +1,230 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[개발자맛 치즈볼]]></title><description><![CDATA[주니어 프론트엔드 개발자의 개발일기 입니다.]]></description><link>https://cheeseb.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 29 Dec 2023 18:08:43 GMT</lastBuildDate><author><![CDATA[CheeseB]]></author><item><title><![CDATA[giscus 라이브러리 Fetch Faild 이슈]]></title><description><![CDATA[처음으로 오픈소스 라이브러리 깃허브에 이슈 남긴 썰 푼다]]></description><link>https://cheeseb.github.io/diary/my-first-github-issue/</link><guid isPermaLink="false">https://cheeseb.github.io/diary/my-first-github-issue/</guid><category><![CDATA[Diary]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Fri, 29 Dec 2023 15:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;무슨-이슈였나&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AC%B4%EC%8A%A8-%EC%9D%B4%EC%8A%88%EC%98%80%EB%82%98&quot; aria-label=&quot;무슨 이슈였나 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;무슨 이슈였나&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-12-29-23-57-41.webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[개발자맛 치즈볼]]></title><description><![CDATA[주니어 프론트엔드 개발자의 개발일기 입니다.]]></description><link>https://cheeseb.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 29 Dec 2023 18:20:54 GMT</lastBuildDate><author><![CDATA[CheeseB]]></author><item><title><![CDATA[giscus 라이브러리 Fetch Faild 이슈]]></title><description><![CDATA[처음으로 오픈소스 라이브러리에 이슈를 남겨보았다]]></description><link>https://cheeseb.github.io/diary/my-first-github-issue/</link><guid isPermaLink="false">https://cheeseb.github.io/diary/my-first-github-issue/</guid><category><![CDATA[Diary]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Fri, 29 Dec 2023 15:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;무슨-이슈였나&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AC%B4%EC%8A%A8-%EC%9D%B4%EC%8A%88%EC%98%80%EB%82%98&quot; aria-label=&quot;무슨 이슈였나 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;무슨 이슈였나&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c2398b8067f5d85a85633bbb63e075fe/c95b5/2023-12-30-03-19-43.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 58.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAAAQAwCdASoUAAwAPtFUo0uoJKMhsAgBABoJaQAAetHMMgAA/vIK/OuTBCspjqsV1gAAAA==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/c2398b8067f5d85a85633bbb63e075fe/a59e9/2023-12-30-03-19-43.webp 192w,
+/static/c2398b8067f5d85a85633bbb63e075fe/0ca9f/2023-12-30-03-19-43.webp 384w,
+/static/c2398b8067f5d85a85633bbb63e075fe/dc9b9/2023-12-30-03-19-43.webp 768w,
+/static/c2398b8067f5d85a85633bbb63e075fe/c95b5/2023-12-30-03-19-43.webp 853w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/c2398b8067f5d85a85633bbb63e075fe/a59e9/2023-12-30-03-19-43.webp 192w,
+/static/c2398b8067f5d85a85633bbb63e075fe/0ca9f/2023-12-30-03-19-43.webp 384w,
+/static/c2398b8067f5d85a85633bbb63e075fe/dc9b9/2023-12-30-03-19-43.webp 768w,
+/static/c2398b8067f5d85a85633bbb63e075fe/c95b5/2023-12-30-03-19-43.webp 853w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/c2398b8067f5d85a85633bbb63e075fe/dc9b9/2023-12-30-03-19-43.webp&quot;
+            alt=&quot;2023 12 30 03 19 43&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;div class=&quot;source&quot;&gt;게시글인 척 하는 에러메세지&lt;/div&gt;
 &lt;p&gt;&lt;a href=&quot;https://cheeseb.github.io/blog/github-blog-with-gatsby-ts-index/&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;이전 게시글&lt;/a&gt; 작성을 끝내고 나서 게시글을 확인하니, 난데없이 밑에 &lt;code class=&quot;language-text&quot;&gt;오류 발생:fetch failed&lt;/code&gt; 라는 문구가 생겼다. 마치 게시글의 일부인 것 마냥 자연스럽게 적혀있어서 ‘내가 저런걸 적었던가..?’ 하고 마크다운을 다시 확인했는데 당연히 저런게 있을리는 없었다.&lt;/p&gt;
 &lt;p&gt;뭔가 허전해서 잘 살펴보니 원래 저 자리에 있었던 댓글 라이브러리인 &lt;a href=&quot;https://giscus.app&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;Giscus&lt;/a&gt;에서 오류가 발생한 것이었다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-12-30-00-17-39.webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/dee5f1db9c3e4006098a67768dc6430f/88479/2023-12-30-00-17-39.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 69.79166666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACQAwCdASoUAA4APtFUo0uoJKMhsAgBABoJaQAAXBuV7xKwiPwAAP71G88Ync2RtqvUf2GjfaRIu8/F4S1esAAA&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/dee5f1db9c3e4006098a67768dc6430f/a59e9/2023-12-30-00-17-39.webp 192w,
+/static/dee5f1db9c3e4006098a67768dc6430f/0ca9f/2023-12-30-00-17-39.webp 384w,
+/static/dee5f1db9c3e4006098a67768dc6430f/dc9b9/2023-12-30-00-17-39.webp 768w,
+/static/dee5f1db9c3e4006098a67768dc6430f/88479/2023-12-30-00-17-39.webp 980w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/dee5f1db9c3e4006098a67768dc6430f/a59e9/2023-12-30-00-17-39.webp 192w,
+/static/dee5f1db9c3e4006098a67768dc6430f/0ca9f/2023-12-30-00-17-39.webp 384w,
+/static/dee5f1db9c3e4006098a67768dc6430f/dc9b9/2023-12-30-00-17-39.webp 768w,
+/static/dee5f1db9c3e4006098a67768dc6430f/88479/2023-12-30-00-17-39.webp 980w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/dee5f1db9c3e4006098a67768dc6430f/dc9b9/2023-12-30-00-17-39.webp&quot;
+            alt=&quot;2023 12 30 00 17 39&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;div class=&quot;source&quot;&gt;원래는 이렇게 댓글창 떠야됨 (출처: https://jojoldu.tistory.com/704)&lt;/div&gt;
 &lt;p&gt;처음엔 라이브러리가 업데이트 되었다거나 하는 이유로, 코드를 수정해서 다시 적용해야 하는건가 싶었지만 그런건 아니었다. 검색해봐도 딱히 나오는건 없어서 에러 메세지에 나온 대로 &lt;a href=&quot;https://github.com/giscus/giscus/issues&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;이슈 페이지&lt;/a&gt;에 들어가 보았더니 다행히도 &lt;a href=&quot;https://github.com/giscus/giscus/issues/1250&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;동일한 문제에 대해서 이슈&lt;/a&gt;를 올린 분이 있었다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-12-30-00-26-04.webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-12-30-00-32-55.webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 455px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b562b8fc62a1019bc981205100256841/e2468/2023-12-30-00-26-04.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 58.854166666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAACwAwCdASoUAAwAPtFUo0uoJKMhsAgBABoJZwAAUrjdfVm8qhCYAAD+8DnESMC+SuIBdfUPSFVBNyCMRVF4wh0tYy8kKT0y4XTtWCURDTLvAAAA&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/b562b8fc62a1019bc981205100256841/a59e9/2023-12-30-00-26-04.webp 192w,
+/static/b562b8fc62a1019bc981205100256841/0ca9f/2023-12-30-00-26-04.webp 384w,
+/static/b562b8fc62a1019bc981205100256841/e2468/2023-12-30-00-26-04.webp 455w&quot;
+              sizes=&quot;(max-width: 455px) 100vw, 455px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/b562b8fc62a1019bc981205100256841/a59e9/2023-12-30-00-26-04.webp 192w,
+/static/b562b8fc62a1019bc981205100256841/0ca9f/2023-12-30-00-26-04.webp 384w,
+/static/b562b8fc62a1019bc981205100256841/e2468/2023-12-30-00-26-04.webp 455w&quot;
+            sizes=&quot;(max-width: 455px) 100vw, 455px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/b562b8fc62a1019bc981205100256841/e2468/2023-12-30-00-26-04.webp&quot;
+            alt=&quot;2023 12 30 00 26 04&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 698px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d24fa75a867b76bcc9ef88439e179520/52634/2023-12-30-00-32-55.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 69.79166666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAABQAwCdASoUAA4APtFUo0uoJKMhsAgBABoJaQAAXBuLIypngAD+9RFUL11FQEHy16qGNzvuJ3Mo/wrAAAA=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/d24fa75a867b76bcc9ef88439e179520/a59e9/2023-12-30-00-32-55.webp 192w,
+/static/d24fa75a867b76bcc9ef88439e179520/0ca9f/2023-12-30-00-32-55.webp 384w,
+/static/d24fa75a867b76bcc9ef88439e179520/52634/2023-12-30-00-32-55.webp 698w&quot;
+              sizes=&quot;(max-width: 698px) 100vw, 698px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/d24fa75a867b76bcc9ef88439e179520/a59e9/2023-12-30-00-32-55.webp 192w,
+/static/d24fa75a867b76bcc9ef88439e179520/0ca9f/2023-12-30-00-32-55.webp 384w,
+/static/d24fa75a867b76bcc9ef88439e179520/52634/2023-12-30-00-32-55.webp 698w&quot;
+            sizes=&quot;(max-width: 698px) 100vw, 698px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/d24fa75a867b76bcc9ef88439e179520/52634/2023-12-30-00-32-55.webp&quot;
+            alt=&quot;2023 12 30 00 32 55&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;div class=&quot;source&quot;&gt;Open상태의 이슈 1개는 내가 올린거임&lt;/div&gt;
 &lt;p&gt;이슈에 올라온 개발자의 메세지를 번역하니 다음과 같았다.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;토큰을 캐시하는 데 사용하는 컴퓨팅 인스턴스가 어떤 이유로 오늘 아침 응답하지 않게 되었습니다. 새 서비스를 만들고 서비스 경로를 다시 지정했습니다. 이제 괜찮을 것입니다. 신고해 주셔서 감사합니다 &lt;br/&gt; - laymonage&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-12-30-00-39-12.webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f39ab6d148659a078c381fce43207493/db205/2023-12-30-00-39-12.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 27.083333333333332%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAAAQAwCdASoUAAUAPtFUo0uoJKMhsAgBABoJaQAAUqEloAAA/vPtqwzKinkb5i89sL6FgAAA&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/f39ab6d148659a078c381fce43207493/a59e9/2023-12-30-00-39-12.webp 192w,
+/static/f39ab6d148659a078c381fce43207493/0ca9f/2023-12-30-00-39-12.webp 384w,
+/static/f39ab6d148659a078c381fce43207493/dc9b9/2023-12-30-00-39-12.webp 768w,
+/static/f39ab6d148659a078c381fce43207493/db205/2023-12-30-00-39-12.webp 1143w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/f39ab6d148659a078c381fce43207493/a59e9/2023-12-30-00-39-12.webp 192w,
+/static/f39ab6d148659a078c381fce43207493/0ca9f/2023-12-30-00-39-12.webp 384w,
+/static/f39ab6d148659a078c381fce43207493/dc9b9/2023-12-30-00-39-12.webp 768w,
+/static/f39ab6d148659a078c381fce43207493/db205/2023-12-30-00-39-12.webp 1143w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/f39ab6d148659a078c381fce43207493/dc9b9/2023-12-30-00-39-12.webp&quot;
+            alt=&quot;2023 12 30 00 39 12&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;그렇다.. 이건 나의 개발 실수도, 라이브러리 업데이트도 아닌 라이브러리 자체에 오류가 발생한 것이었다.&lt;br&gt;
 지금껏 개발을 하면서 이런 경우는 처음이었기에 라이브러리 자체에 문제가 있을 거라고는 생각도 못하고 있었다. 이 이슈를 보기 전까지는 말이다.&lt;/p&gt;
 &lt;h2 id=&quot;새로운-이슈를-올린-이유&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%83%88%EB%A1%9C%EC%9A%B4-%EC%9D%B4%EC%8A%88%EB%A5%BC-%EC%98%AC%EB%A6%B0-%EC%9D%B4%EC%9C%A0&quot; aria-label=&quot;새로운 이슈를 올린 이유 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;새로운 이슈를 올린 이유&lt;/h2&gt;
@@ -21,14 +232,141 @@
 &lt;p&gt;Happened again..!&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;여기서 매우 반가웠던 점이, 내가 이 이슈를 읽기 8분 전에 동일한 이슈가 다시 발생했다고 댓글을 남긴 분이 있었다는 것이다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-12-30-00-52-45.webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/781e5d0b8bd94f095d21e8c8033ae2d8/4c2fa/2023-12-30-00-52-45.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 28.645833333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADwAgCdASoUAAYAPtFUo0uoJKMhsAgBABoJaQAAetvwYAD+8lmDJJVQIBaHhpgsZfjpySfodFQAAA==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/781e5d0b8bd94f095d21e8c8033ae2d8/a59e9/2023-12-30-00-52-45.webp 192w,
+/static/781e5d0b8bd94f095d21e8c8033ae2d8/0ca9f/2023-12-30-00-52-45.webp 384w,
+/static/781e5d0b8bd94f095d21e8c8033ae2d8/dc9b9/2023-12-30-00-52-45.webp 768w,
+/static/781e5d0b8bd94f095d21e8c8033ae2d8/e2c2f/2023-12-30-00-52-45.webp 1152w,
+/static/781e5d0b8bd94f095d21e8c8033ae2d8/4c2fa/2023-12-30-00-52-45.webp 1227w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/781e5d0b8bd94f095d21e8c8033ae2d8/a59e9/2023-12-30-00-52-45.webp 192w,
+/static/781e5d0b8bd94f095d21e8c8033ae2d8/0ca9f/2023-12-30-00-52-45.webp 384w,
+/static/781e5d0b8bd94f095d21e8c8033ae2d8/dc9b9/2023-12-30-00-52-45.webp 768w,
+/static/781e5d0b8bd94f095d21e8c8033ae2d8/e2c2f/2023-12-30-00-52-45.webp 1152w,
+/static/781e5d0b8bd94f095d21e8c8033ae2d8/4c2fa/2023-12-30-00-52-45.webp 1227w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/781e5d0b8bd94f095d21e8c8033ae2d8/dc9b9/2023-12-30-00-52-45.webp&quot;
+            alt=&quot;2023 12 30 00 52 45&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;div class=&quot;source&quot;&gt;캡처를 나중에 해서 2시간 전으로 나오지만, 이슈를 확인했을 당시엔 8분 전으로 떴었다&lt;/div&gt;
 &lt;p&gt;여기에 댓글이 달렸으니 개발자님이 고쳐주시겠지 하고 넘어가려 했으나, 문득 closed된 이슈에는 댓글을 달아도 메일이 오지 않았던 게 생각이 났다.&lt;br&gt;
 그래서 차라리 이 이슈를 멘션한 새로운 이슈를 남겨서 개발자 님에게 오류 발생 사실을 알려야겠다고 생각했다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-12-30-01-03-21.webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 649px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b23039f5f8e73490311efe75efdccc62/d9dbb/2023-12-30-01-03-21.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 67.70833333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACQAwCdASoUAA4APtFUo0uoJKMhsAgBABoJZwAAYf2QvVznfcQAAP7ri9SHbR7MrXKTbpYG4FDIOn1r/bDizBRLP0vR4AAA&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/b23039f5f8e73490311efe75efdccc62/a59e9/2023-12-30-01-03-21.webp 192w,
+/static/b23039f5f8e73490311efe75efdccc62/0ca9f/2023-12-30-01-03-21.webp 384w,
+/static/b23039f5f8e73490311efe75efdccc62/d9dbb/2023-12-30-01-03-21.webp 649w&quot;
+              sizes=&quot;(max-width: 649px) 100vw, 649px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/b23039f5f8e73490311efe75efdccc62/a59e9/2023-12-30-01-03-21.webp 192w,
+/static/b23039f5f8e73490311efe75efdccc62/0ca9f/2023-12-30-01-03-21.webp 384w,
+/static/b23039f5f8e73490311efe75efdccc62/d9dbb/2023-12-30-01-03-21.webp 649w&quot;
+            sizes=&quot;(max-width: 649px) 100vw, 649px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/b23039f5f8e73490311efe75efdccc62/d9dbb/2023-12-30-01-03-21.webp&quot;
+            alt=&quot;2023 12 30 01 03 21&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;다행히 그냥 이전의 이슈를 멘션하고 ‘happened again’ 이라고만 해도 돼서 나의 보잘것 없는 영어실력이 발목을 잡는 일은 없었다.&lt;/p&gt;
 &lt;p&gt;그리고 이슈를 올린지 5분도 채 지나지 않아, 동일한 문제를 겪고 있는 분들이 댓글을 달아주었다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-12-30-01-08-21.webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 410px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6f79aa77d97e6b405bd4a28086d82b9b/a233f/2023-12-30-01-08-21.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 158.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAACwBACdASoUACAAPtFUokuoJKMhsAgBABoJaQAAW++LPxE+8FBXxfIRa2BmLpAAAP7zzWPh5d2AwgKTP1vHSVYOug6xyeKK9Dp2/WMjOvG52jUzozn1EUWFX9LX07/hBh6jtJwPyzB7tKEAAAA=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/6f79aa77d97e6b405bd4a28086d82b9b/a59e9/2023-12-30-01-08-21.webp 192w,
+/static/6f79aa77d97e6b405bd4a28086d82b9b/0ca9f/2023-12-30-01-08-21.webp 384w,
+/static/6f79aa77d97e6b405bd4a28086d82b9b/a233f/2023-12-30-01-08-21.webp 410w&quot;
+              sizes=&quot;(max-width: 410px) 100vw, 410px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/6f79aa77d97e6b405bd4a28086d82b9b/a59e9/2023-12-30-01-08-21.webp 192w,
+/static/6f79aa77d97e6b405bd4a28086d82b9b/0ca9f/2023-12-30-01-08-21.webp 384w,
+/static/6f79aa77d97e6b405bd4a28086d82b9b/a233f/2023-12-30-01-08-21.webp 410w&quot;
+            sizes=&quot;(max-width: 410px) 100vw, 410px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/6f79aa77d97e6b405bd4a28086d82b9b/a233f/2023-12-30-01-08-21.webp&quot;
+            alt=&quot;2023 12 30 01 08 21&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;div class=&quot;source&quot;&gt;이분들도 얼마나 답답했을까ㅋㅋ..&lt;/div&gt;
 &lt;h2 id=&quot;개발자의-답변&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%9C%EB%B0%9C%EC%9E%90%EC%9D%98-%EB%8B%B5%EB%B3%80&quot; aria-label=&quot;개발자의 답변 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;개발자의 답변&lt;/h2&gt;
 &lt;p&gt;얼마 지나지 않아, 개발자 님에게서 답변이 달렸다.&lt;br&gt;
@@ -36,11 +374,97 @@
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;이 문제에 대해 인지하고 있지만, 지금 휴가 중이고 노트북이 없기 때문에 1월 2일까지는 문제를 해결하지 못할 것 같습니다. &lt;br/&gt; - laymonage&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-12-30-01-10-44.webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/24c61f9b488816e8060f56fb773e3905/b4f90/2023-12-30-01-10-44.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 18.75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAAAQAwCdASoUAAQAPtFUo0uoJKMhsAgBABoJaQAAettbQAAA/vJZgMmzL4F7AAAA&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/24c61f9b488816e8060f56fb773e3905/a59e9/2023-12-30-01-10-44.webp 192w,
+/static/24c61f9b488816e8060f56fb773e3905/0ca9f/2023-12-30-01-10-44.webp 384w,
+/static/24c61f9b488816e8060f56fb773e3905/dc9b9/2023-12-30-01-10-44.webp 768w,
+/static/24c61f9b488816e8060f56fb773e3905/b4f90/2023-12-30-01-10-44.webp 1147w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/24c61f9b488816e8060f56fb773e3905/a59e9/2023-12-30-01-10-44.webp 192w,
+/static/24c61f9b488816e8060f56fb773e3905/0ca9f/2023-12-30-01-10-44.webp 384w,
+/static/24c61f9b488816e8060f56fb773e3905/dc9b9/2023-12-30-01-10-44.webp 768w,
+/static/24c61f9b488816e8060f56fb773e3905/b4f90/2023-12-30-01-10-44.webp 1147w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/24c61f9b488816e8060f56fb773e3905/dc9b9/2023-12-30-01-10-44.webp&quot;
+            alt=&quot;2023 12 30 01 10 44&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;뜬금없이 giscus 개발자의 휴가 소식을 알게 되었다.
 &lt;small&gt;&lt;del&gt;노트북 없는 연말 휴가 개부럽네&lt;/del&gt;&lt;/small&gt;&lt;/p&gt;
 &lt;p&gt;아무튼 짧은 감사 인사를 남기고, 이후에 이어진 다른 개발자의 문의사항에 파파고의 힘을 빌려 답변을 남겨주고 마무리 했다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-12-30-01-17-00.webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/48d10e0b69a6621a604cbffa1fc8f816/e2c2f/2023-12-30-01-17-00.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 68.75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAAAQAwCdASoUAA4APtFUo0uoJKMhsAgBABoJaQAAetEOVwAA/vHOu/FB7sK/nXMA94TbKZSdKatuCDuQP4AAAA==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/48d10e0b69a6621a604cbffa1fc8f816/a59e9/2023-12-30-01-17-00.webp 192w,
+/static/48d10e0b69a6621a604cbffa1fc8f816/0ca9f/2023-12-30-01-17-00.webp 384w,
+/static/48d10e0b69a6621a604cbffa1fc8f816/dc9b9/2023-12-30-01-17-00.webp 768w,
+/static/48d10e0b69a6621a604cbffa1fc8f816/e2c2f/2023-12-30-01-17-00.webp 1152w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/48d10e0b69a6621a604cbffa1fc8f816/a59e9/2023-12-30-01-17-00.webp 192w,
+/static/48d10e0b69a6621a604cbffa1fc8f816/0ca9f/2023-12-30-01-17-00.webp 384w,
+/static/48d10e0b69a6621a604cbffa1fc8f816/dc9b9/2023-12-30-01-17-00.webp 768w,
+/static/48d10e0b69a6621a604cbffa1fc8f816/e2c2f/2023-12-30-01-17-00.webp 1152w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/48d10e0b69a6621a604cbffa1fc8f816/dc9b9/2023-12-30-01-17-00.webp&quot;
+            alt=&quot;2023 12 30 01 17 00&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;div class=&quot;source&quot;&gt;오늘 처음 라이브러리를 사용했는데 이 에러가 떴다 하심ㅋㅋㅋ..&lt;/div&gt;
 &lt;h2 id=&quot;깨달은-점&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B9%A8%EB%8B%AC%EC%9D%80-%EC%A0%90&quot; aria-label=&quot;깨달은 점 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;깨달은 점&lt;/h2&gt;
 &lt;h3 id=&quot;1-발생했던-이슈와-해결법은-잘-기록해놓자&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EB%B0%9C%EC%83%9D%ED%96%88%EB%8D%98-%EC%9D%B4%EC%8A%88%EC%99%80-%ED%95%B4%EA%B2%B0%EB%B2%95%EC%9D%80-%EC%9E%98-%EA%B8%B0%EB%A1%9D%ED%95%B4%EB%86%93%EC%9E%90&quot; aria-label=&quot;1 발생했던 이슈와 해결법은 잘 기록해놓자 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 발생했던 이슈와 해결법은 잘 기록해놓자&lt;/h3&gt;
@@ -49,9 +473,95 @@
 &lt;h3 id=&quot;2-에러를-띄울-땐-어느-정도의-성의는-보이자&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-%EC%97%90%EB%9F%AC%EB%A5%BC-%EB%9D%84%EC%9A%B8-%EB%95%90-%EC%96%B4%EB%8A%90-%EC%A0%95%EB%8F%84%EC%9D%98-%EC%84%B1%EC%9D%98%EB%8A%94-%EB%B3%B4%EC%9D%B4%EC%9E%90&quot; aria-label=&quot;2 에러를 띄울 땐 어느 정도의 성의는 보이자 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. 에러를 띄울 땐 어느 정도의 성의는 보이자&lt;/h3&gt;
 &lt;p&gt;솔직히 개발자님에게 좀 아쉬웠던게, 라이브러리 자체 에러가 발생했을 때 그걸 좀 더 명확하게 표시해 주셨으면 했던 점이다. 초반에 보여준 것처럼, 그저 ‘오류발생: fetch failed’ 라는 텍스트만 보이니까 블로그 개발자 입장에서도 이게 난데없이 어디서 나온 에러인지 한눈에 파악하기도 어렵고, 블로그를 읽는 사람들도 이게 뭐지 싶었을 것이다.&lt;/p&gt;
 &lt;h4 id=&quot;라이브러리-오류의-또다른-피해자들&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%98%A4%EB%A5%98%EC%9D%98-%EB%98%90%EB%8B%A4%EB%A5%B8-%ED%94%BC%ED%95%B4%EC%9E%90%EB%93%A4&quot; aria-label=&quot;라이브러리 오류의 또다른 피해자들 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;라이브러리 오류의 또다른 피해자들..&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-12-30-00-11-42.webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e517dd72c6d489750a123d2fb4fb7861/f5889/2023-12-30-00-11-42.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 77.08333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAACwAwCdASoUAA8APtFUpEuoJKOhsAgBABoJZwAASonesf5an+KTgAD+9N/CZODPWqEKaZCXwuOjC59jRmiAd/0KvbiajyHqRTLHNwcd/+Z/+UviIlX0ccONpTjrHAAA&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/e517dd72c6d489750a123d2fb4fb7861/a59e9/2023-12-30-00-11-42.webp 192w,
+/static/e517dd72c6d489750a123d2fb4fb7861/0ca9f/2023-12-30-00-11-42.webp 384w,
+/static/e517dd72c6d489750a123d2fb4fb7861/dc9b9/2023-12-30-00-11-42.webp 768w,
+/static/e517dd72c6d489750a123d2fb4fb7861/f5889/2023-12-30-00-11-42.webp 862w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/e517dd72c6d489750a123d2fb4fb7861/a59e9/2023-12-30-00-11-42.webp 192w,
+/static/e517dd72c6d489750a123d2fb4fb7861/0ca9f/2023-12-30-00-11-42.webp 384w,
+/static/e517dd72c6d489750a123d2fb4fb7861/dc9b9/2023-12-30-00-11-42.webp 768w,
+/static/e517dd72c6d489750a123d2fb4fb7861/f5889/2023-12-30-00-11-42.webp 862w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/e517dd72c6d489750a123d2fb4fb7861/dc9b9/2023-12-30-00-11-42.webp&quot;
+            alt=&quot;2023 12 30 00 11 42&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;div class=&quot;source&quot;&gt;향로님도 당해버리심.. (출처: https://jojoldu.tistory.com/704)&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-12-30-00-10-08.webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8ed416eac0af45a59aeadb135a2ea175/fb5d2/2023-12-30-00-10-08.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.208333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACwAgCdASoUAAsAPtFUo0uoJKMhsAgBABoJaQAAeyAA/vJZX5sFLbQA&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/8ed416eac0af45a59aeadb135a2ea175/a59e9/2023-12-30-00-10-08.webp 192w,
+/static/8ed416eac0af45a59aeadb135a2ea175/0ca9f/2023-12-30-00-10-08.webp 384w,
+/static/8ed416eac0af45a59aeadb135a2ea175/dc9b9/2023-12-30-00-10-08.webp 768w,
+/static/8ed416eac0af45a59aeadb135a2ea175/fb5d2/2023-12-30-00-10-08.webp 920w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/8ed416eac0af45a59aeadb135a2ea175/a59e9/2023-12-30-00-10-08.webp 192w,
+/static/8ed416eac0af45a59aeadb135a2ea175/0ca9f/2023-12-30-00-10-08.webp 384w,
+/static/8ed416eac0af45a59aeadb135a2ea175/dc9b9/2023-12-30-00-10-08.webp 768w,
+/static/8ed416eac0af45a59aeadb135a2ea175/fb5d2/2023-12-30-00-10-08.webp 920w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/8ed416eac0af45a59aeadb135a2ea175/dc9b9/2023-12-30-00-10-08.webp&quot;
+            alt=&quot;2023 12 30 00 10 08&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;div class=&quot;source&quot;&gt;giscus 공식 페이지도 똑같음ㅋㅋ (출처: https://giscus.app)&lt;/div&gt;
 &lt;h4 id=&quot;내가-만들어본-giscuss-에러창&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%82%B4%EA%B0%80-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B8-giscuss-%EC%97%90%EB%9F%AC%EC%B0%BD&quot; aria-label=&quot;내가 만들어본 giscuss 에러창 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;내가 만들어본 giscuss 에러창&lt;/h4&gt;
 &lt;p&gt;아쉬운 마음에 피그마로 대강 giscuss 에러창을 만들어봤다.&lt;br&gt;
@@ -59,12 +569,100 @@
 &lt;ul&gt;
 &lt;li&gt;버전 1&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-12-30-02-22-02.webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d3d11903dd52f758fce56f5472bab67c/366a2/2023-12-30-02-22-02.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 39.0625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACwAgCdASoUAAgAPtFUo0uoJKMhsAgBABoJaQAAeyAA/vJUr07YmqQzucIe/hskFMkkgBAA&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/d3d11903dd52f758fce56f5472bab67c/a59e9/2023-12-30-02-22-02.webp 192w,
+/static/d3d11903dd52f758fce56f5472bab67c/0ca9f/2023-12-30-02-22-02.webp 384w,
+/static/d3d11903dd52f758fce56f5472bab67c/dc9b9/2023-12-30-02-22-02.webp 768w,
+/static/d3d11903dd52f758fce56f5472bab67c/366a2/2023-12-30-02-22-02.webp 914w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/d3d11903dd52f758fce56f5472bab67c/a59e9/2023-12-30-02-22-02.webp 192w,
+/static/d3d11903dd52f758fce56f5472bab67c/0ca9f/2023-12-30-02-22-02.webp 384w,
+/static/d3d11903dd52f758fce56f5472bab67c/dc9b9/2023-12-30-02-22-02.webp 768w,
+/static/d3d11903dd52f758fce56f5472bab67c/366a2/2023-12-30-02-22-02.webp 914w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/d3d11903dd52f758fce56f5472bab67c/dc9b9/2023-12-30-02-22-02.webp&quot;
+            alt=&quot;2023 12 30 02 22 02&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;div class=&quot;source&quot;&gt;뭔가 너무 404 에러페이지같아서 패스&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;버전 2&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;../images/content/2023-12-30-02-25-57.webp&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e08581c46016f487e3b434078bd128d9/3cb73/2023-12-30-02-25-57.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 21.354166666666668%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADwAgCdASoUAAQAPtFWo0uoJKMhsAgBABoJZwAAidn+AAD+8hTxGdE5sQOKsi88yyzBRgAA&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/e08581c46016f487e3b434078bd128d9/a59e9/2023-12-30-02-25-57.webp 192w,
+/static/e08581c46016f487e3b434078bd128d9/0ca9f/2023-12-30-02-25-57.webp 384w,
+/static/e08581c46016f487e3b434078bd128d9/dc9b9/2023-12-30-02-25-57.webp 768w,
+/static/e08581c46016f487e3b434078bd128d9/e2c2f/2023-12-30-02-25-57.webp 1152w,
+/static/e08581c46016f487e3b434078bd128d9/3cb73/2023-12-30-02-25-57.webp 1196w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/e08581c46016f487e3b434078bd128d9/a59e9/2023-12-30-02-25-57.webp 192w,
+/static/e08581c46016f487e3b434078bd128d9/0ca9f/2023-12-30-02-25-57.webp 384w,
+/static/e08581c46016f487e3b434078bd128d9/dc9b9/2023-12-30-02-25-57.webp 768w,
+/static/e08581c46016f487e3b434078bd128d9/e2c2f/2023-12-30-02-25-57.webp 1152w,
+/static/e08581c46016f487e3b434078bd128d9/3cb73/2023-12-30-02-25-57.webp 1196w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/e08581c46016f487e3b434078bd128d9/dc9b9/2023-12-30-02-25-57.webp&quot;
+            alt=&quot;2023 12 30 02 25 57&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;div class=&quot;source&quot;&gt;이것도 뭔가 이상함&lt;/div&gt;
 &lt;blockquote&gt;
 &lt;p&gt;그냥 개발이나 열심히 하자..&lt;/p&gt;
