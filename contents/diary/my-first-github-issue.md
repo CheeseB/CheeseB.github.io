@@ -2,13 +2,13 @@
 date: '2023-12-30'
 title: 'giscus 라이브러리 Fetch Faild 이슈'
 categories: ['Diary']
-summary: '처음으로 오픈소스 라이브러리 깃허브에 이슈 남긴 썰 푼다'
+summary: '처음으로 오픈소스 라이브러리에 이슈를 남겨보았다'
 thumbnail: '../images/thumbnail/cheeseball.webp'
 ---
 
 ## 무슨 이슈였나
 
-![](../images/content/2023-12-29-23-57-41.webp)
+![](../images/content/2023-12-30-03-19-43.webp)
 
 <div class="source">게시글인 척 하는 에러메세지</div>
 
