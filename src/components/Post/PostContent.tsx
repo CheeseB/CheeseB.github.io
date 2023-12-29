@@ -45,7 +45,7 @@ const MarkdownRenderer = styled.div`
     margin: 16px 0;
   }
 
-  img {
+  .gatsby-resp-image-wrapper {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   }
 
