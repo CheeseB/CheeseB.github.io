@@ -1,5 +1,5 @@
 ---
-date: '2023-12-29'
+date: '2023-12-28'
 title: 'Gatsby와 Typescript로 깃허브 블로그 만들기(3) - 작업내용 정리'
 categories: ['Blog', 'Gatsby']
 summary: '블로그 개발일지'
