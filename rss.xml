@@ -1,4 +1,90 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[개발자맛 치즈볼]]></title><description><![CDATA[주니어 프론트엔드 개발자의 개발일기 입니다.]]></description><link>https://cheeseb.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 29 Dec 2023 18:20:54 GMT</lastBuildDate><author><![CDATA[CheeseB]]></author><item><title><![CDATA[giscus 라이브러리 Fetch Faild 이슈]]></title><description><![CDATA[처음으로 오픈소스 라이브러리에 이슈를 남겨보았다]]></description><link>https://cheeseb.github.io/diary/my-first-github-issue/</link><guid isPermaLink="false">https://cheeseb.github.io/diary/my-first-github-issue/</guid><category><![CDATA[Diary]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Fri, 29 Dec 2023 15:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;무슨-이슈였나&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AC%B4%EC%8A%A8-%EC%9D%B4%EC%8A%88%EC%98%80%EB%82%98&quot; aria-label=&quot;무슨 이슈였나 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;무슨 이슈였나&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[개발자맛 치즈볼]]></title><description><![CDATA[주니어 프론트엔드 개발자의 개발일기 입니다.]]></description><link>https://cheeseb.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 30 Dec 2023 01:54:01 GMT</lastBuildDate><author><![CDATA[CheeseB]]></author><item><title><![CDATA[Gatsby와 Typescript로 깃허브 블로그 만들기(3) - 작업내용 정리]]></title><description><![CDATA[블로그 개발일지]]></description><link>https://cheeseb.github.io/blog/github-blog-with-gatsby-ts-index/</link><guid isPermaLink="false">https://cheeseb.github.io/blog/github-blog-with-gatsby-ts-index/</guid><category><![CDATA[Blog]]></category><category><![CDATA[Gatsby]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Thu, 28 Dec 2023 15:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://cheeseb.github.io/blog/github-blog-with-gatsby-ts-project-structure-and-setting/&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;기술블로그 개발일지 2편&lt;/a&gt;을 작성한지 8개월이 지났다..
+어떻게 만들었는지는 까먹은지 오래고, 추가 기능과 고칠 부분들은 정리만 해놓고 방치되었다🥲&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 587px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ea6394d6b6fb7fa29254772bb86b30c4/55ce4/2023-12-27-22-36-07.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 59.375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAgCdASoUAAwAPtFWo0uoJKMhsAgBABoJaQAAetCIAAD+8dGkgn2nSPKtRSX0isjqfjF8AAA=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/ea6394d6b6fb7fa29254772bb86b30c4/a59e9/2023-12-27-22-36-07.webp 192w,
+/static/ea6394d6b6fb7fa29254772bb86b30c4/0ca9f/2023-12-27-22-36-07.webp 384w,
+/static/ea6394d6b6fb7fa29254772bb86b30c4/55ce4/2023-12-27-22-36-07.webp 587w&quot;
+              sizes=&quot;(max-width: 587px) 100vw, 587px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/ea6394d6b6fb7fa29254772bb86b30c4/a59e9/2023-12-27-22-36-07.webp 192w,
+/static/ea6394d6b6fb7fa29254772bb86b30c4/0ca9f/2023-12-27-22-36-07.webp 384w,
+/static/ea6394d6b6fb7fa29254772bb86b30c4/55ce4/2023-12-27-22-36-07.webp 587w&quot;
+            sizes=&quot;(max-width: 587px) 100vw, 587px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/ea6394d6b6fb7fa29254772bb86b30c4/55ce4/2023-12-27-22-36-07.webp&quot;
+            alt=&quot;2023 12 27 22 36 07&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;div class=&quot;source&quot;&gt;작성한지 오래인 투두리스트&lt;/div&gt;
+&lt;p&gt;핑계를 대자면 그동안 회사에 있을때도, 퇴사한 후에도 이것저것 일이 많아서 계속 미뤄놓고 있다가 결국 코드를 다 까먹어서 다시 작성할 엄두를 못 내고 있었다..&lt;br&gt;
+그러다 현재 참여하고 있는 코드잇 스프린트 부트캠프에서 블로그 개발 스터디를 하게 되어서 다시 개발일지를 마저 작성하려고 한다.&lt;/p&gt;
+&lt;p&gt;이 게시글은 본격적으로 개발일지를 작성하기 전, 어떤 작업을 했는지 정리해 보려고 올리는 글이다. 아직 개발일지를 다 작성하지 않은 지금은 내가 어떤 글을 쓸지 계획할 용도이고, 다 작성한 후에는 목차의 역할을 하게 될 것이다.&lt;/p&gt;
+&lt;h2 id=&quot;작업-내용&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9E%91%EC%97%85-%EB%82%B4%EC%9A%A9&quot; aria-label=&quot;작업 내용 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;작업 내용&lt;/h2&gt;
+&lt;p&gt;&lt;small&gt;디자인에 관한 내용은 최대한 배제하고 개발 과정에 대해서만 정리했다.&lt;/small&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Gatsby 개념 공부와 프로젝트 생성 (&lt;a href=&quot;https://cheeseb.github.io/blog/github-blog-with-gatsby-ts-basic/&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;링크&lt;/a&gt;)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;프로젝트 초기 세팅 및 폴더구조 정리 (&lt;a href=&quot;https://cheeseb.github.io/blog/github-blog-with-gatsby-ts-project-structure-and-setting/&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;링크&lt;/a&gt;)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;헤더와 사이드바&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;프로필 영역 / 카테고리 내비게이션&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;메인페이지&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;이미지 배너 / 게시글 목록&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;게시글 상세페이지&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;상단 헤더 / 컨텐츠 / 목차&lt;/li&gt;
+&lt;li&gt;댓글 라이브러리&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SEO&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Meta Tag / Canonical Link Element&lt;/li&gt;
+&lt;li&gt;Sitemap / robots.txt&lt;/li&gt;
+&lt;li&gt;Google Search Console / Google Analytics&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;그외 작업사항&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;404 에러페이지&lt;/li&gt;
+&lt;li&gt;Github Pages 배포&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;만들 당시에는 뭔가 이것저것 많이 했던 것 같은데, 막상 정리하고 보니 별 건 없어 보인다.&lt;/p&gt;
+&lt;p&gt;사실 오래전에 개발했던 블로그에 대해 이렇게 개발 일지를 마저 작성하는 게 과연 의미가 있을까 하는 생각도 들었지만, 앞으로 블로그에 추가하고 보완할 부분들도 많은데 기존에 작성한 코드를 이해하고 있어야 하는 건 당연하기 때문에 어차피 코드 분석도 할 겸 개발 일지로 정리해 놓기로 했다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[giscus 라이브러리 Fetch Faild 이슈]]></title><description><![CDATA[처음으로 오픈소스 라이브러리에 이슈를 남겨보았다]]></description><link>https://cheeseb.github.io/diary/my-first-github-issue/</link><guid isPermaLink="false">https://cheeseb.github.io/diary/my-first-github-issue/</guid><category><![CDATA[Diary]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Thu, 28 Dec 2023 15:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;무슨-이슈였나&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AC%B4%EC%8A%A8-%EC%9D%B4%EC%8A%88%EC%98%80%EB%82%98&quot; aria-label=&quot;무슨 이슈였나 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;무슨 이슈였나&lt;/h2&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
@@ -90,8 +176,8 @@
         &lt;/picture&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;div class=&quot;source&quot;&gt;원래는 이렇게 댓글창 떠야됨 (출처: https://jojoldu.tistory.com/704)&lt;/div&gt;
-&lt;p&gt;처음엔 라이브러리가 업데이트 되었다거나 하는 이유로, 코드를 수정해서 다시 적용해야 하는건가 싶었지만 그런건 아니었다. 검색해봐도 딱히 나오는건 없어서 에러 메세지에 나온 대로 &lt;a href=&quot;https://github.com/giscus/giscus/issues&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;이슈 페이지&lt;/a&gt;에 들어가 보았더니 다행히도 &lt;a href=&quot;https://github.com/giscus/giscus/issues/1250&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;동일한 문제에 대해서 이슈&lt;/a&gt;를 올린 분이 있었다.&lt;/p&gt;
+&lt;div class=&quot;source&quot;&gt;원래는 이렇게 댓글창이 떠야 함 (출처: https://jojoldu.tistory.com/704)&lt;/div&gt;
+&lt;p&gt;처음엔 라이브러리가 업데이트 되었다거나 하는 이유로, 코드를 수정해서 다시 적용해야 하는건가 싶었지만 그런건 아니었다. 검색해봐도 딱히 나오는건 없어서 에러 메세지에 나온 대로 &lt;a href=&quot;https://github.com/giscus/giscus/issues&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;이슈 페이지&lt;/a&gt;에 들어가 보았더니 다행히도 Closed된 이슈 중에 &lt;a href=&quot;https://github.com/giscus/giscus/issues/1250&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;동일한 문제에 대한 이슈&lt;/a&gt;가 있었다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 455px; &quot;
@@ -176,11 +262,7 @@
         &lt;/picture&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;div class=&quot;source&quot;&gt;Open상태의 이슈 1개는 내가 올린거임&lt;/div&gt;
-&lt;p&gt;이슈에 올라온 개발자의 메세지를 번역하니 다음과 같았다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;토큰을 캐시하는 데 사용하는 컴퓨팅 인스턴스가 어떤 이유로 오늘 아침 응답하지 않게 되었습니다. 새 서비스를 만들고 서비스 경로를 다시 지정했습니다. 이제 괜찮을 것입니다. 신고해 주셔서 감사합니다 &lt;br/&gt; - laymonage&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;이슈에 올라온 개발자의 메세지는 다음과 같았다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
@@ -225,6 +307,9 @@
         &lt;/picture&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;토큰을 캐시하는 데 사용하는 컴퓨팅 인스턴스가 어떤 이유로 오늘 아침 응답하지 않게 되었습니다. 새 서비스를 만들고 서비스 경로를 다시 지정했습니다. 이제 괜찮을 것입니다. 신고해 주셔서 감사합니다 &lt;br/&gt; - laymonage&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;그렇다.. 이건 나의 개발 실수도, 라이브러리 업데이트도 아닌 라이브러리 자체에 오류가 발생한 것이었다.&lt;br&gt;
 지금껏 개발을 하면서 이런 경우는 처음이었기에 라이브러리 자체에 문제가 있을 거라고는 생각도 못하고 있었다. 이 이슈를 보기 전까지는 말이다.&lt;/p&gt;
 &lt;h2 id=&quot;새로운-이슈를-올린-이유&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%83%88%EB%A1%9C%EC%9A%B4-%EC%9D%B4%EC%8A%88%EB%A5%BC-%EC%98%AC%EB%A6%B0-%EC%9D%B4%EC%9C%A0&quot; aria-label=&quot;새로운 이슈를 올린 이유 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;새로운 이슈를 올린 이유&lt;/h2&gt;
@@ -367,13 +452,10 @@
         &lt;/picture&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;div class=&quot;source&quot;&gt;이분들도 얼마나 답답했을까ㅋㅋ..&lt;/div&gt;
+&lt;div class=&quot;source&quot;&gt;이분들도 얼마나 답답했을까 ㅎㅎ..&lt;/div&gt;
 &lt;h2 id=&quot;개발자의-답변&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%9C%EB%B0%9C%EC%9E%90%EC%9D%98-%EB%8B%B5%EB%B3%80&quot; aria-label=&quot;개발자의 답변 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;개발자의 답변&lt;/h2&gt;
 &lt;p&gt;얼마 지나지 않아, 개발자 님에게서 답변이 달렸다.&lt;br&gt;
 이렇게 답변이 빨리 달릴 거라곤 생각지 못했는데, 답변 내용은 더 생각지 못한 것이었다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;이 문제에 대해 인지하고 있지만, 지금 휴가 중이고 노트북이 없기 때문에 1월 2일까지는 문제를 해결하지 못할 것 같습니다. &lt;br/&gt; - laymonage&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
@@ -418,8 +500,56 @@
         &lt;/picture&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;뜬금없이 giscus 개발자의 휴가 소식을 알게 되었다.
-&lt;small&gt;&lt;del&gt;노트북 없는 연말 휴가 개부럽네&lt;/del&gt;&lt;/small&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;이 문제에 대해 인지하고 있지만, 지금 휴가 중이고 노트북이 없기 때문에 1월 2일까지는 문제를 해결하지 못할 것 같습니다. &lt;br/&gt; - laymonage&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;어쩌다 giscus 개발자님의 휴가 소식을 알게 되었다.&lt;br&gt;
+역시 쉬는날 노트북 안가져가면 갑자기 장애 터지는건 전세계 개발자 공통인 것 같다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d41d8cd98f00b204e9800998ecf8427e/5c666/2023-12-30-08-54-20.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRsAAAABXRUJQVlA4ILQAAAAQBQCdASoUABQAPtFep0+oJKMiKAgBABoJQBdiP1Ra/5wdRppm6YVvZjzuFJF6wgDgAP7z+d3PdNXySuhKEpDvF0nyT9fW55T5IQjy2GBVZX4JC/JD7AFPpIvGRNSh55IXb3DREwkDX5VGWJoUZ4xk4R3mnVl2dvXdEQpCJBF8feXa2BWBF16gCx55UNfy0pns+NLA43wAwMt+zQ3/hJe9QC15DY3a6d+FCwB2QdtJX/IAAAA=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/d41d8cd98f00b204e9800998ecf8427e/a59e9/2023-12-30-08-54-20.webp 192w,
+/static/d41d8cd98f00b204e9800998ecf8427e/0ca9f/2023-12-30-08-54-20.webp 384w,
+/static/d41d8cd98f00b204e9800998ecf8427e/dc9b9/2023-12-30-08-54-20.webp 768w,
+/static/d41d8cd98f00b204e9800998ecf8427e/5c666/2023-12-30-08-54-20.webp 1080w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/d41d8cd98f00b204e9800998ecf8427e/a59e9/2023-12-30-08-54-20.webp 192w,
+/static/d41d8cd98f00b204e9800998ecf8427e/0ca9f/2023-12-30-08-54-20.webp 384w,
+/static/d41d8cd98f00b204e9800998ecf8427e/dc9b9/2023-12-30-08-54-20.webp 768w,
+/static/d41d8cd98f00b204e9800998ecf8427e/5c666/2023-12-30-08-54-20.webp 1080w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/d41d8cd98f00b204e9800998ecf8427e/dc9b9/2023-12-30-08-54-20.webp&quot;
+            alt=&quot;2023 12 30 08 54 20&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;div class=&quot;source&quot;&gt;출처: waterglasstoon - 데브 경수&lt;/div&gt;
 &lt;p&gt;아무튼 짧은 감사 인사를 남기고, 이후에 이어진 다른 개발자의 문의사항에 파파고의 힘을 빌려 답변을 남겨주고 마무리 했다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -465,13 +595,13 @@
         &lt;/picture&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;div class=&quot;source&quot;&gt;오늘 처음 라이브러리를 사용했는데 이 에러가 떴다 하심ㅋㅋㅋ..&lt;/div&gt;
+&lt;div class=&quot;source&quot;&gt;참고로 저 분은 오늘 처음 라이브러리를 써봤는데 이 에러가 발생했다고 한다🥲&lt;/div&gt;
 &lt;h2 id=&quot;깨달은-점&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B9%A8%EB%8B%AC%EC%9D%80-%EC%A0%90&quot; aria-label=&quot;깨달은 점 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;깨달은 점&lt;/h2&gt;
 &lt;h3 id=&quot;1-발생했던-이슈와-해결법은-잘-기록해놓자&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EB%B0%9C%EC%83%9D%ED%96%88%EB%8D%98-%EC%9D%B4%EC%8A%88%EC%99%80-%ED%95%B4%EA%B2%B0%EB%B2%95%EC%9D%80-%EC%9E%98-%EA%B8%B0%EB%A1%9D%ED%95%B4%EB%86%93%EC%9E%90&quot; aria-label=&quot;1 발생했던 이슈와 해결법은 잘 기록해놓자 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 발생했던 이슈와 해결법은 잘 기록해놓자&lt;/h3&gt;
 &lt;p&gt;만약 내가 오류 발견 후에 github issue 를 확인하지 않았더라면, 대체 무엇이 문제인가 하고 한참을 붙잡고 있었을 것이다. &lt;strong&gt;누군가가 이전에 겪었던 이슈사항이 잘 기록되어 있었기에 동일한 이슈가 발생했을 때 빠르게 해결할 수 있었던 것이다.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;꼭 깃허브 issue 를 활용하지 않더라도, 협업을 할 때든 혼자서 개발할 때든 이슈 기록은 잘 해두는게 좋다는 것을 깨달았다. 특히 협업을 할 땐 나의 기록으로 누군가의 삽질을 예방해줄 수 있다는 큰 효과가 있기에 더욱 기록을 잘 남겨둬야 한다. &lt;small&gt;(그 누군가가 또다시 내가 될 수 있기도 함)&lt;/small&gt;&lt;/p&gt;
+&lt;p&gt;꼭 깃허브 issue 를 활용하지 않더라도, 협업을 할 때든 혼자서 개발할 때든 이슈 기록은 잘 해두는게 좋다는 것을 깨달았다. 특히 협업을 할 땐 나의 기록으로 누군가의 삽질을 예방해줄 수 있다는 큰 효과가 있기에 더욱 기록을 잘 남겨둬야 한다. &lt;small&gt;(그 누군가가 또다시 내가 될 확률도 매우 크다)&lt;/small&gt;&lt;/p&gt;
 &lt;h3 id=&quot;2-에러를-띄울-땐-어느-정도의-성의는-보이자&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-%EC%97%90%EB%9F%AC%EB%A5%BC-%EB%9D%84%EC%9A%B8-%EB%95%90-%EC%96%B4%EB%8A%90-%EC%A0%95%EB%8F%84%EC%9D%98-%EC%84%B1%EC%9D%98%EB%8A%94-%EB%B3%B4%EC%9D%B4%EC%9E%90&quot; aria-label=&quot;2 에러를 띄울 땐 어느 정도의 성의는 보이자 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. 에러를 띄울 땐 어느 정도의 성의는 보이자&lt;/h3&gt;
-&lt;p&gt;솔직히 개발자님에게 좀 아쉬웠던게, 라이브러리 자체 에러가 발생했을 때 그걸 좀 더 명확하게 표시해 주셨으면 했던 점이다. 초반에 보여준 것처럼, 그저 ‘오류발생: fetch failed’ 라는 텍스트만 보이니까 블로그 개발자 입장에서도 이게 난데없이 어디서 나온 에러인지 한눈에 파악하기도 어렵고, 블로그를 읽는 사람들도 이게 뭐지 싶었을 것이다.&lt;/p&gt;
+&lt;p&gt;솔직히 개발자님에게 좀 아쉬웠던게, 라이브러리 자체 에러가 발생했을 때 그걸 좀 더 명확하게 표시해 주셨으면 했던 점이다. 초반에 보여준 것처럼, 그저 ‘오류발생: fetch failed’ 라는 텍스트만 보이니까 블로그 개발자 입장에서도 이게 난데없이 어디서 나온 에러인지 한눈에 파악하기도 어렵고, 블로그를 읽는 사람들도 당황스러웠을 것이다.&lt;/p&gt;
 &lt;h4 id=&quot;라이브러리-오류의-또다른-피해자들&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%98%A4%EB%A5%98%EC%9D%98-%EB%98%90%EB%8B%A4%EB%A5%B8-%ED%94%BC%ED%95%B4%EC%9E%90%EB%93%A4&quot; aria-label=&quot;라이브러리 오류의 또다른 피해자들 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;라이브러리 오류의 또다른 피해자들..&lt;/h4&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -517,7 +647,7 @@
         &lt;/picture&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;div class=&quot;source&quot;&gt;향로님도 당해버리심.. (출처: https://jojoldu.tistory.com/704)&lt;/div&gt;
+&lt;div class=&quot;source&quot;&gt;향로님도 당하셨군요.. (출처: https://jojoldu.tistory.com/704)&lt;/div&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
@@ -562,7 +692,7 @@
         &lt;/picture&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;div class=&quot;source&quot;&gt;giscus 공식 페이지도 똑같음ㅋㅋ (출처: https://giscus.app)&lt;/div&gt;
+&lt;div class=&quot;source&quot;&gt;giscus 공식 페이지도 똑같이 뜬다 (출처: https://giscus.app)&lt;/div&gt;
 &lt;h4 id=&quot;내가-만들어본-giscuss-에러창&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%82%B4%EA%B0%80-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B8-giscuss-%EC%97%90%EB%9F%AC%EC%B0%BD&quot; aria-label=&quot;내가 만들어본 giscuss 에러창 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;내가 만들어본 giscuss 에러창&lt;/h4&gt;
 &lt;p&gt;아쉬운 마음에 피그마로 대강 giscuss 에러창을 만들어봤다.&lt;br&gt;
 내가 UI/UX에 대해 잘 알지는 못하지만, 적어도 에러 영역을 눈에 띄게 잡아주고 giscus 로고라도 띄워 주었으면 좀 낫지 않았을까 하는 개인적인 의견을 반영했다.&lt;/p&gt;
@@ -663,7 +793,7 @@
         &lt;/picture&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;div class=&quot;source&quot;&gt;이것도 뭔가 이상함&lt;/div&gt;
+&lt;div class=&quot;source&quot;&gt;이것도 뭔가 이상한 것 같은데&lt;/div&gt;
 &lt;blockquote&gt;
 &lt;p&gt;그냥 개발이나 열심히 하자..&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -674,43 +804,50 @@
 이들이 어떤 대화를 나누는지 한번씩 보는 것도 하나의 소소한 재미가 되었으며, 다시 한번 새삼스레 ‘소통’의 재미를 알게 되었다. &lt;small&gt;(영어공부는 덤)&lt;/small&gt;&lt;/p&gt;
 &lt;p&gt;그럼 giscus 개발자님께서 무사히 휴가를 잘 보내고 오시길, 그리고 조속히 에러를 해결해 주시길 바라며 이만 마치도록 하겠다.&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;&lt;small&gt;부디 이 글을 읽는 사람이 있을 즈음엔 이 밑에 ‘오류발생: fetch failed’ 가 아닌 정상적인 댓글창이 있기를😅&lt;/small&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Gatsby와 Typescript로 깃허브 블로그 만들기(3) - 작업내용 정리]]></title><description><![CDATA[블로그 개발일지]]></description><link>https://cheeseb.github.io/blog/github-blog-with-gatsby-ts-index/</link><guid isPermaLink="false">https://cheeseb.github.io/blog/github-blog-with-gatsby-ts-index/</guid><category><![CDATA[Blog]]></category><category><![CDATA[Gatsby]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Thu, 28 Dec 2023 15:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;들어가며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0&quot; aria-label=&quot;들어가며 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가며&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://cheeseb.github.io/blog/github-blog-with-gatsby-ts-project-structure-and-setting/&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;기술블로그 개발일지 2편&lt;/a&gt;을 작성한지 8개월이 지났다..
-어떻게 만들었는지는 까먹은지 오래고, 추가 기능과 고칠 부분들은 정리만 해놓고 방치되었다🥲&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;추가 글 (2023.12.30)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이 포스팅을 올리고, 자고 일어나니 댓글이 더 많이 쌓여있었다.&lt;br&gt;
+좋아요도 15개나 달려서 내 이슈로 누군가 도움을 받았다는 생각에 아침부터 매우 기분이 좋다.&lt;/p&gt;
+&lt;p&gt;그리고 새로 올라온 댓글 중 인상깊은 글 하나를 발견했다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 587px; &quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/ea6394d6b6fb7fa29254772bb86b30c4/55ce4/2023-12-27-22-36-07.webp&quot;
+    href=&quot;/static/c717500f9a79c0fc76af520306a83790/0da4f/2023-12-30-10-04-54.webp&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 59.375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAgCdASoUAAwAPtFWo0uoJKMhsAgBABoJaQAAetCIAAD+8dGkgn2nSPKtRSX0isjqfjF8AAA=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 46.35416666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAgCdASoUAAkAPtFWo0uoJKMhsAgBABoJaQAAeyAA/vIVFfMi3wW2OBH/gXkAAAA=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;picture&gt;
           &lt;source
-              srcset=&quot;/static/ea6394d6b6fb7fa29254772bb86b30c4/a59e9/2023-12-27-22-36-07.webp 192w,
-/static/ea6394d6b6fb7fa29254772bb86b30c4/0ca9f/2023-12-27-22-36-07.webp 384w,
-/static/ea6394d6b6fb7fa29254772bb86b30c4/55ce4/2023-12-27-22-36-07.webp 587w&quot;
-              sizes=&quot;(max-width: 587px) 100vw, 587px&quot;
+              srcset=&quot;/static/c717500f9a79c0fc76af520306a83790/a59e9/2023-12-30-10-04-54.webp 192w,
+/static/c717500f9a79c0fc76af520306a83790/0ca9f/2023-12-30-10-04-54.webp 384w,
+/static/c717500f9a79c0fc76af520306a83790/dc9b9/2023-12-30-10-04-54.webp 768w,
+/static/c717500f9a79c0fc76af520306a83790/e2c2f/2023-12-30-10-04-54.webp 1152w,
+/static/c717500f9a79c0fc76af520306a83790/0da4f/2023-12-30-10-04-54.webp 1202w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
               type=&quot;image/webp&quot;
             /&gt;
           &lt;source
-            srcset=&quot;/static/ea6394d6b6fb7fa29254772bb86b30c4/a59e9/2023-12-27-22-36-07.webp 192w,
-/static/ea6394d6b6fb7fa29254772bb86b30c4/0ca9f/2023-12-27-22-36-07.webp 384w,
-/static/ea6394d6b6fb7fa29254772bb86b30c4/55ce4/2023-12-27-22-36-07.webp 587w&quot;
-            sizes=&quot;(max-width: 587px) 100vw, 587px&quot;
+            srcset=&quot;/static/c717500f9a79c0fc76af520306a83790/a59e9/2023-12-30-10-04-54.webp 192w,
+/static/c717500f9a79c0fc76af520306a83790/0ca9f/2023-12-30-10-04-54.webp 384w,
+/static/c717500f9a79c0fc76af520306a83790/dc9b9/2023-12-30-10-04-54.webp 768w,
+/static/c717500f9a79c0fc76af520306a83790/e2c2f/2023-12-30-10-04-54.webp 1152w,
+/static/c717500f9a79c0fc76af520306a83790/0da4f/2023-12-30-10-04-54.webp 1202w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
             type=&quot;image/webp&quot;
           /&gt;
           &lt;img
             class=&quot;gatsby-resp-image-image&quot;
-            src=&quot;/static/ea6394d6b6fb7fa29254772bb86b30c4/55ce4/2023-12-27-22-36-07.webp&quot;
-            alt=&quot;2023 12 27 22 36 07&quot;
+            src=&quot;/static/c717500f9a79c0fc76af520306a83790/dc9b9/2023-12-30-10-04-54.webp&quot;
+            alt=&quot;2023 12 30 10 04 54&quot;
             title=&quot;&quot;
             loading=&quot;lazy&quot;
             decoding=&quot;async&quot;
@@ -719,48 +856,13 @@
         &lt;/picture&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;div class=&quot;source&quot;&gt;작성한지 오래인 투두리스트&lt;/div&gt;
-&lt;p&gt;핑계를 대자면 그동안 회사에 있을때도, 퇴사한 후에도 이것저것 일이 많아서 계속 미뤄놓고 있다가 결국 코드를 다 까먹어서 다시 작성할 엄두를 못 내고 있었다..&lt;br&gt;
-그러다 현재 참여하고 있는 코드잇 스프린트 부트캠프에서 블로그 개발 스터디를 하게 되어서 다시 개발일지를 마저 작성하려고 한다.&lt;/p&gt;
-&lt;p&gt;이 게시글은 본격적으로 개발일지를 작성하기 전, 어떤 작업을 했는지 정리해 보려고 올리는 글이다. 아직 개발일지를 다 작성하지 않은 지금은 내가 어떤 글을 쓸지 계획할 용도이고, 다 작성한 후에는 목차의 역할을 하게 될 것이다.&lt;/p&gt;
-&lt;h2 id=&quot;작업-내용&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9E%91%EC%97%85-%EB%82%B4%EC%9A%A9&quot; aria-label=&quot;작업 내용 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;작업 내용&lt;/h2&gt;
-&lt;p&gt;&lt;small&gt;디자인에 관한 내용은 최대한 배제하고 개발 과정에 대해서만 정리했다.&lt;/small&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Gatsby 개념 공부와 프로젝트 생성 (&lt;a href=&quot;https://cheeseb.github.io/blog/github-blog-with-gatsby-ts-basic/&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;링크&lt;/a&gt;)&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;프로젝트 초기 세팅 및 폴더구조 정리 (&lt;a href=&quot;https://cheeseb.github.io/blog/github-blog-with-gatsby-ts-project-structure-and-setting/&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;링크&lt;/a&gt;)&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;헤더와 사이드바&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;프로필 영역 / 카테고리 내비게이션&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;메인페이지&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;이미지 배너 / 게시글 목록&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;게시글 상세페이지&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;상단 헤더 / 컨텐츠 / 목차&lt;/li&gt;
-&lt;li&gt;댓글 라이브러리&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;SEO&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;Meta Tag / Canonical Link Element&lt;/li&gt;
-&lt;li&gt;Sitemap / robots.txt&lt;/li&gt;
-&lt;li&gt;Google Search Console / Google Analytics&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;그외 작업사항&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;404 에러페이지&lt;/li&gt;
-&lt;li&gt;Github Pages 배포&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;p&gt;만들 당시에는 뭔가 이것저것 많이 했던 것 같은데, 막상 정리하고 보니 별 건 없어 보인다.&lt;/p&gt;
-&lt;p&gt;사실 오래전에 개발했던 블로그에 대해 이렇게 개발 일지를 마저 작성하는 게 과연 의미가 있을까 하는 생각도 들었지만, 앞으로 블로그에 추가하고 보완할 부분들도 많은데 기존에 작성한 코드를 이해하고 있어야 하는 건 당연하기 때문에 어차피 코드 분석도 할 겸 개발 일지로 정리해 놓기로 했다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[자바스크립트의 slice, splice와 substring]]></title><description><![CDATA[내가 쓸때마다 매번 헷갈려서 정리해둔 글]]></description><link>https://cheeseb.github.io/javascript/javascript-slice-splice-substr/</link><guid isPermaLink="false">https://cheeseb.github.io/javascript/javascript-slice-splice-substr/</guid><category><![CDATA[Javascript]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Sun, 05 Nov 2023 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이번 글에서는 자바스크립트에서 배열의 일부를 추출 혹은 삭제하는 slice와 splice, 그리고 문자열의 부분 문자열을 추출하는 substring에 대해 헷갈리는 부분들 위주로만 간략하게 정리하려 한다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;응답해주셔서 감사합니다. 서두르지 말고 즐거운 연휴 보내세요! 이 프로젝트는 내 사이트에 큰 도움이 되었기 때문에 스폰서 페이지에 작은 기부금을 넣었습니다. 이 글을 읽고 있는 누군가가 Giscus가 유용하다고 생각하고 약간의 잔돈이 있다면, 여러분도 그렇게 하시기를 바랍니다. &lt;br/&gt; - yangdanny97&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;생각해보면, 모처럼 연말에 휴가를 갔는데 갑자기 장애 터졌다고 이슈 올라오면 얼마나 짜증나겠는가.. 나같으면 쉬고 있어도 마음 한구석이 불편했을 것이다. 개인 블로그에 댓글 안나오는게 뭐 급한일도 아닌데 얼른 휴가에서 돌아와서 고쳐주었으면 하는 생각만 가지고 있던 나 스스로 반성을 좀 하게 되었다.&lt;/p&gt;
+&lt;p&gt;사실 잘 사용하고 있던 서비스에 갑자기 장애가 터지면 많은 사람들도 나처럼 불만을 내뱉을 것이다. 그래도 저 댓글처럼 고생한 개발자에게 따뜻한 말 한마디와 지금까지 잘 사용해왔던 것에 대한 소소한 감사를 표한다면 더 좋은 개발 문화가 되지 않을까 하는 감성적인 생각을 잠깐 하게 되었다.😅&lt;/p&gt;
+&lt;p&gt;그런 의미에서 나도 스폰서 페이지에 소소한 도네를 해보려 한다.&lt;br&gt;
+이걸로 커피 한잔이라도 보탬이 되기를ㅎㅎ..&lt;/p&gt;</content:encoded></item><item><title><![CDATA[자바스크립트의 slice, splice와 substring]]></title><description><![CDATA[내가 쓸때마다 매번 헷갈려서 정리해둔 글]]></description><link>https://cheeseb.github.io/javascript/javascript-slice-splice-substr/</link><guid isPermaLink="false">https://cheeseb.github.io/javascript/javascript-slice-splice-substr/</guid><category><![CDATA[Javascript]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Sun, 05 Nov 2023 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이번 글에서는 자바스크립트에서 배열의 일부를 추출 혹은 삭제하는 slice와 splice, 그리고 문자열의 부분 문자열을 추출하는 substring에 대해 헷갈리는 부분들 위주로만 간략하게 정리하려 한다.&lt;/p&gt;
 &lt;h2 id=&quot;배열---slice--splice&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B0%B0%EC%97%B4---slice--splice&quot; aria-label=&quot;배열   slice  splice permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;배열 - slice / splice&lt;/h2&gt;
 &lt;h3 id=&quot;slice&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#slice&quot; aria-label=&quot;slice permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;slice&lt;/h3&gt;
 &lt;blockquote&gt;
