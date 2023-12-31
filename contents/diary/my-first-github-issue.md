@@ -37,7 +37,7 @@ thumbnail: '../images/thumbnail/cheeseball.webp'
 
 ## 새로운 이슈를 올린 이유
 
-> Happened again..!
+<small>Happened again..!</small>
 
 여기서 매우 반가웠던 점이, 내가 이 이슈를 읽기 8분 전에 동일한 이슈가 다시 발생했다고 댓글을 남긴 분이 있었다는 것이다.
 
@@ -119,7 +119,7 @@ thumbnail: '../images/thumbnail/cheeseball.webp'
 
 <div class="source">이것도 뭔가 이상한 것 같은데</div>
 
-> 그냥 개발이나 열심히 하자..
+<small>그냥 개발이나 열심히 하자..</small>
 
 ## 마치며
 
@@ -153,7 +153,7 @@ thumbnail: '../images/thumbnail/cheeseball.webp'
 
 #### 2023.12.31
 
-> same here좀 그만올려..
+<small>same here좀 그만올려..</small>
 
 요즘 밤만 되면 저 이슈에 달린 댓글 때문에 메일이 서너통씩 온다.
 그런데 내용을 보면 다 'same here' 라고만 적혀있다.
