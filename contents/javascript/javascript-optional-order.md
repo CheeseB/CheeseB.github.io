@@ -1,7 +1,7 @@
 ---
 date: '2023-07-10'
 title: '[소소한 개발팁] Javascript - 리스트에서 특정 요소들만 맨 앞/뒤로 세우기'
-categories: ['Javascript', 'Memo']
+categories: ['Javascript']
 summary: '내가 안 까먹으려고 바로 적어두는 개발 팁'
 thumbnail: '../images/thumbnail/javascript.webp'
 ---

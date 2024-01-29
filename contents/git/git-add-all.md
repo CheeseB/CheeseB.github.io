@@ -1,7 +1,7 @@
 ---
 date: '2023-11-01'
 title: '[소소한 개발팁] git add . VS git add *'
-categories: ['Git', 'Memo']
+categories: ['Git']
 summary: '내가 안 까먹으려고 바로 적어두는 개발 팁'
 thumbnail: '../images/thumbnail/git.webp'
 ---
