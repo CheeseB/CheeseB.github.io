@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 import React from 'react';
+import '@fontsource/jetbrains-mono/800.css';
+import TypewriterComponent from 'typewriter-effect';
 
 const Wrapper = styled.div`
   position: relative;
@@ -23,16 +25,34 @@ const Wrapper = styled.div`
   }
 `;
 
-const MainGIF = styled.div`
+const MainAnimation = styled.div`
   width: 100%;
   height: 100%;
-  background-image: url('/main.webp');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 
-  @media (max-width: 428px) {
-    background-image: url('/main-vertical.webp');
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+  }
+`;
+
+const TypingText = styled.div`
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 44px;
+  font-weight: 700;
+  height: 120px;
+  color: #fec479;
+  text-shadow: -2px 0px white, 0px 2px white, 2px 0px white, 0px -2px white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 1024px) {
+    font-size: 32px;
   }
 `;
 
@@ -162,7 +182,18 @@ const ScrollArrow = styled.img`
 export const MainCheeseBall = () => {
   return (
     <Wrapper>
-      <MainGIF></MainGIF>
+      <MainAnimation>
+        <img src="/animation.webp" width={200} height={200} />
+        <TypingText>
+          <TypewriterComponent
+            options={{
+              strings: ['Hello CheeseB World!'],
+              autoStart: true,
+              loop: true,
+            }}
+          />
+        </TypingText>
+      </MainAnimation>
       <ScrollText>Scroll</ScrollText>
       <ScrollArrow src="/icon/down.svg"></ScrollArrow>
     </Wrapper>
