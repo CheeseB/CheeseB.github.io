@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { FunctionComponent } from 'react';
+import '@fontsource/jetbrains-mono/400.css';
 
 interface PostContentProps {
   html: string;

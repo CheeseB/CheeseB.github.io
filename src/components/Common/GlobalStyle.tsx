@@ -3,8 +3,6 @@ import '@fontsource/noto-sans-kr';
 import { FunctionComponent } from 'react';
 
 const defaultStyle = css`
-  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Noto+Sans+KR:wght@400;600;700&display=swap');
-
   * {
     padding: 0;
     margin: 0;
