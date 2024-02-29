@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `개발자맛 치즈볼`,
-    description: `주니어 프론트엔드 개발자의 개발일기 입니다.`,
+    description: `나날이 개발자 맛이 진해지는 치즈볼이 학습하고 개발해 온 기록입니다.`,
     author: `CheeseB`,
     siteUrl: 'https://cheeseb.github.io/',
   },
@@ -127,7 +127,8 @@ module.exports = {
                   setup: options => ({
                     ...options,
                     site_url: 'https://cheeseb.github.io/',
-                    description: '주니어 프론트엔드 개발자의 개발일기 입니다.',
+                    description:
+                      '나날이 개발자 맛이 진해지는 치즈볼이 학습하고 개발해 온 기록입니다.',
                     author: `CheeseB`,
                   }),
                   serialize: ({ query: { site, allMarkdownRemark } }) => {
