@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import { graphql, Link } from 'gatsby';
 import { GlobalStyle } from 'components/Common/GlobalStyle';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
-import useLoading from 'hooks/useLoading';
 
 type ErrorPageProps = {
   data: {

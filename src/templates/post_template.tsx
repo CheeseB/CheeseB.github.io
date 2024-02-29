@@ -5,7 +5,6 @@ import { PostContent } from 'components/Post/PostContent';
 import { PostHead } from 'components/Post/PostHead';
 import { TableOfContents } from 'components/Post/TableOfContents';
 import { graphql } from 'gatsby';
-import useLoading from 'hooks/useLoading';
 import React, { FunctionComponent } from 'react';
 import { PostPageItemType } from 'types/PostItem.types';
 

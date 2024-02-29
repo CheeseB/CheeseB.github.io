@@ -3,7 +3,6 @@ import { Template } from 'components/Common/Template';
 import { MainCheeseBall } from 'components/Main/MainCheeseBall';
 import { PostList } from 'components/Main/PostList';
 import { graphql } from 'gatsby';
-import useLoading from 'hooks/useLoading';
 import queryString, { ParsedQuery } from 'query-string';
 import { FunctionComponent } from 'react';
 import { PostListItemType } from 'types/PostItem.types';
