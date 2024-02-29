@@ -1,4 +1,3 @@
-import LoadingAnimation from 'components/Common/LoadingAnimation';
 import { SideNavigation } from 'components/Common/SideNavigation';
 import { Template } from 'components/Common/Template';
 import { MainCheeseBall } from 'components/Main/MainCheeseBall';
@@ -46,7 +45,6 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({
   const selectedCategory: string = isMainPage
     ? 'All'
     : (parsed.category as string);
-  const loading = useLoading();
 
   return (
     <Template
@@ -55,7 +53,6 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({
       url={siteUrl}
       image={publicURL}
     >
-      {loading && <LoadingAnimation />}
       <SideNavigation selectedCategory={selectedCategory}></SideNavigation>
       {isMainPage && <MainCheeseBall />}
       <PostList selectedCategory={selectedCategory} posts={edges} />

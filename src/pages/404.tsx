@@ -4,7 +4,6 @@ import { graphql, Link } from 'gatsby';
 import { GlobalStyle } from 'components/Common/GlobalStyle';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import useLoading from 'hooks/useLoading';
-import LoadingAnimation from 'components/Common/LoadingAnimation';
 
 type ErrorPageProps = {
   data: {
@@ -98,11 +97,8 @@ const NotFoundPage: FunctionComponent<ErrorPageProps> = ({
     },
   },
 }) => {
-  const loading = useLoading();
-
   return (
     <>
-      {loading && <LoadingAnimation />}
       <NotFoundPageWrapper>
         <GlobalStyle />
         <NotFoundText>페이지를 찾을 수 없습니다.</NotFoundText>
