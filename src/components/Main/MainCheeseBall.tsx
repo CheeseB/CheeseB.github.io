@@ -45,14 +45,13 @@ const TypingText = styled.div`
   font-weight: 700;
   height: 120px;
   color: #fec479;
-  text-shadow: -2px 0px white, 0px 2px white, 2px 0px white, 0px -2px white;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
 
   @media (max-width: 1024px) {
-    font-size: 32px;
+    font-size: 30px;
   }
 `;
 
