@@ -29,13 +29,20 @@ const MainAnimation = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 20px;
 
   @media (max-width: 1024px) {
     flex-direction: column;
     justify-content: center;
-    gap: 0;
+    gap: 10px;
+  }
+`;
+
+const CheeseballGif = styled.img`
+  @media (max-width: 428px) {
+    width: 100px;
+    height: 100px;
   }
 `;
 
@@ -43,15 +50,21 @@ const TypingText = styled.div`
   font-family: 'JetBrains Mono', monospace;
   font-size: 44px;
   font-weight: 700;
-  height: 120px;
+  width: 600px;
   color: #fec479;
-  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
 
   @media (max-width: 1024px) {
-    font-size: 30px;
+    width: 410px;
+    text-align: center;
+    font-size: 32px;
+  }
+
+  @media (max-width: 428px) {
+    width: 260px;
+    font-size: 20px;
   }
 `;
 
@@ -182,7 +195,7 @@ export const MainCheeseBall = () => {
   return (
     <Wrapper>
       <MainAnimation>
-        <img src="/animation.webp" width={200} height={200} />
+        <CheeseballGif src="/animation.webp" width={200} height={200} />
         <TypingText>
           <TypewriterComponent
             options={{
