@@ -39,6 +39,7 @@ const MarkdownRenderer = styled.div`
 
   del {
     color: grey;
+    text-decoration-thickness: 1px;
   }
 
   p {
