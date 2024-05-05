@@ -1,4 +1,196 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[개발자맛 치즈볼]]></title><description><![CDATA[나날이 개발자 맛이 진해지는 치즈볼이 학습하고 개발해 온 기록입니다.]]></description><link>https://cheeseb.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 01 Mar 2024 00:27:48 GMT</lastBuildDate><author><![CDATA[CheeseB]]></author><item><title><![CDATA[[Next.js] 테이블에서 Hydration failed 에러 날 때 해결법]]></title><description><![CDATA[table 작성시 thead와 tbody를 써줘야 하는 이유]]></description><link>https://cheeseb.github.io/next/nextjs-table-hydration-error/</link><guid isPermaLink="false">https://cheeseb.github.io/next/nextjs-table-hydration-error/</guid><category><![CDATA[Next]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Sun, 28 Jan 2024 15:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;에러-상황&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%97%90%EB%9F%AC-%EC%83%81%ED%99%A9&quot; aria-label=&quot;에러 상황 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;에러 상황&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[개발자맛 치즈볼]]></title><description><![CDATA[나날이 개발자 맛이 진해지는 치즈볼이 학습하고 개발해 온 기록입니다.]]></description><link>https://cheeseb.github.io/</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 05 May 2024 15:54:08 GMT</lastBuildDate><author><![CDATA[CheeseB]]></author><item><title><![CDATA[유용한 Git Global 세팅 모음 (feat. 윈도우 쓰는 개발자)]]></title><description><![CDATA[한번 설정해두면 컴퓨터 바꿀 때까지 편하게 개발 가능함]]></description><link>https://cheeseb.github.io/git/git-useful-settings-window/</link><guid isPermaLink="false">https://cheeseb.github.io/git/git-useful-settings-window/</guid><category><![CDATA[Git]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Sat, 04 May 2024 15:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;폴더명-파일명-대소문자-구분하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%8F%B4%EB%8D%94%EB%AA%85-%ED%8C%8C%EC%9D%BC%EB%AA%85-%EB%8C%80%EC%86%8C%EB%AC%B8%EC%9E%90-%EA%B5%AC%EB%B6%84%ED%95%98%EA%B8%B0&quot; aria-label=&quot;폴더명 파일명 대소문자 구분하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;폴더명, 파일명 대소문자 구분하기&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;깃은 기본적으로 폴더/파일명의 대소문자를 구분하지 않는다.&lt;/strong&gt;&lt;br&gt;
+이로 인해 한번 저장소에 올렸던 폴더/파일명의 대소문자만 바꾸었을 때, 제대로 반영되지 않아 애를 먹은 적이 많을 것이다.&lt;br&gt;
+그러므로 처음부터 global config에 아래처럼 세팅을 해두자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config &lt;span class=&quot;token parameter variable&quot;&gt;--global&lt;/span&gt; core.ignorecase &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;말 그대로 대소문자를 무시하는 옵션을 끄는 것이다.&lt;/p&gt;
+&lt;h2 id=&quot;윈도우에서-crlf를-lf로-변경하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9C%88%EB%8F%84%EC%9A%B0%EC%97%90%EC%84%9C-crlf%EB%A5%BC-lf%EB%A1%9C-%EB%B3%80%EA%B2%BD%ED%95%98%EA%B8%B0&quot; aria-label=&quot;윈도우에서 crlf를 lf로 변경하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;윈도우에서 CRLF를 LF로 변경하기&lt;/h2&gt;
+&lt;p&gt;윈도우는 CRLF, 맥은 LF로 개행 방식에 차이가 있다. 이것 때문에 윈도우와 맥 유저가 서로 협업을 하게 된다면 상당히 불편한 상황이 많이 생긴다. 예를 들어 코드를 수정하지 않았는데 개행문자 때문에 깃에서 변경사항이 있다고 판단하기도 하고, 린트에서 LF를 강제한다면 모든 코드에 빨간줄이 뜨는 상황을 종종 볼수 있다. 이런 이유로 개행 방식을 통일&lt;del&gt;하거나 맥북을 구입&lt;/del&gt;해야 하는데, 보통은 LF로 통일하는 편이므로 애초에 Git global로 설정해두면 이후에는 편하게 작업할 수 있다.&lt;/p&gt;
+&lt;h3 id=&quot;설정-방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%A4%EC%A0%95-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;설정 방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;설정 방법&lt;/h3&gt;
+&lt;p&gt;아래 두 명령어를 입력하면 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config &lt;span class=&quot;token parameter variable&quot;&gt;--global&lt;/span&gt; core.eol lf
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config &lt;span class=&quot;token parameter variable&quot;&gt;--global&lt;/span&gt; core.autocrlf input&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4 id=&quot;coreeol&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#coreeol&quot; aria-label=&quot;coreeol permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;core.eol&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;깃에서 줄바꿈을 처리하는 방식을 결정&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;native (default):&lt;/strong&gt; 시스템 설정에 따름&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;crlf:&lt;/strong&gt; CRLF를 개행문자로 사용&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;lf:&lt;/strong&gt; LF를 개행문자로 사용&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;coreautocrlf&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#coreautocrlf&quot; aria-label=&quot;coreautocrlf permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;core.autocrlf&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;깃 이력 데이터를 관리하는 DB에서 줄바꿈을 어떻게 처리할지 결정&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;깃의 모든 이력 데이터는 .git 폴더에 있으며, 텍스트 파일을 이 이력 데이터 저장소에 주고받으면서 변경사항을 확인한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;false (default):&lt;/strong&gt; 파일에 CRLF를 사용했든 LF를 사용했든 파일을 건드리지 않고 그대로 저장소로 주고받음
+&lt;ul&gt;
+&lt;li&gt;개행 방식이 다르면 깃에서 파일이 변경되었다고 판단함&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;true:&lt;/strong&gt; 깃 이력 저장소에서 파일을 가져올 때 LF를 CRLF로 변경하고, 저장소로 보낼 때 CRLF를 LF로 변경함&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;input:&lt;/strong&gt; LF를 개행문자로 사용&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;인터넷을 찾아보면 윈도우는 기본적으로 CRLF를 사용하기 때문에 보통 autocrlf를 true로 설정하라고 하지만, 굳이 파일을 가져올 때 LF를 CRLF로 바꿀 필요가 없을것 같아서 나는 input으로 설정해 두었다.&lt;br&gt;
+input으로 설정해도 윈도우에서 작업하기 어려움이 있었다거나 협업 시 문제가 생기지는 않았다.&lt;/p&gt;
+&lt;h2 id=&quot;git-alias-설정&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#git-alias-%EC%84%A4%EC%A0%95&quot; aria-label=&quot;git alias 설정 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Git Alias 설정&lt;/h2&gt;
+&lt;p&gt;커밋 단위를 작게 하는것이 좋다는 것은 개발자라면 익히 알고 있는 사실이다. 그렇기에 우리는 개발 도중 수많은 &lt;code class=&quot;language-text&quot;&gt;git add&lt;/code&gt; 와 &lt;code class=&quot;language-text&quot;&gt;git commit&lt;/code&gt; 을 하게 된다. 이렇게 자주 쓰는 명령어나 혹은 너무 길어서 입력하기 귀찮은 명령어들은 별칭을 설정해두면 좋다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config &lt;span class=&quot;token parameter variable&quot;&gt;--global&lt;/span&gt; alias.c commit
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config &lt;span class=&quot;token parameter variable&quot;&gt;--global&lt;/span&gt; alias.cm &lt;span class=&quot;token string&quot;&gt;&apos;commit -m&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위와 같이 단 하나의 명령어라면 &lt;code class=&quot;language-text&quot;&gt;alias.[별칭] [원래 명령어]&lt;/code&gt; 와 같이 작성하고, 공백으로 이어져 있는 명령어라면 원래 명령어를 따옴표로 감싸야 한다.&lt;/p&gt;
+&lt;p&gt;또한, 이미 설정해둔 별칭을 해제하고 싶다면 아래와 같이 unset 옵션을 사용하면 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config &lt;span class=&quot;token parameter variable&quot;&gt;--global&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;--unset&lt;/span&gt; alias.cm&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;git-bash-alias-설정&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#git-bash-alias-%EC%84%A4%EC%A0%95&quot; aria-label=&quot;git bash alias 설정 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Git Bash Alias 설정&lt;/h2&gt;
+&lt;p&gt;위에서 소개한 것은 git 명령어에만 국한된 별칭이지만, git 명령어 뿐 아니라 모든 명령어에 별칭을 사용하는 방법도 있다. 바로 Git Bash 세팅 파일에 alias를 추가하는 것이다.&lt;/p&gt;
+&lt;p&gt;나는 윈도우에서도 리눅스 명령어를 사용하기 위해 VScode의 기본 터미널을 Git Bash로 설정해놓고 사용중인데, 나처럼 Git Bash를 윈도우의 기본 터미널이나 파워쉘 대신 사용하는 분들이 많을 것 같아서, Git에 관련된 세팅은 아니지만 Git Bash로 단축 명령어 등록하는 법도 함께 소개하려 한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 491px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a8695ba2b4f7f14057a708d42e6c46eb/f7fc7/2024-05-06-00-02-03.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 58.854166666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAABQAwCdASoUAAwAPtFUo0uoJKMhsAgBABoJaQAAex1s/7q0AAD+8NQrT+YteLzXeKHnsD9sZqU5H5RmdcC1XroIREyAAA==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/a8695ba2b4f7f14057a708d42e6c46eb/a59e9/2024-05-06-00-02-03.webp 192w,
+/static/a8695ba2b4f7f14057a708d42e6c46eb/0ca9f/2024-05-06-00-02-03.webp 384w,
+/static/a8695ba2b4f7f14057a708d42e6c46eb/f7fc7/2024-05-06-00-02-03.webp 491w&quot;
+              sizes=&quot;(max-width: 491px) 100vw, 491px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/a8695ba2b4f7f14057a708d42e6c46eb/a59e9/2024-05-06-00-02-03.webp 192w,
+/static/a8695ba2b4f7f14057a708d42e6c46eb/0ca9f/2024-05-06-00-02-03.webp 384w,
+/static/a8695ba2b4f7f14057a708d42e6c46eb/f7fc7/2024-05-06-00-02-03.webp 491w&quot;
+            sizes=&quot;(max-width: 491px) 100vw, 491px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/a8695ba2b4f7f14057a708d42e6c46eb/f7fc7/2024-05-06-00-02-03.webp&quot;
+            alt=&quot;2024 05 06 00 02 03&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;div class=&quot;source&quot;&gt;VScode 터미널에 Git Bash를 띄운 모습&lt;/div&gt;
+&lt;h3 id=&quot;설정-방법-1&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%A4%EC%A0%95-%EB%B0%A9%EB%B2%95-1&quot; aria-label=&quot;설정 방법 1 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;설정 방법&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;C:\Program Files\Git\etc\profile.d\aliases.sh&lt;/code&gt; 파일을 찾아서 연다&lt;/li&gt;
+&lt;li&gt;다음과 같이 alias를 추가한다&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3d97f8d2b0891817cb452fb931829e2e/306b0/2024-05-06-00-11-51.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 64.0625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAgCdASoUAA0APtFUo0uoJKMhsAgBABoJaQAAeyAA/vE/ltUYBmC9YLyAAA==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/3d97f8d2b0891817cb452fb931829e2e/a59e9/2024-05-06-00-11-51.webp 192w,
+/static/3d97f8d2b0891817cb452fb931829e2e/0ca9f/2024-05-06-00-11-51.webp 384w,
+/static/3d97f8d2b0891817cb452fb931829e2e/dc9b9/2024-05-06-00-11-51.webp 768w,
+/static/3d97f8d2b0891817cb452fb931829e2e/306b0/2024-05-06-00-11-51.webp 825w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/3d97f8d2b0891817cb452fb931829e2e/a59e9/2024-05-06-00-11-51.webp 192w,
+/static/3d97f8d2b0891817cb452fb931829e2e/0ca9f/2024-05-06-00-11-51.webp 384w,
+/static/3d97f8d2b0891817cb452fb931829e2e/dc9b9/2024-05-06-00-11-51.webp 768w,
+/static/3d97f8d2b0891817cb452fb931829e2e/306b0/2024-05-06-00-11-51.webp 825w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/3d97f8d2b0891817cb452fb931829e2e/dc9b9/2024-05-06-00-11-51.webp&quot;
+            alt=&quot;2024 05 06 00 11 51&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;C:\Program Files\Git\etc\bash.bashrc&lt;/code&gt; 파일을 찾아서 연다&lt;/li&gt;
+&lt;li&gt;맨 마지막 줄에 &lt;code class=&quot;language-text&quot;&gt;. /etc/profile.d/aliases.sh&lt;/code&gt; 이 한줄을 추가한다&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 719px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9b5eb579863678dabbdb2748b6fd8564/1845a/2024-05-06-00-14-30.webp&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.083333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADwAgCdASoUAAoAPtFUo0uoJKMhsAgBABoJaQAAlNMNwAD+8T03AMGWD450HzCrVjAwAA==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/9b5eb579863678dabbdb2748b6fd8564/a59e9/2024-05-06-00-14-30.webp 192w,
+/static/9b5eb579863678dabbdb2748b6fd8564/0ca9f/2024-05-06-00-14-30.webp 384w,
+/static/9b5eb579863678dabbdb2748b6fd8564/1845a/2024-05-06-00-14-30.webp 719w&quot;
+              sizes=&quot;(max-width: 719px) 100vw, 719px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/9b5eb579863678dabbdb2748b6fd8564/a59e9/2024-05-06-00-14-30.webp 192w,
+/static/9b5eb579863678dabbdb2748b6fd8564/0ca9f/2024-05-06-00-14-30.webp 384w,
+/static/9b5eb579863678dabbdb2748b6fd8564/1845a/2024-05-06-00-14-30.webp 719w&quot;
+            sizes=&quot;(max-width: 719px) 100vw, 719px&quot;
+            type=&quot;image/webp&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/9b5eb579863678dabbdb2748b6fd8564/1845a/2024-05-06-00-14-30.webp&quot;
+            alt=&quot;2024 05 06 00 14 30&quot;
+            title=&quot;&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;터미널에서 &lt;code class=&quot;language-text&quot;&gt;/etc&lt;/code&gt; 로 이동한다&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;source bash.bashrc&lt;/code&gt; 명령어를 입력한다&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;나는 이렇게 세팅을 한 후 &lt;code class=&quot;language-text&quot;&gt;npm run dev&lt;/code&gt; 를 &lt;code class=&quot;language-text&quot;&gt;nrd&lt;/code&gt; 라고만 쓰는 등 명령어를 입력하는 시간이 눈에 띄게 줄어들어서 개인적으로 매우 추천하는 세팅이다. 다만 아직 Git 명령어가 손에 익을만큼 익숙해지지 않은 개발자라면, 먼저 명령어에 익숙해진 뒤 설정할 것을 추천한다.&lt;/p&gt;
+&lt;h2 id=&quot;참고-사이트&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0-%EC%82%AC%EC%9D%B4%ED%8A%B8&quot; aria-label=&quot;참고 사이트 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고 사이트&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.lesstif.com/gitbook/git-crlf-20776404.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;lesstif.com - git 에서 CRLF 개행 문자 차이로 인한 문제 해결하기&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://velog.io/@korjsh/unix-%EC%9C%88%EB%8F%84%EC%9A%B0-gitbash%EC%97%90%EC%84%9C-alias-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;korjsh.log - [unix] 윈도우 gitbash에서 alias 설정하기&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://papababo.tistory.com/entry/git-%EC%9D%80-%ED%8F%B4%EB%8D%94%ED%8C%8C%EC%9D%BC%EB%AA%85%EC%9D%98-%EB%8C%80%EC%86%8C%EB%AC%B8%EC%9E%90%EB%A5%BC-%EA%B0%9C%EB%AC%B4%EC%8B%9C%ED%95%9C%EB%8B%A4-%EA%B7%B8%EB%9F%BC-%EC%9A%B0%EC%A7%B8&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;딸바보아재 개발기 - git 은 폴더/파일명의 대소문자를 개무시한다. 그럼 우째?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://goddaehee.tistory.com/273&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;갓대희의 작은공간 - [Git (8)] Git Alias - 단축키 설정 및 사용하기&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[Next.js] 테이블에서 Hydration failed 에러 날 때 해결법]]></title><description><![CDATA[table 작성시 thead와 tbody를 써줘야 하는 이유]]></description><link>https://cheeseb.github.io/next/nextjs-table-hydration-error/</link><guid isPermaLink="false">https://cheeseb.github.io/next/nextjs-table-hydration-error/</guid><category><![CDATA[Next]]></category><dc:creator><![CDATA[CheeseB]]></dc:creator><pubDate>Sun, 28 Jan 2024 15:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;에러-상황&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%97%90%EB%9F%AC-%EC%83%81%ED%99%A9&quot; aria-label=&quot;에러 상황 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;에러 상황&lt;/h2&gt;
 &lt;p&gt;Next.js 프로젝트에서 테이블 컴포넌트를 만들던 중, 별 작업을 하지도 않았는데 아래와 같이 에러가 발생했다.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Error&lt;/strong&gt;: Hydration failed because the initial UI does not match what was rendered on the server.
 &lt;strong&gt;Warning&lt;/strong&gt;: Expected server HTML to contain a matching &lt;code class=&quot;language-text&quot;&gt;&amp;lt;tr&gt;&lt;/code&gt; in &lt;code class=&quot;language-text&quot;&gt;&amp;lt;table&gt;&lt;/code&gt;.&lt;/p&gt;
