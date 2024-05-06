@@ -112,6 +112,16 @@ ___기울이면서 강조하기___
 
 <div class="source">이미지랑 이미지 캡션넣기</div>
 
+<details>
+  <summary>토글 항목 열고닫기</summary>
+  <div>토글 내부 텍스트</div>
+  <ul>
+    <li>토글 내부 리스트</li>
+    <li>토글 내부 리스트</li>
+    <li>토글 내부 리스트</li>
+  </ul>
+</details>
+
 - 링크 걸기
   - [마크다운 문법 참고 사이트1](https://gist.github.com/ihoneymon/652be052a0727ad59601)
   - [마크다운 문법 참고 사이트2](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)

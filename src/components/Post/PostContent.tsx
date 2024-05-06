@@ -47,6 +47,20 @@ const MarkdownRenderer = styled.div`
     margin: 16px 0;
   }
 
+  summary {
+    cursor: pointer;
+    color: #ff8982;
+    text-decoration: underline;
+  }
+
+  summary::marker {
+    color: #ff8982;
+  }
+
+  summary ~ * {
+    margin-left: 20px;
+  }
+
   .gatsby-resp-image-wrapper {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   }
