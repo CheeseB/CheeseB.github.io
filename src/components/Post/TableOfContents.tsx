@@ -12,7 +12,7 @@ type FixTableProps = {
 const TOC = styled.div<FixTableProps>`
   position: ${({ fixTable }) => (fixTable ? 'fixed' : 'absolute')};
   width: 260px;
-  top: ${({ fixTable }) => (fixTable ? '30px' : '580px')};
+  top: ${({ fixTable }) => (fixTable ? '80px' : '580px')};
   left: calc(82%);
   padding: 10px;
   border-left: 2px solid #dfe0df;
@@ -68,7 +68,7 @@ export const TableOfContents: FunctionComponent<TableOfContentsProps> = ({
 }) => {
   const [fixTable, setFixTable] = useState(false);
   const handleScroll = () => {
-    window.scrollY >= 530 ? setFixTable(true) : setFixTable(false);
+    window.scrollY >= 500 ? setFixTable(true) : setFixTable(false);
   };
 
   useEffect(() => {
