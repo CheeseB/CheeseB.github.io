@@ -1,6 +1,6 @@
 ---
 date: '2024-05-01'
-title: '[리팩터링 2판 스터디] 2장 리팩터링 원칙'
+title: '[리팩터링 2판 스터디] 2장. 리팩터링 원칙'
 categories: ['Study']
 summary: '리팩터링을 시작하기 전 알아야 할 것들'
 thumbnail: '../images/thumbnail/refactoring.webp'

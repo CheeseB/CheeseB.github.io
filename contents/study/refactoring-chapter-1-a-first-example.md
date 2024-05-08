@@ -1,6 +1,6 @@
 ---
 date: '2024-04-24'
-title: '[리팩터링 2판 스터디] 1장 리팩터링 첫 번째 예시'
+title: '[리팩터링 2판 스터디] 1장. 리팩터링 첫 번째 예시'
 categories: ['Study']
 summary: '리팩터링에 관한 문구'
 thumbnail: '../images/thumbnail/refactoring.webp'
