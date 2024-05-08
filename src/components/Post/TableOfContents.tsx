@@ -12,10 +12,17 @@ type FixTableProps = {
 const TOC = styled.div<FixTableProps>`
   position: ${({ fixTable }) => (fixTable ? 'fixed' : 'absolute')};
   width: 260px;
+  max-height: 70vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
   top: ${({ fixTable }) => (fixTable ? '80px' : '580px')};
   left: calc(82%);
   padding: 10px;
   border-left: 2px solid #dfe0df;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   p,
   li {
