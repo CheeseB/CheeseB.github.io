@@ -1,12 +1,10 @@
 ---
-date: '2022-09-14'
-title: '[리팩터링 책 스터디] 3장. 코드에서 나는 악취'
+date: '2024-05-08'
+title: '[리팩터링 2판 스터디] 3장. 코드에서 나는 악취'
 categories: ['Study']
 summary: '어떤 코드에 어떻게 리팩토링을 해야하는가'
 thumbnail: '../images/thumbnail/refactoring.webp'
 ---
-
-<small>노션으로 작성한 글을 옮긴 게시글입니다.</small>
 
 ## 리팩터링을 해야 하는 코드 유형
 
@@ -16,20 +14,27 @@ thumbnail: '../images/thumbnail/refactoring.webp'
 
 마땅한 이름이 떠오르지 않는다면 설계에 더 근본적인 문제가 있을 가능성이 높다.
 
-- 리팩터링 기법
-	- 함수 선언 바꾸기
-	- 변수 이름 바꾸기
-	- 필드 이름 바꾸기 
+<details>
+	<summary>리팩터링 기법</summary>
+  <ul>
+    <li>함수 선언 바꾸기</li>
+    <li>변수 이름 바꾸기</li>
+    <li>필드 이름 바꾸기</li> 
+  </ul>
+</details>
 
 ### 2. 중복 코드
 
 > 똑같은 코드가 여러 곳에서 반복되면 하나로 통합한다.
 
-- 리팩터링 기법
-	- 함수 추출하기
-	- 문장 슬라이드하기
-	- 메서드 올리기
-
+<details>
+	<summary>리팩터링 기법</summary>
+  <ul>
+    <li>함수 추출하기</li>
+    <li>문장 슬라이드하기</li>
+    <li>메서드 올리기</li> 
+  </ul>
+</details>
 
 중복된 코드를 하나의 함수로 추출하여, 그 함수를 호출하는 것으로 대신한다.   
 함수 추출 전, 관련된 코드를 한데 모아두면 함수 추출이 수월해진다.   
@@ -39,16 +44,20 @@ thumbnail: '../images/thumbnail/refactoring.webp'
 
 > 함수 내부 코드는 짧아야 좋다.
 
-- 리팩터링 기법
-	- 함수 추출하기
-	- 임시 변수를 질의 함수로 바꾸기
-	- 매개변수 객체 만들기
-	- 객체 통째로 넘기기
-	- 함수를 명령으로 바꾸기
-	- 조건문 분해하기
-	- 함수 추출하기
-	- 조건부 로직을 다형성으로 바꾸기
-	- 반복문 쪼개기
+<details>
+	<summary>리팩터링 기법</summary>
+  <ul>
+    <li>함수 추출하기</li>
+    <li>임시 변수를 질의 함수로 바꾸기</li>
+    <li>매개변수 객체 만들기</li>
+    <li>객체 통째로 넘기기</li>
+    <li>함수를 명령으로 바꾸기</li>
+    <li>조건문 분해하기</li>
+    <li>함수 추출하기</li>
+    <li>조건부 로직을 다형성으로 바꾸기</li>
+    <li>반복문 쪼개기</li>
+  </ul>
+</details>
 
 
 예전 언어는 서브루틴 호출 비용이 컸지만, 요즘은 함수 호출 비용이 거의 없어서 함수를 잘게 쪼개도 문제가 되지 않는다. 함수가 하는 일을 파악하기 위해 왔다갔다 해야하므로 부담이 될 수 있지만, 함수 이름을 잘 지어두면 함수 코드를 볼 필요가 없다. 그러므로 함수 이름에 코드의 목적이 잘 드러나야 한다.
@@ -64,6 +73,12 @@ thumbnail: '../images/thumbnail/refactoring.webp'
 #### 예시 코드
 
 **임시변수를 함수로, 매개변수는 객체로**
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 // 변경 전
@@ -83,6 +98,12 @@ function getRange(range) {
 ```
 
 **함수를 명령으로 바꾸기**
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 // 변경 전
@@ -114,6 +135,12 @@ class Scorer {
   - 적합한 함수 이름이 떠오르지 않으면 서로다른 작업이 섞여있기 때문일 수 있으므로, 반복문을 쪼개어 작업을 분리해야함
 
 **조건문 분해**
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 // 변경 전
@@ -147,6 +174,12 @@ function regularCharge() {
 ```
 
 **조건부 로직을 다형성으로 바꾸기**
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 // 변경 전
@@ -238,6 +271,12 @@ function createBird(bird) {
 
 **반복문 쪼개기**
 
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```js
 // 변경 전
 let totalSalary = 0;
@@ -268,13 +307,16 @@ averageAge = averageAge / people.length;
 
 > 매개변수의 수는 적어야 좋다.
 
-- 리팩터링 기법
-	- 매개변수를 질의 함수로 바꾸기
-	- 객체 통째로 넘기기
-	- 매개변수 객체 만들기
-	- 플래그 인수 제거하기
-	- 여러 함수를 클래스로 묶기
-
+<details>
+	<summary>리팩터링 기법</summary>
+  <ul>
+    <li>매개변수를 질의 함수로 바꾸기</li>
+    <li>객체 통째로 넘기기</li>
+    <li>매개변수 객체 만들기</li>
+    <li>플래그 인수 제거하기</li>
+    <li>여러 함수를 클래스로 묶기</li>
+  </ul>
+</details>
 
 다른 매개변수에서 값을 얻어올 수 있는 매개변수는 생략한다.   
 객체에서 값을 뽑아 별개의 매개변수로 전달하는 코드라면 원본 객체를 그대로 전달하도록 바꾼다.   
@@ -285,6 +327,12 @@ averageAge = averageAge / people.length;
 #### 예시 코드
 
 **매개변수 생략**
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 // 변경 전
@@ -300,6 +348,12 @@ function availableVacation(anEmployee) {
 ```
 
 **플래그 인수 제거**
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 // 변경 전
@@ -321,6 +375,11 @@ function setWidth(value) { this.width = value; }
 
 **여러 함수를 클래스로 묶기**
 
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 // 변경 전
@@ -341,8 +400,12 @@ class Reading {
 
 > 전역 데이터는 최대한 주의해서 사용해야 한다.
 
-- 리팩터링 기법
-	- 변수 캡슐화하기
+<details>
+	<summary>리팩터링 기법</summary>
+  <ul>
+    <li>변수 캡슐화하기</li>
+  </ul>
+</details>
 
 
 전역 데이터는 코드베이스 어디서든 건드릴 수 있고, 값을 누가 어떤 부분에서 바꿨는지 알기 힘들어 버그의 원인이 되는 코드를 찾아내기 어렵다.   
@@ -351,6 +414,12 @@ class Reading {
 변수 캡슐화를 통해 전역 데이터를 함수로 감싸야 한다. 그렇게 하면 데이터를 수정하는 부분을 찾기 쉽고 접근을 통제할 수 있다. 접근자 함수들을 클래스나 모듈에 넣고, 그 안에서만 사용할 수 있도록 하는 것도 좋다.
 
 #### 예시 코드
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 // 변경 전
@@ -377,18 +446,21 @@ spaceShip.owner = getDefaultOwner();
 
 > 무분별한 데이터 수정에 따른 위험을 줄여야 한다.
 
-- 리팩터링 기법
-	- 변수 캡슐화하기
-	- 변수 쪼개기
-	- 문장 슬라이드하기
-	- 함수 추출하기
-	- 질의 함수와 변경 함수 분리하기
-	- 세터 제거하기
-	- 파생 변수를 질의 함수로 바꾸기
-	- 여러 함수를 클래스로 묶기
-	- 여러 함수를 변환 함수로 묶기
-	- 참조를 값으로 바꾸기
-
+<details>
+	<summary>리팩터링 기법</summary>
+  <ul>
+	  <li>변수 캡슐화하기</li>
+	  <li>변수 쪼개기</li>
+	  <li>문장 슬라이드하기</li>
+	  <li>함수 추출하기</li>
+	  <li>질의 함수와 변경 함수 분리하기</li>
+	  <li>세터 제거하기</li>
+	  <li>파생 변수를 질의 함수로 바꾸기</li>
+	  <li>여러 함수를 클래스로 묶기</li>
+	  <li>여러 함수를 변환 함수로 묶기</li>
+	  <li>참조를 값으로 바꾸기</li>
+  </ul>
+</details>
 
 한 쪽에서 데이터를 변경하면 다른 쪽에서 예상치 못한 결과나 버그로 이어지는 경우가 종종 있다.   
 변수의 유효범위가 몇줄 뿐이면 괜찮으나, 유효 범위가 넓어질수록 위험도 커진다.   
@@ -400,6 +472,12 @@ spaceShip.owner = getDefaultOwner();
 #### 예시 코드
 
 **변수 쪼개기**
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 // 변경 전
@@ -421,12 +499,18 @@ API를 만들 때엔 읽기 함수와 변경 함수를 분리해서 꼭 필요�
 - 여러 함수를 클래스로 묶거나 변환 함수로 묶어, 변수를 갱신하는 코드들의 유효범위를 클래스나 변환으로 제한한다.   
 
 <small>
-	변환 함수:<br>원본 데이터를 입력받아 필요한 정보를 모두 도출하고, 각각을 출력 데이터의 필드에 넣어 반환하는 함수<br>- 검색과 갱신을 일관된 장소에서 처리할 수 있고, 로직 중복도 막을수 있음
+	* 변환 함수:<br>원본 데이터를 입력받아 필요한 정보를 모두 도출하고, 각각을 출력 데이터의 필드에 넣어 반환하는 함수<br>- 검색과 갱신을 일관된 장소에서 처리할 수 있고, 로직 중복도 막을수 있음
 </small>
 
 #### 예시 코드
 
 **읽기 함수와 변경 함수 분리**
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 // 변경 전
@@ -447,6 +531,12 @@ function sendBill() {
 ```
 
 **파생 변수를 읽기 함수로 변환**
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 // 변경 전
@@ -471,6 +561,12 @@ set discount(aNumber) {
 ```
 
 **여러 함수를 변환 함수로 묶기**
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 // 변경 전
@@ -497,6 +593,12 @@ funciton enrichReading(argReading) {
 
 **참조를 값으로 바꾸기**
 
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```js
 // 변경 전
 class Product {
@@ -518,19 +620,22 @@ class Product {
 
 > 하나의 모듈은 오직 하나의 동작만 책임진다.
 
-- 리팩터링 기법
-	- 단계 쪼개기
-	- 함수 옮기기
-	- 함수 추출하기
-	- 클래스 추출하기
-	- 함수 옮기기
-	- 필드 옮기기
-	- 여러 함수를 클래스로 묶기
-	- 여러 함수를 변환 함수로 묶기
-	- 단계 쪼개기
-	- 함수 인라인하기
-	- 클래스 인라인하기
-
+<details>
+	<summary>리팩터링 기법</summary>
+  <ul>
+	  <li>단계 쪼개기</li>
+	  <li>함수 옮기기</li>
+	  <li>함수 추출하기</li>
+	  <li>클래스 추출하기</li>
+	  <li>함수 옮기기</li>
+	  <li>필드 옮기기</li>
+	  <li>여러 함수를 클래스로 묶기</li>
+	  <li>여러 함수를 변환 함수로 묶기</li>
+	  <li>단계 쪼개기</li>
+	  <li>함수 인라인하기</li>
+	  <li>클래스 인라인하기</li>
+  </ul>
+</details>
 
 #### 뒤엉킨 변경
 
@@ -543,7 +648,7 @@ class Product {
 |  | 원인 | 해법(원리) | 발생 과정 | 해법(실제 행동) |
 | --- | --- | --- | --- | --- |
 | 뒤엉킨 변경 | 맥락을 잘 구분하지 못함 | 맥락을 명확히 구분 | 한 코드에 섞여 들어감 | 맥락별로 분리 |
-| 산탄총 수술 | '' | '' | 여러 코드에 흩뿌려짐 | 맥락별로 모음 |
+| 산탄총 수술 | 맥락을 잘 구분하지 못함 | 맥락을 명확히 구분 | 여러 코드에 흩뿌려짐 | 맥락별로 모음 |
 
 #### 뒤엉킨 변경 해결법
 
@@ -555,6 +660,12 @@ class Product {
 #### 예시 코드
 
 **단계 쪼개기**
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 // 변경 전
@@ -580,6 +691,12 @@ function price(order, priceList) {
 ```
 
 **클래스 추출하기**
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 // 변경 전
@@ -616,6 +733,12 @@ class TelephoneNumber {
 
 **함수 인라인**
 
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```js
 // 변경 전
 function getRating(dirver) {
@@ -633,6 +756,12 @@ function getRating(driver) {
 ```
 
 **클래스 인라인**
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 // 변경 전
@@ -662,10 +791,13 @@ class Person {
 
 > 모듈 내부에서의 상호작용은 최대로, 모듈 간의 상호작용은 최소로 해야 한다.
 
-- 리팩터링 기법
-	- 함수 옮기기
-	- 함수 추출하기
-
+<details>
+	<summary>리팩터링 기법</summary>
+  <ul>
+	  <li>함수 옮기기</li>
+	  <li>함수 추출하기</li>
+  </ul>
+</details>
 
 자신이 속한 모듈의 함수나 데이터보다 다른 모듈의 함수나 데이터와 상호작용이 더 많으면 좋지 않다.   
 외부 객체의 getter 메서드를 여럿 호출하는 함수는 해당 객체로 옮겨주는 것이 좋다.   
@@ -675,6 +807,12 @@ class Person {
 #### 예시 코드
 
 **함수 옮기기**
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
  // 변경 전
@@ -703,10 +841,14 @@ class AccountType {
 
 > 여러 데이터의 뭉치는 따로 보관하라.
 
-- 리팩터링 기법
-	- 클래스 추출하기
-	- 매개변수 객체 만들기
-	- 객체 통째로 넘기기
+<details>
+	<summary>리팩터링 기법</summary>
+  <ul>
+	  <li>클래스 추출하기</li>
+	  <li>매개변수 객체 만들기</li>
+	  <li>객체 통째로 넘기기</li>
+  </ul>
+</details>
 
 
 데이터 여러개가 여러 항목에서 항상 뭉쳐다닌다면, 따로 보금자리를 마련해 줘야 한다.
@@ -716,19 +858,22 @@ class AccountType {
 객체 내부의 데이터 뭉치는 클래스 추출하기로 하나의 객체로 묶는다.   
 메서드 시그니처의 데이터 뭉치는 매개변수 줄이기(매개변수 객체 만들기, 객체 통째로 넘기기) 기법을 통해 호출 코드를 간결하게 만든다.
 
-<small>메서드 시그니처: 메서드 이름과 매개변수 리스트의 조합</small>
+<small>* 메서드 시그니처: 메서드 이름과 매개변수 리스트의 조합</small>
 
 ### 11. 기본형 집착
 
 > 프로그래밍 언어가 제공하는 기본형보단, 내게 주어진 문제에 맞는 기초 타입을 정의하라.
 
-- 리팩터링 기법
-	- 기본형을 객체로 바꾸기
-	- 타입 코드를 서브클래스로 바꾸기
-	- 조건부 로직을 다형성으로 바꾸기
-	- 클래스 추출하기
-	- 매개변수 객체 만들기
-
+<details>
+	<summary>리팩터링 기법</summary>
+  <ul>
+	  <li>기본형을 객체로 바꾸기</li>
+	  <li>타입 코드를 서브클래스로 바꾸기</li>
+	  <li>조건부 로직을 다형성으로 바꾸기</li>
+	  <li>클래스 추출하기</li>
+	  <li>매개변수 객체 만들기</li>
+  </ul>
+</details>
 
 화폐, 범위, 길이, 전화번호 등 문제 해결에 필요한 단위를 숫자형이나 문자열같은 기본 타입으로만 정의하는 것은 좋지 않다.   
 단순한 출력 이상의 기능이 필요해지는 순간, 그 데이터를 표현하는 전용 클래스를 정의하는 것이 좋다.   
@@ -738,6 +883,12 @@ class AccountType {
 #### 예시 코드
 
 **기본형을 객체로 바꾸기**
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 // 변경 전
@@ -779,6 +930,12 @@ const myIntelCpus = myCpus.filter(cpu => cpu.brand.stock <= 50.0);
 
 **타입 코드를 서브클래스로 바꾸기**
 
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```js
 // 변경 전
 function createEmployee(name, type) {
@@ -800,9 +957,12 @@ function createEmployee(name, type) {
 
 > 똑같은 조건부 로직이 여러 곳에서 반복되는 상황은 피해라.
 
-- 리팩터링 기법
-	- 조건부 로직을 다형성으로 바꾸기
-
+<details>
+	<summary>리팩터링 기법</summary>
+  <ul>
+	  <li>조건부 로직을 다형성으로 바꾸기</li>
+  </ul>
+</details>
 
 중복된 switch문은 조건절을 하나 추가할 때마다 다른 switch문도 모두 찾아서 함께 수정해야 한다.   
 switch문 뿐만 아니라 길게 나열된 if, else 문도 여러곳에 반복해 등장한다면 리팩토링의 대상이 된다.
@@ -812,8 +972,12 @@ switch문 뿐만 아니라 길게 나열된 if, else 문도 여러곳에 반복�
 
 > 반복문은 더이상 시대에 걸맞지 않다.
 
-- 리팩터링 기법
-	- 반복문을 파이프라인으로 바꾸기
+<details>
+	<summary>리팩터링 기법</summary>
+  <ul>
+	  <li>반복문을 파이프라인으로 바꾸기</li>
+  </ul>
+</details>
 
 반복문보다는 파이프라인을 사용하면 이해하기 훨씬 쉽다.   
 반복문의 처리 과정을 일련의 연산으로 표현이 가능하며, 객체가 파이프라인을 따라 흐르며 어떻게 처리되는지 읽을수 있다.   
@@ -822,6 +986,12 @@ switch문 뿐만 아니라 길게 나열된 if, else 문도 여러곳에 반복�
 #### 예시 코드
 
 **반복문을 파이프라인으로 바꾸기**
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 // 변경 전
@@ -843,10 +1013,14 @@ const names = input
 
 > 더이상 필요없는 코드 구조는 버려라.
 
-- 리팩터링 기법
-	- 함수 인라인하기
-	- 클래스 인라인하기
-	- 계층 합치기
+<details>
+	<summary>리팩터링 기법</summary>
+  <ul>
+	  <li>함수 인라인하기</li>
+	  <li>클래스 인라인하기</li>
+	  <li>계층 합치기</li>
+  </ul>
+</details>
 
 
 코드의 구조를 잡을 때 함수(메서드), 클래스, 인터페이스 등을 쓰는 것이 좋지만, 그 구조가 필요 없을 때도 있다. 본문 코드 그대로 쓰는것보다 나은 것이 없을때, 실질적으로 메서드가 하나뿐인 클래스가 그러한 경우이다.   
@@ -856,6 +1030,12 @@ const names = input
 #### 예시 코드
 
 **계층 합치기**
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 // 변경 전
@@ -871,12 +1051,16 @@ class Employee {...}
 
 > 당장 걸리적거리는 코드는 눈앞에서 치워버려라.
 
-- 리팩터링 기법
-	- 계층 합치기
-	- 함수 인라인하기
-	- 클래스 인라인하기
-	- 함수 선언 바꾸기
-	- 죽은 코드 제거하기
+<details>
+	<summary>리팩터링 기법</summary>
+  <ul>
+	  <li>계층 합치기</li>
+	  <li>함수 인라인하기</li>
+	  <li>클래스 인라인하기</li>
+	  <li>함수 선언 바꾸기</li>
+	  <li>죽은 코드 제거하기</li>
+  </ul>
+</details>
 
 
 나중에 필요할거란 생각으로 당장 필요없는 코드를 작성해두는 것은 좋지 않다.   
@@ -892,11 +1076,14 @@ class Employee {...}
 
 > 클래스의 필드는 항상 값이 설정되어야 한다.
 
-- 리팩터링 기법
-	- 클래스 추출하기
-	- 함수 옮기기
-	- 특이 케이스 추가하기
-
+<details>
+	<summary>리팩터링 기법</summary>
+  <ul>
+	  <li>클래스 추출하기</li>
+	  <li>함수 옮기기</li>
+	  <li>특이 케이스 추가하기</li>
+  </ul>
+</details>
 
 간혹 특정 상황에서만 값이 설정되는 임시 필드를 가진 클래스도 있지만, 이는 코드를 이해하기 어렵게 한다.   
 객체를 가져올때 당연히 모든 필드가 채워져 있을거라 기대하는것이 보통이기 때문이다.
@@ -906,10 +1093,14 @@ class Employee {...}
 
 ### 17. 메세지 체인
 
-- 리팩터링 기법
-	- 위임 숨기기
-	- 함수 추출하기
-	- 함수 옮기기
+<details>
+	<summary>리팩터링 기법</summary>
+  <ul>
+	  <li>위임 숨기기</li>
+	  <li>함수 추출하기</li>
+	  <li>함수 옮기기</li>
+  </ul>
+</details>
 
 
 메세지 체인이란 다른 객체를 요청하는 작업이 연쇄적으로 이어진 코드를 말한다.   
@@ -927,6 +1118,12 @@ class Employee {...}
 #### 예시 코드
 
 **위임 숨기기**
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 // 변경 전
@@ -974,6 +1171,12 @@ class Department {
 }
 ```
 
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```js
 managerName = aPerson.department.manager.name;
 managerName = aPerson.department.managerName; // 관리자 객체의 존재를 숨김
@@ -984,10 +1187,13 @@ managerName = aPerson.managerName; // 부서 객체와 관리자 객체 모두�
 
 ### 18. 중개자
 
-- 리팩터링 기법
-	- 중개자 제거하기
-	- 함수 인라인하기
-
+<details>
+	<summary>리팩터링 기법</summary>
+  <ul>
+	  <li>중개자 제거하기</li>
+	  <li>함수 인라인하기</li>
+  </ul>
+</details>
 
 객체를 캡슐화 하는 과정에서 위임이 자주 활용되지만, 이 역시도 지나치면 문제가 된다.   
 <small>클래스의 메서드 중 절반이 다른 클래스에 구현을 위임하고 있다면?</small>
@@ -999,12 +1205,16 @@ managerName = aPerson.managerName; // 부서 객체와 관리자 객체 모두�
 
 > 모듈 간의 데이터 거래를 최소화하라.
 
-- 리팩터링 기법
-	- 함수 옮기기
-	- 필드 옮기기
-	- 위임 숨기기
-	- 서브클래스를 위임으로 바꾸기
-	- 슈퍼클래스를 위임으로 바꾸기
+<details>
+	<summary>리팩터링 기법</summary>
+  <ul>
+	  <li>함수 옮기기</li>
+	  <li>필드 옮기기</li>
+	  <li>위임 숨기기</li>
+	  <li>서브클래스를 위임으로 바꾸기</li>
+	  <li>슈퍼클래스를 위임으로 바꾸기</li>
+  </ul>
+</details>
 
 
 모듈 간의 결합도를 최소화하고, 모든 데이터 거래는 투명하게 처리해야 한다.   
@@ -1016,6 +1226,12 @@ managerName = aPerson.managerName; // 부서 객체와 관리자 객체 모두�
 #### 예시 코드
 
 **서브 클래스를 위임으로 바꾸기**
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 // 변경 전
@@ -1053,6 +1269,12 @@ class PriorityOrderDelegate {
 
 **슈퍼 클래스를 위임으로 바꾸기**
 
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```js
 // 변경 전
 class List {...}
@@ -1071,11 +1293,14 @@ class List {...}
 
 > 클래스 안의 필드 수가 너무 많아지는 것은 피해라.
 
-- 리팩터링 기법
-	- 클래스 추출하기
-	- 슈퍼클래스 추출하기
-	- 타입 코드를 서브클래스로 바꾸기
-
+<details>
+	<summary>리팩터링 기법</summary>
+  <ul>
+	  <li>클래스 추출하기</li>
+	  <li>슈퍼클래스 추출하기</li>
+	  <li>타입 코드를 서브클래스로 바꾸기</li>
+  </ul>
+</details>
 
 한 클래스가 너무 많은 일을 하다보면 필드 수가 늘어나고, 필드가 너무 많으면 중복 코드가 생기기 쉽다.
 
@@ -1085,6 +1310,12 @@ class List {...}
 #### 예시 코드
 
 **슈퍼 클래스 추출하기**
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 // 변경 전
@@ -1122,11 +1353,14 @@ class Employee extends Party {
 
 > 클래스 교체를 위해 같은 인터페이스를 쓰도록 만들어라.
 
-- 리팩터링 기법
-	- 함수 선언 바꾸기
-	- 함수 옮기기
-	- 슈퍼클래스 추출하기
-
+<details>
+	<summary>리팩터링 기법</summary>
+  <ul>
+	  <li>함수 선언 바꾸기</li>
+	  <li>함수 옮기기</li>
+	  <li>슈퍼클래스 추출하기</li>
+  </ul>
+</details>
 
 클래스를 사용할 때의 큰 장점은 필요에 따라 언제든 다른 클래스로 교체할 수 있다는 것이다.   
 단, 클래스를 교체하려면 인터페이스가 같아야 한다.
@@ -1137,13 +1371,16 @@ class Employee extends Party {
 
 ### 22. 데이터 클래스
 
-- 리팩터링 기법
-	- 레코드 캡슐화하기
-	- 세터 제거하기
-	- 함수 옮기기
-	- 함수 추출하기
-	- 단계 쪼개기
-
+<details>
+	<summary>리팩터링 기법</summary>
+  <ul>
+	  <li>레코드 캡슐화하기</li>
+	  <li>세터 제거하기</li>
+	  <li>함수 옮기기</li>
+	  <li>함수 추출하기</li>
+	  <li>단계 쪼개기</li>
+  </ul>
+</details>
 
 <small>* 데이터 클래스: 데이터 필드와 getter, setter 메서드로만 구성된 클래스</small>
 
@@ -1159,6 +1396,12 @@ class Employee extends Party {
 #### 예시 코드
 
 **레코드 캡슐화하기**
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 // 변경 전
@@ -1181,12 +1424,15 @@ class Organization {
 
 ### 23. 상속 포기
 
-- 리팩터링 기법
-	- 메서드 내리기
-	- 필드 내리기
-	- 서브클래스를 위임으로 바꾸기
-	- 슈퍼클래스를 위임으로 바꾸기
-
+<details>
+	<summary>리팩터링 기법</summary>
+  <ul>
+	  <li>메서드 내리기</li>
+	  <li>필드 내리기</li>
+	  <li>서브클래스를 위임으로 바꾸기</li>
+	  <li>슈퍼클래스를 위임으로 바꾸기</li>
+  </ul>
+</details>
 
 서브 클래스가 부모 클래스의 특정 부분을 상속받기 원치 않은 경우에 발생한다.   
 상속하지 않을 부모 코드를 따로 분리하여, 공통된 부분만 남도록 한다.   
@@ -1196,6 +1442,12 @@ class Organization {
 #### 예시 코드
 
 **메서드 내리기, 필드 내리기**
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 // 변경 전
@@ -1216,15 +1468,18 @@ class Salesman extends Employee {
 }
 ```
 
-
 ### 24. 주석
 
 > 주석을 남겨야겠다는 생각이 들면, 가장 먼저 주석이 필요없는 코드로 리팩토링 해본다.
 
-- 리팩터링 기법
-	- 함수 추출하기
-	- 함수 선언 바꾸기
-	- 어서션 추가하기
+<details>
+	<summary>리팩터링 기법</summary>
+  <ul>
+	  <li>함수 추출하기</li>
+	  <li>함수 선언 바꾸기</li>
+	  <li>어서션 추가하기</li>
+  </ul>
+</details>
 
 <small>주석은 악취가 아닌 향기를 입히지만, 주석을 탈취제처럼 사용하진 말자.</small>
 
@@ -1243,6 +1498,12 @@ class Salesman extends Employee {
 
 **어서션 추가**
 
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
+
 ```js
 // javascript
 console.assert(returnFalse()) // 콘솔에 assert 에러 표시 (참이면 아무 동작 안함)
@@ -1253,6 +1514,12 @@ assert(returnFalse()); // throw AssertionError!
 assert.ok(returnFalse()); // assert()와 동일
 assert.ifError(returnFalse()) // Pass
 ```
+
+<div class="code-header">
+	<span class="red btn"></span>
+	<span class="yellow btn"></span>
+	<span class="green btn"></span>
+</div>
 
 ```js
 // 변경 전
