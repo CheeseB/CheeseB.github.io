@@ -26,7 +26,7 @@ const TOC = styled.div<FixTableProps>`
 
   p,
   li {
-    padding: 2px 0;
+    padding: 1px 0;
     color: grey;
   }
 
