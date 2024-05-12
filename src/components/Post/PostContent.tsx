@@ -210,7 +210,8 @@ const MarkdownRenderer = styled.div`
     text-indent: -44px;
   }
 
-  ol > li::before {
+  ol > li::before,
+  ul li > ol li::before {
     content: counter(list-counter);
     counter-increment: list-counter;
     width: 0.5em;
