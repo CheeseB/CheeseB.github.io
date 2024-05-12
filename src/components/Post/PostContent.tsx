@@ -44,7 +44,7 @@ const MarkdownRenderer = styled.div`
 
   p {
     padding: 2px 0;
-    margin: 16px 0;
+    margin: 14px 0;
   }
 
   summary {
@@ -84,7 +84,7 @@ const MarkdownRenderer = styled.div`
 
   h2 {
     font-size: 32px;
-    margin-bottom: 40px;
+    margin-bottom: 36px;
     line-height: 1.5em;
     padding-bottom: 24px;
     position: relative;
@@ -112,25 +112,25 @@ const MarkdownRenderer = styled.div`
   }
 
   * + h2 {
-    margin-top: 70px;
+    margin-top: 60px;
   }
 
   h3 {
     font-size: 26px;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
 
   * + h3 {
-    margin-top: 60px;
+    margin-top: 50px;
   }
 
   h4 {
     font-size: 22px;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
 
   * + h4 {
-    margin-top: 50px;
+    margin-top: 40px;
   }
 
   h1 + *,
@@ -141,7 +141,7 @@ const MarkdownRenderer = styled.div`
   }
 
   blockquote {
-    margin: 16px 0;
+    margin: 12px 0;
     padding: 5px 15px;
     border-left: 4px solid #fec479;
     background-color: #fff8f0;
@@ -152,7 +152,7 @@ const MarkdownRenderer = styled.div`
   }
 
   table {
-    margin: 16px 0;
+    margin: 12px 0;
     width: 100%;
     border-collapse: collapse;
     overflow: hidden;
@@ -191,7 +191,7 @@ const MarkdownRenderer = styled.div`
   }
 
   li {
-    margin: 10px 0;
+    margin: 8px 0;
   }
 
   li p {
@@ -278,7 +278,7 @@ const MarkdownRenderer = styled.div`
     border-style: solid;
     border-image: url('/icon/dot.svg') 0 0 100% repeat;
     width: 100%;
-    margin: 60px 0;
+    margin: 50px 0;
   }
 
   hr + * {
@@ -292,7 +292,7 @@ const MarkdownRenderer = styled.div`
 
   .gatsby-highlight {
     position: relative;
-    margin: 16px 0;
+    margin: 14px 0;
   }
 
   .code-header + .gatsby-highlight {
@@ -376,7 +376,7 @@ const MarkdownRenderer = styled.div`
     padding: 16px;
     background-color: #434041;
     border-radius: 8px 8px 0 0;
-    margin-top: 16px;
+    margin-top: 14px;
   }
 
   .code-header .btn {
@@ -402,7 +402,7 @@ const MarkdownRenderer = styled.div`
     color: grey;
     font-size: 14px;
     text-align: center;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
 
   @media (max-width: 1512px) {
@@ -450,7 +450,7 @@ const MarkdownRenderer = styled.div`
     font-size: 12px;
 
     p {
-      margin: 12px 0;
+      margin: 10px 0;
     }
 
     small {
@@ -459,12 +459,12 @@ const MarkdownRenderer = styled.div`
 
     .source {
       font-size: 8px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     h2 {
       font-size: 20px;
-      margin-bottom: 30px;
+      margin-bottom: 26px;
       padding-bottom: 14px;
     }
 
@@ -473,25 +473,25 @@ const MarkdownRenderer = styled.div`
     }
 
     * + h2 {
-      margin-top: 50px;
+      margin-top: 40px;
     }
 
     h3 {
       font-size: 18px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     * + h3 {
-      margin-top: 40px;
+      margin-top: 30px;
     }
 
     h4 {
       font-size: 14px;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
 
     * + h4 {
-      margin-top: 30px;
+      margin-top: 20px;
     }
 
     h1 + *,
@@ -502,12 +502,12 @@ const MarkdownRenderer = styled.div`
     }
 
     blockquote {
-      margin: 12px 0;
+      margin: 10px 0;
       border-left: 2px solid #fec479;
     }
 
     table {
-      margin: 12px 0;
+      margin: 10px 0;
     }
 
     ol,
@@ -516,7 +516,7 @@ const MarkdownRenderer = styled.div`
     }
 
     li {
-      margin: 8px 0;
+      margin: 6px 0;
     }
 
     ol li {
@@ -535,7 +535,7 @@ const MarkdownRenderer = styled.div`
     }
 
     hr {
-      margin: 30px 0;
+      margin: 20px 0;
     }
 
     hr + * {
@@ -543,7 +543,7 @@ const MarkdownRenderer = styled.div`
     }
 
     .gatsby-highlight {
-      margin: 12px 0;
+      margin: 10px 0;
     }
 
     .code-header + .gatsby-highlight {
@@ -568,7 +568,7 @@ const MarkdownRenderer = styled.div`
     }
 
     .code-header {
-      margin-top: 12px;
+      margin-top: 10px;
       padding: 12px;
     }
 

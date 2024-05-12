@@ -53,7 +53,7 @@ thumbnail: '../images/thumbnail/cheeseball.webp'
     앞줄 끝에는 2칸, 뒷줄 앞에는 4칸의  
     공백을 넣을것!
 
-1. ol이랑 ul 섞어 쓰려면 들여쓰기 두번씩 해야됨
+1. ul 안에 ol 쓰려면 들여쓰기 두번씩 해야됨
 2. 순서있는 항목
     - 그 안에 순서 없는 항목1
         - 그 안에 또 순서 없는 항목
@@ -62,6 +62,11 @@ thumbnail: '../images/thumbnail/cheeseball.webp'
     1. 그 안에 순서 있는 항목1
         1. 그 안에 또 순서 있는 항목
     2. 그 안에 순서 있는 항목2
+
+- ol 안에 ul 쓸때는 그냥 써도 됨
+- 순서 없는 항목
+  1. 그 안에 순서 있는 항목
+  2. 순서 있는 항목 2
 
 한줄 `this is code` 코드
 
