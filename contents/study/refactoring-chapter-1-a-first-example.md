@@ -38,5 +38,5 @@ thumbnail: '../images/thumbnail/refactoring.webp'
 
 > _Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live._<br>**_항상 내 코드를 유지보수할 사람이 내가 사는곳을 아는 폭력적인 사이코패스라고 가정하며 코딩해라._**<br> _- John F. Woods_
 
-어디선가 들었던 개발 밈인데, 나는 지금까지도 이 말보다 임팩트있는 개발 관련 문구를 본 적이 없다.   
-개발 좌우명으로 이 말을 액자에 넣고 모니터 옆에 두면 정말 리팩터링하고 싶어질 것 같다.
+어디선가 들었던 개발 명언인데, 나는 지금까지도 이것보다 임팩트있는 명언을 본 적이 없다.   
+개발 좌우명으로 이 말을 액자에 넣고 모니터 옆에 두면 정말 리팩터링하고 싶어질 것 같다.😂
