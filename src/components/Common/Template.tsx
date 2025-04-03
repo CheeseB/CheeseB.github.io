@@ -140,6 +140,10 @@ export const Template: FunctionComponent<TemplateProps> = ({
           name="naver-site-verification"
           content="ae65cb659d9c9ea1ae78b5b3cf6745526fe8ef8d"
         />
+        <meta
+          name="google-adsense-account"
+          content="ca-pub-5175743465096722"
+        ></meta>
 
         <html lang="ko" />
       </Helmet>
