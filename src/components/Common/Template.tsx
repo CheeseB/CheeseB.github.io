@@ -145,6 +145,12 @@ export const Template: FunctionComponent<TemplateProps> = ({
           content="ca-pub-5175743465096722"
         ></meta>
 
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5175743465096722"
+          crossOrigin="anonymous"
+        ></script>
+
         <html lang="ko" />
       </Helmet>
 
