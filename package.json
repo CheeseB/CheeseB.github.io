@@ -63,10 +63,10 @@
   "scripts": {
     "start": "gatsby develop",
     "clean": "gatsby clean",
-    "deploy": "gatsby build && gh-pages -d public -b master",
+    "deploy": "gatsby build && cp ads.txt public/ && gh-pages -d public -b master",
     "change": "node change-webp.js",
     "push": "git add . && git commit -m \"working\" && git push origin dev",
-    "all": "node change-webp.js && gatsby build && gh-pages -d public -b master && git add . && git commit -m \"add post\" && git push origin dev"
+    "all": "node change-webp.js && gatsby build && cp ads.txt public/ && gh-pages -d public -b master && git add . && git commit -m \"add post\" && git push origin dev"
   },
   "repository": {
     "type": "git",
